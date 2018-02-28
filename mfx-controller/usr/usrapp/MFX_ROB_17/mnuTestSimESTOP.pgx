@@ -1,6 +1,6 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
-  <Program name="mnuTestSimESTOP">
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2" >
+  <Program name="mnuTestSimESTOP" access="private" >
     <Locals>
       <Local name="LbDone" type="bool" xsi:type="array" size="1" />
       <Local name="nKey" type="num" xsi:type="array" size="1" />
@@ -48,8 +48,6 @@
   until (false or (LbDone==true))
   //
   // done
-end
-
-      ]]></Code>
+end]]></Code>
   </Program>
 </Programs>

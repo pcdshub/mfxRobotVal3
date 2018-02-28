@@ -1,22 +1,21 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
-  <Program name="remGetHere">
-    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1">
-      <Parameter name="sReturn" type="string" xsi:type="array" use="reference" />
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2" >
+  <Program name="remGetHere" access="private" >
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1" >
+      <Parameter name="sReturn" type="string" use="reference" xsi:type="array" dimensions="1" />
     </Parameters>
     <Code><![CDATA[begin
   // Return current position in Cartesian coordinates
   //
   logMsg("call remGetHere")
   call remCalcHere()
-  sReturn = "GETPOS"
-  sReturn = sReturn + " " + toString(sNumConv, nXHere)
-  sReturn = sReturn + " " + toString(sNumConv, nYHere)
-  sReturn = sReturn + " " + toString(sNumConv, nZHere)
-  sReturn = sReturn + " " + toString(sNumConv, nRXHere)
-  sReturn = sReturn + " " + toString(sNumConv, nRYHere)
-  sReturn = sReturn + " " + toString(sNumConv, nRZHere)
-end
-]]></Code>
+  sReturn="GETPOS"
+  sReturn=sReturn+" "+toString(sNumConv,nXHere)
+  sReturn=sReturn+" "+toString(sNumConv,nYHere)
+  sReturn=sReturn+" "+toString(sNumConv,nZHere)
+  sReturn=sReturn+" "+toString(sNumConv,nRXHere)
+  sReturn=sReturn+" "+toString(sNumConv,nRYHere)
+  sReturn=sReturn+" "+toString(sNumConv,nRZHere)
+end]]></Code>
   </Program>
 </Programs>

@@ -1,13 +1,13 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
-  <Program name="mnuTeachTCPptr">
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2" >
+  <Program name="mnuTeachTCPptr" access="private" >
     <Locals>
-      <Local name="nKey" type="num" xsi:type="array" size="1" />
       <Local name="LbTeachTCP1of4" type="bool" xsi:type="array" size="1" />
       <Local name="LbTeachTCP2of4" type="bool" xsi:type="array" size="1" />
       <Local name="LbTeachTCP3of4" type="bool" xsi:type="array" size="1" />
       <Local name="LbTeachTCP4of4" type="bool" xsi:type="array" size="1" />
       <Local name="LpHere" type="point" xsi:type="array" size="1" />
+      <Local name="nKey" type="num" xsi:type="array" size="1" />
     </Locals>
     <Code><![CDATA[begin
   //header begin
@@ -148,8 +148,6 @@
   // teach new tool def completed, save data on normal exit of this program
   libSave()
   // done
-end
-
-      ]]></Code>
+end]]></Code>
   </Program>
 </Programs>

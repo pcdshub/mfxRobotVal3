@@ -1,10 +1,10 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
-  <Program name="movToPark">
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2" >
+  <Program name="movToPark" access="private" >
     <Locals>
+      <Local name="LnDistance" type="num" xsi:type="array" size="1" />
       <Local name="LpHere" type="point" xsi:type="array" size="1" />
       <Local name="LpPark" type="point" xsi:type="array" size="1" />
-      <Local name="LnDistance" type="num" xsi:type="array" size="1" />
     </Locals>
     <Code><![CDATA[begin
   //
@@ -61,8 +61,6 @@
   //
   //done
   //
-end
-
-      ]]></Code>
+end]]></Code>
   </Program>
 </Programs>

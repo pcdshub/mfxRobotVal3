@@ -1,36 +1,35 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
-  <Program name="remSetnGlobal">
-    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1">
-      <Parameter name="sArgs" type="string" xsi:type="array" use="reference" />
-      <Parameter name="nGlobal" type="num" xsi:type="array" use="reference" />
-      <Parameter name="nMin" type="num" xsi:type="element" />
-      <Parameter name="nMax" type="num" xsi:type="element" />
-      <Parameter name="sCmd" type="string" xsi:type="element" />
-      <Parameter name="sReturn" type="string" xsi:type="array" use="reference" />
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2" >
+  <Program name="remSetnGlobal" access="private" >
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1" >
+      <Parameter name="sArgs" type="string" use="reference" xsi:type="array" dimensions="1" />
+      <Parameter name="nGlobal" type="num" use="reference" xsi:type="array" dimensions="1" />
+      <Parameter name="nMin" type="num" use="value" xsi:type="element" dimensions="1" />
+      <Parameter name="nMax" type="num" use="value" xsi:type="element" dimensions="1" />
+      <Parameter name="sCmd" type="string" use="value" xsi:type="element" dimensions="1" />
+      <Parameter name="sReturn" type="string" use="reference" xsi:type="array" dimensions="1" />
     </Parameters>
     <Locals>
-      <Local name="nVal" type="num" xsi:type="array" size="1" />
       <Local name="bOk" type="bool" xsi:type="array" size="1" />
+      <Local name="nVal" type="num" xsi:type="array" size="1" />
     </Locals>
     <Code><![CDATA[begin
   // Read a command to set an arbitrary global value,
   // and respond accordingly.
   //
   logMsg("call remSetnGlobal")
-  toNum(sArgs, nVal, bOk)
+  toNum(sArgs,nVal,bOk)
   if bOk
-    if nVal < nMin
-      nVal = nMin
-    elseIf nVal > nMax
-      nVal = nMax
+    if nVal<nMin
+      nVal=nMin
+    elseIf nVal>nMax
+      nVal=nMax
     endIf
     nGlobal=nVal
-    sReturn=sCmd + " " + toString(sNumConv,nGlobal)
+    sReturn=sCmd+" "+toString(sNumConv,nGlobal)
   else
     call remErrNum(sCmd,sArgs,sReturn)
   endIf
-end
-]]></Code>
+end]]></Code>
   </Program>
 </Programs>

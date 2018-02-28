@@ -1,19 +1,18 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
-  <Program name="remErrCmd">
-    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1">
-      <Parameter name="sCmd" type="string" xsi:type="array" use="reference" />
-      <Parameter name="sReturn" type="string" xsi:type="array" use="reference" />
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2" >
+  <Program name="remErrCmd" access="private" >
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1" >
+      <Parameter name="sCmd" type="string" use="reference" xsi:type="array" dimensions="1" />
+      <Parameter name="sReturn" type="string" use="reference" xsi:type="array" dimensions="1" />
     </Parameters>
     <Code><![CDATA[begin
   // Error raised when the command was invalid
   //
   logMsg("call remErrCmd")
-  sReturn = "ERROR 101"
-  sReturn = sReturn + ": Invalid command " + sCmd
+  sReturn="ERROR 101"
+  sReturn=sReturn+": Invalid command "+sCmd
   putln(sReturn)
   logMsg(sReturn)
-end
-]]></Code>
+end]]></Code>
   </Program>
 </Programs>

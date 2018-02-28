@@ -1,19 +1,19 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
-  <Program name="remErrInvalid">
-    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1">
-      <Parameter name="sCmd" type="string" xsi:type="element" />
-      <Parameter name="sArgs" type="string" xsi:type="array" use="reference" />
-      <Parameter name="sReturn" type="string" xsi:type="array" use="reference" />
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2" >
+  <Program name="remErrInvalid" access="private" >
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1" >
+      <Parameter name="sCmd" type="string" use="value" xsi:type="element" dimensions="1" />
+      <Parameter name="sArgs" type="string" use="reference" xsi:type="array" dimensions="1" />
+      <Parameter name="sReturn" type="string" use="reference" xsi:type="array" dimensions="1" />
     </Parameters>
     <Code><![CDATA[begin
   // Error raised when an invalid string argument is recieved
   //
   logMsg("call remErrInvalid")
-  sReturn = "ERROR 104"
-  sReturn = sReturn + ": " + sCmd
-  sReturn = sReturn + " recieved invalid string arg "
-  sReturn = sReturn + sArgs + "."
+  sReturn="ERROR 104"
+  sReturn=sReturn+": "+sCmd
+  sReturn=sReturn+" recieved invalid string arg "
+  sReturn=sReturn+sArgs+"."
   putln(sReturn)
   logMsg(sReturn)
 end]]></Code>

@@ -1,15 +1,15 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
-  <Program name="remMovBase">
-    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1">
-      <Parameter name="pDest" type="point" xsi:type="array" use="reference" />
-      <Parameter name="sReturn" type="string" xsi:type="array" use="reference" />
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2" >
+  <Program name="remMovBase" access="private" >
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1" >
+      <Parameter name="pDest" type="point" use="reference" xsi:type="array" dimensions="1" />
+      <Parameter name="sReturn" type="string" use="reference" xsi:type="array" dimensions="1" />
     </Parameters>
     <Locals>
-      <Local name="mUserSpeed" type="mdesc" xsi:type="array" size="1" />
-      <Local name="jHere" type="joint" xsi:type="array" size="1" />
-      <Local name="jDest" type="joint" xsi:type="array" size="1" />
       <Local name="bMovOk" type="bool" xsi:type="array" size="1" />
+      <Local name="jDest" type="joint" xsi:type="array" size="1" />
+      <Local name="jHere" type="joint" xsi:type="array" size="1" />
+      <Local name="mUserSpeed" type="mdesc" xsi:type="array" size="1" />
       <Local name="nDistance" type="num" xsi:type="array" size="1" />
       <Local name="sGoal" type="string" xsi:type="array" size="1" />
       <Local name="trGoal" type="trsf" xsi:type="array" size="1" />
@@ -24,35 +24,35 @@
   bMovOk=pointToJoint(tSensorTool,jHere,pDest,jDest)
   if bMovOk
     //check if we're moving too far (user set max dist)
-    nDistance = abs(distance(here(tSensorTool,world),pDest))
+    nDistance=abs(distance(here(tSensorTool,world),pDest))
     //put a line to say where we're going to
-    trGoal = pDest.trsf
-    sGoal = "Moving " + toString(sNumConv, nDistance) + " mm to ("
-    sGoal = sGoal + toString(sNumConv, trGoal.x) + ", "
-    sGoal = sGoal + toString(sNumConv, trGoal.y) + ", "
-    sGoal = sGoal + toString(sNumConv, trGoal.z) + ", "
-    sGoal = sGoal + toString(sNumConv, trGoal.rx) + ", "
-    sGoal = sGoal + toString(sNumConv, trGoal.ry) + ", "
-    sGoal = sGoal + toString(sNumConv, trGoal.rz) + ")"
+    trGoal=pDest.trsf
+    sGoal="Moving "+toString(sNumConv,nDistance)+" mm to ("
+    sGoal=sGoal+toString(sNumConv,trGoal.x)+", "
+    sGoal=sGoal+toString(sNumConv,trGoal.y)+", "
+    sGoal=sGoal+toString(sNumConv,trGoal.z)+", "
+    sGoal=sGoal+toString(sNumConv,trGoal.rx)+", "
+    sGoal=sGoal+toString(sNumConv,trGoal.ry)+", "
+    sGoal=sGoal+toString(sNumConv,trGoal.rz)+")"
     putln(sGoal)
     logMsg(sGoal)
-    if nDistance < nMaxDist
+    if nDistance<nMaxDist
       mUserSpeed={nMaxAccel,100,nMaxAccel,nMaxVelo,nMaxRVelo,off,50,50}
       call xppWriteBack("ARMMOVING")
       putln("ARM MOVING")
       logMsg("ARM MOVING")
       bEnableMonitor=true
       if bMoveLinear
-        movel(pDest, tSensorTool, mUserSpeed)
+        movel(pDest,tSensorTool,mUserSpeed)
       else
-        movej(jDest, tSensorTool, mUserSpeed)
+        movej(jDest,tSensorTool,mUserSpeed)
       endIf
       //watch for stay clear zones
       do
-        nDistance = abs(distance(here(tSensorTool,world),pDest))
+        nDistance=abs(distance(here(tSensorTool,world),pDest))
         delay(0)
         //stop checking if done or if zone is violated
-      until nDistance <= nZoneWatchTol or bInsideCube or bInsideCylinder or bInsideSphere
+      until nDistance<=nZoneWatchTol or bInsideCube or bInsideCylinder or bInsideSphere
       //stop and raise error if we violated a stay clear zone
       if bInsideCube or bInsideCylinder or bInsideSphere
         stopMove()
@@ -74,7 +74,6 @@
     //destination was impossible, so we raise an error
     call remErrConfig(sReturn)
   endIf
-end
-]]></Code>
+end]]></Code>
   </Program>
 </Programs>

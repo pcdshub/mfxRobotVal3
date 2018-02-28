@@ -1,15 +1,15 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
-  <Program name="mnuTeachSphere">
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2" >
+  <Program name="mnuTeachSphere" access="private" >
     <Locals>
-      <Local name="nKey" type="num" xsi:type="array" size="1" />
-      <Local name="LpHere" type="point" xsi:type="array" size="1" />
       <Local name="LbBackup" type="bool" xsi:type="array" size="1" />
-      <Local name="LsMoveMsg" type="string" xsi:type="array" size="1" />
-      <Local name="LnRKeeper" type="num" xsi:type="array" size="1" />
+      <Local name="LbErrCreateSph" type="bool" xsi:type="array" size="1" />
       <Local name="LbSetSphRdone" type="bool" xsi:type="array" size="1" />
       <Local name="LbSphAllDone" type="bool" xsi:type="array" size="1" />
-      <Local name="LbErrCreateSph" type="bool" xsi:type="array" size="1" />
+      <Local name="LnRKeeper" type="num" xsi:type="array" size="1" />
+      <Local name="LpHere" type="point" xsi:type="array" size="1" />
+      <Local name="LsMoveMsg" type="string" xsi:type="array" size="1" />
+      <Local name="nKey" type="num" xsi:type="array" size="1" />
     </Locals>
     <Code><![CDATA[begin
   //header begin
@@ -164,8 +164,6 @@
   MON:libSave()
   //
   // done
-end
-
-      ]]></Code>
+end]]></Code>
   </Program>
 </Programs>

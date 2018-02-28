@@ -1,15 +1,15 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
-  <Program name="main" access="public">
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2" >
+  <Program name="main" access="public" >
     <Locals>
-      <Local name="nKey" type="num" xsi:type="array" size="1" />
       <Local name="LbStopProgram" type="bool" xsi:type="array" size="1" />
       <Local name="LjHere" type="joint" xsi:type="array" size="1" />
-      <Local name="LpHere" type="point" xsi:type="array" size="1" />
-      <Local name="LpTargetPoint" type="point" xsi:type="array" size="1" />
-      <Local name="LnDistance" type="num" xsi:type="array" size="1" />
-      <Local name="LpPark" type="point" xsi:type="array" size="1" />
       <Local name="LnAcknowledge" type="num" xsi:type="array" size="1" />
+      <Local name="LnDistance" type="num" xsi:type="array" size="1" />
+      <Local name="LpHere" type="point" xsi:type="array" size="1" />
+      <Local name="LpPark" type="point" xsi:type="array" size="1" />
+      <Local name="LpTargetPoint" type="point" xsi:type="array" size="1" />
+      <Local name="nKey" type="num" xsi:type="array" size="1" />
     </Locals>
     <Code><![CDATA[begin
   //header begin
@@ -99,8 +99,6 @@
   until (false or (LbStopProgram==true))
   call stop()
   // done
-end
-
-      ]]></Code>
+end]]></Code>
   </Program>
 </Programs>

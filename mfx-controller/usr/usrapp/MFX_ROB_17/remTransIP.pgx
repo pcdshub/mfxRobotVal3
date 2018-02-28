@@ -1,51 +1,50 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
-  <Program name="remTransIP">
-    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1">
-      <Parameter name="sArgs" type="string" xsi:type="array" use="reference" />
-      <Parameter name="sReturn" type="string" xsi:type="array" use="reference" />
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2" >
+  <Program name="remTransIP" access="private" >
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1" >
+      <Parameter name="sArgs" type="string" use="reference" xsi:type="array" dimensions="1" />
+      <Parameter name="sReturn" type="string" use="reference" xsi:type="array" dimensions="1" />
     </Parameters>
     <Locals>
-      <Local name="trUser" type="trsf" xsi:type="array" size="1" />
-      <Local name="nLoop" type="num" xsi:type="array" size="1" />
-      <Local name="sArgsLoop" type="string" xsi:type="array" size="1" />
-      <Local name="nVal" type="num" xsi:type="array" size="1" />
       <Local name="bOk" type="bool" xsi:type="array" size="1" />
+      <Local name="nLoop" type="num" xsi:type="array" size="1" />
+      <Local name="nVal" type="num" xsi:type="array" size="1" />
+      <Local name="sArgsLoop" type="string" xsi:type="array" size="1" />
+      <Local name="trUser" type="trsf" xsi:type="array" size="1" />
     </Locals>
     <Code><![CDATA[begin
   //Translates the current interaction point.
   //
   logMsg("call remTransIP")
-  trUser = {0,0,0,0,0,0}
-  nLoop = 0
-  sArgsLoop = sArgs
-  while nLoop < 3
-    sArgsLoop = toNum(sArgsLoop, nVal, bOk)
+  trUser={0,0,0,0,0,0}
+  nLoop=0
+  sArgsLoop=sArgs
+  while nLoop<3
+    sArgsLoop=toNum(sArgsLoop,nVal,bOk)
     if bOk
       switch nLoop
         case 0
-          trUser.x = nVal
+          trUser.x=nVal
         break
         case 1
-          trUser.y = nVal
+          trUser.y=nVal
         break
         case 2
-          trUser.z = nVal
+          trUser.z=nVal
         break
       endSwitch
-      nLoop = nLoop + 1
+      nLoop=nLoop+1
     else
       call remErrNum("CMDTRANSIP",sArgs,sReturn)
       return
     endIf
   endWhile
-  if nIPNumber == 0
-    fIP1.trsf = fIP1.trsf * trUser
+  if nIPNumber==0
+    fIP1.trsf=fIP1.trsf*trUser
   else
-    fIP2.trsf = fIP2.trsf * trUser
+    fIP2.trsf=fIP2.trsf*trUser
   endIf
-  sReturn = "CMDTRANSIP"
-end
-]]></Code>
+  sReturn="CMDTRANSIP"
+end]]></Code>
   </Program>
 </Programs>

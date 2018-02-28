@@ -1,16 +1,16 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
-  <Program name="remMovJoint">
-    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1">
-      <Parameter name="sArgs" type="string" xsi:type="array" use="reference" />
-      <Parameter name="sReturn" type="string" xsi:type="array" use="reference" />
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2" >
+  <Program name="remMovJoint" access="private" >
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1" >
+      <Parameter name="sArgs" type="string" use="reference" xsi:type="array" dimensions="1" />
+      <Parameter name="sReturn" type="string" use="reference" xsi:type="array" dimensions="1" />
     </Parameters>
     <Locals>
-      <Local name="pDest" type="point" xsi:type="array" size="1" />
-      <Local name="jDest" type="joint" xsi:type="array" size="1" />
-      <Local name="nVal" type="num" xsi:type="array" size="1" />
       <Local name="bOk" type="bool" xsi:type="array" size="1" />
+      <Local name="jDest" type="joint" xsi:type="array" size="1" />
       <Local name="nLoop" type="num" xsi:type="array" size="1" />
+      <Local name="nVal" type="num" xsi:type="array" size="1" />
+      <Local name="pDest" type="point" xsi:type="array" size="1" />
       <Local name="sArgsLoop" type="string" xsi:type="array" size="1" />
     </Locals>
     <Code><![CDATA[begin
@@ -21,44 +21,43 @@
   logMsg("call remMovJoint")
   //break down our 6 args and make sure they are numbers
   jDest={0,0,0,0,0,0}
-  nLoop = 0
-  sArgsLoop = sArgs
-  while nLoop < 6
-    sArgsLoop = toNum(sArgsLoop, nVal, bOk)
+  nLoop=0
+  sArgsLoop=sArgs
+  while nLoop<6
+    sArgsLoop=toNum(sArgsLoop,nVal,bOk)
     if bOk
       switch nLoop
         case 0
-          jDest.j1 = nVal
+          jDest.j1=nVal
         break
         case 1
-          jDest.j2 = nVal
+          jDest.j2=nVal
         break
         case 2
-          jDest.j3 = nVal
+          jDest.j3=nVal
         break
         case 3
-          jDest.j4 = nVal
+          jDest.j4=nVal
         break
         case 4
-          jDest.j5 = nVal
+          jDest.j5=nVal
         break
         case 5
-          jDest.j6 = nVal
+          jDest.j6=nVal
         break
       endSwitch
-      nLoop = nLoop + 1
+      nLoop=nLoop+1
     else
       call remErrNum("MOVJOINT",sArgs,sReturn)
       return
     endIf
   endWhile
-  if nIPNumber == 0
-    pDest = jointToPoint(tSensorTool,fIP1,jDest)
+  if nIPNumber==0
+    pDest=jointToPoint(tSensorTool,fIP1,jDest)
   else
-    pDest = jointToPoint(tSensorTool,fIP2,jDest)
+    pDest=jointToPoint(tSensorTool,fIP2,jDest)
   endIf
-  call remMovBase(pDest, sReturn)
-end
-]]></Code>
+  call remMovBase(pDest,sReturn)
+end]]></Code>
   </Program>
 </Programs>

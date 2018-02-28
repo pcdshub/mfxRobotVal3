@@ -1,6 +1,6 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
-  <Program name="mnuEnterIPVals">
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2" >
+  <Program name="mnuEnterIPVals" access="private" >
     <Locals>
       <Local name="LbBackup" type="bool" xsi:type="array" size="1" />
       <Local name="nKey" type="num" xsi:type="array" size="1" />
@@ -97,8 +97,6 @@
       break
     endSwitch
   until (false or (LbBackup==true))
-end
-
-      ]]></Code>
+end]]></Code>
   </Program>
 </Programs>

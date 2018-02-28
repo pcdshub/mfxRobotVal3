@@ -116,3 +116,8 @@
 [02/28/18 12:14:40]: <0x2402> COM-CLIENT: Connected to http://127.0.0.1:5656 {1284aee0}
 [02/28/18 12:14:41]: <0x5402> MFX_ROB_17 application started {509de4d2}
 [02/28/18 12:14:41]: <0x2402> COM-PC: destroy session 127.0.0.1 on port 53381 id=#89696328 {3188d1e5}
+[02/28/18 12:40:21]: <0x1A03> System event INTERFACE-Stopped  (Application interface) {5bac9675}
+[02/28/18 12:40:21]: <0x1A04> System event INTERFACE-Stopped  (Application interface). 5 events lost. {e9e63410}
+[02/28/18 12:40:23]: <0x2401> Saving controller context... {1307c876}
+[02/28/18 12:40:23]: <0x2402> Controller temperature: 28°C {239b185c}
+[02/28/18 12:40:23]: <0x2402> CPU temperature: 28°C {e80957a6}

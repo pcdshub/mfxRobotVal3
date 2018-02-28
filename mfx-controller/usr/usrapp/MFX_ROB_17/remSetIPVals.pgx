@@ -1,15 +1,15 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
-  <Program name="remSetIPVals">
-    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1">
-      <Parameter name="sArgs" type="string" xsi:type="array" use="reference" />
-      <Parameter name="sReturn" type="string" xsi:type="array" use="reference" />
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2" >
+  <Program name="remSetIPVals" access="private" >
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1" >
+      <Parameter name="sArgs" type="string" use="reference" xsi:type="array" dimensions="1" />
+      <Parameter name="sReturn" type="string" use="reference" xsi:type="array" dimensions="1" />
     </Parameters>
     <Locals>
-      <Local name="nArg" type="num" xsi:type="array" size="1" />
-      <Local name="nTemp" type="num" xsi:type="array" size="1" />
       <Local name="bOk" type="bool" xsi:type="array" size="1" />
+      <Local name="nArg" type="num" xsi:type="array" size="1" />
       <Local name="nIP" type="num" xsi:type="array" size="1" />
+      <Local name="nTemp" type="num" xsi:type="array" size="1" />
       <Local name="trIP" type="trsf" xsi:type="array" size="1" />
     </Locals>
     <Code><![CDATA[begin
@@ -18,47 +18,46 @@
   // Arguments are "X Y Z RX RY RZ"
   //
   logMsg("call remSetIPVals")
-  nArg = 0
-  trIP = {0,0,0,0,0,0}
-  while nArg < 7
-    sArgs = toNum(sArgs, nTemp, bOk)
+  nArg=0
+  trIP={0,0,0,0,0,0}
+  while nArg<7
+    sArgs=toNum(sArgs,nTemp,bOk)
     if bOk
       switch nArg
         case 0
-          nIP = nTemp
+          nIP=nTemp
         break
         case 1
-          trIP.x = nTemp
+          trIP.x=nTemp
         break
         case 2
-          trIP.y = nTemp
+          trIP.y=nTemp
         break
         case 3
-          trIP.z = nTemp
+          trIP.z=nTemp
         break
         case 4
-          trIP.rx = nTemp
+          trIP.rx=nTemp
         break
         case 5
-          trIP.ry = nTemp
+          trIP.ry=nTemp
         break
         case 6
-          trIP.rz = nTemp
+          trIP.rz=nTemp
         break
       endSwitch
-      nArg = nArg + 1
+      nArg=nArg+1
     else
       call remErrNum("SETIPVALS",sArgs,sReturn)
       return
     endIf
   endWhile
-  if nIP == 0
-    fIP1.trsf = trIP
+  if nIP==0
+    fIP1.trsf=trIP
   else
-    fIP2.trsf = trIP
+    fIP2.trsf=trIP
   endIf
-  sReturn = "SETIPVALS"
-end
-]]></Code>
+  sReturn="SETIPVALS"
+end]]></Code>
   </Program>
 </Programs>

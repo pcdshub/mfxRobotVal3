@@ -1,8 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
-  <Program name="mnuTeachFrame">
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2" >
+  <Program name="mnuTeachFrame" access="private" >
     <Locals>
-      <Local name="nKey" type="num" xsi:type="array" size="1" />
       <Local name="LbTeachFrm1of5" type="bool" xsi:type="array" size="1" />
       <Local name="LbTeachFrm2of5" type="bool" xsi:type="array" size="1" />
       <Local name="LbTeachFrm3of5" type="bool" xsi:type="array" size="1" />
@@ -11,6 +10,7 @@
       <Local name="LpFrameOrigin" type="point" xsi:type="array" size="1" />
       <Local name="LpFrameXAxis" type="point" xsi:type="array" size="1" />
       <Local name="LpFrameYAxis" type="point" xsi:type="array" size="1" />
+      <Local name="nKey" type="num" xsi:type="array" size="1" />
     </Locals>
     <Code><![CDATA[begin
   //header begin
@@ -181,8 +181,6 @@
   libSave()
   //
   // done
-end
-
-      ]]></Code>
+end]]></Code>
   </Program>
 </Programs>

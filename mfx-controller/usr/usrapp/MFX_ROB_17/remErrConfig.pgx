@@ -1,18 +1,17 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
-  <Program name="remErrConfig">
-    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1">
-      <Parameter name="sReturn" type="string" xsi:type="array" use="reference" />
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2" >
+  <Program name="remErrConfig" access="private" >
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1" >
+      <Parameter name="sReturn" type="string" use="reference" xsi:type="array" dimensions="1" />
     </Parameters>
     <Code><![CDATA[begin
   // Error raised when arm can't reach destination
   //
   logMsg("call remErrConfig")
-  sReturn = "ERROR 302"
-  sReturn = sReturn + ": Out of range or bad arm config."
+  sReturn="ERROR 302"
+  sReturn=sReturn+": Out of range or bad arm config."
   putln(sReturn)
   logMsg(sReturn)
-end
-]]></Code>
+end]]></Code>
   </Program>
 </Programs>

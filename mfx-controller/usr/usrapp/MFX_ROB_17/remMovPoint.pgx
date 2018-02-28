@@ -1,9 +1,9 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
-  <Program name="remMovPoint">
-    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1">
-      <Parameter name="trXYZ" type="trsf" xsi:type="array" use="reference" />
-      <Parameter name="sReturn" type="string" xsi:type="array" use="reference" />
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2" >
+  <Program name="remMovPoint" access="private" >
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1" >
+      <Parameter name="trXYZ" type="trsf" use="reference" xsi:type="array" dimensions="1" />
+      <Parameter name="sReturn" type="string" use="reference" xsi:type="array" dimensions="1" />
     </Parameters>
     <Locals>
       <Local name="pDest" type="point" xsi:type="array" size="1" />
@@ -13,13 +13,12 @@
   // remMoveBase in current frame of reference
   //
   logMsg("call remMovPoint")
-  if nIPNumber == 0
-    pDest = compose(pIP1NullPoint,fIP1,trXYZ)
+  if nIPNumber==0
+    pDest=compose(pIP1NullPoint,fIP1,trXYZ)
   else
-    pDest = compose(pIP2NullPoint,fIP2,trXYZ)
+    pDest=compose(pIP2NullPoint,fIP2,trXYZ)
   endIf
-  call remMovBase(pDest, sReturn)
-end
-]]></Code>
+  call remMovBase(pDest,sReturn)
+end]]></Code>
   </Program>
 </Programs>

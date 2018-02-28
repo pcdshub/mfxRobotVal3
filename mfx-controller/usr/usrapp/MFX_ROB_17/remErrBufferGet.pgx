@@ -1,27 +1,26 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
-  <Program name="remErrBufferGet">
-    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1">
-      <Parameter name="sReturn" type="string" xsi:type="array" use="reference" />
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2" >
+  <Program name="remErrBufferGet" access="private" >
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1" >
+      <Parameter name="sReturn" type="string" use="reference" xsi:type="array" dimensions="1" />
     </Parameters>
     <Code><![CDATA[begin
   //Get one error from the error buffer, if there is an error
   //
   logMsg("call remErrBufferGet")
-  if sErrBuffer[nErrNow] == ""
-    sReturn = "NOERROR"
+  if sErrBuffer[nErrNow]==""
+    sReturn="NOERROR"
   else
-    sReturn = "ERROR " + sErrBuffer[nErrNow]
+    sReturn="ERROR "+sErrBuffer[nErrNow]
     putln(sReturn)
     logMsg(sReturn)
-    sErrBuffer[nErrNow] = ""
-    if nErrNow == nErrBufferSize
-      nErrNow = 0
+    sErrBuffer[nErrNow]=""
+    if nErrNow==nErrBufferSize
+      nErrNow=0
     else
-      nErrNow = nErrNow + 1
+      nErrNow=nErrNow+1
     endIf
   endIf
-end
-]]></Code>
+end]]></Code>
   </Program>
 </Programs>

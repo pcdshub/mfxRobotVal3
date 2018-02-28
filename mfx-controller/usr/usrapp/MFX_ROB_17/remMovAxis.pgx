@@ -1,16 +1,16 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
-  <Program name="remMovAxis">
-    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1">
-      <Parameter name="sArgs" type="string" xsi:type="array" use="reference" />
-      <Parameter name="sReturn" type="string" xsi:type="array" use="reference" />
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2" >
+  <Program name="remMovAxis" access="private" >
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1" >
+      <Parameter name="sArgs" type="string" use="reference" xsi:type="array" dimensions="1" />
+      <Parameter name="sReturn" type="string" use="reference" xsi:type="array" dimensions="1" />
     </Parameters>
     <Locals>
+      <Local name="bOk" type="bool" xsi:type="array" size="1" />
       <Local name="nIndex" type="num" xsi:type="array" size="1" />
+      <Local name="nVal" type="num" xsi:type="array" size="1" />
       <Local name="sAxis" type="string" xsi:type="array" size="1" />
       <Local name="sVal" type="string" xsi:type="array" size="1" />
-      <Local name="nVal" type="num" xsi:type="array" size="1" />
-      <Local name="bOk" type="bool" xsi:type="array" size="1" />
       <Local name="trDest" type="trsf" xsi:type="array" size="1" />
     </Locals>
     <Code><![CDATA[begin
@@ -23,42 +23,41 @@
   logMsg("call remMovAxis")
   //parse args, expecting axis label and a number.
   //We already know we have exactly 2 args.
-  nIndex = find(sArgs," ")
-  sAxis = left(sArgs, nIndex)
-  sVal = delete(sArgs, nIndex+1, 0)
-  toNum(sVal, nVal, bOk)
+  nIndex=find(sArgs," ")
+  sAxis=left(sArgs,nIndex)
+  sVal=delete(sArgs,nIndex+1,0)
+  toNum(sVal,nVal,bOk)
   if bOk
     call remCalcHere()
-    trDest = {nXHere,nYHere,nZHere,nRXHere,nRYHere,nRZHere}
+    trDest={nXHere,nYHere,nZHere,nRXHere,nRYHere,nRZHere}
     switch sAxis
       case "X"
-        trDest.x = nVal
+        trDest.x=nVal
       break
       case "Y"
-        trDest.y = nVal
+        trDest.y=nVal
       break
       case "Z"
-        trDest.z = nVal
+        trDest.z=nVal
       break
       case "RX"
-        trDest.rx = nVal
+        trDest.rx=nVal
       break
       case "RY"
-        trDest.ry = nVal
+        trDest.ry=nVal
       break
       case "RZ"
-        trDest.rz = nVal
+        trDest.rz=nVal
       break
       default
         call remErrInvalid("MOVAXIS",sAxis,sReturn)
         return
       break
     endSwitch
-    call remMovPoint(trDest, sReturn)
+    call remMovPoint(trDest,sReturn)
   else
     call remErrNum("MOVAXIS",sVal,sReturn)
   endIf
-end
-]]></Code>
+end]]></Code>
   </Program>
 </Programs>

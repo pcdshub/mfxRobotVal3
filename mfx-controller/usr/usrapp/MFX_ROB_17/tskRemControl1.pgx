@@ -1,24 +1,24 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
-  <Program name="tskRemControl1">
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2" >
+  <Program name="tskRemControl1" access="private" >
     <Locals>
-      <Local name="LnIdx" type="num" xsi:type="array" size="1" />
-      <Local name="LsResponse" type="string" xsi:type="array" size="1" />
-      <Local name="LsJointValsXPP" type="string" xsi:type="array" size="1" />
-      <Local name="LsCubeValsXPP" type="string" xsi:type="array" size="1" />
-      <Local name="LsCylValsXPP" type="string" xsi:type="array" size="1" />
-      <Local name="LsTCPValsXPP" type="string" xsi:type="array" size="1" />
-      <Local name="LsSphValsXPP" type="string" xsi:type="array" size="1" />
-      <Local name="LsESTOPXPP" type="string" xsi:type="array" size="1" />
-      <Local name="LnLoginCounter" type="num" xsi:type="array" size="1" />
-      <Local name="LbRemoteDone" type="bool" xsi:type="array" size="1" />
-      <Local name="LsCommandString" type="string" xsi:type="array" size="1" />
-      <Local name="LsLength" type="string" xsi:type="array" size="1" />
       <Local name="LbError" type="bool" xsi:type="array" size="1" />
-      <Local name="LsError" type="string" xsi:type="array" size="1" />
+      <Local name="LbRemControlEnd" type="bool" xsi:type="array" size="1" />
+      <Local name="LbRemoteDone" type="bool" xsi:type="array" size="1" />
+      <Local name="LnIdx" type="num" xsi:type="array" size="1" />
+      <Local name="LnLoginCounter" type="num" xsi:type="array" size="1" />
       <Local name="LnTimerStart" type="num" xsi:type="array" size="1" />
       <Local name="LnTimerValue" type="num" xsi:type="array" size="1" />
-      <Local name="LbRemControlEnd" type="bool" xsi:type="array" size="1" />
+      <Local name="LsCommandString" type="string" xsi:type="array" size="1" />
+      <Local name="LsCubeValsXPP" type="string" xsi:type="array" size="1" />
+      <Local name="LsCylValsXPP" type="string" xsi:type="array" size="1" />
+      <Local name="LsESTOPXPP" type="string" xsi:type="array" size="1" />
+      <Local name="LsError" type="string" xsi:type="array" size="1" />
+      <Local name="LsJointValsXPP" type="string" xsi:type="array" size="1" />
+      <Local name="LsLength" type="string" xsi:type="array" size="1" />
+      <Local name="LsResponse" type="string" xsi:type="array" size="1" />
+      <Local name="LsSphValsXPP" type="string" xsi:type="array" size="1" />
+      <Local name="LsTCPValsXPP" type="string" xsi:type="array" size="1" />
     </Locals>
     <Code><![CDATA[begin
   // PROGRAM tskRemControl1()
@@ -39,7 +39,7 @@
   do
     // start remCmdHandler with bRemControlON=false for limit to get commands and no putln
     if taskStatus("xppCmdHandler")!=1
-      if(taskStatus("xppCmdHandler")==125)
+      if (taskStatus("xppCmdHandler")==125)
         logMsg("read-only xppCmdHandler dead, restarting...")
         taskKill("xppCmdHandler")
         wait(taskStatus("xppCmdHandler")==-1)
@@ -79,7 +79,7 @@
       endIf
       logMsg("xppCmdHandler active now")
       putln("XPP Command Handler task ON")
-      
+
       // Test for simulated ESTOP
       if bSimulateESTOP==true
         if taskStatus("SimESTOP")==-1
@@ -88,7 +88,7 @@
         endIf
       endIf
       bSimESTOPOn=false
-      
+
       wait(taskStatus("RemoteMotion")==1)
       putln(" ")
       putln("LISTENING for XPP Client now...")
@@ -160,12 +160,12 @@
             logMsg("ESTOP Similator task STOPPED!")
           endIf
         endIf
-        
+
         // Code adapted from Jan Meyer to reopen socket in the event that xppCmdHandler hangs
         // works by checking if taskStatus("xppCmdHandler")==125 (Read or write error on a dio, aio, sio)
-        if(taskStatus("xppCmdHandler")!=1 and taskStatus("xppCmdHandler")!=-1)
+        if (taskStatus("xppCmdHandler")!=1 and taskStatus("xppCmdHandler")!=-1)
           // reopen socket on error
-          if(taskStatus("xppCmdHandler")==125)
+          if (taskStatus("xppCmdHandler")==125)
             putln("R/W error on sioXPPclient")
             putln("Killing xppCmdHandler")
             taskKill("xppCmdHandler")
@@ -179,7 +179,7 @@
             putln("XPP Command Handler task ON")
           endIf
         endIf
-        
+
         delay(0)
       until LbRemControlEnd==true
       putln("")
@@ -203,8 +203,6 @@
   until false
   //
   //done
-end
-
-      ]]></Code>
+end]]></Code>
   </Program>
 </Programs>

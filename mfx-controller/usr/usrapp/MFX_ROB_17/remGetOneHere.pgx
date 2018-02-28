@@ -1,73 +1,72 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
-  <Program name="remGetOneHere">
-    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1">
-      <Parameter name="sArgs" type="string" xsi:type="array" use="reference" />
-      <Parameter name="sReturn" type="string" xsi:type="array" use="reference" />
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2" >
+  <Program name="remGetOneHere" access="private" >
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1" >
+      <Parameter name="sArgs" type="string" use="reference" xsi:type="array" dimensions="1" />
+      <Parameter name="sReturn" type="string" use="reference" xsi:type="array" dimensions="1" />
     </Parameters>
     <Locals>
-      <Local name="nPos" type="num" xsi:type="array" size="1" />
       <Local name="jHere" type="joint" xsi:type="array" size="1" />
+      <Local name="nPos" type="num" xsi:type="array" size="1" />
     </Locals>
     <Code><![CDATA[begin
   // Return just one position.
   //
   logMsg("call remGetOneHere")
   call remCalcHereSph()
-  jHere = herej()
-  sReturn = "GETONEPOS " + sArgs + " "
+  jHere=herej()
+  sReturn="GETONEPOS "+sArgs+" "
   switch sArgs
     case "X"
-      nPos = nXHere
+      nPos=nXHere
     break
     case "Y"
-      nPos = nYHere
+      nPos=nYHere
     break
     case "Z"
-      nPos = nZHere
+      nPos=nZHere
     break
     case "RX"
-      nPos = nRXHere
+      nPos=nRXHere
     break
     case "RY"
-      nPos = nRYHere
+      nPos=nRYHere
     break
     case "RZ"
-      nPos = nRZHere
+      nPos=nRZHere
     break
     case "AZI"
-      nPos = nAzHere
+      nPos=nAzHere
     break
     case "ELE"
-      nPos = nElHere
+      nPos=nElHere
     break
     case "RAD"
-      nPos = nRHere
+      nPos=nRHere
     break
     case "J1"
-      nPos = jHere.j1
+      nPos=jHere.j1
     break
     case "J2"
-      nPos = jHere.j2
+      nPos=jHere.j2
     break
     case "J3"
-      nPos = jHere.j3
+      nPos=jHere.j3
     break
     case "J4"
-      nPos = jHere.j4
+      nPos=jHere.j4
     break
     case "J5"
-      nPos = jHere.j5
+      nPos=jHere.j5
     break
     case "J6"
-      nPos = jHere.j6
+      nPos=jHere.j6
     break
     default
       call remErrInvalid("GETONEPOS",sArgs,sReturn)
     break
   endSwitch
-  sReturn = sReturn + toString(sNumConv, nPos)
-end
-]]></Code>
+  sReturn=sReturn+toString(sNumConv,nPos)
+end]]></Code>
   </Program>
 </Programs>

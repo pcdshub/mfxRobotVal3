@@ -1,9 +1,9 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
-  <Program name="makePntAZELRA">
-    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1">
-      <Parameter name="XnIPNumber" type="num" xsi:type="element" />
-      <Parameter name="XnTPNumber" type="num" xsi:type="element" />
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2" >
+  <Program name="makePntAZELRA" access="private" >
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1" >
+      <Parameter name="XnIPNumber" type="num" use="value" xsi:type="element" dimensions="1" />
+      <Parameter name="XnTPNumber" type="num" use="value" xsi:type="element" dimensions="1" />
     </Parameters>
     <Code><![CDATA[begin
   //header begin
@@ -63,8 +63,6 @@
     //
   endIf
   // done
-end
-
-      ]]></Code>
+end]]></Code>
   </Program>
 </Programs>

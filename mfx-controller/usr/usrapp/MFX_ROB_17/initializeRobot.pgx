@@ -1,11 +1,11 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
-  <Program name="initializeRobot">
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2" >
+  <Program name="initializeRobot" access="private" >
     <Locals>
-      <Local name="LbESTOPActive" type="bool" xsi:type="array" size="1" />
       <Local name="LbArmPowerOn" type="bool" xsi:type="array" size="1" />
-      <Local name="nKey" type="num" xsi:type="array" size="1" />
+      <Local name="LbESTOPActive" type="bool" xsi:type="array" size="1" />
       <Local name="LnKey" type="num" xsi:type="array" size="1" />
+      <Local name="nKey" type="num" xsi:type="array" size="1" />
     </Locals>
     <Code><![CDATA[begin
   //header begin
@@ -89,8 +89,6 @@
   endIf
   //
   // done
-end
-
-      ]]></Code>
+end]]></Code>
   </Program>
 </Programs>

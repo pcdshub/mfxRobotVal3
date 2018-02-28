@@ -1,8 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
-  <Program name="remGetMode">
-    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1">
-      <Parameter name="sReturn" type="string" xsi:type="array" use="reference" />
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2" >
+  <Program name="remGetMode" access="private" >
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1" >
+      <Parameter name="sReturn" type="string" use="reference" xsi:type="array" dimensions="1" />
     </Parameters>
     <Locals>
       <Local name="sMode" type="string" xsi:type="array" size="1" />
@@ -12,12 +12,11 @@
   //
   logMsg("call remGetMode")
   if bMoveLinear
-    sMode = "LINEAR"
+    sMode="LINEAR"
   else
-    sMode = "OPTIMAL"
+    sMode="OPTIMAL"
   endIf
-  sReturn = "GETMODE " + sMode
-end
-]]></Code>
+  sReturn="GETMODE "+sMode
+end]]></Code>
   </Program>
 </Programs>

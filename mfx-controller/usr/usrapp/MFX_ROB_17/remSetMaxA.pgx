@@ -1,20 +1,19 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
-  <Program name="remSetMaxA">
-    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1">
-      <Parameter name="sArgs" type="string" xsi:type="array" use="reference" />
-      <Parameter name="sReturn" type="string" xsi:type="array" use="reference" />
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2" >
+  <Program name="remSetMaxA" access="private" >
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1" >
+      <Parameter name="sArgs" type="string" use="reference" xsi:type="array" dimensions="1" />
+      <Parameter name="sReturn" type="string" use="reference" xsi:type="array" dimensions="1" />
     </Parameters>
     <Locals>
-      <Local name="nVal" type="num" xsi:type="array" size="1" />
       <Local name="bOk" type="num" xsi:type="array" size="1" />
+      <Local name="nVal" type="num" xsi:type="array" size="1" />
     </Locals>
     <Code><![CDATA[begin
   // Set the maximum allowed Acceleration in %
   //
   logMsg("call remSetMaxA")
   call remSetnGlobal(sArgs,nMaxAccel,0,100,"SETMAXA",sReturn)
-end
-]]></Code>
+end]]></Code>
   </Program>
 </Programs>

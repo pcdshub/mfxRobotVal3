@@ -1,11 +1,11 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
-  <Program name="mnuSetTargetPts">
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2" >
+  <Program name="mnuSetTargetPts" access="private" >
     <Locals>
-      <Local name="nKey" type="num" xsi:type="array" size="1" />
       <Local name="LbBackup" type="bool" xsi:type="array" size="1" />
-      <Local name="LsNameKeeper" type="string" xsi:type="array" size="1" />
       <Local name="LnNewValue" type="num" xsi:type="array" size="1" />
+      <Local name="LsNameKeeper" type="string" xsi:type="array" size="1" />
+      <Local name="nKey" type="num" xsi:type="array" size="1" />
     </Locals>
     <Code><![CDATA[begin
   //header begin
@@ -174,8 +174,6 @@
   until (false or (LbBackup==true))
   //
   // done
-end
-
-      ]]></Code>
+end]]></Code>
   </Program>
 </Programs>

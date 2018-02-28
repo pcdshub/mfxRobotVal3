@@ -1,6 +1,6 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
-  <Program name="mnuTeachTCP4pnt">
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2" >
+  <Program name="mnuTeachTCP4pnt" access="private" >
     <Code><![CDATA[begin
   //header begin
   // PROGRAM mnuTeachTCP4pnt()
@@ -24,8 +24,6 @@
   // teach new tool def with 4-pnt method completed, save data on exit
   libSave()
   // done
-end
-
-      ]]></Code>
+end]]></Code>
   </Program>
 </Programs>

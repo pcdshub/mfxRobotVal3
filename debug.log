@@ -18541,3 +18541,5 @@ Histogram: V8.Initializer.OpenV8File.Result recorded 2 samples, mean = 0.0 (flag
 [0228/121030.299:VERBOSE1:multi_log_ct_verifier.cc(75)] Adding CT log: Izenpe log
 [0228/121030.299:VERBOSE1:multi_log_ct_verifier.cc(75)] Adding CT log: Certly.IO log
 [0228/121030.468:ERROR:child_thread_impl.cc(762)] Request for unknown Channel-associated interface: ui::mojom::GpuMain
+[0228/123705.055:WARNING:dns_config_service_win.cc(661)] Failed to read DnsConfig.
+[0228/124014.182:WARNING:dns_config_service_win.cc(661)] Failed to read DnsConfig.

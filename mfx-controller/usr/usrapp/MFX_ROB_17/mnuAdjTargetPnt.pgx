@@ -1,17 +1,17 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
-  <Program name="mnuAdjTargetPnt" access="public">
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2" >
+  <Program name="mnuAdjTargetPnt" access="public" >
     <Locals>
       <Local name="LbBackup" type="bool" xsi:type="array" size="1" />
-      <Local name="nKey" type="num" xsi:type="array" size="1" />
       <Local name="LbMoveOutOfTol" type="bool" xsi:type="array" size="1" />
-      <Local name="LnDistance" type="num" xsi:type="array" size="1" />
-      <Local name="LpHere" type="point" xsi:type="array" size="1" />
       <Local name="LnDeltaRX" type="num" xsi:type="array" size="1" />
       <Local name="LnDeltaRY" type="num" xsi:type="array" size="1" />
       <Local name="LnDeltaRZ" type="num" xsi:type="array" size="1" />
-      <Local name="LpTempAdjPoint" type="point" xsi:type="array" size="1" />
+      <Local name="LnDistance" type="num" xsi:type="array" size="1" />
+      <Local name="LpHere" type="point" xsi:type="array" size="1" />
       <Local name="LpTargetPoint" type="point" xsi:type="array" size="1" />
+      <Local name="LpTempAdjPoint" type="point" xsi:type="array" size="1" />
+      <Local name="nKey" type="num" xsi:type="array" size="1" />
     </Locals>
     <Code><![CDATA[begin
   //header begin
@@ -140,8 +140,6 @@
     //
   endIf
   // done
-end
-
-      ]]></Code>
+end]]></Code>
   </Program>
 </Programs>

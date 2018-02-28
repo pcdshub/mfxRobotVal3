@@ -1,8 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
-  <Program name="remGetESTOP">
-    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1">
-      <Parameter name="sReturn" type="string" xsi:type="array" use="reference" />
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2" >
+  <Program name="remGetESTOP" access="private" >
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1" >
+      <Parameter name="sReturn" type="string" use="reference" xsi:type="array" dimensions="1" />
     </Parameters>
     <Locals>
       <Local name="sEstop" type="string" xsi:type="array" size="1" />
@@ -13,17 +13,16 @@
   logMsg("call remGetESTOP")
   switch esStatus()
     case 0
-      sEstop = "INACTIVE"
+      sEstop="INACTIVE"
     break
     case 1
-      sEstop = "STOPPED"
+      sEstop="STOPPED"
     break
     case 2
-      sEstop = "READY"
+      sEstop="READY"
     break
   endSwitch
-  sReturn = "GETESTOP " + sEstop
-end
-]]></Code>
+  sReturn="GETESTOP "+sEstop
+end]]></Code>
   </Program>
 </Programs>
