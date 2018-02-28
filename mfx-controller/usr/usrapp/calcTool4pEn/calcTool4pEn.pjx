@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://www.staubli.com/robotics/VAL3/Project/3">
+  <Parameters version="s7.9.1" stackSize="5000" millimeterUnit="true" />
+  <Programs>
+    <Program file="aMainTcp.pgx" />
+    <Program file="aTcp.pgx" />
+    <Program file="buildTool.pgx" />
+    <Program file="calculation.pgx" />
+    <Program file="description.pgx" />
+    <Program file="example.pgx" />
+    <Program file="language.pgx" />
+    <Program file="readme.pgx" />
+    <Program file="splitUp.pgx" />
+    <Program file="start.pgx" />
+    <Program file="stop.pgx" />
+    <Program file="teachPoints.pgx" />
+    <Program file="usrButtonTxt.pgx" />
+    <Program file="valSetBack.pgx" />
+  </Programs>
+  <Database>
+    <Data file="calcTool4pEn.dtx" />
+  </Database>
+  <Libraries>
+    <Library alias="io" path="Disk://io/io.pjx" />
+  </Libraries>
+</Project>

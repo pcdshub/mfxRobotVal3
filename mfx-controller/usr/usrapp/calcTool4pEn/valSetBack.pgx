@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="valSetBack">
+    <Locals>
+      <Local name="l_nI" type="num" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[
+begin
+  //-----------------------------------------------------------------------
+  //Header begin
+  //Description of program
+  //  This program initializes various variables
+  //
+  //Traceability
+  //  Creation : 07-04-08 - f.Rob
+  //  Used without modification for SLAC  KN  17aug2009
+  //Header end
+  //-----------------------------------------------------------------------
+  
+  for l_nI=0 to 3
+    trSphere[l_nI]={0,0,0,0,0,0}
+  endFor
+  for l_nI=0 to 4
+    pTempS[0].trsf=trSphere[0]
+  endFor
+  for l_nI=0 to 3
+    trTempTool[l_nI]={0,0,0,0,0,0}
+    nS1[l_nI]=nS2[l_nI]=nS3[l_nI]=nS4[l_nI]=0
+  endFor
+  nScX=nScY=nScZ=0
+  trCenter={0,0,0,0,0,0}
+  trUserTool={0,0,0,0,0,0}
+end
+            ]]></Code>
+  </Program>
+</Programs>

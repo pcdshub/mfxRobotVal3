@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="createCube" access="public">
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1">
+      <Parameter name="x_pOrigin" type="point" xsi:type="element" />
+      <Parameter name="x_nDistanceX" type="num" xsi:type="element" />
+      <Parameter name="x_nDistanceY" type="num" xsi:type="element" />
+      <Parameter name="x_nDistanceZ" type="num" xsi:type="element" />
+      <Parameter name="x_bError" type="bool" xsi:type="array" use="reference" />
+    </Parameters>
+    <Locals>
+      <Local name="l_trsfCopy" type="trsf" xsi:type="array" size="1" />
+      <Local name="l_pOrigine" type="point" xsi:type="array" size="1" />
+      <Local name="l_nSizeTab" type="num" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin  
+  //Header begin
+  //Description of program
+  //  This program creates a cubic area  
+  //  defined by a point and 3 distances X, Y, Z
+  //
+  //  KN note:  cube is considered 'active' if bCreateCube = true.  This boolean is cleared in pgm mnuTeachCube().
+  //
+  //Input parameters 
+  //  point x_pOrigin : 
+  //    role : defines the origin of the cube
+  //  num x_nDistanceX :
+  //    role : defines the dimension about the world's X axis
+  //  num x_nDistanceY :
+  //    role : defines the dimension about the world's Y axis
+  //  num x_nDistanceZ :
+  //    role : defines the dimension about the world's Z axis
+  //
+  //Output parameters
+  //  bool x bError :
+  //    role : set to true when the cubic area could not be created, false otherwise
+  //
+  //Example 
+  //  call createCube(pOriginCube,400, 200, 100,bOK) 
+  //  
+  //History
+  //  Creation : 16-04-08 - f.Rob
+  //  Initial release KN
+  //
+  //Header end
+  
+  //Find the smallest array, this will define the maximum number of zones that can created
+  l_nSizeTab=size(pOriginCube)
+  if size(fCube)<l_nSizeTab
+    l_nSizeTab=size(fCube)
+  endIf
+  if size(nDistXCube)<l_nSizeTab
+    l_nSizeTab=size(nDistXCube)
+  endIf
+  if size(nDistYCube)<l_nSizeTab
+    l_nSizeTab=size(nDistYCube)
+  endIf
+  if size(nDistZCube)<l_nSizeTab
+    l_nSizeTab=size(nDistZCube)
+  endIf
+  //Test if it's possible to creates a new cube (not exceed the maximum size of the smallest array)
+  if (nNumberCube>l_nSizeTab-1)
+    x_bError=true
+    popUpMsg("Cube area number "+toString("",nNumberCube)+" cannot be created : you can create only "+toString("",l_nSizeTab)+" (0.."+toString("",l_nSizeTab-1)+") area of this type")
+    return
+  endIf 
+  //Build the cube
+  pOriginCube[nNumberCube].trsf=position(x_pOrigin,world)
+  if setFrame(pOriginCube[nNumberCube],compose(pOriginCube[nNumberCube],world,{x_nDistanceX,0,0,0,0,0}),compose(pOriginCube[nNumberCube],world,{0,x_nDistanceY,0,0,0,0}),fCube[nNumberCube])==0
+     bCreateCube[nNumberCube]=true
+  endIf
+  //Distances x y z
+  nDistXCube[nNumberCube]=x_nDistanceX
+  nDistYCube[nNumberCube]=x_nDistanceY
+  nDistZCube[nNumberCube]=x_nDistanceZ
+  //Regolate the frame
+  l_trsfCopy=fCube[nNumberCube].trsf
+  fCube[nNumberCube].trsf={l_trsfCopy.x,l_trsfCopy.y,l_trsfCopy.z,0,0,0}
+  
+  nNumberCube=nNumberCube+1
+end
+]]></Code>
+  </Program>
+</Programs>

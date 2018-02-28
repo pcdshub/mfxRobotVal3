@@ -18524,3 +18524,20 @@ Histogram: V8.Initializer.OpenV8File.Result recorded 2 samples, mean = 0.0 (flag
 [0228/115835.494:VERBOSE1:multi_log_ct_verifier.cc(75)] Adding CT log: Izenpe log
 [0228/115835.494:VERBOSE1:multi_log_ct_verifier.cc(75)] Adding CT log: Certly.IO log
 [0228/115835.642:ERROR:child_thread_impl.cc(762)] Request for unknown Channel-associated interface: ui::mojom::GpuMain
+[0228/121030.299:VERBOSE1:pref_proxy_config_tracker_impl.cc(151)] 000000003BE951E0: set chrome proxy config service to 000000003BE67200
+[0228/121030.299:VERBOSE1:pref_proxy_config_tracker_impl.cc(278)] 000000003BE951E0: Done pushing proxy to UpdateProxyConfig
+[0228/121030.299:VERBOSE1:multi_log_ct_verifier.cc(75)] Adding CT log: Google 'Pilot' log
+[0228/121030.299:VERBOSE1:multi_log_ct_verifier.cc(75)] Adding CT log: Google 'Aviator' log
+[0228/121030.299:VERBOSE1:multi_log_ct_verifier.cc(75)] Adding CT log: DigiCert Log Server
+[0228/121030.299:VERBOSE1:multi_log_ct_verifier.cc(75)] Adding CT log: Google 'Rocketeer' log
+[0228/121030.299:VERBOSE1:multi_log_ct_verifier.cc(75)] Adding CT log: Symantec log
+[0228/121030.299:VERBOSE1:multi_log_ct_verifier.cc(75)] Adding CT log: Venafi log
+[0228/121030.299:VERBOSE1:multi_log_ct_verifier.cc(75)] Adding CT log: Symantec 'Vega' log
+[0228/121030.299:VERBOSE1:multi_log_ct_verifier.cc(75)] Adding CT log: CNNIC CT log
+[0228/121030.299:VERBOSE1:multi_log_ct_verifier.cc(75)] Adding CT log: WoSign log
+[0228/121030.299:VERBOSE1:multi_log_ct_verifier.cc(75)] Adding CT log: StartCom CT log
+[0228/121030.299:VERBOSE1:multi_log_ct_verifier.cc(75)] Adding CT log: Google 'Skydiver' log
+[0228/121030.299:VERBOSE1:multi_log_ct_verifier.cc(75)] Adding CT log: Google 'Icarus' log
+[0228/121030.299:VERBOSE1:multi_log_ct_verifier.cc(75)] Adding CT log: Izenpe log
+[0228/121030.299:VERBOSE1:multi_log_ct_verifier.cc(75)] Adding CT log: Certly.IO log
+[0228/121030.468:ERROR:child_thread_impl.cc(762)] Request for unknown Channel-associated interface: ui::mojom::GpuMain

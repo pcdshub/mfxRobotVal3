@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="checkFrame" access="public">
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1">
+      <Parameter name="x_tTool" type="tool" xsi:type="element" />
+      <Parameter name="x_nFrame" type="num" xsi:type="element" />
+      <Parameter name="x_bCheckFrame" type="bool" xsi:type="array" use="reference" />
+      <Parameter name="x_bError" type="bool" xsi:type="array" use="reference" />
+    </Parameters>
+    <Locals>
+      <Local name="l_pPointHere" type="point" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  //Header begin
+  //Description of program
+  //  Monitors Z position of a tool center point in regards to a frame.
+  //  It will set to "true" a bool variable when Z<0 and set to "false" otherwise
+  //
+  //Input parameters 
+  //  point x_tTool : 
+  //    role : defines the tool that you want to monitor the position of
+  //  num x_nFrame :
+  //    role : number of the frame zone to be monitored (in order of creation)
+  //    possible values : number of an existing frame zone
+  //
+  //Output parameters
+  //  num x_bCheckFrame :
+  //    role : set to true if the Z tool is above the frame and set to false otherwise
+  //  bool x_bError :
+  //    role : set to true if the frame zone does not exist and false otherwise
+  //
+  //Example 
+  //  call checkFrame(flange,3,bOK,bErr) 
+  //  
+  //History
+  //  Creation : 16-04-08 - f.Rob
+  //Header end
+  
+  //Test if the frame that you want to monitor is created
+  if x_nFrame>nNumberFrame
+    x_bError=true
+    stopMove()
+    disablePower()
+    //User interface
+   popUpMsg("Frame area number "+toString("",x_nFrame)+" has not been created."+chr(10)+"Stop the program !!!")
+   delay(3)
+   return
+  endIf 
+  x_bError=false
+  x_bCheckFrame=false
+  if bCreateFrame[x_nFrame-1]
+    //here() returns the current position of x_tTool tool in x_fFrame frame. 
+    l_pPointHere=here(x_tTool,fFrameZone[x_nFrame-1])
+    //Test if the tool is above the frame
+    if l_pPointHere.trsf.z>0
+       x_bCheckFrame=true
+    endIf  
+  endIf 
+end
+]]></Code>
+  </Program>
+</Programs>

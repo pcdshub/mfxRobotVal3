@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="splitUp">
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1">
+      <Parameter name="x_pSphere1" type="point" xsi:type="element" />
+      <Parameter name="x_pSphere2" type="point" xsi:type="element" />
+      <Parameter name="x_pSphere3" type="point" xsi:type="element" />
+      <Parameter name="x_pSphere4" type="point" xsi:type="element" />
+    </Parameters>
+    <Code><![CDATA[
+begin
+  //-----------------------------------------------------------------------
+  //Header begin
+  //Description of program
+  //  This program calculates the sphere. 
+  //
+  //Input parameters
+  //  point x_pSphere1 to point x_pSphere4 : 
+  //
+  //Traceability
+  //  Creation : 07-04-08 - f.Rob
+  //  Used without modification for SLAC  KN 17aug2009
+  //Header end
+  //-----------------------------------------------------------------------
+  
+  trSphere[0]=x_pSphere1.trsf
+  trSphere[1]=x_pSphere2.trsf
+  trSphere[2]=x_pSphere3.trsf
+  trSphere[3]=x_pSphere4.trsf
+  nS1[1]=trSphere[0].x
+  nS1[2]=trSphere[0].y
+  nS1[3]=trSphere[0].z
+  nS2[1]=trSphere[1].x
+  nS2[2]=trSphere[1].y
+  nS2[3]=trSphere[1].z
+  nS3[1]=trSphere[2].x
+  nS3[2]=trSphere[2].y
+  nS3[3]=trSphere[2].z
+  nS4[1]=trSphere[3].x
+  nS4[2]=trSphere[3].y
+  nS4[3]=trSphere[3].z
+end
+            ]]></Code>
+  </Program>
+</Programs>

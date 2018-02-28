@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="teachPoints">
+    <Locals>
+      <Local name="l_nI" type="num" xsi:type="array" size="1" />
+      <Local name="l_nWhich" type="num" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[
+begin
+  //-----------------------------------------------------------------------
+  //Header begin
+  //Description of program 
+  //  This program allows you to teach 4 points
+  //
+  //Traceability
+  //  Creation : 07-04-08 - f.Rob
+  //  Used without modifications for SLAC  KN 17aug2009
+  //Header end
+  //-----------------------------------------------------------------------
+  
+  userPage()
+  cls()
+  gotoxy(2,2)
+  put(sUsrMess[9+nLangSet])
+  gotoxy(1,9)
+  put(sUsrMess[13+nLangSet])
+  //Function to display navigation keys (F1 through F8) (here F4 with message "Here")
+  call usrButtonTxt(4,sUsrMess[26+nLangSet])
+  //Loop to remember 4 points 
+  for l_nI=1 to 4
+    gotoxy(2,4)
+    //Displays point during the apprenticeship (ex: Teaching of 2.Point)
+    putln(sUsrMess[11+nLangSet]+toString("1",l_nI)+sUsrMess[12+nLangSet])
+    putln("")
+    put("----------------------------------------")
+    //Waiting pressing 4 (F4 key) for memorize the point
+    wait((get()-270)==4)
+    pTempS[l_nI]=here(flange,world)
+  endFor
+end
+            ]]></Code>
+  </Program>
+</Programs>

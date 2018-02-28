@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="readme">
+    <Code><![CDATA[begin
+  //Title: Monitoring the robot position in regards to an area
+  //
+  //General description :
+  //  
+  //  Possibility to monitor the current Z position  value compared to a frame
+  //  Possibility to monitor a distance to a point (spherical zone)
+  //  Possibility to monitor the current position of a tool in a Cube
+  //  Possibility to monitor the current position of a tool in a Cylinder
+  //  Possibility to monitor up to 40 areas (10 identical areas per solid)
+  //  (example : 10 spherical areas and 10 cubic areas)
+  //
+  //Hardware required :
+  //  - Robot system    : any Staubli robot
+  //  - Peripherals     : no peripherals required
+  //
+  //VAL3 options :
+  //  - VAL3 version    : 6.4 
+  //  - VAL3 licenses   : no licenses required
+  //  - VAL3 add-ons    : none
+  //  
+  //Library version     : 6.4.1.0
+  //
+  //Public variables    : none
+  //
+  //Included libraries  : none
+  //
+  //Miscellaneous       : ---
+  //
+  //Keywords            : monitor, controle, position, area, zone, cube, cylinder, cylindre, sphere, frame, plan
+  
+
+end
+]]></Code>
+  </Program>
+</Programs>

@@ -49,3 +49,70 @@
 [02/28/18 12:00:09]: <0x2402> COM-PC: destroy session 127.0.0.1 on port 53150 id=#87238536 {d0f51d92}
 [02/28/18 12:02:01]: <0x2402> COM-PC: create session 127.0.0.1 on port 53164 id=#87239264 {28586c9a}
 [02/28/18 12:02:19]: <0x2402> COM-PC: destroy session 127.0.0.1 on port 53164 id=#87239264 {11b6e117}
+[02/28/18 12:10:28]: ----------------------------------------------- {ad5fc728}
+[02/28/18 12:10:28]: Logger started (1048576) {c21010c6}
+[02/28/18 12:10:32]: <0x0003> CPU board: TEKNOR ?Mhz; ?Mb RAM; ?Mb disk; bios: ?; fpga: ?; ataIde: ? {d0f57350}
+[02/28/18 12:10:32]: <0x0003> Cycle time set to 0.004s {692ac472}
+[02/28/18 12:10:32]: <0x0003> Simulation cycle time set to 0.1s {02119e70}
+[02/28/18 12:10:32]: <0x0002> Controller IP address could not be updated {d38df200}
+[02/28/18 12:10:32]: <0x0001> Error while trying to build User serial 1 {380c8b37}
+[02/28/18 12:10:32]: <0x0002> Default user payload used. {9b8a1fd7}
+[02/28/18 12:10:32]: <0x0003> Payload default: mass=14 kg, gravity center: x=0 y=0 z=86.3 mm, inertia=0 {104a11f6}
+[02/28/18 12:10:32]: <0x2401> Power hour count = 3:37:36 {80aee996}
+[02/28/18 12:10:32]: <0x2401> Mac Address = 00-50-56-c0-00-01 {0ee80fcd}
+[02/28/18 12:10:32]: <0x0001> remoteTestMode link failed : no link defined {314b0880}
+[02/28/18 12:10:32]: <0x0001> remoteManualMode link failed : no link defined {09d17f62}
+[02/28/18 12:10:32]: <0x0001> remoteLocalMode link failed : no link defined {ded14c3c}
+[02/28/18 12:10:32]: <0x0001> remoteRemoteMode link failed : no link defined {b84c0aad}
+[02/28/18 12:10:32]: <0x0001> estopAcknowledge link failed : no link defined {8c3468b7}
+[02/28/18 12:10:32]: <0x0001> enablePower link failed : no link defined {e60f1f03}
+[02/28/18 12:10:32]: <0x0001> remoteMonitorSpeed link failed : no link defined {574002b6}
+[02/28/18 12:10:32]: <0x0001> remoteMoveHold link failed : no link defined {5ea6a44f}
+[02/28/18 12:10:32]: <0x0001> validationKey link failed : no link defined {863374a7}
+[02/28/18 12:10:32]: <0x0001> hardwareFaultAcknowledge link failed : no link defined {03d51030}
+[02/28/18 12:10:32]: <0x0001> RemoteMcp not enabled : invalid configuration {446f5dfd}
+[02/28/18 12:10:32]: <0x0003> COM-PC: server created on all interfaces [851] {875248b9}
+[02/28/18 12:10:32]: <0x2402> History handler has been connected to IHM {30dc4167}
+[02/28/18 12:10:32]: <0x2401> System: s7.9.1 Mar 30 2016 {a4b69765}
+[02/28/18 12:10:32]: <0x2401> Configuration Version: c1.037  {fb30aee5}
+[02/28/18 12:10:32]: <0x2401> CPU: TEKNOR  {be087006}
+[02/28/18 12:10:32]: <0x2401> Option remoteMcp: enabled  {27ac63b6}
+[02/28/18 12:10:32]: <0x2401> Option testMode: enabled  {178df8eb}
+[02/28/18 12:10:32]: <0x2401> Option oemLicence: enabled  {75a32df7}
+[02/28/18 12:10:32]: <0x2401> Option remoteMaintenance: enabled  {658960a7}
+[02/28/18 12:10:32]: <0x2401> Option pciAccess: enabled  {552de21f}
+[02/28/18 12:10:32]: <0x2401> Option 6axesAbsoluteRobot: enabled  {45236b7d}
+[02/28/18 12:10:32]: <0x2401> Option VAL 3: enabled  {35fd3afa}
+[02/28/18 12:10:32]: <0x2401> Machine Number: ?  {6bc657bb}
+[02/28/18 12:10:32]: <0x2401> Arm: rx160l-S1-R8 ceiling {ed079654}
+[02/28/18 12:10:32]: <0x2401> Arm serial number: ?  {1bece34f}
+[02/28/18 12:10:32]: <0x2401> Arm oil type:   {eb02db19}
+[02/28/18 12:10:32]: <0x2401> Robot name:   {501761ba}
+[02/28/18 12:10:32]: <0x2401> EP: s7.9.1 Mar 30 2016 {559c94fe}
+[02/28/18 12:10:32]: <0x2401> EP10: s7.9.1 Mar 30 2016 {05aef430}
+[02/28/18 12:10:32]: <0x2401> SCA: s7.9.1 Mar 30 2016 {b566a008}
+[02/28/18 12:10:32]: <0x2401> Options: s7.9.1 Apr  4 2016 {26522b61}
+[02/28/18 12:10:32]: <0x2401> B_SCS: s7.9.1 Mar 30 2016 {dc47451f}
+[02/28/18 12:10:32]: <0x2201> New profile : default {2cb60943}
+[02/28/18 12:10:32]: <0x2401> End of controller initialization {b5594580}
+[02/28/18 12:10:33]: <0x2402> COM-PC: create session 127.0.0.1 on port 53338 id=#89696952 {57abf895}
+[02/28/18 12:10:33]: <0x1602> End of arm power shutdown phase. {003a32f6}
+[02/28/18 12:10:53]: <0x2402> COM-PC: destroy session 127.0.0.1 on port 53338 id=#89696952 {491a9083}
+[02/28/18 12:13:01]: <0x2402> COM-PC: create session 127.0.0.1 on port 53362 id=#89696016 {8499965f}
+[02/28/18 12:13:01]: <0x2401> COM-PC: start WCF Client on '127.0.0.1:851' {31b8806a}
+[02/28/18 12:13:01]: <0x2402> COM-CLIENT: Connected to http://127.0.0.1:5656 {3a9669df}
+[02/28/18 12:13:02]: <0x5405> (File MFX_ROB_17.pjx-line 122) Disk://calcTool4pEn/calcTool4pEn.pjx : invalid library or wrong password {ba40d3af}
+[02/28/18 12:13:02]: <0x2402> COM-PC: destroy session 127.0.0.1 on port 53362 id=#89696016 {322e5b6c}
+[02/28/18 12:13:03]: <0x2402> Mcp = TSimulated {692b267e}
+[02/28/18 12:13:03]: <0x340A> Mcp communication established {4cd4231c}
+[02/28/18 12:13:04]: <0x1802> Working mode:manual. {04b0dd48}
+[02/28/18 12:14:11]: <0x2402> COM-PC: create session 127.0.0.1 on port 53373 id=#89696016 {2bd4d142}
+[02/28/18 12:14:11]: <0x2401> COM-PC: start WCF Client on '127.0.0.1:851' {44327c9c}
+[02/28/18 12:14:11]: <0x2402> COM-CLIENT: Connected to http://127.0.0.1:5656 {b2de4ff3}
+[02/28/18 12:14:12]: <0x5405> (File MFX_ROB_17.pjx-line 123) Disk://monitorAreaEn/monitorAreaEn.pjx : invalid library or wrong password {66c4efa2}
+[02/28/18 12:14:12]: <0x2402> COM-PC: destroy session 127.0.0.1 on port 53373 id=#89696016 {6fb41c18}
+[02/28/18 12:14:40]: <0x2402> COM-PC: create session 127.0.0.1 on port 53381 id=#89696328 {74ad1f47}
+[02/28/18 12:14:40]: <0x2401> COM-PC: start WCF Client on '127.0.0.1:851' {64ece3f4}
+[02/28/18 12:14:40]: <0x2402> COM-CLIENT: Connected to http://127.0.0.1:5656 {1284aee0}
+[02/28/18 12:14:41]: <0x5402> MFX_ROB_17 application started {509de4d2}
+[02/28/18 12:14:41]: <0x2402> COM-PC: destroy session 127.0.0.1 on port 53381 id=#89696328 {3188d1e5}

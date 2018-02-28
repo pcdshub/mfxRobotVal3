@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="aMainTcp" access="public">
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1">
+      <Parameter name="x_nUserLanguage" type="num" xsi:type="element" />
+    </Parameters>
+    <Locals>
+      <Local name="l_bOk" type="bool" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[
+begin
+  //-----------------------------------------------------------------------
+  //Header begin
+  //Description of program 
+  //  This program creates your tool from 4 different taught positions.
+  //  A wizard will guide you through the steps.
+  //
+  //Input parameters
+  //  num x_nUserLanguage : 
+  //    role : defines the language of GUI (Graphical User Interface) messages 
+  //    possible values : 1 or 2 : 1 => Deutsch, 2 => English    
+  //  KN:  This pgm called with explicit argument 100 for English         
+  //
+  //History
+  //  Creation : 07-04-08 - f.Rob
+  //  Used with modifications for SLAC KN 17aug2009
+  //  English language messages changed to be more readable & accurate
+  //Header end
+  //-----------------------------------------------------------------------
+  
+  //Initializing all parameters (trsf, point...)
+  call valSetBack()
+  
+  //Displays user title depending on the language defined
+  title(sUsrMess[1+nLangSet])
+  //Displays user instructions 
+  call description(l_bOk)
+  //-> First program for teach the points, after program for calculate sphere, 
+  //after calculation of the tool components 
+  if l_bOk==true
+    call teachPoints()
+    call splitUp(pTempS[1],pTempS[2],pTempS[3],pTempS[4])
+    call calculation(nS1[1],nS2[1],nS3[1],nS4[1],nS1[2],nS2[2],nS3[2],nS4[2],nS1[3],nS2[3],nS3[3],nS4[3])
+    //Test to know if the tool calculation is correct 
+    //If the tool calculation is not correct (bAbort true) displays messages indicating a problem
+    if bAbort
+      cls()
+      title("")
+      gotoxy(1,6)
+      putln(sUsrMess[15+nLangSet])
+      put(sUsrMess[32+nLangSet])
+      delay(2)  
+    else
+      call buildTool()
+    endIf
+  else
+    cls()
+    title("")
+    gotoxy(1,6)
+    put(sUsrMess[15+nLangSet])
+    delay(2)
+  endIf
+  cls()
+  title("")
+end
+            ]]></Code>
+  </Program>
+</Programs>

@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="language" access="public">
+    <Locals>
+      <Local name="l_nWhich" type="num" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[
+begin
+  //-----------------------------------------------------------------------
+  //Header begin
+  //Description of program
+  //  This program lets you choose the language : English or Deutsch
+  //
+  //Traceability
+  //  Creation : 07-04-08 - f.Rob
+  //  Modified to bypass German/English selection, force English  KN 17aug2009
+  //Header end
+  //-----------------------------------------------------------------------
+  //userPage()
+  //cls()
+  //gotoxy(5,5)
+  //putln(sUsrMess[101])
+  //gotoxy(7,10)
+  //put(sUsrMess[0])
+  //Functions to display navigation keys (F1 through F8)
+  //(here F3 and F6 with messages "Germ" or "Engl")
+  //call usrButtonTxt(3,"Germ")
+  //call usrButtonTxt(6,"Engl")
+  //Waiting user choice 3 (F3) or 6 (F6)
+  //do
+    //l_nWhich=(get()-270)
+  //until ((l_nWhich==3) or (l_nWhich==6))
+  //User choice : 3 (F3)=> Deutsch, 6 (F6)=> English
+  //switch l_nWhich
+    //case 3
+      //nLangSet=0
+    //break
+    //case 6
+      //nLangSet=100
+    //break
+  //endSwitch
+  //cls()
+  //userPage()
+  //gotoxy(0,13)
+  //put("                                       ")
+  //
+  //  force selection to English and return
+  nLangSet=100
+end
+            ]]></Code>
+  </Program>
+</Programs>

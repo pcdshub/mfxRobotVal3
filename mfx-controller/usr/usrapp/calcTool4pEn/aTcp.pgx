@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="aTcp" access="public">
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1">
+      <Parameter name="x_pUserTcp1" type="point" xsi:type="element" />
+      <Parameter name="x_pUserTcp2" type="point" xsi:type="element" />
+      <Parameter name="x_pUserTcp3" type="point" xsi:type="element" />
+      <Parameter name="x_pUserTcp4" type="point" xsi:type="element" />
+      <Parameter name="x_bCalcOk" type="bool" xsi:type="array" use="reference" />
+      <Parameter name="x_trUserTool" type="trsf" xsi:type="array" use="reference" />
+    </Parameters>
+    <Code><![CDATA[
+begin
+  //-----------------------------------------------------------------------
+  //Header begin
+  //Description of program 
+  //  Same as aMainTcp except the points need to be already taught (no wizard)
+  //  Caution : Defines only the X, Y, Z components of the TCP trsf
+  //
+  //Input parameters
+  //  point x_pUserTcp1 to x_pUserTcp4
+  //    role : 4 points used to calculates the TCP
+  //    possible values : not applicable (taught points)
+  //
+  //Output parameters
+  //  bool x_bCalcOk
+  //    role : set to false if there is an error of calulation and true otherwise
+  //  trsf x_trUserTool
+  //    role : Contains settings tool (X, Y, Z) 
+  //History
+  //  Creation : 07-04-08 - f.Rob
+  //  No modifications, not used for SLAC  KN  17aug2009
+  //Header end
+  //-----------------------------------------------------------------------
+  
+  //Initializing all parameters (trsf, point...)
+  call valSetBack()
+  
+  call splitUp(x_pUserTcp1,x_pUserTcp2,x_pUserTcp3,x_pUserTcp4)
+  call calculation(nS1[1],nS2[1],nS3[1],nS4[1],nS1[2],nS2[2],nS3[2],nS4[2],nS1[3],nS2[3],nS3[3],nS4[3])
+  //If the tool calculation is not correct -> bAbort true
+  x_bCalcOk=!bAbort
+  if bAbort
+    call valSetBack()
+    x_trUserTool={0,0,0,0,0,0}
+  else
+    x_trUserTool={nToolX,nToolY,nToolZ,0,0,0}
+  endIf
+end
+            ]]></Code>
+  </Program>
+</Programs>

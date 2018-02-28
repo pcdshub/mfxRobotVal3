@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="example">
+    <Locals>
+      <Local name="l_nLanguage" type="num" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[
+begin
+  //-----------------------------------------------------------------------
+  //Header begin
+  //Description of program
+  //  This is an example for use this library.
+  //  This program run differents sub-programs :
+  //  - language() for choose the language : "English or "Deutsch"
+  //  - aMainTcp() for calculates the tool transformation : a wizard will
+  //  guide you thtough the steps.
+  // 
+  //Traceability
+  //  Creation : 08-04-08 - f.Rob
+  //  Used without modification for SLAC KN 17aug2009
+  //Header end
+  //-----------------------------------------------------------------------
+  
+  call language()
+  call aMainTcp(nLangSet)
+end
+            ]]></Code>
+  </Program>
+</Programs>

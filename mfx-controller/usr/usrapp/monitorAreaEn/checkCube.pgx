@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="checkCube" access="public">
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1">
+      <Parameter name="x_tTool" type="tool" xsi:type="element" />
+      <Parameter name="x_nCube" type="num" xsi:type="element" />
+      <Parameter name="x_bCheckCube" type="bool" xsi:type="array" use="reference" />
+      <Parameter name="x_bError" type="bool" xsi:type="array" use="reference" />
+    </Parameters>
+    <Locals>
+      <Local name="l_bPositive" type="bool" xsi:type="array" size="1" />
+      <Local name="l_bNegative" type="bool" xsi:type="array" size="1" />
+      <Local name="l_pPointHere" type="point" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  //Header begin
+  //Description of program
+  //  This program checks if the tool is inside the specified cubic area
+  //
+  //Input parameters 
+  //  tool x_tTool : 
+  //    role : defines the tool that you want to monitor the position of
+  //  num x_nCube :
+  //    role : number of the cubic zone to be monitored (in order of creation)
+  //    possible values : number of an existing cubic zone
+  //
+  //Output parameters
+  //  bool x_bCheckCube :
+  //    role : set to true if the tool is inside the cubic zone and false otherwise
+  //  bool x_bError :
+  //    role : set to true if the cubic zone does not exist and false otherwise
+  //
+  //Example :
+  //  call checkCube(tTool, 1, bOK, bErr) 
+  //
+  //History
+  //  Creation : 16-04-08 - f.Rob
+  //  updated for SLAC KN
+  //Header end
+  
+  //Test if the cube that you want to monitor is created 
+  call init()
+  //DEBUG:putln("pgm MON: checkCube()")
+  if x_nCube>nNumberCube
+    x_bError=true
+    stopMove()
+    disablePower()
+    //User interface
+    popUpMsg("Cube Zone #"+toString("",x_nCube)+" has not been created."+chr(10)+"Stop the program !!!")
+    delay(3)
+    return
+  endIf
+  x_bError=false
+  x_bCheckCube=false
+  if bCreateCube[x_nCube]
+    l_pPointHere=here(x_tTool,fCube[x_nCube])
+    //Check if the tool is inside area just on Z component
+    if l_pPointHere.trsf.z>0 and l_pPointHere.trsf.z<nDistZCube[x_nCube]
+      //Check if positive or negative of Y
+      l_bPositive=l_pPointHere.trsf.y>0 and l_pPointHere.trsf.y<nDistYCube[x_nCube] and nDistYCube[x_nCube]>0
+      l_bNegative=l_pPointHere.trsf.y<0 and l_pPointHere.trsf.y>nDistYCube[x_nCube] and nDistYCube[x_nCube]<0
+      if l_bPositive or l_bNegative
+        //Check if positive or negative of X
+        l_bPositive=l_pPointHere.trsf.x>0 and l_pPointHere.trsf.x<nDistXCube[x_nCube] and nDistXCube[x_nCube]>0
+        l_bNegative=l_pPointHere.trsf.x<0 and l_pPointHere.trsf.x>nDistXCube[x_nCube] and nDistXCube[x_nCube]<0
+        //Test if the tool is inside the cube
+        if l_bPositive or l_bNegative
+          x_bCheckCube=true  
+        endIf
+      endIf
+    endIf
+  endIf
+end
+]]></Code>
+  </Program>
+</Programs>

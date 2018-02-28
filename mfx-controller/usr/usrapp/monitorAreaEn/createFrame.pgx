@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="createFrame" access="public">
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1">
+      <Parameter name="x_fFrame" type="frame" xsi:type="element" />
+      <Parameter name="x_bError" type="bool" xsi:type="array" use="reference" />
+    </Parameters>
+    <Locals>
+      <Local name="l_nSizeTab" type="num" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  //Header begin
+  //Description of program
+  //  This program creates an area for monitoring the Z position of
+  //  a tool center point in regards to a frame. 
+  //
+  //Input parameters 
+  //  frame x_fFrame : 
+  //    role : defines the frame that you want to use for monitoring the z value
+  //
+  //Output parameters
+  //  bool x bError :
+  //    role : set to true when the frame area could not be created, false otherwise
+  //
+  //Example 
+  //  call createFrame(fTable,bOK)  
+  //  
+  //History
+  //  Creation : 16-04-08 - f.Rob
+  //Header end
+  
+  
+  l_nSizeTab=size(fFrameZone)
+
+  //Test if it's possible to creates a new cylinder (not exceed the maximum size of the array)
+  if (nNumberFrame>l_nSizeTab-1)
+    x_bError=true
+    popUpMsg("Frame area number "+toString("",nNumberFrame)+" cannot be created : you can create only "+toString("",l_nSizeTab)+" (0.."+toString("",l_nSizeTab-1)+") area of this type")
+    return
+  endIf  
+  //Build the frame
+  fFrameZone[nNumberFrame]=x_fFrame
+  bCreateFrame[nNumberFrame]=true
+  
+  nNumberFrame=nNumberFrame+1
+end
+]]></Code>
+  </Program>
+</Programs>

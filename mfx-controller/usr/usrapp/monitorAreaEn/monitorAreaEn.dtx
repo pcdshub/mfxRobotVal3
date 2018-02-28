@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Database xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Data/2">
+  <Datas>
+    <Data name="nDistXCube" access="public" xsi:type="array" type="num" size="10" />
+    <Data name="nDistYCube" access="public" xsi:type="array" type="num" size="10" />
+    <Data name="nDistZCube" access="public" xsi:type="array" type="num" size="10" />
+    <Data name="nDistZCylinder" access="public" xsi:type="array" type="num" size="10" />
+    <Data name="nNumberCube" access="public" xsi:type="array" type="num" size="1">
+      <Value key="0" value="9" />
+    </Data>
+    <Data name="nNumberCylinder" access="public" xsi:type="array" type="num" size="1">
+      <Value key="0" value="9" />
+    </Data>
+    <Data name="nNumberFrame" access="public" xsi:type="array" type="num" size="1" />
+    <Data name="nNumberSphere" access="public" xsi:type="array" type="num" size="1">
+      <Value key="0" value="9" />
+    </Data>
+    <Data name="nRadiusCylinder" access="public" xsi:type="array" type="num" size="10" />
+    <Data name="nRadiusSphere" access="public" xsi:type="array" type="num" size="10">
+      <Value key="9" value="600" />
+    </Data>
+    <Data name="bCreateCube" access="public" xsi:type="array" type="bool" size="10" />
+    <Data name="bCreateCylinder" access="public" xsi:type="array" type="bool" size="10" />
+    <Data name="bCreateFrame" access="private" xsi:type="array" type="bool" size="10" />
+    <Data name="bCreateSphere" access="public" xsi:type="array" type="bool" size="10">
+      <Value key="9" value="true" />
+    </Data>
+    <Data name="fCube" access="private" xsi:type="array" type="frame" size="10">
+      <Value key="0" fatherId="world[0]" />
+      <Value key="1" fatherId="world[0]" />
+      <Value key="2" fatherId="world[0]" />
+      <Value key="3" fatherId="world[0]" />
+      <Value key="4" fatherId="world[0]" />
+      <Value key="5" fatherId="world[0]" />
+      <Value key="6" fatherId="world[0]" />
+      <Value key="7" fatherId="world[0]" />
+      <Value key="8" fatherId="world[0]" />
+      <Value key="9" fatherId="world[0]" />
+    </Data>
+    <Data name="fCylinder" access="private" xsi:type="array" type="frame" size="10">
+      <Value key="0" fatherId="world[0]" />
+      <Value key="1" fatherId="world[0]" />
+      <Value key="2" fatherId="world[0]" />
+      <Value key="3" fatherId="world[0]" />
+      <Value key="4" fatherId="world[0]" />
+      <Value key="5" fatherId="world[0]" />
+      <Value key="6" fatherId="world[0]" />
+      <Value key="7" fatherId="world[0]" />
+      <Value key="8" fatherId="world[0]" />
+      <Value key="9" fatherId="world[0]" />
+    </Data>
+    <Data name="fFrameZone" access="private" xsi:type="array" type="frame" size="10">
+      <Value key="0" fatherId="world[0]" />
+      <Value key="1" fatherId="world[0]" />
+      <Value key="2" fatherId="world[0]" />
+      <Value key="3" fatherId="world[0]" />
+      <Value key="4" fatherId="world[0]" />
+      <Value key="5" fatherId="world[0]" />
+      <Value key="6" fatherId="world[0]" />
+      <Value key="7" fatherId="world[0]" />
+      <Value key="8" fatherId="world[0]" />
+      <Value key="9" fatherId="world[0]" />
+    </Data>
+    <Data name="fTableExample" access="private" xsi:type="array" type="frame" size="1">
+      <Value key="0" z="-50" fatherId="world[0]" />
+    </Data>
+    <Data name="pOriginCube" access="public" xsi:type="array" type="pointRx" size="10">
+      <Value key="0" fatherId="world[0]" />
+      <Value key="1" fatherId="world[0]" />
+      <Value key="2" fatherId="world[0]" />
+      <Value key="3" fatherId="world[0]" />
+      <Value key="4" fatherId="world[0]" />
+      <Value key="5" fatherId="world[0]" />
+      <Value key="6" fatherId="world[0]" />
+      <Value key="7" fatherId="world[0]" />
+      <Value key="8" fatherId="world[0]" />
+      <Value key="9" fatherId="world[0]" />
+    </Data>
+    <Data name="pOriginCylinder" access="public" xsi:type="array" type="pointRx" size="10">
+      <Value key="0" fatherId="world[0]" />
+      <Value key="1" fatherId="world[0]" />
+      <Value key="2" fatherId="world[0]" />
+      <Value key="3" fatherId="world[0]" />
+      <Value key="4" fatherId="world[0]" />
+      <Value key="5" fatherId="world[0]" />
+      <Value key="6" fatherId="world[0]" />
+      <Value key="7" fatherId="world[0]" />
+      <Value key="8" fatherId="world[0]" />
+      <Value key="9" fatherId="world[0]" />
+    </Data>
+    <Data name="pOriginSphere" access="public" xsi:type="array" type="pointRx" size="10">
+      <Value key="0" fatherId="world[0]" />
+      <Value key="1" fatherId="world[0]" />
+      <Value key="2" fatherId="world[0]" />
+      <Value key="3" fatherId="world[0]" />
+      <Value key="4" fatherId="world[0]" />
+      <Value key="5" fatherId="world[0]" />
+      <Value key="6" fatherId="world[0]" />
+      <Value key="7" fatherId="world[0]" />
+      <Value key="8" fatherId="world[0]" />
+      <Value key="9" y="300" z="1200" rx="180" fatherId="world[0]" />
+    </Data>
+    <Data name="pStartExample" access="private" xsi:type="array" type="pointRx" size="1">
+      <Value key="0" x="400" z="100" fatherId="world[0]" />
+    </Data>
+    <Data name="pStartExample2" access="private" xsi:type="array" type="pointRx" size="1">
+      <Value key="0" x="600" z="-50" fatherId="world[0]" />
+    </Data>
+  </Datas>
+</Database>

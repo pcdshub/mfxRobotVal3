@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://www.staubli.com/robotics/VAL3/Project/3">
+  <Parameters version="s7.9.1" stackSize="5000" millimeterUnit="true" />
+  <Programs>
+    <Program file="checkCube.pgx" />
+    <Program file="checkCylinder.pgx" />
+    <Program file="checkFrame.pgx" />
+    <Program file="checkSphere.pgx" />
+    <Program file="createCube.pgx" />
+    <Program file="createCylinder.pgx" />
+    <Program file="createFrame.pgx" />
+    <Program file="createSphere.pgx" />
+    <Program file="example.pgx" />
+    <Program file="init.pgx" />
+    <Program file="readme.pgx" />
+    <Program file="start.pgx" />
+    <Program file="stop.pgx" />
+  </Programs>
+  <Database>
+    <Data file="monitorAreaEn.dtx" />
+  </Database>
+  <Libraries>
+    <Library alias="io" path="Disk://io/io.pjx" />
+  </Libraries>
+</Project>

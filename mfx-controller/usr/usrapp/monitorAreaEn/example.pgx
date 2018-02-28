@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="example">
+    <Locals>
+      <Local name="l_nDistXCube" type="num" xsi:type="array" size="1" />
+      <Local name="l_nDistYCube" type="num" xsi:type="array" size="1" />
+      <Local name="l_nDistZCube" type="num" xsi:type="array" size="1" />
+      <Local name="l_bSecuCube" type="bool" xsi:type="array" size="1" />
+      <Local name="l_bSecuFrame" type="bool" xsi:type="array" size="1" />
+      <Local name="l_bSecuSphere" type="bool" xsi:type="array" size="1" />
+      <Local name="l_bSecuCylinder" type="bool" xsi:type="array" size="1" />
+      <Local name="l_bSecuSphere2" type="bool" xsi:type="array" size="1" />
+      <Local name="l_bErrCube" type="bool" xsi:type="array" size="1" />
+      <Local name="l_bErrFrame" type="bool" xsi:type="array" size="1" />
+      <Local name="l_bErrSphere" type="bool" xsi:type="array" size="1" />
+      <Local name="l_bErrSphere2" type="bool" xsi:type="array" size="1" />
+      <Local name="l_bErrCylinder" type="bool" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  //Header begin
+  //Description of programm
+  //  This is an example for use this library.
+  //  In this example 2 spherical,1 frame area, 
+  //  1 cubic area, 1 cylindrical area are monitoring
+  //
+  //History
+  //  Creation : 16-04-08 - f.Rob
+  //Header end
+
+  call init()
+  //Creation of areas 
+  call createFrame(fTableExample,l_bErrFrame)
+  call createCube(pStartExample,200 ,200 ,200,l_bErrCube)
+  call createSphere(pStartExample,500,l_bErrSphere)
+  call createSphere(pStartExample2,400,l_bErrSphere2)
+  call createCylinder(pStartExample, 200, 600,l_bErrCylinder)
+  if l_bErrFrame or l_bErrCube or l_bErrSphere or l_bErrSphere2 or l_bErrCylinder
+    //Error on one of the creation
+  else
+    userPage()
+    cls()
+    while true
+      //Areas monitoring
+      call checkCube(flange,1,l_bSecuCube,l_bErrFrame)
+      call checkFrame(flange,1,l_bSecuFrame,l_bErrCube)
+      call checkSphere(flange,1,l_bSecuSphere,l_bErrSphere)
+      call checkSphere(flange,2,l_bSecuSphere2,l_bErrSphere2)
+      call checkCylinder(flange,1,l_bSecuCylinder,l_bErrCylinder)
+      if l_bErrFrame or l_bErrCube or l_bErrSphere or l_bErrSphere2 or l_bErrCylinder
+        //Error on one of the checks
+      else
+        if !l_bSecuCube
+          putln("Tool is outside CUBE")
+        endIf
+        if !l_bSecuFrame
+          putln("Tool is outside FRAME")
+        endIf
+        if !l_bSecuSphere
+          putln("Tool is outside SPHERE")
+        endIf
+        if !l_bSecuSphere2
+          putln("Tool is outside SPHERE 2")
+        endIf
+        if !l_bSecuCylinder
+          putln("Tool is outside CYLINDER")
+        endIf
+        if l_bSecuCube and l_bSecuFrame and l_bSecuSphere and l_bSecuCylinder and l_bSecuSphere2
+          putln("OK tool")
+        endIf
+        delay(0)
+        cls()
+      endIf
+    endWhile
+  endIf 
+end
+            ]]></Code>
+  </Program>
+</Programs>

@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="createCylinder" access="public">
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1">
+      <Parameter name="x_pOrigin" type="point" xsi:type="element" />
+      <Parameter name="x_nRadius" type="num" xsi:type="element" />
+      <Parameter name="x_nDistanceZ" type="num" xsi:type="element" />
+      <Parameter name="x_bError" type="bool" xsi:type="array" use="reference" />
+    </Parameters>
+    <Locals>
+      <Local name="l_nSizeTab" type="num" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  //Header begin
+  //Description of program
+  //  This program creates a cylindrical area  
+  //  defined by a point,a Radius and a Distance
+  //
+  // KN note:  cylinder considered 'active' if bCreateCylinder==true.  This boolean is cleared in pgm mnuTeachCyl()
+  //
+  //Input parameters 
+  //  point x_pOrigin : 
+  //    role : defines the origin and the diameter of the cylinder
+  //  num x_nRadius :
+  //    role : defines the radius of the cylinder
+  //  num x_nDistanceZ : 
+  //    role : defines the height of the cylinder about Z world
+  //
+  //Output parameters
+  //  bool x bError :
+  //    role : set to true when the cylinder area could not be created, false otherwise
+  //
+  //Example 
+  //  call createCylinder(pCenterCylinder,100,350,bOK) 
+  //  
+  //History
+  //  Creation : 16-04-08 - f.Rob
+  //Header end
+  
+  //Find the smallest array, this will define the maximum number of zones that can created
+  l_nSizeTab=size(pOriginCylinder)
+  if size(fCylinder)<l_nSizeTab
+    l_nSizeTab=size(fCylinder)
+  endIf
+  if size(nRadiusCylinder)<l_nSizeTab
+    l_nSizeTab=size(nRadiusCylinder)
+  endIf
+  if size(nDistZCylinder)<l_nSizeTab
+    l_nSizeTab=size(nDistZCylinder)
+  endIf
+  //Test if it's possible to creates a new cylinder (not exceed the maximum size of the smallest array)
+  if (nNumberCylinder>l_nSizeTab-1)
+    x_bError=true
+    popUpMsg("Cylinder area number "+toString("",nNumberCylinder)+" cannot be created : you can create only "+toString("",l_nSizeTab)+" (0.."+toString("",l_nSizeTab-1)+") area of this type")
+    return
+  endIf 
+  //Build the cylinder     
+  pOriginCylinder[nNumberCylinder].trsf=position(x_pOrigin,world)
+  if setFrame(pOriginCylinder[nNumberCylinder],compose(pOriginCylinder[nNumberCylinder],world,{x_nRadius,0,0,0,0,0}),compose(pOriginCylinder[nNumberCylinder],world,{0,x_nRadius,0,0,0,0}),fCylinder[nNumberCylinder])==0
+    bCreateCylinder[nNumberCylinder]=true
+  endIf
+  //Copy all parameters
+  nRadiusCylinder[nNumberCylinder]=x_nRadius
+  nDistZCylinder[nNumberCylinder]=x_nDistanceZ
+  
+  nNumberCylinder=nNumberCylinder+1
+end
+]]></Code>
+  </Program>
+</Programs>

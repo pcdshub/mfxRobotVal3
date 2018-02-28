@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="buildTool">
+    <Locals>
+      <Local name="l_nI" type="num" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[
+begin
+  //-----------------------------------------------------------------------
+  //Header begin
+  //Description of program
+  //  This program filled fields X, Y, Z of trUserTool
+  //
+  //Traceability
+  //  Creation : 07-04-08 - f.Rob
+  //  Used without modification for SLAC  KN  17aug2009
+  //Header end
+  //-----------------------------------------------------------------------
+  
+  userPage()
+  cls()
+  title(sUsrMess[27+nLangSet])
+  gotoxy(1,1)
+  put(sUsrMess[27+nLangSet]+":")
+  gotoxy(0,3)
+  //Displays a recapitulation of the 4 learning points and the components of the tool
+  for l_nI=1 to 4
+    put("Tool "+toString("1",l_nI)+":")
+    gotoxy(8,2+l_nI)
+    put("X="+toString("3.3",trTempTool[l_nI-1].x))
+    gotoxy(19,2+l_nI)
+    put("Y="+toString("3.3",trTempTool[l_nI-1].y))
+    gotoxy(30,2+l_nI)
+    putln("Z="+toString("3.3",trTempTool[l_nI-1].z))
+  endFor
+  gotoxy(4,8)
+  put(sUsrMess[28+nLangSet]+" "+sUsrMess[18+nLangSet]+"= ")
+  put(toString("3.3",nToolX))
+  gotoxy(4,9)
+  put(sUsrMess[29+nLangSet]+" "+sUsrMess[18+nLangSet]+"= ")
+  put(toString("3.3",nToolY))
+  gotoxy(4,10)
+  put(sUsrMess[30+nLangSet]+" "+sUsrMess[18+nLangSet]+"= ")
+  put(toString("3.3",nToolZ))
+  gotoxy(2,12)
+  put(sUsrMess[31+nLangSet])
+  call usrButtonTxt(8,"  OK")
+  wait((get()-270)==8)
+  trUserTool={nToolX,nToolY,nToolZ,0,0,0}
+end
+            ]]></Code>
+  </Program>
+</Programs>

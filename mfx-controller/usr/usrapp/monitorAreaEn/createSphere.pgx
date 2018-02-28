@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="createSphere" access="public">
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1">
+      <Parameter name="x_pOrigin" type="point" xsi:type="element" />
+      <Parameter name="x_nRadius" type="num" xsi:type="element" />
+      <Parameter name="x_bError" type="bool" xsi:type="array" use="reference" />
+    </Parameters>
+    <Locals>
+      <Local name="l_nIndex" type="num" xsi:type="array" size="1" />
+      <Local name="l_nSizeTab" type="num" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  //Header begin
+  //Description of program
+  //  This program creates a spherical area  
+  //  defined by a point and a distance
+  //
+  //  KN note:  sphere is considered 'active' if bCreateSphere==true.  This bool is cleared in pgm mnuTeachSphere().
+  //
+  //Input parameters 
+  //  point x_pOrigin : 
+  //    role : defines the center of the zone that you want to create
+  //  num x_nRadius :
+  //    role : defines the radius of the sphere
+  //
+  //Example 
+  //  call createSphere(pCenterSphere,350,bOK) 
+  //  
+  //History
+  //  Creation : 16-04-08 - f.Rob
+  //Header end
+  
+  //Find the smallest array, this will define the maximum number of zones that can created
+  l_nSizeTab=size(pOriginSphere)
+  if (size(nRadiusSphere)<l_nSizeTab)
+    l_nSizeTab=size(nRadiusSphere)
+  endIf
+  //Test if it's possible to creates a new sphere (not exceed the maximum size of the smallest array)
+  if (nNumberSphere>l_nSizeTab-1)
+    x_bError=true
+    popUpMsg("Sphere area number "+toString("",nNumberSphere)+" cannot be created : you can create only "+toString("",l_nSizeTab)+" (0.."+toString("",l_nSizeTab-1)+") area of this type")
+    return
+  endIf 
+  //Build te sphere
+  pOriginSphere[nNumberSphere].trsf=position(x_pOrigin,world)
+  nRadiusSphere[nNumberSphere]=x_nRadius
+  bCreateSphere[nNumberSphere]=true
+  
+  nNumberSphere=nNumberSphere+1
+end
+]]></Code>
+  </Program>
+</Programs>
