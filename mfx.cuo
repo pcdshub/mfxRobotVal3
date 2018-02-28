@@ -1,8 +1,49 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <CellUserOptions>
-  <Option Name="DataTreeView" />
-  <Option Name="CellExplorer" />
-  <Option Name="GeometryView" />
+  <Controller Name="mfx-controller">
+    <Application>Disk://MFX_ROB_17/MFX_ROB_17.pjx</Application>
+    <Application>Disk://io/io.pjx</Application>
+    <Application>Disk://monitorAreaEn/monitorAreaEn.pjx</Application>
+    <Application>Disk://calcTool4pEn/calcTool4pEn.pjx</Application>
+  </Controller>
+  <Option Name="DataTreeView">
+    <Nodes>
+      <Node Path="mfx" IsExpanded="true" />
+      <Node Path="mfx\mfx-controller" IsExpanded="true" />
+      <Node Path="mfx\mfx-controller\MFX_ROB_17" IsExpanded="true" />
+      <Node Path="mfx\mfx-controller\MFX_ROB_17\frame" IsExpanded="true" />
+      <Node Path="mfx\mfx-controller\MFX_ROB_17\jointRx" IsExpanded="true" />
+      <Node Path="mfx\mfx-controller\MFX_ROB_17\pointRx" IsExpanded="true" />
+    </Nodes>
+  </Option>
+  <Option Name="CellExplorer">
+    <Nodes>
+      <Node Path="mfx" IsExpanded="true" />
+      <Node Path="mfx\mfx-controller" IsExpanded="true" />
+      <Node Path="mfx\mfx-controller\MFX_ROB_17" IsExpanded="true" />
+    </Nodes>
+  </Option>
+  <Option Name="GeometryView">
+    <Nodes>
+      <Node Path="mfx" IsExpanded="true" />
+      <Node Path="mfx\mfx-controller" IsExpanded="true" />
+      <Node Path="mfx\mfx-controller\MFX_ROB_17" IsExpanded="true" />
+      <Node Path="mfx\mfx-controller\MFX_ROB_17\world[0]" IsExpanded="true" />
+      <Node Path="mfx\mfx-controller\MFX_ROB_17\world[0]\fIP1\fIP1[0]" IsExpanded="true" />
+      <Node Path="mfx\mfx-controller\MFX_ROB_17\world[0]\fIP1\fIP1[0]\pIP1NullPoint" IsExpanded="true" />
+      <Node Path="mfx\mfx-controller\MFX_ROB_17\world[0]\fIP1\fIP1[0]\pIP1Point" IsExpanded="true" />
+      <Node Path="mfx\mfx-controller\MFX_ROB_17\world[0]\fIP2" IsExpanded="true" />
+      <Node Path="mfx\mfx-controller\MFX_ROB_17\world[0]\fIP2\fIP2[0]" IsExpanded="true" />
+      <Node Path="mfx\mfx-controller\MFX_ROB_17\world[0]\fIP2\fIP2[0]\pIP2NullPoint" IsExpanded="true" />
+      <Node Path="mfx\mfx-controller\MFX_ROB_17\world[0]\fIP2\fIP2[0]\pIP2Point" IsExpanded="true" />
+      <Node Path="mfx\mfx-controller\MFX_ROB_17\world[0]\fIPoriginal" IsExpanded="true" />
+      <Node Path="mfx\mfx-controller\MFX_ROB_17\flange[0]" IsExpanded="true" />
+      <Node Path="mfx\mfx-controller\MFX_ROB_17\flange[0]\tSensorTool" IsExpanded="true" />
+      <Node Path="mfx\mfx-controller\MFX_ROB_17\jointRx" IsExpanded="true" />
+      <Node Path="mfx\mfx-controller\MFX_ROB_17\jointRx\jPark" IsExpanded="true" />
+      <Node Path="mfx\mfx-controller\MFX_ROB_17\jointRx\jParkTop" IsExpanded="true" />
+    </Nodes>
+  </Option>
   <Option Name="Breakpoints">
     <Breakpoints />
   </Option>
@@ -16,7 +57,9 @@
     <_3DView Visible="true" />
   </Option>
   <Option Name="SynchronizerMode">
-    <Synchronizers />
+    <Synchronizers>
+      <Synchronizer Controller="mfx-controller" Mode="Emulator" />
+    </Synchronizers>
   </Option>
   <Option Name="Safety">
     <Safeties />

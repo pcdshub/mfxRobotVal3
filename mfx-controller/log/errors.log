@@ -121,3 +121,417 @@
 [02/28/18 12:40:23]: <0x2401> Saving controller context... {1307c876}
 [02/28/18 12:40:23]: <0x2402> Controller temperature: 28°C {239b185c}
 [02/28/18 12:40:23]: <0x2402> CPU temperature: 28°C {e80957a6}
+[02/28/18 12:42:40]: ----------------------------------------------- {cdb93d5c}
+[02/28/18 12:42:40]: Logger started (1048576) {ae33a316}
+[02/28/18 12:42:45]: <0x0003> CPU board: TEKNOR ?Mhz; ?Mb RAM; ?Mb disk; bios: ?; fpga: ?; ataIde: ? {04c81263}
+[02/28/18 12:42:45]: <0x0003> Cycle time set to 0.004s {ae412334}
+[02/28/18 12:42:45]: <0x0003> Simulation cycle time set to 0.1s {3143f86e}
+[02/28/18 12:42:45]: <0x0002> Controller IP address could not be updated {15a107a9}
+[02/28/18 12:42:45]: <0x0003> Mcp = TSimulated {32b5425b}
+[02/28/18 12:42:45]: <0x340A> Mcp communication established {955fa7cf}
+[02/28/18 12:42:45]: <0x0001> Error while trying to build User serial 1 {1f4e16e8}
+[02/28/18 12:42:45]: <0x0002> Default user payload used. {28ad0268}
+[02/28/18 12:42:45]: <0x0003> Payload default: mass=14 kg, gravity center: x=0 y=0 z=86.3 mm, inertia=0 {85c9d044}
+[02/28/18 12:42:45]: <0x2401> Power hour count = 3:37:36 {00412b30}
+[02/28/18 12:42:45]: <0x2401> Mac Address = 00-50-56-c0-00-01 {9c338a6e}
+[02/28/18 12:42:45]: <0x0001> remoteTestMode link failed : no link defined {e952bf31}
+[02/28/18 12:42:45]: <0x0001> remoteManualMode link failed : no link defined {ee34f13c}
+[02/28/18 12:42:45]: <0x0001> remoteLocalMode link failed : no link defined {9ec4f7d2}
+[02/28/18 12:42:45]: <0x0001> remoteRemoteMode link failed : no link defined {0f4d3d77}
+[02/28/18 12:42:45]: <0x0001> estopAcknowledge link failed : no link defined {df67df5f}
+[02/28/18 12:42:45]: <0x0001> enablePower link failed : no link defined {f82a3aec}
+[02/28/18 12:42:45]: <0x0001> remoteMonitorSpeed link failed : no link defined {5c0e6bb3}
+[02/28/18 12:42:45]: <0x0001> remoteMoveHold link failed : no link defined {e12b0d06}
+[02/28/18 12:42:45]: <0x0001> validationKey link failed : no link defined {165d5a83}
+[02/28/18 12:42:45]: <0x0001> hardwareFaultAcknowledge link failed : no link defined {aa5ae736}
+[02/28/18 12:42:45]: <0x0001> RemoteMcp not enabled : invalid configuration {16809742}
+[02/28/18 12:42:45]: <0x0003> COM-PC: server created on all interfaces [851] {6be41be6}
+[02/28/18 12:42:45]: <0x2402> History handler has been connected to IHM {8550a560}
+[02/28/18 12:42:45]: <0x2401> System: s7.9.1 Mar 30 2016 {213403ab}
+[02/28/18 12:42:45]: <0x2401> Configuration Version: c1.037  {1d553b6d}
+[02/28/18 12:42:45]: <0x2401> CPU: TEKNOR  {d5d8cd58}
+[02/28/18 12:42:45]: <0x2401> Option remoteMcp: enabled  {4c1d3ce5}
+[02/28/18 12:42:45]: <0x2401> Option testMode: enabled  {5c74215f}
+[02/28/18 12:42:45]: <0x2401> Option oemLicence: enabled  {dbb2966a}
+[02/28/18 12:42:45]: <0x2401> Option remoteMaintenance: enabled  {ebbba95f}
+[02/28/18 12:42:45]: <0x2401> Option pciAccess: enabled  {fb51a489}
+[02/28/18 12:42:45]: <0x2401> Option 6axesAbsoluteRobot: enabled  {8babfbe3}
+[02/28/18 12:42:45]: <0x2401> Option VAL 3: enabled  {9b500d1e}
+[02/28/18 12:42:45]: <0x2401> Machine Number: ?  {6a73b36a}
+[02/28/18 12:42:45]: <0x2401> Arm: rx160l-S1-R8 ceiling {029a3776}
+[02/28/18 12:42:45]: <0x2401> Arm serial number: ?  {9eba8f89}
+[02/28/18 12:42:45]: <0x2401> Arm oil type:   {ae053b38}
+[02/28/18 12:42:45]: <0x2401> Robot name:   {255c58ee}
+[02/28/18 12:42:45]: <0x2401> EP: s7.9.1 Mar 30 2016 {445f0e53}
+[02/28/18 12:42:45]: <0x2401> EP10: s7.9.1 Mar 30 2016 {e0eb3c33}
+[02/28/18 12:42:45]: <0x2401> SCA: s7.9.1 Mar 30 2016 {b74d5239}
+[02/28/18 12:42:45]: <0x2401> Options: s7.9.1 Apr  4 2016 {14cc1a42}
+[02/28/18 12:42:45]: <0x2401> B_SCS: s7.9.1 Mar 30 2016 {8c207005}
+[02/28/18 12:42:45]: <0x1A03> System event INTERFACE-Stopped  (Main menu) {cbc46036}
+[02/28/18 12:42:45]: <0x2201> New profile : default {a5ac8348}
+[02/28/18 12:42:45]: <0x1A04> System event INTERFACE-Stopped  (Main menu). 1 events lost. {6efccdfc}
+[02/28/18 12:42:45]: <0x2401> End of controller initialization {5bee167d}
+[02/28/18 12:42:45]: <0x2402> COM-PC: create session 127.0.0.1 on port 54118 id=#82289648 {8d9db46f}
+[02/28/18 12:42:45]: <0x1802> Working mode:manual. {2737b7f5}
+[02/28/18 12:42:46]: <0x1602> End of arm power shutdown phase. {52f9fc4b}
+[02/28/18 12:43:06]: <0x2402> COM-PC: destroy session 127.0.0.1 on port 54118 id=#82289648 {e317160c}
+[02/28/18 12:43:21]: <0x2401> Saving controller context... {b0acc195}
+[02/28/18 12:43:21]: <0x2402> Controller temperature: 28°C {de0ac22e}
+[02/28/18 12:43:21]: <0x2402> CPU temperature: 28°C {e5b36508}
+[02/28/18 13:11:02]: <0x1A03> System event INTERFACE-Stopped  (Main menu) {7a5b8ff1}
+[02/28/18 13:11:03]: <0x1A04> System event INTERFACE-Stopped  (Main menu). 18 events lost. {04ccedbe}
+[02/28/18 13:11:06]: <0x2401> Saving controller context... {c02948ec}
+[02/28/18 13:12:07]: <0x2402> MCP communication disconnected {26c4c4da}
+[02/28/18 13:13:47]: ----------------------------------------------- {66f7e30e}
+[02/28/18 13:13:47]: Logger started (1048576) {c42f146e}
+[02/28/18 13:13:51]: <0x0003> CPU board: TEKNOR ?Mhz; ?Mb RAM; ?Mb disk; bios: ?; fpga: ?; ataIde: ? {04cf1706}
+[02/28/18 13:13:51]: <0x0003> Cycle time set to 0.004s {9c373868}
+[02/28/18 13:13:51]: <0x0003> Simulation cycle time set to 0.1s {32fd2510}
+[02/28/18 13:13:51]: <0x0002> Controller IP address could not be updated {95be7a9b}
+[02/28/18 13:13:51]: <0x0001> Error while trying to build User serial 1 {0ad091bd}
+[02/28/18 13:13:51]: <0x0002> Default user payload used. {0640f5c0}
+[02/28/18 13:13:51]: <0x0003> Payload default: mass=14 kg, gravity center: x=0 y=0 z=86.3 mm, inertia=0 {cd8721b0}
+[02/28/18 13:13:51]: <0x2401> Power hour count = 3:37:36 {98c1f9bf}
+[02/28/18 13:13:51]: <0x2401> Mac Address = 00-50-56-c0-00-08 {8efc5ced}
+[02/28/18 13:13:51]: <0x0001> remoteTestMode link failed : no link defined {98c00aba}
+[02/28/18 13:13:51]: <0x0001> remoteManualMode link failed : no link defined {62450a0a}
+[02/28/18 13:13:51]: <0x0001> remoteLocalMode link failed : no link defined {c71c8f3f}
+[02/28/18 13:13:51]: <0x0001> remoteRemoteMode link failed : no link defined {cc6ffc35}
+[02/28/18 13:13:51]: <0x0001> estopAcknowledge link failed : no link defined {8fc1b4cb}
+[02/28/18 13:13:51]: <0x0001> enablePower link failed : no link defined {7dfe4df5}
+[02/28/18 13:13:51]: <0x0001> remoteMonitorSpeed link failed : no link defined {4ca3b8a5}
+[02/28/18 13:13:51]: <0x0001> remoteMoveHold link failed : no link defined {6077f2a2}
+[02/28/18 13:13:51]: <0x0001> validationKey link failed : no link defined {799610d5}
+[02/28/18 13:13:51]: <0x0001> hardwareFaultAcknowledge link failed : no link defined {21a9743d}
+[02/28/18 13:13:51]: <0x0001> RemoteMcp not enabled : invalid configuration {5a958323}
+[02/28/18 13:13:51]: <0x0003> COM-PC: server created on all interfaces [851] {031ea3f1}
+[02/28/18 13:13:51]: <0x2402> History handler has been connected to IHM {3a51d1ba}
+[02/28/18 13:13:51]: <0x2401> System: s7.9.1 Mar 30 2016 {c0937c16}
+[02/28/18 13:13:51]: <0x2401> Configuration Version: c1.037  {e0791529}
+[02/28/18 13:13:51]: <0x2401> CPU: TEKNOR  {1070bc96}
+[02/28/18 13:13:51]: <0x2401> Option remoteMcp: enabled  {e2735bee}
+[02/28/18 13:13:51]: <0x2401> Option testMode: enabled  {9223e73d}
+[02/28/18 13:13:51]: <0x2401> Option oemLicence: enabled  {823b251c}
+[02/28/18 13:13:51]: <0x2401> Option remoteMaintenance: enabled  {b2e6786f}
+[02/28/18 13:13:51]: <0x2401> Option pciAccess: enabled  {a2fdd7aa}
+[02/28/18 13:13:51]: <0x2401> Option 6axesAbsoluteRobot: enabled  {52e88e51}
+[02/28/18 13:13:51]: <0x2401> Option VAL 3: enabled  {420e1198}
+[02/28/18 13:13:51]: <0x2401> Machine Number: ?  {ef0fa5a1}
+[02/28/18 13:13:51]: <0x2401> Arm: rx160l-S1-R8 ceiling {9df4d1a8}
+[02/28/18 13:13:51]: <0x2401> Arm serial number: ?  {16a3b1e4}
+[02/28/18 13:13:51]: <0x2401> Arm oil type:   {664ac4b7}
+[02/28/18 13:13:51]: <0x2401> Robot name:   {3cf98b0f}
+[02/28/18 13:13:51]: <0x2401> EP: s7.9.1 Mar 30 2016 {69081e1a}
+[02/28/18 13:13:51]: <0x2401> EP10: s7.9.1 Mar 30 2016 {1b589041}
+[02/28/18 13:13:51]: <0x2401> SCA: s7.9.1 Mar 30 2016 {b1b089f3}
+[02/28/18 13:13:51]: <0x2401> Options: s7.9.1 Apr  4 2016 {c2f61091}
+[02/28/18 13:13:51]: <0x2401> B_SCS: s7.9.1 Mar 30 2016 {6ac838c1}
+[02/28/18 13:13:51]: <0x2201> New profile : default {387b7537}
+[02/28/18 13:13:51]: <0x2401> End of controller initialization {b95db610}
+[02/28/18 13:13:52]: <0x2402> COM-PC: create session 127.0.0.1 on port 54411 id=#82748440 {a3debf81}
+[02/28/18 13:13:52]: <0x1602> End of arm power shutdown phase. {31838de4}
+[02/28/18 13:13:59]: <0x2402> COM-PC: destroy session 127.0.0.1 on port 54411 id=#82748440 {a268be9b}
+[02/28/18 13:14:59]: ----------------------------------------------- {f11f51e1}
+[02/28/18 13:14:59]: Logger started (1048576) {16531535}
+[02/28/18 13:15:10]: <0x0003> CPU board: TEKNOR ?Mhz; ?Mb RAM; ?Mb disk; bios: ?; fpga: ?; ataIde: ? {d3d1d950}
+[02/28/18 13:15:10]: <0x0003> Cycle time set to 0.004s {728a6c5f}
+[02/28/18 13:15:10]: <0x0003> Simulation cycle time set to 0.1s {d00e38df}
+[02/28/18 13:15:10]: <0x0002> Controller IP address could not be updated {d9cc54c3}
+[02/28/18 13:15:10]: <0x0001> Error while trying to build User serial 1 {7ea8edb9}
+[02/28/18 13:15:10]: <0x0002> Default user payload used. {de70c018}
+[02/28/18 13:15:10]: <0x0003> Payload default: mass=14 kg, gravity center: x=0 y=0 z=86.3 mm, inertia=0 {e2546965}
+[02/28/18 13:15:10]: <0x2401> Power hour count = 3:37:36 {1aae62f6}
+[02/28/18 13:15:10]: <0x2401> Mac Address = 00-50-56-c0-00-08 {d1ec1d45}
+[02/28/18 13:15:10]: <0x0001> remoteTestMode link failed : no link defined {538d2e99}
+[02/28/18 13:15:10]: <0x0001> remoteManualMode link failed : no link defined {0ed99299}
+[02/28/18 13:15:10]: <0x0001> remoteLocalMode link failed : no link defined {d59ae16f}
+[02/28/18 13:15:10]: <0x0001> remoteRemoteMode link failed : no link defined {4c064d9f}
+[02/28/18 13:15:10]: <0x0001> estopAcknowledge link failed : no link defined {17d92196}
+[02/28/18 13:15:10]: <0x0001> enablePower link failed : no link defined {d35bb0f7}
+[02/28/18 13:15:10]: <0x0001> remoteMonitorSpeed link failed : no link defined {0674e79d}
+[02/28/18 13:15:10]: <0x0001> remoteMoveHold link failed : no link defined {c806d91c}
+[02/28/18 13:15:10]: <0x0001> validationKey link failed : no link defined {a0929f74}
+[02/28/18 13:15:10]: <0x0001> hardwareFaultAcknowledge link failed : no link defined {64d82641}
+[02/28/18 13:15:10]: <0x0001> RemoteMcp not enabled : invalid configuration {738ff154}
+[02/28/18 13:15:10]: <0x2402> History handler has been connected to IHM {0a3f2c22}
+[02/28/18 13:15:10]: <0x2401> System: s7.9.1 Mar 30 2016 {f78b8330}
+[02/28/18 13:15:10]: <0x2401> Configuration Version: c1.037  {d33ba4cd}
+[02/28/18 13:15:12]: <0x2401> CPU: TEKNOR  {d05d79c9}
+[02/28/18 13:15:12]: <0x2401> Option remoteMcp: enabled  {821545e1}
+[02/28/18 13:15:12]: <0x2401> Option testMode: enabled  {f203d11a}
+[02/28/18 13:15:12]: <0x2401> Option oemLicence: enabled  {e2e26a8f}
+[02/28/18 13:15:12]: <0x2401> Option remoteMaintenance: enabled  {d2ff53f6}
+[02/28/18 13:15:12]: <0x2401> Option pciAccess: enabled  {c26bec37}
+[02/28/18 13:15:12]: <0x2401> Option 6axesAbsoluteRobot: enabled  {32d2f398}
+[02/28/18 13:15:12]: <0x2401> Option VAL 3: enabled  {225e00c0}
+[02/28/18 13:15:12]: <0x2401> Machine Number: ?  {99c168f9}
+[02/28/18 13:15:12]: <0x2401> Arm: rx160l-S1-R8 ceiling {9c0c0b74}
+[02/28/18 13:15:12]: <0x2401> Arm serial number: ?  {cd916d7f}
+[02/28/18 13:15:12]: <0x2401> Arm oil type:   {bd6f0396}
+[02/28/18 13:15:12]: <0x2401> Robot name:   {0064a2e7}
+[02/28/18 13:15:12]: <0x2401> EP: s7.9.1 Mar 30 2016 {281a29e9}
+[02/28/18 13:15:12]: <0x2401> EP10: s7.9.1 Mar 30 2016 {6278a252}
+[02/28/18 13:15:12]: <0x2401> SCA: s7.9.1 Mar 30 2016 {56b4ddd2}
+[02/28/18 13:15:12]: <0x2401> Options: s7.9.1 Apr  4 2016 {1ab079a0}
+[02/28/18 13:15:12]: <0x2401> B_SCS: s7.9.1 Mar 30 2016 {664c1ea3}
+[02/28/18 13:15:12]: <0x2201> New profile : default {7651f06b}
+[02/28/18 13:15:12]: <0x2401> End of controller initialization {87486116}
+[02/28/18 13:15:12]: <0x1602> End of arm power shutdown phase. {5e77ca4a}
+[02/28/18 13:15:12]: <0x2402> COM-PC: server created on all interfaces [851] {7e127f68}
+[02/28/18 13:15:12]: <0x2402> COM-PC: create session 127.0.0.1 on port 54531 id=#77511320 {8ebb0b72}
+[02/28/18 13:15:20]: <0x1A03> System event INTERFACE-Stopped  (Main menu) {7ff7f052}
+[02/28/18 13:15:20]: <0x1A04> System event INTERFACE-Stopped  (Main menu). 10 events lost. {32499ac4}
+[02/28/18 13:15:29]: <0x1A03> System event INTERFACE-Stopped  (Main menu) {31f37f78}
+[02/28/18 13:15:29]: <0x1A04> System event INTERFACE-Stopped  (Main menu). 1 events lost. {6234fa09}
+[02/28/18 13:15:35]: <0x1A03> System event INTERFACE-Stopped  (Main menu) {be046731}
+[02/28/18 13:15:36]: <0x1A04> System event INTERFACE-Stopped  (Main menu). 2 events lost. {7645b83d}
+[02/28/18 13:15:36]: <0x2402> COM-PC: destroy session 127.0.0.1 on port 54531 id=#77511320 {30db452f}
+[02/28/18 13:16:34]: <0x1A03> System event INTERFACE-Stopped  (Main menu) {6392ac03}
+[02/28/18 13:16:35]: <0x1A04> System event INTERFACE-Stopped  (Main menu). 3 events lost. {108bdfdb}
+[02/28/18 13:17:00]: <0x1A03> System event INTERFACE-Stopped  (Main menu) {075ba728}
+[02/28/18 13:17:00]: <0x1A04> System event INTERFACE-Stopped  (Main menu). 27 events lost. {4f60523c}
+[02/28/18 13:17:22]: <0x1A03> System event INTERFACE-Stopped  (Main menu) {7e867c1b}
+[02/28/18 13:17:22]: <0x1A04> System event INTERFACE-Stopped  (Main menu). 4 events lost. {f14a6683}
+[02/28/18 13:19:09]: <0x1A03> System event INTERFACE-Stopped  (Main menu) {cb04ac95}
+[02/28/18 13:19:09]: <0x1A04> System event INTERFACE-Stopped  (Main menu). 4 events lost. {0d47a6df}
+[02/28/18 13:24:04]: <0x2402> COM-PC: create session 127.0.0.1 on port 55053 id=#82463104 {f663b7b2}
+[02/28/18 13:24:05]: <0x2401> COM-PC: start WCF Client on '127.0.0.1:851' {18343ed0}
+[02/28/18 13:24:05]: <0x2402> COM-CLIENT: Connected to http://127.0.0.1:5656 {08623612}
+[02/28/18 13:24:06]: <0x5402> MFX_ROB_17 application started {f21ea9e3}
+[02/28/18 13:24:07]: <0x2402> Mcp = TSimulated {b976db28}
+[02/28/18 13:24:07]: <0x340A> Mcp communication established {fe24f330}
+[02/28/18 13:24:07]: <0x2402> COM-PC: destroy session 127.0.0.1 on port 55053 id=#82463104 {13a833ef}
+[02/28/18 13:24:07]: <0x1802> Working mode:manual. {0c433c2c}
+[02/28/18 13:24:24]: <0x5464> USR:start remCmdHandler for passive commands... {c6aebbb6}
+[02/28/18 13:24:37]: <0x5A03> Deadman validated {c2a4bb37}
+[02/28/18 13:24:37]: <0x1603> Settling arm power... {8aaaf13c}
+[02/28/18 13:24:38]: <0x1601> Arm power settled. {c1b3f352}
+[02/28/18 13:24:38]: <0x3B06> Cannot complete move: destination is out of reach.(out of software joint limits) {c4a5e3ee}
+[02/28/18 13:24:52]: <0x5A01> Deadman enabled. {583af13f}
+[02/28/18 13:25:05]: <0x2402> COM-PC: create session 127.0.0.1 on port 55073 id=#82559144 {83a4585c}
+[02/28/18 13:27:41]: <0x3B06> Cannot complete move: destination is out of reach.(out of software joint limits) {0d39d8a4}
+[02/28/18 13:28:17]: <0x3B06> Cannot complete move: destination is out of reach.(out of software joint limits) (1) {98331089}
+[02/28/18 13:54:40]: <0x2401> Saving controller context... {da23d6a1}
+[02/28/18 13:54:40]: <0x2402> Controller temperature: 28°C {ef705ff2}
+[02/28/18 13:54:40]: <0x2402> CPU temperature: 28°C {0a84edac}
+[02/28/18 14:00:42]: <0x1A03> System event INTERFACE-Stopped  (Application interface) {26bf8882}
+[02/28/18 14:00:42]: <0x1A04> System event INTERFACE-Stopped  (Application interface). 2 events lost. {6b517332}
+[02/28/18 14:24:48]: <0x2401> Saving controller context... {ddefb448}
+[02/28/18 14:38:08]: <0x2402> COM-PC: create session 127.0.0.1 on port 64949 id=#158085632 {bc2a7aa0}
+[02/28/18 14:38:08]: <0x2401> COM-PC: start WCF Client on '127.0.0.1:851' {f29f3d5f}
+[02/28/18 14:38:08]: <0x2402> COM-CLIENT: Connected to http://127.0.0.1:5656 {837e4699}
+[02/28/18 14:38:09]: <0x5403> MFX_ROB_17 application stopped {c7abfaf1}
+[02/28/18 14:38:09]: <0x1604> Arm power shutdown... {5137c74f}
+[02/28/18 14:38:09]: <0x5402> MFX_ROB_17 application started {0019ac1d}
+[02/28/18 14:38:09]: <0x2402> COM-PC: destroy session 127.0.0.1 on port 64949 id=#158085632 {9afcf174}
+[02/28/18 14:38:10]: <0x1602> End of arm power shutdown phase. {40554704}
+[02/28/18 14:38:11]: <0x5464> USR:start remCmdHandler for passive commands... {4b098aae}
+[02/28/18 14:38:11]: <0x2401> Saving controller context... {6958f5e9}
+[02/28/18 14:38:36]: <0x2402> COM-PC: destroy session 127.0.0.1 on port 55073 id=#82559144 {28c02746}
+[02/28/18 14:40:14]: <0x2402> COM-PC: create session 127.0.0.1 on port 64995 id=#160990112 {9786e75c}
+[02/28/18 14:40:36]: <0x2402> COM-PC: destroy session 127.0.0.1 on port 64995 id=#160990112 {bca8095c}
+[02/28/18 14:40:51]: <0x2402> COM-PC: create session 127.0.0.1 on port 65006 id=#160019232 {83c0e273}
+[02/28/18 14:41:06]: <0x2402> COM-PC: destroy session 127.0.0.1 on port 65006 id=#160019232 {5ef53e49}
+[02/28/18 14:41:23]: <0x2402> COM-PC: create session 127.0.0.1 on port 65026 id=#160990112 {733320a3}
+[02/28/18 14:43:36]: <0x2402> COM-PC: create session 127.0.0.1 on port 65068 id=#160990216 {ac1f8477}
+[02/28/18 14:43:36]: <0x2401> COM-PC: start WCF Client on '127.0.0.1:851' {9130bd51}
+[02/28/18 14:43:36]: <0x2402> COM-CLIENT: Connected to http://127.0.0.1:5656 {5a3ce5e4}
+[02/28/18 14:43:36]: <0x5403> MFX_ROB_17 application stopped {5c04e41a}
+[02/28/18 14:43:36]: <0x2402> COM-PC: destroy session 127.0.0.1 on port 65026 id=#160990112 {23d1b054}
+[02/28/18 14:43:36]: <0x5402> MFX_ROB_17 application started {ff09e76f}
+[02/28/18 14:43:36]: <0x2402> COM-PC: destroy session 127.0.0.1 on port 65068 id=#160990216 {432b7d79}
+[02/28/18 14:43:46]: <0x5464> USR:start remCmdHandler for passive commands... {ce28fc13}
+[02/28/18 14:43:54]: <0x5A02> Deadman disabled. {56bf5384}
+[02/28/18 14:43:54]: <0x5A03> Deadman validated {ae7e7ddc}
+[02/28/18 14:43:54]: <0x1603> Settling arm power... {6276c074}
+[02/28/18 14:43:55]: <0x1601> Arm power settled. {a470ed2d}
+[02/28/18 14:44:09]: <0x2402> COM-PC: create session 127.0.0.1 on port 65080 id=#159359856 {13ff94eb}
+[02/28/18 14:44:10]: <0x5A01> Deadman enabled. {8137015f}
+[02/28/18 14:46:48]: <0x2402> COM-PC: create session 127.0.0.1 on port 65125 id=#77485744 {e21c09bb}
+[02/28/18 14:46:48]: <0x2401> COM-PC: start WCF Client on '127.0.0.1:851' {ccbe5142}
+[02/28/18 14:46:48]: <0x2402> COM-CLIENT: Connected to http://127.0.0.1:5656 {d3fa9239}
+[02/28/18 14:46:48]: <0x1604> Arm power shutdown... {e62e80e5}
+[02/28/18 14:46:48]: <0x1602> End of arm power shutdown phase. {375bd738}
+[02/28/18 14:46:48]: <0x5403> MFX_ROB_17 application stopped {a2e69571}
+[02/28/18 14:46:48]: <0x5402> MFX_ROB_17 application started {0b09c70f}
+[02/28/18 14:46:48]: <0x2402> COM-PC: destroy session 127.0.0.1 on port 65125 id=#77485744 {1cab4baf}
+[02/28/18 14:46:51]: <0x2401> Saving controller context... {02e9a1b5}
+[02/28/18 14:47:04]: <0x5464> USR:start remCmdHandler for passive commands... {2028f9f1}
+[02/28/18 14:47:19]: <0x2402> COM-PC: create session 127.0.0.1 on port 65140 id=#76736016 {31e7da95}
+[02/28/18 14:47:19]: <0x2401> COM-PC: start WCF Client on '127.0.0.1:851' {f1859cba}
+[02/28/18 14:47:19]: <0x2402> COM-CLIENT: Connected to http://127.0.0.1:5656 {7e2df8e3}
+[02/28/18 14:47:19]: <0x5403> MFX_ROB_17 application stopped {2457a5a5}
+[02/28/18 14:47:20]: <0x5402> MFX_ROB_17 application started {fa1c7307}
+[02/28/18 14:47:20]: <0x2402> COM-PC: destroy session 127.0.0.1 on port 65140 id=#76736016 {5ffd0981}
+[02/28/18 14:47:23]: <0x5464> USR:start remCmdHandler for passive commands... {570b1bdc}
+[02/28/18 14:47:31]: <0x5A02> Deadman disabled. {9d13bad4}
+[02/28/18 14:47:31]: <0x5A03> Deadman validated {dda5a340}
+[02/28/18 14:47:32]: <0x5A01> Deadman enabled. {79624342}
+[02/28/18 14:47:33]: <0x5A02> Deadman disabled. {d6a11066}
+[02/28/18 14:47:33]: <0x5A03> Deadman validated {42882845}
+[02/28/18 14:47:33]: <0x1603> Settling arm power... {96b19255}
+[02/28/18 14:47:33]: <0x1601> Arm power settled. {a38738b4}
+[02/28/18 14:47:34]: <0x5A01> Deadman enabled. {0c185894}
+[02/28/18 14:48:08]: <0x5464> USR:dist to TP=100    {9c7bc569}
+[02/28/18 14:48:08]: <0x5464> USR:Dist to Park=0    {9545a277}
+[02/28/18 14:48:08]: <0x3B07> Cannot move: cannot cross singularity in this case. {f383381a}
+[02/28/18 14:49:06]: <0x5464> USR:movTargetPoint():  zone entered or HALT requested during move {31e46315}
+[02/28/18 14:49:53]: <0x2402> COM-PC: create session 127.0.0.1 on port 65183 id=#159359232 {be43d388}
+[02/28/18 14:49:53]: <0x2401> COM-PC: start WCF Client on '127.0.0.1:851' {eff31982}
+[02/28/18 14:49:53]: <0x2402> COM-CLIENT: Connected to http://127.0.0.1:5656 {7b15d24a}
+[02/28/18 14:49:53]: <0x5403> MFX_ROB_17 application stopped {5ba2b22d}
+[02/28/18 14:49:53]: <0x1604> Arm power shutdown... {144b2bc3}
+[02/28/18 14:49:54]: <0x5402> MFX_ROB_17 application started {9f618572}
+[02/28/18 14:49:54]: <0x2402> COM-PC: destroy session 127.0.0.1 on port 65183 id=#159359232 {29b8ad15}
+[02/28/18 14:49:54]: <0x1602> End of arm power shutdown phase. {bc5ce7ec}
+[02/28/18 14:49:56]: <0x5464> USR:start remCmdHandler for passive commands... {c52de33b}
+[02/28/18 14:49:57]: <0x2401> Saving controller context... {1728e890}
+[02/28/18 14:50:08]: <0x5464> USR:dist to TP=100    {34e56423}
+[02/28/18 14:50:08]: <0x5464> USR:Dist to Park=0    {12c7de9d}
+[02/28/18 14:50:11]: <0x5A02> Deadman disabled. {96808f2b}
+[02/28/18 14:50:12]: <0x5A03> Deadman validated {4ae67256}
+[02/28/18 14:50:12]: <0x1603> Settling arm power... {a4c86014}
+[02/28/18 14:50:12]: <0x1601> Arm power settled. {3fbf7fce}
+[02/28/18 14:50:13]: <0x5A01> Deadman enabled. {d6a793ed}
+[02/28/18 14:50:38]: <0x5464> USR:movTargetPoint():  target point move complete {ca48ebaa}
+[02/28/18 14:52:29]: <0x2402> COM-PC: create session 127.0.0.1 on port 65221 id=#160019960 {906d15d5}
+[02/28/18 14:52:29]: <0x2401> COM-PC: start WCF Client on '127.0.0.1:851' {792ffb3c}
+[02/28/18 14:52:29]: <0x2402> COM-CLIENT: Connected to http://127.0.0.1:5656 {5ea9f3fa}
+[02/28/18 14:52:30]: <0x5403> MFX_ROB_17 application stopped {34636679}
+[02/28/18 14:52:30]: <0x1604> Arm power shutdown... {690b4adb}
+[02/28/18 14:52:30]: <0x5402> MFX_ROB_17 application started {0b1e32a4}
+[02/28/18 14:52:30]: <0x2402> COM-PC: destroy session 127.0.0.1 on port 65221 id=#160019960 {68ea351c}
+[02/28/18 14:52:31]: <0x1602> End of arm power shutdown phase. {aace3a24}
+[02/28/18 14:52:32]: <0x2401> Saving controller context... {4e62b43a}
+[02/28/18 14:52:35]: <0x5464> USR:start remCmdHandler for passive commands... {e39b197f}
+[02/28/18 14:52:47]: <0x3F15> Jog mode cannot be selected: first enable arm power. {2ab2eec4}
+[02/28/18 14:52:51]: <0x5A02> Deadman disabled. {67bd00f9}
+[02/28/18 14:52:51]: <0x5A03> Deadman validated {7182dae1}
+[02/28/18 14:52:53]: <0x5A01> Deadman enabled. {d42ec77f}
+[02/28/18 14:52:55]: <0x5A02> Deadman disabled. {de81e098}
+[02/28/18 14:52:55]: <0x5A03> Deadman validated {8dfd3e21}
+[02/28/18 14:52:56]: <0x5A01> Deadman enabled. {6dbb8d86}
+[02/28/18 14:52:58]: <0x5A02> Deadman disabled. {fb99721a}
+[02/28/18 14:52:58]: <0x5A03> Deadman validated {669b9da5}
+[02/28/18 14:52:59]: <0x5A01> Deadman enabled. {b719878c}
+[02/28/18 14:53:07]: <0x5A02> Deadman disabled. {0bfc21e2}
+[02/28/18 14:53:07]: <0x5A03> Deadman validated {dc2cb246}
+[02/28/18 14:53:08]: <0x5A01> Deadman enabled. {212d131a}
+[02/28/18 14:53:09]: <0x5A02> Deadman disabled. {9829bfe4}
+[02/28/18 14:53:10]: <0x5A03> Deadman validated {d658cf2c}
+[02/28/18 14:53:10]: <0x5A01> Deadman enabled. {0f9a394f}
+[02/28/18 14:53:16]: <0x2402> COM-PC: create session 127.0.0.1 on port 65238 id=#159359024 {8a918041}
+[02/28/18 14:53:16]: <0x2401> COM-PC: start WCF Client on '127.0.0.1:851' {105988a0}
+[02/28/18 14:53:16]: <0x2402> COM-CLIENT: Connected to http://127.0.0.1:5656 {f9a56486}
+[02/28/18 14:53:16]: <0x5403> MFX_ROB_17 application stopped {9a9d88a2}
+[02/28/18 14:53:17]: <0x5402> MFX_ROB_17 application started {f40970b8}
+[02/28/18 14:53:17]: <0x2402> COM-PC: destroy session 127.0.0.1 on port 65238 id=#159359024 {d14157f1}
+[02/28/18 14:53:20]: <0x5464> USR:start remCmdHandler for passive commands... {0da439f1}
+[02/28/18 14:53:22]: <0x5A02> Deadman disabled. {5787e84e}
+[02/28/18 14:53:23]: <0x5A03> Deadman validated {fb4de0c9}
+[02/28/18 14:53:23]: <0x1603> Settling arm power... {073b6a10}
+[02/28/18 14:53:23]: <0x1601> Arm power settled. {e6d34724}
+[02/28/18 14:53:23]: <0x5A01> Deadman enabled. {8466bf3d}
+[02/28/18 14:53:27]: <0x3B07> Cannot move: cannot cross singularity in this case. {3d26acca}
+[02/28/18 14:58:26]: <0x2402> COM-PC: create session 127.0.0.1 on port 49162 id=#158404688 {d42761ae}
+[02/28/18 14:58:26]: <0x2401> COM-PC: start WCF Client on '127.0.0.1:851' {4251502b}
+[02/28/18 14:58:26]: <0x2402> COM-CLIENT: Connected to http://127.0.0.1:5656 {72bb3f21}
+[02/28/18 14:58:26]: <0x5403> MFX_ROB_17 application stopped {e32ee070}
+[02/28/18 14:58:26]: <0x1604> Arm power shutdown... {4401af43}
+[02/28/18 14:58:26]: <0x5402> MFX_ROB_17 application started {fbcb215b}
+[02/28/18 14:58:27]: <0x2402> COM-PC: destroy session 127.0.0.1 on port 49162 id=#158404688 {c03cb559}
+[02/28/18 14:58:27]: <0x1602> End of arm power shutdown phase. {6132d13b}
+[02/28/18 14:58:28]: <0x5464> USR:start remCmdHandler for passive commands... {1c844814}
+[02/28/18 14:58:30]: <0x2401> Saving controller context... {efeb972d}
+[02/28/18 14:58:38]: <0x5A02> Deadman disabled. {dfccb6cb}
+[02/28/18 14:58:39]: <0x5A03> Deadman validated {efcfd304}
+[02/28/18 14:58:39]: <0x1603> Settling arm power... {082e28bd}
+[02/28/18 14:58:39]: <0x1601> Arm power settled. {ac721445}
+[02/28/18 14:58:39]: <0x5A01> Deadman enabled. {ecb42b7a}
+[02/28/18 14:59:05]: <0x5464> USR:dist to TP=0    {f82c7af7}
+[02/28/18 14:59:05]: <0x5464> USR:Dist to Park=0    {febd2147}
+[02/28/18 14:59:22]: <0x5464> USR:movTargetPoint():  target point move complete {3ba72034}
+[02/28/18 15:00:17]: <0x2402> COM-PC: create session 127.0.0.1 on port 49197 id=#76735496 {a394791e}
+[02/28/18 15:00:17]: <0x2401> COM-PC: start WCF Client on '127.0.0.1:851' {467688b1}
+[02/28/18 15:00:17]: <0x2402> COM-CLIENT: Connected to http://127.0.0.1:5656 {e8f7fddc}
+[02/28/18 15:00:17]: <0x1604> Arm power shutdown... {daecf6c7}
+[02/28/18 15:00:17]: <0x1602> End of arm power shutdown phase. {e834ebce}
+[02/28/18 15:00:17]: <0x5403> MFX_ROB_17 application stopped {31dcfecf}
+[02/28/18 15:00:17]: <0x5402> MFX_ROB_17 application started {115fc85e}
+[02/28/18 15:00:17]: <0x2402> COM-PC: destroy session 127.0.0.1 on port 49197 id=#76735496 {c4a7aaf9}
+[02/28/18 15:00:19]: <0x5464> USR:start remCmdHandler for passive commands... {399dc0da}
+[02/28/18 15:00:20]: <0x2401> Saving controller context... {919bced7}
+[02/28/18 15:01:09]: <0x3F12> Cannot apply arm power: release & press deadman to enable arm power request. {9fc22195}
+[02/28/18 15:01:12]: <0x3F12> Cannot apply arm power: release & press deadman to enable arm power request. (1) {2bfb458c}
+[02/28/18 15:01:20]: <0x3F15> Jog mode cannot be selected: first enable arm power. {55b31ca4}
+[02/28/18 15:01:20]: <0x5A02> Deadman disabled. {38f2d5c2}
+[02/28/18 15:01:21]: <0x5A03> Deadman validated {adc600ce}
+[02/28/18 15:01:21]: <0x1603> Settling arm power... {4106ad5a}
+[02/28/18 15:01:21]: <0x1601> Arm power settled. {64d55d1d}
+[02/28/18 15:01:21]: <0x5A02> Deadman disabled. {aecfe650}
+[02/28/18 15:01:21]: <0x1604> Arm power shutdown... {74d061ee}
+[02/28/18 15:01:21]: <0x3F08> Cannot apply arm power: press and hold the deadman switch. {7601bd6b}
+[02/28/18 15:01:21]: <0x1602> End of arm power shutdown phase. {b50a1798}
+[02/28/18 15:01:21]: <0x5A03> Deadman validated {8aa38a27}
+[02/28/18 15:01:22]: <0x5A01> Deadman enabled. {d24bbdb2}
+[02/28/18 15:01:23]: <0x5A02> Deadman disabled. {78782dae}
+[02/28/18 15:01:23]: <0x5A03> Deadman validated {c3c7257d}
+[02/28/18 15:01:24]: <0x5A01> Deadman enabled. {f4c50e26}
+[02/28/18 15:01:26]: <0x2401> Saving controller context... {163f4259}
+[02/28/18 15:01:26]: <0x2402> COM-PC: create session 127.0.0.1 on port 49226 id=#159359336 {77c0d22f}
+[02/28/18 15:01:26]: <0x2401> COM-PC: start WCF Client on '127.0.0.1:851' {c4baac59}
+[02/28/18 15:01:26]: <0x2402> COM-CLIENT: Connected to http://127.0.0.1:5656 {41ecba9e}
+[02/28/18 15:01:26]: <0x5403> MFX_ROB_17 application stopped {cda10c33}
+[02/28/18 15:01:27]: <0x5402> MFX_ROB_17 application started {537ac6cc}
+[02/28/18 15:01:27]: <0x2402> COM-PC: destroy session 127.0.0.1 on port 49226 id=#159359336 {094e66ca}
+[02/28/18 15:01:29]: <0x5464> USR:start remCmdHandler for passive commands... {7fb58538}
+[02/28/18 15:01:30]: <0x5A02> Deadman disabled. {afb696f6}
+[02/28/18 15:01:30]: <0x5A03> Deadman validated {e2e06d08}
+[02/28/18 15:01:30]: <0x5A01> Deadman enabled. {251222ff}
+[02/28/18 15:01:36]: <0x5A02> Deadman disabled. {983266be}
+[02/28/18 15:01:37]: <0x5A03> Deadman validated {8c27c5ea}
+[02/28/18 15:01:37]: <0x1603> Settling arm power... {eea36e03}
+[02/28/18 15:01:37]: <0x1601> Arm power settled. {832ccaf1}
+[02/28/18 15:01:37]: <0x5A01> Deadman enabled. {6db0203b}
+[02/28/18 15:08:12]: <0x2402> COM-PC: create session 127.0.0.1 on port 49715 id=#161658392 {92a52ea8}
+[02/28/18 15:08:12]: <0x2401> COM-PC: start WCF Client on '127.0.0.1:851' {75a8b8dc}
+[02/28/18 15:08:12]: <0x2402> COM-CLIENT: Connected to http://127.0.0.1:5656 {2af7dc05}
+[02/28/18 15:08:12]: <0x5403> MFX_ROB_17 application stopped {292e0c41}
+[02/28/18 15:08:12]: <0x1604> Arm power shutdown... {c6c7a595}
+[02/28/18 15:08:13]: <0x5402> MFX_ROB_17 application started {77096006}
+[02/28/18 15:08:13]: <0x2402> COM-PC: destroy session 127.0.0.1 on port 49715 id=#161658392 {11ade1f6}
+[02/28/18 15:08:13]: <0x1602> End of arm power shutdown phase. {40f7344d}
+[02/28/18 15:08:14]: <0x5464> USR:start remCmdHandler for passive commands... {5fc2ce0d}
+[02/28/18 15:08:16]: <0x2401> Saving controller context... {2547dcea}
+[02/28/18 15:08:22]: <0x5A02> Deadman disabled. {94ba3e3b}
+[02/28/18 15:08:22]: <0x5A03> Deadman validated {1fd724f8}
+[02/28/18 15:08:22]: <0x1603> Settling arm power... {7996d22a}
+[02/28/18 15:08:23]: <0x1601> Arm power settled. {b04bf954}
+[02/28/18 15:08:26]: <0x2402> COM-PC: destroy session 127.0.0.1 on port 65080 id=#159359856 {7396f710}
+[02/28/18 15:08:29]: <0x2402> COM-PC: create session 127.0.0.1 on port 49726 id=#76738200 {b2c7a6a3}
+[02/28/18 15:08:29]: <0x5A01> Deadman enabled. {c7aabd8e}
+[02/28/18 15:08:47]: <0x5464> USR:dist to TP=100    {db4d8507}
+[02/28/18 15:08:47]: <0x5464> USR:Dist to Park=0    {db865f70}
+[02/28/18 15:08:59]: <0x5464> USR:movTargetPoint():  target point move complete {a7e917b5}
+[02/28/18 15:09:33]: <0x2402> COM-PC: create session 127.0.0.1 on port 49737 id=#167518320 {506acdda}
+[02/28/18 15:09:33]: <0x2401> COM-PC: start WCF Client on '127.0.0.1:851' {e51788d5}
+[02/28/18 15:09:33]: <0x2402> COM-CLIENT: Connected to http://127.0.0.1:5656 {fea31f33}
+[02/28/18 15:09:33]: <0x1604> Arm power shutdown... {3b892972}
+[02/28/18 15:09:33]: <0x1602> End of arm power shutdown phase. {59d6130e}
+[02/28/18 15:09:33]: <0x5403> MFX_ROB_17 application stopped {a341f11c}
+[02/28/18 15:09:34]: <0x5402> MFX_ROB_17 application started {f3877064}
+[02/28/18 15:09:34]: <0x2402> COM-PC: destroy session 127.0.0.1 on port 49737 id=#167518320 {3b4c3f92}
+[02/28/18 15:09:35]: <0x5464> USR:start remCmdHandler for passive commands... {82e7b6a7}
+[02/28/18 15:09:37]: <0x2401> Saving controller context... {21a2fe01}
+[02/28/18 15:09:41]: <0x5A02> Deadman disabled. {e2a24ee0}
+[02/28/18 15:09:41]: <0x5A03> Deadman validated {1c0fd5b0}
+[02/28/18 15:09:42]: <0x5A01> Deadman enabled. {055f8091}
+[02/28/18 15:09:43]: <0x3F12> Cannot apply arm power: release & press deadman to enable arm power request. {e665666a}
+[02/28/18 15:09:47]: <0x3F12> Cannot apply arm power: release & press deadman to enable arm power request. (1) {aeaef5ef}
+[02/28/18 15:09:47]: <0x5A02> Deadman disabled. {ce3096a3}
+[02/28/18 15:09:47]: <0x5A03> Deadman validated {1d6fbbff}
+[02/28/18 15:09:47]: <0x1603> Settling arm power... {11e22d35}
+[02/28/18 15:09:47]: <0x1601> Arm power settled. {0b9b44f7}
+[02/28/18 15:09:48]: <0x5A01> Deadman enabled. {a6191e17}
+[02/28/18 15:39:50]: <0x2401> Saving controller context... {a72974a6}
+[02/28/18 15:44:51]: <0x2402> COM-PC: destroy session 127.0.0.1 on port 49726 id=#76738200 {4c1b7711}
