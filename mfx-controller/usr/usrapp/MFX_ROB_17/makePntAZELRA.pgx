@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="makePntAZELRA">
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1">
+      <Parameter name="XnIPNumber" type="num" xsi:type="element" />
+      <Parameter name="XnTPNumber" type="num" xsi:type="element" />
+    </Parameters>
+    <Code><![CDATA[begin
+  //header begin
+  // PROGRAM makePntAZELRA()
+  //
+  // transforms all Azimuth-Elevation-Radius input data to
+  // Cartesian {X, Y, Z, rX, rY, rZ} points
+  // done globally, works on single point only
+  //
+  // incoming parms:
+  //    XnIPNumber = currently selected Interaction Point Number, either 0=IP1 or 1=IP2
+  //    XnTPNumber = currently selected Target Point Number, range=0-19
+  // outgoing parms:  none
+  // called from:  pgm mnuSetTargetPts()
+  //
+  // NEW DEFINITION TO MATCH SLAC SPECIFICATION MATH DESCRIPTION
+  //    For fIPn aligned so that
+  //      fIPn_+Zaxis in direction of beam travel and parallel to RX160L World_+Yaxis
+  //      fIPn_+Xaxis parallel to pointing to XPP Hutch entrance doors & parallel to RX160L World_+Xaxis
+  //      fIPn_+Yaxis pointing to ceiling and parallel to RX160L World_-Zaxis
+  //          NOTE:  these statements are valid for BOTH fIP1 & fIP2 since the robot is on translating base
+  //                 does not have to reach "over" to another fIPn
+  //    Therefore
+  //      Azimuth = rotation about fIPn_Yaxis
+  //      Elevation = rotation about fIPn_Z'axis
+  //      Radius = translation along fIPn_X'axis
+  //
+  //  initial release KN
+  //  updated @SLAC 17feb2010 KN
+  //header end
+  //
+  // updates for IP1 Target Points
+  if XnIPNumber==0
+    //
+    // new definitions to match SLAC spec math
+    pIP1Point[XnTPNumber].trsf={0,0,0,0,0,0}
+    // Add AZ component:  rotate about fIPn_+Yaxis
+    pIP1Point[XnTPNumber].trsf=pIP1Point[XnTPNumber].trsf*{0,0,0,0,nIP1Azimuth[XnTPNumber],0}
+    // Add EL component:  rotate about fIPn_+Z'axis
+    pIP1Point[XnTPNumber].trsf=pIP1Point[XnTPNumber].trsf*{0,0,0,-nIP1Elevation[XnTPNumber],0,0}
+    // Add RA component:  translate along fIPn+X'axis
+    pIP1Point[XnTPNumber].trsf=pIP1Point[XnTPNumber].trsf*{0,0,nIP1Radius[XnTPNumber],0,0,0}
+    // now transform the point so that +Zaxis points back to fIPn
+    pIP1Point[XnTPNumber].trsf=pIP1Point[XnTPNumber].trsf*{0,0,0,-180,0,0}
+    //
+  endIf
+  //
+  // updates for IP2 Target Points
+  if XnIPNumber==1
+    //
+    // new definitions to match SLAC spec math (as above)
+    pIP2Point[XnTPNumber].trsf={0,0,0,0,0,0}
+    pIP2Point[XnTPNumber].trsf=pIP2Point[XnTPNumber].trsf*{0,0,0,0,nIP2Azimuth[XnTPNumber],0}
+    pIP2Point[XnTPNumber].trsf=pIP2Point[XnTPNumber].trsf*{0,0,0,-nIP2Elevation[XnTPNumber],0,0}
+    pIP2Point[XnTPNumber].trsf=pIP2Point[XnTPNumber].trsf*{0,0,nIP2Radius[XnTPNumber],0,0,0}
+    pIP2Point[XnTPNumber].trsf=pIP2Point[XnTPNumber].trsf*{0,0,0,0,-180,0}
+    //
+  endIf
+  // done
+end
+
+      ]]></Code>
+  </Program>
+</Programs>

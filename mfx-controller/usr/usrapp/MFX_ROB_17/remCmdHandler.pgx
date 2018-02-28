@@ -1,0 +1,299 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="remCmdHandler">
+    <Locals>
+      <Local name="sFullCmd" type="string" xsi:type="array" size="1" />
+      <Local name="nIndex" type="num" xsi:type="array" size="1" />
+      <Local name="sCmd" type="string" xsi:type="array" size="1" />
+      <Local name="sArgs" type="string" xsi:type="array" size="1" />
+      <Local name="nArgs" type="num" xsi:type="array" size="1" />
+      <Local name="sTemp" type="string" xsi:type="array" size="1" />
+      <Local name="LsResponse" type="string" xsi:type="array" size="1" />
+      <Local name="nArgsReq" type="num" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  // Command interface with the IOC
+  // Parses the command and sends it to the correct subprocess
+  //
+  sRemMotionCmd=""
+  sXPPCommand=""
+  nMovArgs=0
+  do
+    //kill self if remote mode is on and 3 is pressed
+    if bRemControlON and isKeyPressed(283)
+      bKillRemControl=true
+    endIf
+    //start tskRemMotion if not running.  Is killed by Client Command String below to
+    //stop current motion if any in progress
+    if bRemControlON and taskStatus("RemoteMotion")!=1
+      putln("RemoteMotion task OFF, starting...")
+      logMsg("RemoteMotion task OFF, starting...")
+      taskCreate "RemoteMotion",10,remMovHandler()
+      wait(taskStatus("RemoteMotion")==1)
+      logMsg("RemoteMotion task ON!")
+      putln("RemoteMotion task ON!")
+    endIf
+    // read command string from XPP Host
+    sFullCmd=sioXPPclient
+    if len(sFullCmd)>0
+      // strip off the last CR character of the incoming string
+      sFullCmd=delete(sFullCmd,1,len(sFullCmd))
+      // separate string into command and arguments. Count the arguments.
+      nIndex=find(sFullCmd," ")
+      nArgs=0
+      if nIndex == -1
+        sCmd=sFullCmd
+        sArgs=""
+      else
+        sCmd=left(sFullCmd,nIndex)
+        sArgs=delete(sFullCmd,nIndex+1,0)
+        sTemp=sArgs
+        do
+          nArgs=nArgs+1
+          nIndex=find(sTemp," ")
+          if nIndex != -1
+            sTemp=delete(sTemp,nIndex+1,0)
+          endIf
+        until nIndex == -1
+      endIf
+      // even if we're just getting a value, write to the logs
+      logMsg("Request " + sFullCmd)
+      LsResponse = ""
+      // print to screen if we're changing sometihng
+      sTemp=left(sCmd,3)
+      if bRemControlON and (sTemp == "MOV" or sTemp == "SET" or sTemp == "CMD")
+        putln(sFullCmd)
+      endIf
+      if !bRemControlON and sTemp != "GET" and sCmd != "ENABLEREMOTE" and sTemp != "NOT"
+        call remErrManual(LsResponse)
+      elseIf sTemp == "MOV"
+        if bRemMotionBusy==true
+          call remErrBusy(LsResponse)
+        elseIf isPowered()==false
+          call remErrPower(LsResponse)
+        else
+          sXPPCommand=sArgs
+          nMovArgs=nArgs
+          sRemMotionCmd=sCmd
+        endIf
+      else
+        switch sCmd
+          case "GETPOS"
+            call remGetHere(LsResponse)
+          break
+          case "GETPOSSPH"
+            call remGetHereSph(LsResponse)
+          break
+          case "GETONEPOS"
+            nArgsReq = 1
+            if nArgs == nArgsReq
+              call remGetOneHere(sArgs, LsResponse)
+            else
+              call remErrArgs(sCmd,nArgs,nArgsReq,LsResponse)
+            endIf
+          break
+          case "GETWORLD"
+            call remGetWorld(LsResponse)
+          break
+          case "GETJOINTS"
+            call remGetJoints(LsResponse)
+          break
+          case "CMDDISABLEARM"
+            call remDisableArm(LsResponse)
+          break
+          case "CMDENABLEARM"
+            call remEnableArm(LsResponse)
+          break
+          case "GETARMSTAT"
+            call remGetArmStat(LsResponse)
+          break
+          case "GETESTOP"
+            call remGetESTOP(LsResponse)
+          break
+          case "SETIP"
+            nArgsReq =1
+            if nArgs == nArgsReq
+              call remSetIP(sArgs, LsResponse)
+            else
+              call remErrArgs(sCmd,nArgs,nArgsReq,LsResponse)
+            endIf
+          break
+          case "GETIP"
+            call remGetIP(LsResponse)
+          break
+          case "SETIPVALS"
+            nArgsReq = 7
+            if nArgs == nArgsReq
+              call remSetIPVals(sArgs, LsResponse)
+            else
+              call remErrArgs(sCmd,nArgs,nArgsReq,LsResponse)
+            endIf
+          break
+          case "GETIPVALS"
+            call remGetIPVals(LsResponse)
+          break
+          case "CMDTRANSIP"
+            nArgsReq = 3
+            if nArgs == nArgsReq
+              call remTransIP(sArgs, LsResponse)
+            else
+              call remErrArgs(sCmd,nArgs,nArgsReq,LsResponse)
+            endIf
+          break
+          case "SETTCPVALS"
+            nArgsReq = 6
+            if nArgs == nArgsReq
+              call remSetTCPVals(sArgs, LsResponse)
+            else
+              call remErrArgs(sCmd,nArgs,nArgsReq,LsResponse)
+            endIf
+          break
+          case "GETTCPVALS"
+            call remGetTCPVals(LsResponse)
+          break
+          case "SETMODE"
+            nArgsReq =1
+            if nArgs == nArgsReq
+              call remSetMode(sArgs, LsResponse)
+            else
+              call remErrArgs(sCmd,nArgs,nArgsReq,LsResponse)
+            endIf
+          break
+          case "GETMODE"
+            call remGetMode(LsResponse)
+          break
+          case "SETMAXV"
+            nArgsReq = 1
+            if nArgs == nArgsReq
+              call remSetMaxV(sArgs, LsResponse)
+            else
+              call remErrArgs(sCmd,nArgs,nArgsReq,LsResponse)
+            endIf
+          break
+          case "GETMAXV"
+            call remGetMaxV(LsResponse)
+          break
+          case "SETMAXRV"
+            nArgsReq = 1
+            if nArgs == nArgsReq
+              call remSetMaxRV(sArgs, LsResponse)
+            else
+              call remErrArgs(sCmd,nArgs,nArgsReq,LsResponse)
+            endIf
+          break
+          case "GETMAXRV"
+            call remGetMaxRV(LsResponse)
+          break
+          case "SETMAXA"
+            nArgsReq =1
+            if nArgs == nArgsReq
+              call remSetMaxA(sArgs,LsResponse)
+            else
+              call remErrArgs(sCmd,nArgs,nArgsReq,LsResponse)
+            endIf
+          break
+          case "GETMAXA"
+            call remGetMaxA(LsResponse)
+          break
+          case "SETMAXDIST"
+            nArgsReq = 1
+            if nArgs == nArgsReq
+              call remSetMaxDist(sArgs,LsResponse)
+            else
+              call remErrArgs(sCmd,nArgs,nArgsReq,LsResponse)
+            endIf
+          break
+          case "GETMAXDIST"
+            call remGetMaxDist(LsResponse)
+          break
+          case "GETDMOV"
+            call remGetDMOV(LsResponse)
+          break
+          case "ENABLEREMOTE"
+            call remEnableRem(LsResponse)
+          break
+          case "CMDHALTREMOTE"
+            call xppWriteBack("CMDHALTREMOTE")
+            bKillRemControl=true
+          break
+          case "GETREMOTE"
+            call remGetRem(LsResponse)
+          break
+          case "GETERROR"
+            call remErrBufferGet(LsResponse)
+          break
+          case "CMDTEST"
+            call remTest(sArgs, LsResponse)
+          break
+          
+          case "GETPPS"
+            call remGetPPS(LsResponse)
+          break
+          
+          case "NOTPPS"
+            nArgsReq = 1
+            if nArgs == nArgsReq
+              call remSetPPS(sArgs,LsResponse)
+            else
+              call remErrArgs(sCmd,nArgs,nArgsReq,LsResponse)
+            endIf
+          break
+          
+          case "GETHEARTBEAT"
+            call remGetHeartbeat(LsResponse)
+          break
+          
+          case "NOTHEARTBEAT"
+            nArgsReq = 1
+            if nArgs == nArgsReq
+              call remSetHeartbeat(sArgs,LsResponse)
+            else
+              call remErrArgs(sCmd,nArgs,nArgsReq,LsResponse)
+            endIf
+          break
+          
+          
+          
+          case "CMDKILLMOTION"
+            // cancel the pending command strings & booleans used in other tasks
+            sXPPCommand=""
+            logMsg("KILLMOTION requested by XPP")
+            putln("KILLMOTION requested by XPP")
+            bRemMotionBusy=false
+            //bEnableMonitor=false
+            sRemMotionCmd=""
+            //
+            // kill Remote Motion task
+            putln("STOPPING RemoteMotion task...")
+            logMsg("STOPPING RemoteMotion task...")
+            taskKill("RemoteMotion")
+            wait(taskStatus("RemoteMotion")!=1)
+            //
+            // stop & reset motion
+            stopMove()
+            resetMotion()
+            putln("RemoteMotion task STOPPED!")
+            logMsg("RemoteMotion task STOPPED!")
+            putln("MOTION KILLED")
+            logMsg("MOTION KILLED")
+            LsResponse="CMDKILLMOTION"
+          break
+          default
+            call remErrCmd(sCmd, LsResponse)
+          break
+        endSwitch
+      endIf
+      if len(LsResponse) > 0
+        call xppWriteBack(LsResponse)
+      endIf
+      //
+    endIf
+    //this task is killed in tskRemControl()
+  until false
+  // done
+  //
+end
+
+      ]]></Code>
+  </Program>
+</Programs>

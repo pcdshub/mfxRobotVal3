@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="remSetTCPVals">
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1">
+      <Parameter name="sArgs" type="string" xsi:type="array" use="reference" />
+      <Parameter name="sReturn" type="string" xsi:type="array" use="reference" />
+    </Parameters>
+    <Locals>
+      <Local name="nArg" type="num" xsi:type="array" size="1" />
+      <Local name="trTCP" type="trsf" xsi:type="array" size="1" />
+      <Local name="nTemp" type="num" xsi:type="array" size="1" />
+      <Local name="bOk" type="bool" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  // Set the values of the TCP
+  //
+  // Arguments are "X Y Z RX RY RZ"
+  //
+  logMsg("call remSetTCPVals")
+  nArg = 0
+  trTCP = {0,0,0,0,0,0}
+  while nArg < 6
+    sArgs = toNum(sArgs, nTemp, bOk)
+    if bOk
+      switch nArg
+        case 0
+          trTCP.x = nTemp
+        break
+        case 1
+          trTCP.y = nTemp
+        break
+        case 2
+          trTCP.z = nTemp
+        break
+        case 3
+          trTCP.rx = nTemp
+        break
+        case 4
+          trTCP.ry = nTemp
+        break
+        case 5
+          trTCP.rz = nTemp
+        break
+      endSwitch
+      nArg = nArg + 1
+    else
+      call remErrNum("SETTCPVALS",sArgs,sReturn)
+      return
+    endIf
+  endWhile
+  tSensorTool.trsf = trTCP
+  sReturn = "SETTCPVALS"
+end
+
+]]></Code>
+  </Program>
+</Programs>

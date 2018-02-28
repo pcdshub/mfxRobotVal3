@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="mnuTeachIP" access="public">
+    <Locals>
+      <Local name="nKey" type="num" xsi:type="array" size="1" />
+      <Local name="LbBackup" type="bool" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  //header begin
+  // PROGRAM mnuTeachP()
+  //
+  // runs the menu to Teach the Interaction Point by two methods:
+  //    (1) Direct Entry of Interaction Point {X, Y, Z, RX, RY, RZ} values
+  //    (2) Use a Wizard to walk through the steps to physically teach the IP with a reference pointer tool
+  //
+  // incoming parms:  none
+  // outgoing parms:  none
+  // called from:  pgm mnuTeachMenu()
+  //
+  //  this program is part of SLAC Release 2:  KN
+  //
+  //header end
+  //
+  // start continuous loop, end by menu command or teach pendant command
+  // on user command, jump to other subroutines for action
+  //
+  LbBackup=false
+  do
+    // nIdxTeachIP = 331
+    call displayMessage6(nIdxTeachIP,nKey)
+    // verify selection
+    switch nKey
+      // ESC key aborts & returns immediately
+      case 255
+        return
+      break
+      // menu = Teach TCP:  F1 Button, Toggle selection of Interaction Point Number
+      case 271
+        if nIPNumber==0
+          nIPNumber=1
+        else
+          nIPNumber=0
+        endIf
+      break
+      // menu = Teach TCP:  F2 Button, Direct Entry of Interaction Point {X, Y, Z, RX, RY, RZ} values
+      case 272
+        call mnuEnterIPVals()
+      break
+      // menu = Teach TCP:  F3 Button, run Wizard to Teach Interaction Point with reference pointer
+      case 273
+        call mnuTeachFrame()
+      break
+      //  menu = Teach TCP:  F8 Button, backup to Teach Menu
+      case 278
+        LbBackup=true
+      break
+      // ALL OTHER CHOICES
+      default
+        popUpMsg("mnuTeachIP:  BAD SELECTION...Press OK")
+      break
+    endSwitch
+  until (false or (LbBackup==true))
+  // done
+end
+
+      ]]></Code>
+  </Program>
+</Programs>

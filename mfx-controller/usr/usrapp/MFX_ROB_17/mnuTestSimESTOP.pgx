@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="mnuTestSimESTOP">
+    <Locals>
+      <Local name="LbDone" type="bool" xsi:type="array" size="1" />
+      <Local name="nKey" type="num" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  //header begin
+  // PROGRAM mnuTestSimESTOP()
+  //
+  // runs the menu to test for bSimulateESTOP is on, get user to continue or disable
+  //
+  // incoming parms:  none
+  // outgoing parms:  none
+  // called from:  pgm main()
+  //
+  //  This program is released as part of SLAC RX130L robot control code Revision 3.
+  //  This is part of Blue Technik proposal K01c
+  //header end
+  //
+  // start continuous loop, end by menu command or teach pendant command
+  // on user command, jump to other subroutines for action
+  //
+  // init booleans for menu control in pgm displayMessage2()
+  LbDone=false
+  //
+  do
+    //
+    call displayMessage9(361,nKey)
+    // verify selection
+    switch nKey
+      // F1 to continue with bSimulateESTOP=true as initialized
+      case 271
+        LbDone=true
+      break
+      //  F8 to disable Simulated ESTOP function and continue with program
+      case 278
+        bSimulateESTOP=false
+        LbDone=true
+      break
+      // Any other key press
+      default
+        cls()
+        //
+      break
+    endSwitch
+  until (false or (LbDone==true))
+  //
+  // done
+end
+
+      ]]></Code>
+  </Program>
+</Programs>

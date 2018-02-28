@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="mnuTeachStayClr">
+    <Locals>
+      <Local name="nKey" type="num" xsi:type="array" size="1" />
+      <Local name="LbBackup" type="bool" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  //header begin
+  // PROGRAM mnuTeachStayClr()
+  //
+  // runs the menu to select which type of Stay Clear Area to Teach
+  // Cube, Cylinder, or Sphere
+  //
+  // incoming parms:  none
+  // outgoing parms:  none
+  // called from:  pgm mnuTeachMenu()
+  //
+  //  initial release KN
+  //header end
+  //
+  // start continuous loop, end by menu command or teach pendant command
+  // on user command, jump to other subroutines for action
+  //
+  LbBackup=false
+  do
+    // nIdxStyClr=61
+    call display(nIdxStyClr,nKey)
+    // verify selection
+    switch nKey
+      // ESC key aborts & returns immediately
+      case 255
+        return
+      break
+      // menu = Teach Stay Clear Area Menu:  F1 Button, Select Cubic Stay Clear Zone
+      case 271
+        call mnuTeachCube()
+      break
+      // menu = Teach Stay Clear Area Menu:  F2 Button, Select Cylinder Stay Clear Zone
+      case 272
+        call mnuTeachCyl()
+      break
+      // menu = Teach Stay Clear Area Menu:  F3 Button, Select Spherical Stay Clear Zone
+      case 273
+        call mnuTeachSphere()
+      break
+      //  menu = Teach Stay Clear Area Menu:  F8 Button, ABORT to Teach Menu
+      case 278
+        LbBackup=true
+      break
+      // any other key press
+      default
+        cls()
+        popUpMsg("BAD SELECTION...Press OK")
+      break
+    endSwitch
+  until (false or (LbBackup==true))
+  // done
+end
+
+      ]]></Code>
+  </Program>
+</Programs>

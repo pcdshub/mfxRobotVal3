@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="checkAtPark">
+    <Locals>
+      <Local name="nKey" type="num" xsi:type="array" size="1" />
+      <Local name="LbParkContinue" type="bool" xsi:type="array" size="1" />
+      <Local name="LpHere" type="point" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  //header begin
+  // PROGRAM checkAtPark()
+  //
+  // checks for Arm is at Park position
+  //
+  // incoming parms:  none
+  // outgoing parms:  none
+  // called from:  pgm mnuUtility()
+  //
+  //  initial release KN
+  //header end
+  //
+  // clear motion stack of all movement commands
+  stopMove()
+  resetMotion()
+  //
+  userPage()
+  cls()
+  //
+  // Verify arm is at PARK location.  Use pgm display() for menu control.
+  // No motion except RX, RY, RZ adjustments can be made unless starting motion at PARK.
+  // If arm is >nParkTolerance from PARK, user must move arm or abort.
+  LpHere=here(tSensorTool,world)
+  //
+  //
+  LbParkContinue=false
+  do
+    // nIdxParkCheck=41
+    call displayMessage4(nIdxParkCheck,nKey)
+    // verify selection
+    switch nKey
+      // ESC key aborts & returns immediately to previous menu
+      case 255
+        return
+      break
+      // Arm Park Check:  F4 to move to PARK position
+      case 274
+        call movToPark()
+      break
+      // Arm Park Check:  Abort & return immediately to previous menu
+      case 278
+        return
+      break
+      // Any other key press
+      default
+        popUpMsg("BAD SELECTION...press OK")
+      break
+    endSwitch
+  until (false or (LbParkContinue==true))
+  // done
+end
+
+      ]]></Code>
+  </Program>
+</Programs>

@@ -1,0 +1,813 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Database xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Data/2">
+  <Datas>
+    <Data name="bCubeStep1" access="public" xsi:type="array" type="bool" size="1" />
+    <Data name="bCylinderStep1" access="public" xsi:type="array" type="bool" size="1" />
+    <Data name="bESTOPactive" access="private" xsi:type="array" type="bool" size="1" />
+    <Data name="bEnableMonitor" access="public" xsi:type="array" type="bool" size="1" />
+    <Data name="bInsideCube" access="public" xsi:type="array" type="bool" size="1" />
+    <Data name="bInsideCylinder" access="public" xsi:type="array" type="bool" size="1" />
+    <Data name="bInsideSphere" access="public" xsi:type="array" type="bool" size="1" />
+    <Data name="bKillRemControl" access="private" xsi:type="array" type="bool" size="1" />
+    <Data name="bMoveLinear" access="private" xsi:type="array" type="bool" size="1">
+      <Value key="0" value="true" />
+    </Data>
+    <Data name="bRemControlON" access="public" xsi:type="array" type="bool" size="1" />
+    <Data name="bRemMotionBusy" access="private" xsi:type="array" type="bool" size="1" />
+    <Data name="bSetCubeXYZ" access="public" xsi:type="array" type="bool" size="1" />
+    <Data name="bSetCylinderRZ" access="public" xsi:type="array" type="bool" size="1" />
+    <Data name="bSetSphereRad" access="public" xsi:type="array" type="bool" size="1" />
+    <Data name="bSimESTOPOn" access="private" xsi:type="array" type="bool" size="1" />
+    <Data name="bSimulateESTOP" access="private" xsi:type="array" type="bool" size="1">
+      <Value key="0" value="true" />
+    </Data>
+    <Data name="bSphereStep1" access="public" xsi:type="array" type="bool" size="1" />
+    <Data name="bStopAllMonitor" access="public" xsi:type="array" type="bool" size="1">
+      <Value key="0" value="true" />
+    </Data>
+    <Data name="bStopMotion" access="public" xsi:type="array" type="bool" size="1" />
+    <Data name="bWatchForHalt" access="public" xsi:type="array" type="bool" size="1" />
+    <Data name="bWorldFrameView" access="public" xsi:type="array" type="bool" size="1">
+      <Value key="0" value="true" />
+    </Data>
+    <Data name="fIP1" access="public" xsi:type="array" type="frame" size="1">
+      <Value key="0" x="-1.15694092" y="-7.99769233" z="1599.75028" rx="-90.07984756" ry="0.32533902" rz="-0.14700469" fatherId="world[0]" />
+    </Data>
+    <Data name="fIP2" access="public" xsi:type="array" type="frame" size="1">
+      <Value key="0" x="-1.15694092" y="-7.99769233" z="1599.75028" rx="-90.07984756" ry="0.32533902" rz="-0.14700469" fatherId="world[0]" />
+    </Data>
+    <Data name="jPark" access="public" xsi:type="array" type="jointRx" size="1">
+      <Value key="0" j1="-81.231837" j2="121.22058" j3="-149.954588" j4="0.005467" j5="0.639081" j6="0.019076" />
+    </Data>
+    <Data name="mDefault" access="private" xsi:type="array" type="mdesc" size="1">
+      <Value key="0" accel="20" vel="20" decel="20" blend="off" />
+    </Data>
+    <Data name="mGlobalSpeed" access="public" xsi:type="array" type="mdesc" size="1">
+      <Value key="0" accel="20" vel="20" decel="20" blend="off" />
+    </Data>
+    <Data name="mSafeSlow" access="public" xsi:type="array" type="mdesc" size="1">
+      <Value key="0" accel="15" vel="20" decel="15" blend="off" />
+    </Data>
+    <Data name="nAccFast" access="private" xsi:type="array" type="num" size="1">
+      <Value key="0" value="60" />
+    </Data>
+    <Data name="nAccMedium" access="private" xsi:type="array" type="num" size="1">
+      <Value key="0" value="40" />
+    </Data>
+    <Data name="nAccSlow" access="private" xsi:type="array" type="num" size="1">
+      <Value key="0" value="20" />
+    </Data>
+    <Data name="nAdjPntMoveTol" access="private" xsi:type="array" type="num" size="1">
+      <Value key="0" value="25" />
+    </Data>
+    <Data name="nAzHere" access="private" xsi:type="array" type="num" size="1">
+      <Value key="0" value="75.77717" />
+    </Data>
+    <Data name="nDistXCube" access="private" xsi:type="array" type="num" size="1" />
+    <Data name="nDistYCube" access="private" xsi:type="array" type="num" size="1" />
+    <Data name="nDistZCube" access="private" xsi:type="array" type="num" size="1" />
+    <Data name="nDistZCylinder" access="private" xsi:type="array" type="num" size="1" />
+    <Data name="nElHere" access="private" xsi:type="array" type="num" size="1">
+      <Value key="0" value="33.705274" />
+    </Data>
+    <Data name="nErrBufferSize" access="private" xsi:type="array" type="num" size="1">
+      <Value key="0" value="10" />
+    </Data>
+    <Data name="nErrNext" access="private" xsi:type="array" type="num" size="1" />
+    <Data name="nErrNow" access="private" xsi:type="array" type="num" size="1" />
+    <Data name="nHeartbeat" access="private" xsi:type="array" type="num" size="1">
+      <Value key="0" value="5000" />
+    </Data>
+    <Data name="nIP1Azimuth" access="private" xsi:type="array" type="num" size="20">
+      <Value key="1" value="180" />
+      <Value key="2" value="180" />
+      <Value key="4" value="180" />
+      <Value key="5" value="9.38" />
+      <Value key="6" value="7.44" />
+      <Value key="7" value="17.53" />
+      <Value key="8" value="48.36" />
+      <Value key="9" value="142.53" />
+      <Value key="10" value="140.2" />
+      <Value key="11" value="145.08" />
+      <Value key="12" value="142.4" />
+      <Value key="13" value="142.23" />
+      <Value key="14" value="144.96" />
+      <Value key="15" value="106.35" />
+      <Value key="16" value="100.36" />
+      <Value key="17" value="19.8" />
+      <Value key="18" value="8.88" />
+      <Value key="19" value="23.034688" />
+    </Data>
+    <Data name="nIP1Elevation" access="private" xsi:type="array" type="num" size="20">
+      <Value key="1" value="58" />
+      <Value key="2" value="65.55" />
+      <Value key="3" value="88" />
+      <Value key="4" value="90" />
+      <Value key="5" value="21.19" />
+      <Value key="6" value="39.23" />
+      <Value key="9" value="37.74" />
+      <Value key="10" value="30.33" />
+      <Value key="11" value="44.59" />
+      <Value key="12" value="42.45" />
+      <Value key="13" value="38.39" />
+      <Value key="14" value="44.81" />
+      <Value key="15" value="29.56" />
+      <Value key="16" value="45.35" />
+      <Value key="17" value="29.88" />
+      <Value key="18" value="12.25" />
+      <Value key="19" value="8.727177" />
+    </Data>
+    <Data name="nIP1Number" access="private" xsi:type="array" type="num" size="1">
+      <Value key="0" value="2" />
+    </Data>
+    <Data name="nIP1Radius" access="private" xsi:type="array" type="num" size="20">
+      <Value key="0" value="1000" />
+      <Value key="1" value="2000" />
+      <Value key="2" value="250" />
+      <Value key="3" value="250" />
+      <Value key="4" value="1850" />
+      <Value key="5" value="1000" />
+      <Value key="6" value="1000" />
+      <Value key="7" value="300" />
+      <Value key="8" value="250" />
+      <Value key="9" value="300" />
+      <Value key="10" value="300" />
+      <Value key="11" value="300" />
+      <Value key="12" value="300" />
+      <Value key="13" value="300" />
+      <Value key="14" value="300" />
+      <Value key="15" value="300" />
+      <Value key="16" value="300" />
+      <Value key="17" value="100" />
+      <Value key="18" value="200" />
+      <Value key="19" value="857.27654" />
+    </Data>
+    <Data name="nIP2Azimuth" access="private" xsi:type="array" type="num" size="20">
+      <Value key="0" value="15" />
+      <Value key="1" value="-27.028" />
+      <Value key="2" value="-128.927" />
+    </Data>
+    <Data name="nIP2Elevation" access="private" xsi:type="array" type="num" size="20">
+      <Value key="0" value="20" />
+      <Value key="1" value="16.219" />
+      <Value key="2" value="79.165" />
+    </Data>
+    <Data name="nIP2Number" access="private" xsi:type="array" type="num" size="1">
+      <Value key="0" value="1" />
+    </Data>
+    <Data name="nIP2Radius" access="private" xsi:type="array" type="num" size="20">
+      <Value key="0" value="300" />
+      <Value key="1" value="321.123" />
+      <Value key="2" value="123.321" />
+      <Value key="5" value="1000" />
+    </Data>
+    <Data name="nIPNumber" access="private" xsi:type="array" type="num" size="1">
+      <Value key="0" value="1" />
+    </Data>
+    <Data name="nIdxAdjTargetPt" access="private" xsi:type="array" type="num" size="1">
+      <Value key="0" value="291" />
+    </Data>
+    <Data name="nIdxArmCalCheck" access="private" xsi:type="array" type="num" size="1">
+      <Value key="0" value="31" />
+    </Data>
+    <Data name="nIdxArmPowerOn" access="private" xsi:type="array" type="num" size="1">
+      <Value key="0" value="181" />
+    </Data>
+    <Data name="nIdxESTOPCheck" access="private" xsi:type="array" type="num" size="1">
+      <Value key="0" value="121" />
+    </Data>
+    <Data name="nIdxEnterIP" access="private" xsi:type="array" type="num" size="1">
+      <Value key="0" value="341" />
+    </Data>
+    <Data name="nIdxEnterTCP" access="private" xsi:type="array" type="num" size="1">
+      <Value key="0" value="321" />
+    </Data>
+    <Data name="nIdxFrm1of5" access="public" xsi:type="array" type="num" size="1">
+      <Value key="0" value="131" />
+    </Data>
+    <Data name="nIdxFrm2of5" access="public" xsi:type="array" type="num" size="1">
+      <Value key="0" value="141" />
+    </Data>
+    <Data name="nIdxFrm3of5" access="public" xsi:type="array" type="num" size="1">
+      <Value key="0" value="151" />
+    </Data>
+    <Data name="nIdxFrm4of5" access="public" xsi:type="array" type="num" size="1">
+      <Value key="0" value="161" />
+    </Data>
+    <Data name="nIdxFrm5of5" access="public" xsi:type="array" type="num" size="1">
+      <Value key="0" value="171" />
+    </Data>
+    <Data name="nIdxGetTCP" access="private" xsi:type="array" type="num" size="1">
+      <Value key="0" value="351" />
+    </Data>
+    <Data name="nIdxMainMenu" access="public" xsi:type="array" type="num" size="1">
+      <Value key="0" value="1" />
+    </Data>
+    <Data name="nIdxMotionMenu" access="public" xsi:type="array" type="num" size="1">
+      <Value key="0" value="271" />
+    </Data>
+    <Data name="nIdxMoveTargPt" access="private" xsi:type="array" type="num" size="1">
+      <Value key="0" value="281" />
+    </Data>
+    <Data name="nIdxMoveToPark" access="private" xsi:type="array" type="num" size="1">
+      <Value key="0" value="311" />
+    </Data>
+    <Data name="nIdxParkCheck" access="private" xsi:type="array" type="num" size="1">
+      <Value key="0" value="41" />
+    </Data>
+    <Data name="nIdxPtrVerify" access="public" xsi:type="array" type="num" size="1" />
+    <Data name="nIdxRemControl" access="private" xsi:type="array" type="num" size="1">
+      <Value key="0" value="321" />
+    </Data>
+    <Data name="nIdxResolution" access="public" xsi:type="array" type="num" size="1" />
+    <Data name="nIdxSetCubeXYZ" access="public" xsi:type="array" type="num" size="1">
+      <Value key="0" value="211" />
+    </Data>
+    <Data name="nIdxSetCylRZ" access="public" xsi:type="array" type="num" size="1">
+      <Value key="0" value="231" />
+    </Data>
+    <Data name="nIdxSetSpeeds" access="private" xsi:type="array" type="num" size="1">
+      <Value key="0" value="181" />
+    </Data>
+    <Data name="nIdxSetSphRad" access="public" xsi:type="array" type="num" size="1">
+      <Value key="0" value="251" />
+    </Data>
+    <Data name="nIdxSetTargetPt" access="private" xsi:type="array" type="num" size="1">
+      <Value key="0" value="261" />
+    </Data>
+    <Data name="nIdxStyClr" access="public" xsi:type="array" type="num" size="1">
+      <Value key="0" value="61" />
+    </Data>
+    <Data name="nIdxTCP1of4" access="public" xsi:type="array" type="num" size="1">
+      <Value key="0" value="81" />
+    </Data>
+    <Data name="nIdxTCP2of4" access="public" xsi:type="array" type="num" size="1">
+      <Value key="0" value="91" />
+    </Data>
+    <Data name="nIdxTCP3of4" access="public" xsi:type="array" type="num" size="1">
+      <Value key="0" value="101" />
+    </Data>
+    <Data name="nIdxTCP4Point" access="public" xsi:type="array" type="num" size="1" />
+    <Data name="nIdxTCP4of4" access="public" xsi:type="array" type="num" size="1">
+      <Value key="0" value="111" />
+    </Data>
+    <Data name="nIdxTeachClear" access="public" xsi:type="array" type="num" size="1" />
+    <Data name="nIdxTeachCube" access="public" xsi:type="array" type="num" size="1">
+      <Value key="0" value="201" />
+    </Data>
+    <Data name="nIdxTeachCyl" access="public" xsi:type="array" type="num" size="1">
+      <Value key="0" value="221" />
+    </Data>
+    <Data name="nIdxTeachIP" access="private" xsi:type="array" type="num" size="1">
+      <Value key="0" value="331" />
+    </Data>
+    <Data name="nIdxTeachMenu" access="public" xsi:type="array" type="num" size="1">
+      <Value key="0" value="11" />
+    </Data>
+    <Data name="nIdxTeachPARK" access="public" xsi:type="array" type="num" size="1">
+      <Value key="0" value="51" />
+    </Data>
+    <Data name="nIdxTeachSph" access="public" xsi:type="array" type="num" size="1">
+      <Value key="0" value="241" />
+    </Data>
+    <Data name="nIdxTeachTCP" access="public" xsi:type="array" type="num" size="1">
+      <Value key="0" value="21" />
+    </Data>
+    <Data name="nIdxUtilMenu2" access="private" xsi:type="array" type="num" size="1">
+      <Value key="0" value="301" />
+    </Data>
+    <Data name="nIdxUtilityMenu" access="private" xsi:type="array" type="num" size="1">
+      <Value key="0" value="71" />
+    </Data>
+    <Data name="nMaxAccel" access="private" xsi:type="array" type="num" size="1">
+      <Value key="0" value="50" />
+    </Data>
+    <Data name="nMaxDist" access="private" xsi:type="array" type="num" size="1">
+      <Value key="0" value="1000" />
+    </Data>
+    <Data name="nMaxLoginTries" access="private" xsi:type="array" type="num" size="1">
+      <Value key="0" value="3" />
+    </Data>
+    <Data name="nMaxRVelo" access="private" xsi:type="array" type="num" size="1">
+      <Value key="0" value="20" />
+    </Data>
+    <Data name="nMaxVelo" access="private" xsi:type="array" type="num" size="1">
+      <Value key="0" value="100" />
+    </Data>
+    <Data name="nMovArgs" access="private" xsi:type="array" type="num" size="1" />
+    <Data name="nNumberCube" access="private" xsi:type="array" type="num" size="1" />
+    <Data name="nNumberCylinder" access="private" xsi:type="array" type="num" size="1" />
+    <Data name="nNumberSphere" access="private" xsi:type="array" type="num" size="1" />
+    <Data name="nPPS" access="private" xsi:type="array" type="num" size="1" />
+    <Data name="nParkTolerance" access="private" xsi:type="array" type="num" size="1">
+      <Value key="0" value="50" />
+    </Data>
+    <Data name="nRHere" access="private" xsi:type="array" type="num" size="1">
+      <Value key="0" value="149.128534" />
+    </Data>
+    <Data name="nRXHere" access="private" xsi:type="array" type="num" size="1">
+      <Value key="0" value="-75.685109" />
+    </Data>
+    <Data name="nRYHere" access="private" xsi:type="array" type="num" size="1">
+      <Value key="0" value="-5.846938" />
+    </Data>
+    <Data name="nRZHere" access="private" xsi:type="array" type="num" size="1">
+      <Value key="0" value="-141.434103" />
+    </Data>
+    <Data name="nRadiusCylinder" access="private" xsi:type="array" type="num" size="1" />
+    <Data name="nRadiusSphere" access="private" xsi:type="array" type="num" size="1" />
+    <Data name="nRemoteTimeout" access="private" xsi:type="array" type="num" size="1">
+      <Value key="0" value="30" />
+    </Data>
+    <Data name="nResolution" access="private" xsi:type="array" type="num" size="4">
+      <Value key="0" value="0.001" />
+      <Value key="1" value="0.01" />
+      <Value key="2" value="0.1" />
+      <Value key="3" value="1" />
+    </Data>
+    <Data name="nSelection" access="private" xsi:type="array" type="num" size="1">
+      <Value key="0" value="1" />
+    </Data>
+    <Data name="nStagePosition" access="private" xsi:type="array" type="num" size="1" />
+    <Data name="nVelFast" access="private" xsi:type="array" type="num" size="1">
+      <Value key="0" value="60" />
+    </Data>
+    <Data name="nVelMedium" access="private" xsi:type="array" type="num" size="1">
+      <Value key="0" value="40" />
+    </Data>
+    <Data name="nVelSlow" access="private" xsi:type="array" type="num" size="1">
+      <Value key="0" value="20" />
+    </Data>
+    <Data name="nXHere" access="private" xsi:type="array" type="num" size="1">
+      <Value key="0" value="120.257721" />
+    </Data>
+    <Data name="nYHere" access="private" xsi:type="array" type="num" size="1">
+      <Value key="0" value="82.754556" />
+    </Data>
+    <Data name="nZHere" access="private" xsi:type="array" type="num" size="1">
+      <Value key="0" value="30.480873" />
+    </Data>
+    <Data name="nZoneWatchTol" access="private" xsi:type="array" type="num" size="1">
+      <Value key="0" value="25" />
+    </Data>
+    <Data name="pCellReference" access="public" xsi:type="array" type="pointRx" size="1">
+      <Value key="0" shoulder="righty" elbow="epositive" wrist="wpositive" fatherId="world[0]" />
+    </Data>
+    <Data name="pIP1NullPoint" access="private" xsi:type="array" type="pointRx" size="1">
+      <Value key="0" rx="90" shoulder="lefty" elbow="epositive" wrist="wnegative" fatherId="fIP1[0]" />
+    </Data>
+    <Data name="pIP1Point" access="private" xsi:type="array" type="pointRx" size="25">
+      <Value key="0" shoulder="sfree" elbow="efree" wrist="wfree" fatherId="fIP1[0]" />
+      <Value key="1" shoulder="sfree" elbow="efree" wrist="wfree" fatherId="fIP1[0]" />
+      <Value key="2" shoulder="sfree" elbow="efree" wrist="wfree" fatherId="fIP1[0]" />
+      <Value key="3" shoulder="sfree" elbow="efree" wrist="wfree" fatherId="fIP1[0]" />
+      <Value key="4" shoulder="sfree" elbow="efree" wrist="wfree" fatherId="fIP1[0]" />
+      <Value key="5" shoulder="sfree" elbow="efree" wrist="wfree" fatherId="fIP1[0]" />
+      <Value key="6" shoulder="sfree" elbow="efree" wrist="wfree" fatherId="fIP1[0]" />
+      <Value key="7" shoulder="sfree" elbow="efree" wrist="wfree" fatherId="fIP1[0]" />
+      <Value key="8" shoulder="sfree" elbow="efree" wrist="wfree" fatherId="fIP1[0]" />
+      <Value key="9" shoulder="sfree" elbow="efree" wrist="wfree" fatherId="fIP1[0]" />
+      <Value key="10" shoulder="sfree" elbow="efree" wrist="wfree" fatherId="fIP1[0]" />
+      <Value key="11" shoulder="sfree" elbow="efree" wrist="wfree" fatherId="fIP1[0]" />
+      <Value key="12" shoulder="sfree" elbow="efree" wrist="wfree" fatherId="fIP1[0]" />
+      <Value key="13" shoulder="sfree" elbow="efree" wrist="wfree" fatherId="fIP1[0]" />
+      <Value key="14" shoulder="sfree" elbow="efree" wrist="wfree" fatherId="fIP1[0]" />
+      <Value key="15" shoulder="sfree" elbow="efree" wrist="wfree" fatherId="fIP1[0]" />
+      <Value key="16" shoulder="sfree" elbow="efree" wrist="wfree" fatherId="fIP1[0]" />
+      <Value key="17" shoulder="sfree" elbow="efree" wrist="wfree" fatherId="fIP1[0]" />
+      <Value key="18" shoulder="sfree" elbow="efree" wrist="wfree" fatherId="fIP1[0]" />
+      <Value key="19" shoulder="sfree" elbow="efree" wrist="wfree" fatherId="fIP1[0]" />
+      <Value key="20" shoulder="sfree" elbow="efree" wrist="wfree" fatherId="fIP1[0]" />
+      <Value key="21" shoulder="sfree" elbow="efree" wrist="wfree" fatherId="fIP1[0]" />
+      <Value key="22" shoulder="sfree" elbow="efree" wrist="wfree" fatherId="fIP1[0]" />
+      <Value key="23" shoulder="sfree" elbow="efree" wrist="wfree" fatherId="fIP1[0]" />
+      <Value key="24" shoulder="sfree" elbow="efree" wrist="wfree" fatherId="fIP1[0]" />
+    </Data>
+    <Data name="pIP2NullPoint" access="private" xsi:type="array" type="pointRx" size="1">
+      <Value key="0" fatherId="fIP2[0]" />
+    </Data>
+    <Data name="pMoveIP1Target" access="private" xsi:type="array" type="pointRx" size="1">
+      <Value key="0" fatherId="fIP1[0]" />
+    </Data>
+    <Data name="pMoveIP2Target" access="private" xsi:type="array" type="pointRx" size="1">
+      <Value key="0" shoulder="sfree" elbow="efree" wrist="wfree" fatherId="fIP2[0]" />
+    </Data>
+    <Data name="pMoveTarget" access="private" xsi:type="array" type="pointRx" size="1">
+      <Value key="0" shoulder="sfree" elbow="efree" wrist="wfree" fatherId="world[0]" />
+    </Data>
+    <Data name="pNullPosition" access="private" xsi:type="array" type="pointRx" size="1">
+      <Value key="0" fatherId="world[0]" />
+    </Data>
+    <Data name="pOriginCube" access="private" xsi:type="array" type="pointRx" size="1">
+      <Value key="0" fatherId="world[0]" />
+    </Data>
+    <Data name="pOriginCylinder" access="private" xsi:type="array" type="pointRx" size="1">
+      <Value key="0" fatherId="world[0]" />
+    </Data>
+    <Data name="pOriginSphere" access="private" xsi:type="array" type="pointRx" size="1">
+      <Value key="0" fatherId="world[0]" />
+    </Data>
+    <Data name="sioXPPclient" access="private" xsi:type="array" type="sio" size="1">
+      <Value key="0" link="Socket\XPP" />
+    </Data>
+    <Data name="sErrBuffer" access="private" xsi:type="array" type="string" size="10" />
+    <Data name="sIP1TargName" access="private" xsi:type="array" type="string" size="20">
+      <Value key="0" value="v" />
+      <Value key="1" value="a" />
+      <Value key="2" value="sto 1" />
+      <Value key="3" value="ybco104" />
+      <Value key="4" value="cool oi" />
+      <Value key="5" value="magpeak2" />
+      <Value key="6" value="IP1 Point6 Name" />
+      <Value key="7" value="IP1 Point7 Name" />
+      <Value key="8" value="IP1 Point8 Name" />
+      <Value key="9" value="IP1 Point9 Name" />
+      <Value key="10" value="IP1 Point10 Name" />
+      <Value key="11" value="IP1 Point11 Name" />
+      <Value key="12" value="IP1 Point12 Name" />
+      <Value key="13" value="IP1 Point13 Name" />
+      <Value key="14" value="IP1 Point14 Name" />
+      <Value key="15" value="IP1 Point15 Name" />
+      <Value key="16" value="IP1 Point16 Name" />
+      <Value key="17" value="IP1 Point17 Name" />
+      <Value key="18" value="IP1 Point18 Name" />
+      <Value key="19" value="IP1 Point19 Name" />
+    </Data>
+    <Data name="sIP2TargName" access="private" xsi:type="array" type="string" size="20">
+      <Value key="0" value="TestTeachPoint0" />
+      <Value key="1" value="IP2 Point1 Name" />
+      <Value key="2" value="IP2 Point2 Name" />
+      <Value key="3" value="IP2 Point3 Name" />
+      <Value key="4" value="IP2 Point4 Name" />
+      <Value key="5" value="a" />
+      <Value key="6" value="IP2 Point6 Name" />
+      <Value key="7" value="IP2 Point7 Name" />
+      <Value key="8" value="IP2 Point8 Name" />
+      <Value key="9" value="IP2 Point9 Name" />
+      <Value key="10" value="IP2 Point10 Name" />
+      <Value key="11" value="IP2 Point11 Name" />
+      <Value key="12" value="IP2 Point12 Name" />
+      <Value key="13" value="IP2 Point13 Name" />
+      <Value key="14" value="IP2 Point14 Name" />
+      <Value key="15" value="IP2 Point15 Name" />
+      <Value key="16" value="IP2 Point16 Name" />
+      <Value key="17" value="IP2 Point17 Name" />
+      <Value key="18" value="IP2 Point18 Name" />
+      <Value key="19" value="IP2 Point19 Name" />
+    </Data>
+    <Data name="sMenuBottomLine" access="private" xsi:type="array" type="string" size="51">
+      <Value key="0" value=" Tch. Mot. Util ---- ---- ---- ---- Stop" />
+      <Value key="1" value=" TCP IPCS Park Zone Pnts ---- ---- Ret." />
+      <Value key="2" value="RefP 4Pnt DEnt ---- ---- ---- ---- Ret." />
+      <Value key="3" value="---- ---- ---- Stop ---- ---- ---- Ret." />
+      <Value key="4" value="Cont ---- ---- Mov. ---- ---- ---- Ret." />
+      <Value key="5" value="Save ---- ---- ---- ---- ---- ---- Ret." />
+      <Value key="6" value="Cube Cyl. Sph. ---- ---- ---- ---- Ret." />
+      <Value key="7" value="Init Park Enbl Spds RemC TCP. ---- Ret." />
+      <Value key="8" value="Next ---- ---- ---- ---- ---- ---- Abrt" />
+      <Value key="9" value="Next ---- ---- ---- ---- ---- ---- Abrt" />
+      <Value key="10" value="Next ---- ---- ---- ---- ---- ---- Abrt" />
+      <Value key="11" value="Tch. ---- ---- ---- ---- ---- ---- Abrt" />
+      <Value key="12" value="Cont ---- ---- ---- ---- ---- ---- Abrt" />
+      <Value key="13" value="Next ---- Togl ---- ---- ---- ---- Abrt" />
+      <Value key="14" value="Next ---- ---- ---- ---- ---- ---- Abrt" />
+      <Value key="15" value="Next ---- ---- ---- ---- ---- ---- Abrt" />
+      <Value key="16" value="Next ---- ---- ---- ---- ---- ---- Abrt" />
+      <Value key="17" value="Save ---- ---- ---- ---- ---- ---- Abrt" />
+      <Value key="18" value="SVel MVel FVel ---- SAcc MAcc FAcc Ret." />
+      <Value key="20" value="Save ---- Chng Orig  XYZ ---- Clr. Ret." />
+      <Value key="21" value="Save ---- ----  DX   DY   DZ  ---- Ret." />
+      <Value key="22" value="Save ---- Chng Orig RadZ ---- Clr. Ret." />
+      <Value key="23" value="Save ---- ---- Rad.  DZ  ---- ---- Ret." />
+      <Value key="24" value="Save ---- Chng Orig Rad. ---- Clr. Ret." />
+      <Value key="25" value="Save ---- ---- Rad. ---- ---- ---- Ret." />
+      <Value key="26" value=" IP  Pnt# Name Azi. Elev Rad.      Ret." />
+      <Value key="27" value="Pnts ---- ---- ---- Park ---- ---- Ret." />
+      <Value key="28" value=" IP  Pnt# ---- ---- Adj. Mov. ---- Ret." />
+      <Value key="30" value="Init Park Dis. Spds RemC ---- ---- Ret." />
+      <Value key="31" value="Mov. ---- ---- ---- ---- ---- ---- Ret." />
+      <Value key="32" value=" X    Y    Z    RX   RY   RZ  ---- Ret." />
+      <Value key="33" value="Sel. DEnt Wiz. ---- ---- ---- ---- Ret." />
+      <Value key="34" value=" X    Y    Z    RX   RY   RZ  ---- Ret." />
+      <Value key="35" value=" IP  ---- ---- ---- ---- ---- ---- Ret." />
+      <Value key="36" value="Cont ---- ---- ---- ---- ---- ---- Dis." />
+    </Data>
+    <Data name="sNumConv" access="private" xsi:type="array" type="string" size="1">
+      <Value key="0" value=".3" />
+    </Data>
+    <Data name="sRemMotionCmd" access="private" xsi:type="array" type="string" size="1" />
+    <Data name="sRobotMode" access="private" xsi:type="array" type="string" size="1">
+      <Value key="0" value="INNIT" />
+    </Data>
+    <Data name="sStageMode" access="private" xsi:type="array" type="string" size="1">
+      <Value key="0" value="NONE" />
+    </Data>
+    <Data name="sTargetChoice" access="private" xsi:type="array" type="string" size="2">
+      <Value key="0" value="InteractionPoint1" />
+      <Value key="1" value="InteractionPoint2" />
+    </Data>
+    <Data name="sUserPageText" access="public" xsi:type="array" type="string" size="372">
+      <Value key="0" value="(F1) (F2) (F3) (F4) (F5) (F6) (F7) (F8)" />
+      <Value key="1" value="&gt;&gt;  MAIN MENU  &lt;&lt;" />
+      <Value key="2" value="Select Your Choice...     (ESC aborts)" />
+      <Value key="3" value="TEACH MENU" />
+      <Value key="4" value="MOTION MENU" />
+      <Value key="5" value="UTILITY MENU" />
+      <Value key="10" value="END PROGRAM" />
+      <Value key="11" value="&gt;&gt;  TEACH MENU  &lt;&lt;" />
+      <Value key="12" value="Select Your Choice...     (ESC aborts)" />
+      <Value key="13" value="Teach TCP" />
+      <Value key="14" value="Teach INTERACTION PNT COORD SYS" />
+      <Value key="15" value="Teach PARK Position" />
+      <Value key="16" value="Teach STAY CLEAR ZONES" />
+      <Value key="17" value="Teach TARGET POINTS" />
+      <Value key="20" value="RETURN" />
+      <Value key="21" value="&gt;&gt;  TEACH TCP  &lt;&lt;" />
+      <Value key="22" value="Select Your Choice...     (ESC aborts)" />
+      <Value key="23" value="Teach TCP w/ REF POINTER" />
+      <Value key="24" value="Teach TCP w/ 4-POINT METHOD" />
+      <Value key="25" value="TCP Values Direct Entry" />
+      <Value key="30" value="ABORT &amp; RETURN" />
+      <Value key="31" value="&gt;&gt;  ARM NOT CALIBRATED!  &lt;&lt;" />
+      <Value key="32" value="MOTION NOT ALLOWED" />
+      <Value key="36" value="STOP PROGRAM" />
+      <Value key="40" value="ABORT &amp; RETURN" />
+      <Value key="41" value="&gt;&gt;  VERIFY ARM AT PARK &lt;&lt;" />
+      <Value key="42" value="Select Your Choice...     (ESC aborts)" />
+      <Value key="46" value="Move to PARK" />
+      <Value key="50" value="ABORT &amp; RETURN" />
+      <Value key="51" value="&gt;&gt;  TEACH PARK Position  &lt;&lt;" />
+      <Value key="52" value="               (ESC aborts)" />
+      <Value key="53" value="Instructions:" />
+      <Value key="54" value="1.  Change to MANUAL mode" />
+      <Value key="55" value="2.  Move robot to  PARK location" />
+      <Value key="59" value="(F1)  ACCEPT, SAVE, &amp; RETURN" />
+      <Value key="60" value="(F8)  ABORT &amp; RETURN" />
+      <Value key="61" value="&gt;&gt;  DEFINE STAY CLEAR ZONES  &lt;&lt;" />
+      <Value key="62" value="Select Your Choice...     (ESC aborts)" />
+      <Value key="63" value="CUBE Zones" />
+      <Value key="64" value="CYLINDER Zones" />
+      <Value key="65" value="SPHERE Zones" />
+      <Value key="70" value="ABORT &amp; RETURN" />
+      <Value key="71" value="&gt;&gt;  UTILITY MENU  &lt;&lt;" />
+      <Value key="72" value="Select Your Choice...     (ESC aborts)" />
+      <Value key="73" value="Initialize Robot" />
+      <Value key="74" value="Verify Arm is at PARK location" />
+      <Value key="75" value="ENABLE  Zone Monitoring" />
+      <Value key="76" value="Set Global Speed Parameters" />
+      <Value key="77" value="Start XPP Client Remote Control" />
+      <Value key="78" value="Show Current TCP:IP Frame Vals" />
+      <Value key="80" value="RETURN" />
+      <Value key="81" value="&gt;&gt; TEACH TCP w/ Pointer:  1 of 4  &lt;&lt;" />
+      <Value key="82" value="               (ESC aborts)" />
+      <Value key="83" value="CONDITIONS REQD TO TEACH TCP" />
+      <Value key="84" value="#1:  Ref Pointer attached to Flange" />
+      <Value key="85" value="    (Defined tool = tRefPointer)" />
+      <Value key="86" value="#2:  Cell Ref Pointer in Workspace" />
+      <Value key="89" value="(F1)  CONTINUE to Step 2 of 4" />
+      <Value key="90" value="(F8)  ABORT &amp; RETURN" />
+      <Value key="91" value="&gt;&gt;  TEACH TCP w/ Pointer:  2 of 4  &lt;&lt;" />
+      <Value key="92" value="               (ESC aborts)" />
+      <Value key="94" value="          MOVE ROBOT TO" />
+      <Value key="95" value="     CELL REFERENCE POINTER" />
+      <Value key="99" value="(F1)  CONTINUE to Step 3 of 4" />
+      <Value key="100" value="(F8)  ABORT &amp; RETURN" />
+      <Value key="101" value="&gt;&gt;  TEACH TCP w/ Pointer:  3 of 4  &lt;&lt;" />
+      <Value key="102" value="               (ESC aborts)" />
+      <Value key="103" value="       DO THE FOLLOWING" />
+      <Value key="104" value="1.  REMOVE Reference Pointer Tool" />
+      <Value key="105" value="2.  ATTACH Sensor Tool" />
+      <Value key="106" value="3.  MOVE Sensor Tool to Cell Ref Ptr" />
+      <Value key="109" value="(F1) TEACH TOOL &amp; CONTINUE" />
+      <Value key="110" value="(F8) ABORT &amp; RETURN" />
+      <Value key="111" value="&gt;&gt;  TEACH TCP w/ Pointer:  4 of 4  &lt;&lt;" />
+      <Value key="112" value="               (ESC aborts)" />
+      <Value key="113" value="VERIFY the Sensor Tool Definition:" />
+      <Value key="114" value="1.  Switch to TOOL MODE on Pendant" />
+      <Value key="115" value="2.  Move  X, Y, Z, RX, RY, RZ " />
+      <Value key="116" value="  and verify motion" />
+      <Value key="119" value="(F1)  ACCEPT, SAVE,  AND RETURN" />
+      <Value key="120" value="(F8)  ABORT &amp; RETURN WITHOUT SAVE" />
+      <Value key="121" value="&gt;&gt;  ESTOP CHECK &lt;&lt;" />
+      <Value key="122" value="Select Your Choice...     (ESC aborts)" />
+      <Value key="123" value="(F1)  Continue" />
+      <Value key="130" value="(F8)  ABORT &amp; RETURN" />
+      <Value key="131" value="&gt;&gt;  TEACH IP COORD SYS:  1 of 5  &lt;&lt;" />
+      <Value key="132" value="               (ESC aborts)" />
+      <Value key="134" value="SELECT IP COORD SYS TO TEACH" />
+      <Value key="136" value="(F1)  ACCEPT &amp; CONTINUE" />
+      <Value key="138" value="(F3)  Toggle INT POINT CS Selection" />
+      <Value key="140" value="(F8)  ABORT &amp; RETURN" />
+      <Value key="141" value="&gt;&gt;  TEACH INT POINT CS:  2 of 5  &lt;&lt;" />
+      <Value key="142" value="               (ESC aborts)" />
+      <Value key="145" value="ATTACH REF POINTER" />
+      <Value key="146" value="TO ROBOT FLANGE" />
+      <Value key="149" value="(F1)  CONTINUE" />
+      <Value key="150" value="(F8)  ABORT &amp; RETURN" />
+      <Value key="151" value="&gt;&gt;  TEACH INT POINT CS:  3 of 5  &lt;&lt;" />
+      <Value key="152" value="               (ESC aborts)" />
+      <Value key="155" value="MOVE  REF POINTER TO" />
+      <Value key="156" value="INTERATION POINT COORD SYS" />
+      <Value key="157" value="ORIGIN POINT" />
+      <Value key="159" value="(F1)  CONTINUE" />
+      <Value key="160" value="(F8)  ABORT &amp; RETURN" />
+      <Value key="161" value="&gt;&gt;  TEACH INT POINT CS:  4 of 5  &lt;&lt;" />
+      <Value key="162" value="               (ESC aborts)" />
+      <Value key="165" value="MOVE REF POINTER TO" />
+      <Value key="166" value="INTERACTION POINT COORD SYS" />
+      <Value key="167" value="X-AXIS POINT" />
+      <Value key="169" value="(F1)  CONTINUE" />
+      <Value key="170" value="(F8)  ABORT &amp; RETURN" />
+      <Value key="171" value="&gt;&gt;  TEACH INT POINT CS:  5 of 5  &lt;&lt;" />
+      <Value key="172" value="               (ESC aborts)" />
+      <Value key="175" value="MOVE REF POINTER TO" />
+      <Value key="176" value="INTERACTION POINT COORD SYS" />
+      <Value key="177" value="Y-AXIS POINT" />
+      <Value key="179" value="(F1)  ACCEPT, SAVE,  &amp; RETURN" />
+      <Value key="180" value="(F8)  ABORT &amp; RETURN WITHOUT SAVE" />
+      <Value key="181" value="&gt;&gt;  SET GLOBAL SPEED PARMS  &lt;&lt;" />
+      <Value key="182" value="Select Your Choice...     (ESC aborts)" />
+      <Value key="183" value="Slow Speed" />
+      <Value key="184" value="Medium Speed" />
+      <Value key="185" value="Fast Speed" />
+      <Value key="187" value="Slow Accel" />
+      <Value key="188" value="Medium Accel" />
+      <Value key="189" value="Fast Accel" />
+      <Value key="190" value="Return" />
+      <Value key="191" value="&gt;&gt;  TEACH PARK Position  &lt;&lt;" />
+      <Value key="192" value="               (ESC aborts)" />
+      <Value key="193" value="Move to PARK Position, F1 to continue..." />
+      <Value key="200" value="GO BACK" />
+      <Value key="201" value="&gt;&gt;  DEFINE CUBE Stay Clear Zone  &lt;&lt;" />
+      <Value key="202" value="               (ESC aborts)" />
+      <Value key="204" value="(F1)  ACCEPT, SAVE, &amp; RETURN" />
+      <Value key="206" value="(F3)  Change Cube Number" />
+      <Value key="207" value="(F4)  Teach Cube Origin Point" />
+      <Value key="208" value="(F5)  Define DX, DY, DZ" />
+      <Value key="209" value="(F7)  Clear This Cube Definition" />
+      <Value key="210" value="(F8)  ABORT &amp; RETURN" />
+      <Value key="211" value="&gt;&gt;  SET CUBE DX DY DZ &lt;&lt;" />
+      <Value key="212" value="               (ESC aborts)" />
+      <Value key="215" value="(F1)  ACCEPT DX/DY/DZ VALUES" />
+      <Value key="216" value="(F4)  Enter New DX Value" />
+      <Value key="217" value="(F5)  Enter New DY Value" />
+      <Value key="218" value="(F6)  Enter New DZ Value" />
+      <Value key="220" value="(F8)  ABORT &amp; RETURN" />
+      <Value key="221" value="&gt;&gt;  DEFINE CYLINDER Stay Clear Zone  &lt;&lt;" />
+      <Value key="222" value="               (ESC aborts)" />
+      <Value key="224" value="(F1)  ACCEPT, SAVE, &amp; RETURN" />
+      <Value key="226" value="(F3)  Change Cylinder Number" />
+      <Value key="227" value="(F4)  Teach Cylinder Origin Point" />
+      <Value key="228" value="(F5)  Define Cylinder Radius &amp; DZ" />
+      <Value key="229" value="(F7)  Clear this Cylinder Definition" />
+      <Value key="230" value="(F8)  ABORT &amp; RETURN" />
+      <Value key="231" value="&gt;&gt;  SET CYLINDER RAD &amp; DZ  &lt;&lt;" />
+      <Value key="232" value="               (ESC aborts)" />
+      <Value key="235" value="(F1)  ACCEPT RAD/DZ VALUES" />
+      <Value key="236" value="(F4)  Enter New RADIUS Value" />
+      <Value key="237" value="(F5)  Enter New DZ Value" />
+      <Value key="240" value="(F8)  ABORT &amp; RETURN" />
+      <Value key="241" value="&gt;&gt;  DEFINE SPHERE Stay Clear Zone  &lt;&lt;" />
+      <Value key="242" value="               (ESC aborts)" />
+      <Value key="244" value="(F1)  ACCEPT, SAVE, &amp; RETURN" />
+      <Value key="246" value="(F3)  Change Sphere Number" />
+      <Value key="247" value="(F4)  Teach Sphere Origin Point" />
+      <Value key="248" value="(F5)  Define Sphere Radius" />
+      <Value key="249" value="(F7)  Clear This Sphere Definition" />
+      <Value key="250" value="(F8)  ABORT &amp; RETURN" />
+      <Value key="251" value="&gt;&gt;  SET SPHERE RADIUS  &lt;&lt;" />
+      <Value key="252" value="               (ESC aborts)" />
+      <Value key="255" value="(F1)  ACCEPT RADIUS VALUE" />
+      <Value key="256" value="(F4)  Enter New RADIUS Value" />
+      <Value key="260" value="(F8)  ABORT &amp; RETURN" />
+      <Value key="261" value="&gt;&gt;  SET TARGET POINTS  &lt;&lt;" />
+      <Value key="262" value="(F1) IP Nbr      :" />
+      <Value key="263" value="(F2) Pnt Nbr     :" />
+      <Value key="264" value="(F3) Name        :" />
+      <Value key="265" value="(F4) Azimuth     :" />
+      <Value key="266" value="(F5) Elevation   :" />
+      <Value key="267" value="(F6) Radius      :" />
+      <Value key="268" value="     X:         Y:         Z:" />
+      <Value key="269" value="    RX:        RY:        RZ:" />
+      <Value key="270" value="(F8)  SAVE, UPDATE, &amp; RETURN" />
+      <Value key="271" value="&gt;&gt;  MOTION MENU  &lt;&lt;" />
+      <Value key="272" value="Select Your Choice...     (ESC aborts)" />
+      <Value key="273" value="Move &amp; Adjust TARGET POINTS" />
+      <Value key="277" value="Move to PARK POSITION" />
+      <Value key="280" value="ABORT" />
+      <Value key="281" value="&gt;&gt;  MOVE &amp; ADJUST TARGET POINTS  &lt;&lt;" />
+      <Value key="282" value="(F1) IP Nbr      :" />
+      <Value key="283" value="(F2) Pnt Nbr     :" />
+      <Value key="284" value="        Name        :" />
+      <Value key="285" value="       Azimuth     :" />
+      <Value key="286" value="       Elevation   :" />
+      <Value key="287" value="       Radius      :" />
+      <Value key="288" value="     X:         Y:         Z:" />
+      <Value key="289" value="    RX:        RY:        RZ:" />
+      <Value key="290" value="(F6) MOVE TO   (F8) ABORT &amp; RETURN" />
+      <Value key="291" value="&gt;&gt;  ADJUST TARGET POINTS  &lt;&lt;" />
+      <Value key="296" value="  Resolution:" />
+      <Value key="297" value="  Target RX:" />
+      <Value key="298" value="  Target RY:" />
+      <Value key="299" value="  Target RZ:" />
+      <Value key="301" value="&gt;&gt;  UTILITY MENU  &lt;&lt;" />
+      <Value key="302" value="Select Your Choice...     (ESC aborts)" />
+      <Value key="303" value="Initialize Robot" />
+      <Value key="304" value="Verify Arm is at PARK location" />
+      <Value key="305" value="DISABLE Zone Monitoring" />
+      <Value key="306" value="Set Global Speed Parameters" />
+      <Value key="307" value="Start XPP Host Remote Control" />
+      <Value key="310" value="RETURN" />
+      <Value key="311" value="&gt;&gt;  MOVE TO  PARK  &lt;&lt;" />
+      <Value key="312" value="Select Your Choice...     (ESC aborts)" />
+      <Value key="313" value="Start Move to PARK Location" />
+      <Value key="320" value="ABORT" />
+      <Value key="321" value="&gt;&gt;  DIRECT ENTRY TCP VALUES  &lt;&lt;" />
+      <Value key="322" value=" Enter Values...        ESC Aborts" />
+      <Value key="323" value=" TCP-X" />
+      <Value key="324" value=" TCP-Y" />
+      <Value key="325" value=" TCP-Z" />
+      <Value key="326" value=" TCP-RX" />
+      <Value key="327" value=" TCP-RY" />
+      <Value key="328" value=" TCP-RZ" />
+      <Value key="330" value=" F8 = Save &amp; Return" />
+      <Value key="331" value="&gt;&gt; TEACH INTERATION PNTS &lt;&lt;" />
+      <Value key="332" value="Select Your Choice...       ESC Aborts" />
+      <Value key="333" value="(F1)  Select Interaction Point" />
+      <Value key="334" value="(F2)  Direct Entry of IP Data" />
+      <Value key="335" value="(F3)  Run IP Teach Wizard" />
+      <Value key="337" value="(F8)  Return" />
+      <Value key="341" value="&gt;&gt;  DIRECT ENTRY IP VALUES  &lt;&lt;" />
+      <Value key="342" value=" Enter Values...        ESC Aborts" />
+      <Value key="343" value="IP-X" />
+      <Value key="344" value="IP-Y" />
+      <Value key="345" value="IP-Z" />
+      <Value key="346" value="IP-RX" />
+      <Value key="347" value="IP-RY" />
+      <Value key="348" value="IP-RZ" />
+      <Value key="350" value="(F8)  Save &amp; Return" />
+      <Value key="351" value="&gt;&gt;  DISPLAY TCP VALUES @ IP  &lt;&lt;" />
+      <Value key="352" value="                        ESC Aborts" />
+      <Value key="353" value="Current IP  :" />
+      <Value key="354" value="TCP.x       :" />
+      <Value key="355" value="TCP.y       :" />
+      <Value key="356" value="TCP.z       :" />
+      <Value key="357" value="TCP.rx      :" />
+      <Value key="358" value="TCP.ry      :" />
+      <Value key="359" value="TCP.rz      :" />
+      <Value key="361" value="&gt;&gt;  STARTUP CHECK 0UT  &lt;&lt;" />
+      <Value key="363" value="WARNING:  ESTOP Simulation = ACTIVE !" />
+      <Value key="365" value="F1:  CONTINUE" />
+      <Value key="367" value="F8:  Disable ESTOP Simulation" />
+    </Data>
+    <Data name="sXPPCommand" access="private" xsi:type="array" type="string" size="1" />
+    <Data name="sXPPPassword" access="private" xsi:type="array" type="string" size="1">
+      <Value key="0" value="USERPASSWORD" />
+    </Data>
+    <Data name="sXPPUserName" access="private" xsi:type="array" type="string" size="1">
+      <Value key="0" value="CS8LOGIN" />
+    </Data>
+    <Data name="sXPPValue" access="private" xsi:type="array" type="string" size="1" />
+    <Data name="tNULLTOOL" access="private" xsi:type="array" type="tool" size="1">
+      <Value key="0" fatherId="flange[0]" ioLink="valve1" />
+    </Data>
+    <Data name="tRefPointer" access="public" xsi:type="array" type="tool" size="1">
+      <Value key="0" fatherId="flange[0]" ioLink="valve1" />
+    </Data>
+    <Data name="tSensorTool" access="private" xsi:type="array" type="tool" size="1">
+      <Value key="0" z="300" ry="90" rz="90" fatherId="flange[0]" ioLink="valve1" />
+    </Data>
+    <Data name="trUserTool" access="private" xsi:type="array" type="trsf" size="1" />
+    <Data name="fIPoriginal" access="private" xsi:type="array" type="frame" size="1">
+      <Value key="0" x="-1.15694092" y="-7.99769233" z="1599.75028" rx="-90.07984756" ry="0.32533902" rz="-0.14700469" fatherId="world[0]" />
+    </Data>
+    <Data name="jParkTop" access="private" xsi:type="array" type="jointRx" size="1" />
+    <Data name="pIP2Point" access="private" xsi:type="array" type="pointRx" size="25">
+      <Value key="0" shoulder="sfree" elbow="efree" wrist="wfree" fatherId="fIP1[0]" />
+      <Value key="1" shoulder="sfree" elbow="efree" wrist="wfree" fatherId="fIP1[0]" />
+      <Value key="2" shoulder="sfree" elbow="efree" wrist="wfree" fatherId="fIP1[0]" />
+      <Value key="3" shoulder="sfree" elbow="efree" wrist="wfree" fatherId="fIP1[0]" />
+      <Value key="4" shoulder="sfree" elbow="efree" wrist="wfree" fatherId="fIP1[0]" />
+      <Value key="5" shoulder="sfree" elbow="efree" wrist="wfree" fatherId="fIP1[0]" />
+      <Value key="6" shoulder="sfree" elbow="efree" wrist="wfree" fatherId="fIP1[0]" />
+      <Value key="7" shoulder="sfree" elbow="efree" wrist="wfree" fatherId="fIP1[0]" />
+      <Value key="8" shoulder="sfree" elbow="efree" wrist="wfree" fatherId="fIP1[0]" />
+      <Value key="9" shoulder="sfree" elbow="efree" wrist="wfree" fatherId="fIP1[0]" />
+      <Value key="10" shoulder="sfree" elbow="efree" wrist="wfree" fatherId="fIP1[0]" />
+      <Value key="11" shoulder="sfree" elbow="efree" wrist="wfree" fatherId="fIP1[0]" />
+      <Value key="12" shoulder="sfree" elbow="efree" wrist="wfree" fatherId="fIP1[0]" />
+      <Value key="13" shoulder="sfree" elbow="efree" wrist="wfree" fatherId="fIP1[0]" />
+      <Value key="14" shoulder="sfree" elbow="efree" wrist="wfree" fatherId="fIP1[0]" />
+      <Value key="15" shoulder="sfree" elbow="efree" wrist="wfree" fatherId="fIP1[0]" />
+      <Value key="16" shoulder="sfree" elbow="efree" wrist="wfree" fatherId="fIP1[0]" />
+      <Value key="17" shoulder="sfree" elbow="efree" wrist="wfree" fatherId="fIP1[0]" />
+      <Value key="18" shoulder="sfree" elbow="efree" wrist="wfree" fatherId="fIP1[0]" />
+      <Value key="19" shoulder="sfree" elbow="efree" wrist="wfree" fatherId="fIP1[0]" />
+      <Value key="20" shoulder="sfree" elbow="efree" wrist="wfree" fatherId="fIP1[0]" />
+      <Value key="21" shoulder="sfree" elbow="efree" wrist="wfree" fatherId="fIP1[0]" />
+      <Value key="22" shoulder="sfree" elbow="efree" wrist="wfree" fatherId="fIP1[0]" />
+      <Value key="23" shoulder="sfree" elbow="efree" wrist="wfree" fatherId="fIP1[0]" />
+      <Value key="24" shoulder="sfree" elbow="efree" wrist="wfree" fatherId="fIP1[0]" />
+    </Data>
+  </Datas>
+</Database>

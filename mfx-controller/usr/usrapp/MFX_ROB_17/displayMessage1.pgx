@@ -1,0 +1,246 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="displayMessage1">
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1">
+      <Parameter name="nTitle" type="num" xsi:type="element" />
+      <Parameter name="nKey" type="num" xsi:type="array" use="reference" />
+    </Parameters>
+    <Locals>
+      <Local name="LnIndex" type="num" xsi:type="array" size="1" />
+      <Local name="LbKey" type="bool" xsi:type="array" size="1" />
+      <Local name="LnQuestion" type="num" xsi:type="array" size="1" />
+      <Local name="LnFirst" type="num" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  //header begin
+  // program displayMessage1(nTitle, nKey)
+  //
+  // generic pgm used for displaying complex messages and reacting to user keypad selections
+  // (this program modified from pgm display( )
+  //  CUSTOMIZED SPECIFICALLY FOR CUBE/CYL/SPHERE STAY CLEAR AREA DEFINITION
+  //
+  // input parms:
+  //    nTitle = index of selected menu Title string in sUserPageText[ ]
+  //
+  // other parms:
+  //    nQuestion = nTitle+1 = index of selected menu Question string in sUserPageText[ ]
+  //    nFirst = nTitle+2 = index of the first menu Items to be displayed from sUserPageText[ ]
+  //
+  //  NOTE:  the strings structure is in groups of 10 in the strings array sUserPageText[ ]
+  //  Menu Page Indices are NUMBER variables
+  //
+  // output parms:
+  //    nKey = the keypad number of the selected Function Key
+  //
+  // called from:  various
+  //
+  // initial release KN
+  //header end
+  //
+  // init local variables used as menu string text pointers
+  // values are just +1 & +2 offset of nTitle pointer
+  LnQuestion=nTitle+1
+  LnFirst=nTitle+2
+  // clear user page, and throw a title
+  userPage()
+  cls()
+  title(sUserPageText[nTitle])
+  //
+  // print the user page Function Button Identifiers at bottom of page
+  gotoxy(0,13)
+  put(sMenuBottomLine[(nTitle-1)/10])
+  //
+  //print QUESTION or COMMAND
+  gotoxy(0,1)
+  put(sUserPageText[LnQuestion])
+  //
+  // print 8 statements from menu string data
+  for LnIndex=LnFirst to LnFirst+7
+    gotoxy(0,LnIndex-LnFirst+3)
+    put(sUserPageText[LnIndex])
+  endFor
+  //
+  // special setup for cube teach step 1
+  if (bCubeStep1==true)
+    // print current cube number
+    gotoxy(0,0)
+    put("Cube Number= ")
+    put(toString(".0",nNumberCube))
+    // print cube zone status
+    gotoxy(19,0)
+    put("Status=")
+    if MON:bCreateCube[nNumberCube]==true
+      put("DEFINED")
+    else
+      put("UNDEFINED")
+    endIf
+    // print cube Origin X, Y, Z
+    gotoxy(0,1)
+    put("Origin( ")
+    put(toString("5.0",pOriginCube.trsf.x))
+    put(", ")
+    put(toString("5.0",pOriginCube.trsf.y))
+    put(", ")
+    put(toString("5.0",pOriginCube.trsf.z))
+    put(" )")
+    // print DX, DY, DZ
+    gotoxy(0,2)
+    put("DX= ")
+    put(toString("5.0",nDistXCube))
+    put(" DY= ")
+    put(toString("5.0",nDistYCube))
+    put(" DZ= ")
+    put(toString("5.0",nDistZCube))
+  endIf
+  //
+  // Special setup for Cube DX, DY, DZ
+  if (bSetCubeXYZ==true)
+    // print current cube number
+    gotoxy(0,0)
+    put("Cube Number= ")
+    put(toString(".0",nNumberCube))
+    // print cube zone status
+    gotoxy(19,0)
+    put("Status=")
+    if MON:bCreateCube[nNumberCube]==true
+      put("DEFINED")
+    else
+      put("UNDEFINED")
+    endIf
+    // print DX, DY, DZ
+    gotoxy(0,1)
+    put("DX=")
+    put(toString("5.0",nDistXCube))
+    gotoxy(0,2)
+    put("DY=")
+    put(toString("5.0",nDistYCube))
+    gotoxy(0,3)
+    put("DZ=")
+    put(toString("5.0",nDistZCube))
+  endIf
+  //
+  // special setup for cylinder teach step 1
+  if (bCylinderStep1==true)
+    // print current cylinder number
+    gotoxy(0,0)
+    put("Cyl Number= ")
+    put(toString(".0",nNumberCylinder))
+    // print cylinder zone status
+    gotoxy(19,0)
+    put("Status=")
+    if MON:bCreateCylinder[nNumberCylinder]==true
+      put("DEFINED")
+    else
+      put("UNDEFINED")
+    endIf
+    // print cylinder Origin X, Y, Z
+    gotoxy(0,1)
+    put("Origin( ")
+    put(toString("5.0",pOriginCylinder.trsf.x))
+    put(", ")
+    put(toString("5.0",pOriginCylinder.trsf.y))
+    put(", ")
+    put(toString("5.0",pOriginCylinder.trsf.z))
+    put(" )")
+    // print cylinder Radius & DZ
+    gotoxy(0,2)
+    put("RAD = ")
+    put(toString("5.0",nRadiusCylinder))
+    put(" DZ = ")
+    put(toString("5.0",nDistZCylinder))
+  endIf
+  //
+  // Special setup for Cylinder Radius & DZ
+  if (bSetCylinderRZ==true)
+    // print current cylinder number
+    gotoxy(0,0)
+    put("Cyl Number= ")
+    put(toString(".0",nNumberCylinder))
+    // print cylinder zone status
+    gotoxy(19,0)
+    put("Status=")
+    if MON:bCreateCylinder[nNumberCylinder]==true
+      put("DEFINED")
+    else
+      put("UNDEFINED")
+    endIf
+    // print cylinder Radius & DZ
+    gotoxy(0,1)
+    put("RAD =")
+    put(toString("5.0",nRadiusCylinder))
+    gotoxy(0,2)
+    put("DZ =")
+    put(toString("5.0",nDistZCylinder))
+  endIf
+  //
+  // special setup for sphere teach step 1
+  if (bSphereStep1==true)
+    // print current sphere number
+    gotoxy(0,0)
+    put("Sphere Number = ")
+    put(toString(".0",nNumberSphere))
+    // print sphere zone status
+    gotoxy(19,0)
+    put("Status=")
+    if MON:bCreateSphere[nNumberSphere]==true
+      put("DEFINED")
+    else
+      put("UNDEFINED")
+    endIf
+    // print sphere Origin X, Y, Z
+    gotoxy(0,1)
+    put("Origin( ")
+    put(toString("5.0",pOriginSphere.trsf.x))
+    put(", ")
+    put(toString("5.0",pOriginSphere.trsf.y))
+    put(", ")
+    put(toString("5.0",pOriginSphere.trsf.z))
+    put(" )")
+    // print sphere Radius
+    gotoxy(0,2)
+    put("RAD = ")
+    put(toString("5.0",nRadiusSphere))
+  endIf
+  //
+  // Special setup for sphere Radius
+  if (bSetSphereRad==true)
+    // print current cylinder number
+    gotoxy(0,0)
+    put("Sphere Number= ")
+    put(toString(".0",nNumberSphere))
+    // print sphere zone status
+    gotoxy(19,0)
+    put("Status=")
+    if MON:bCreateSphere[nNumberSphere]==true
+      put("DEFINED")
+    else
+      put("UNDEFINED")
+    endIf
+    // print sphere Radius
+    gotoxy(0,1)
+    put("RAD =")
+    put(toString("5.0",nRadiusSphere))
+  endIf
+  //
+  // Wait indefinitely for a function button press
+  LbKey=false
+  getKey()
+  do
+    nKey=getKey()
+    switch nKey
+      // ESC character always ABORTS AND/OR RETURNS
+      case 255
+        LbKey=true
+      break
+      case 271,272,273,274,275,276,277,278
+        LbKey=true
+      break
+    endSwitch
+    //
+    delay(0)
+  until (LbKey==true)
+end
+
+      ]]></Code>
+  </Program>
+</Programs>

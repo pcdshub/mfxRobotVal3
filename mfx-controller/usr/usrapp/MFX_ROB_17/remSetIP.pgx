@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="remSetIP">
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1">
+      <Parameter name="sArgs" type="string" xsi:type="array" use="reference" />
+      <Parameter name="sReturn" type="string" xsi:type="array" use="reference" />
+    </Parameters>
+    <Locals>
+      <Local name="nIP" type="num" xsi:type="array" size="1" />
+      <Local name="bOk" type="bool" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  // Pick the active IP, 0 or 1.
+  //
+  logMsg("call remSetIP with args " + sArgs)
+  toNum(left(sArgs,1), nIP, bOk)
+  if bOk
+    if nIP == 0
+      nIPNumber = 0
+    else
+      nIPNumber = 1
+    endIf
+    sReturn = "SETIP " + toString("", nIPNumber)
+  else
+    call remErrNum("SETIP",sArgs,sReturn)
+  endIf
+end
+]]></Code>
+  </Program>
+</Programs>

@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="remMovAZELRA">
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1">
+      <Parameter name="sArgs" type="string" xsi:type="array" use="reference" />
+      <Parameter name="sReturn" type="string" xsi:type="array" use="reference" />
+    </Parameters>
+    <Locals>
+      <Local name="nAzi" type="num" xsi:type="array" size="1" />
+      <Local name="nEle" type="num" xsi:type="array" size="1" />
+      <Local name="nRad" type="num" xsi:type="array" size="1" />
+      <Local name="nVal" type="num" xsi:type="array" size="1" />
+      <Local name="bOk" type="bool" xsi:type="array" size="1" />
+      <Local name="nLoop" type="num" xsi:type="array" size="1" />
+      <Local name="sArgsLoop" type="string" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  // Move to a specified point in spherical coordinates
+  //
+  // Arguments are "AZ EL RA"
+  //
+  logMsg("call remMovAZELRA")
+  //break down our 3 args and make sure they are numbers
+  nLoop = 0
+  sArgsLoop = sArgs
+  while nLoop < 3
+    sArgsLoop = toNum(sArgsLoop, nVal, bOk)
+    if bOk
+      switch nLoop
+        case 0
+          nAzi = nVal
+        break
+        case 1
+          nEle = nVal
+        break
+        case 2
+          nRad = nVal
+        break
+      endSwitch
+      nLoop = nLoop + 1
+    else
+      call remErrNum("MOVAZELRA",sArgs,sReturn)
+      return
+    endIf
+  endWhile
+  call remMovSph(nAzi,nEle,nRad,sReturn)
+end
+]]></Code>
+  </Program>
+</Programs>

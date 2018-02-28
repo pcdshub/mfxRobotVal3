@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="remMovJointAxis">
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1">
+      <Parameter name="sArgs" type="string" xsi:type="array" use="reference" />
+      <Parameter name="sReturn" type="string" xsi:type="array" use="reference" />
+    </Parameters>
+    <Locals>
+      <Local name="jDest" type="joint" xsi:type="array" size="1" />
+      <Local name="pDest" type="point" xsi:type="array" size="1" />
+      <Local name="nIndex" type="num" xsi:type="array" size="1" />
+      <Local name="sAxis" type="string" xsi:type="array" size="1" />
+      <Local name="sVal" type="string" xsi:type="array" size="1" />
+      <Local name="nVal" type="num" xsi:type="array" size="1" />
+      <Local name="bOk" type="bool" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  //Move just one joint
+  //Arguments are "j pos" where j is J1, J2, J3, J4, J5, or J6 and pos is the goal
+  //
+  logMsg("call remMovJointAxis")
+  nIndex = find(sArgs," ")
+  sAxis = left(sArgs, nIndex)
+  sVal = delete(sArgs, nIndex+1, 0)
+  toNum(sVal, nVal, bOk)
+  if bOk
+    jDest = herej()
+    switch sAxis
+      case "J1"
+        jDest.j1 = nVal
+      break
+      case "J2"
+        jDest.j2 = nVal
+      break
+      case "J3"
+        jDest.j3 = nVal
+      break
+      case "J4"
+        jDest.j4 = nVal
+      break
+      case "J5"
+        jDest.j5 = nVal
+      break
+      case "J6"
+        jDest.j6 = nVal
+      break
+      default
+        call remErrInvalid("MOVJOINTAXIS", sAxis, sReturn)
+        return
+      break
+    endSwitch
+    if nIPNumber == 0
+      pDest = jointToPoint(tSensorTool,fIP1,jDest)
+    else
+      pDest = jointToPoint(tSensorTool,fIP2,jDest)
+    endIf
+    call remMovBase(pDest, sReturn)
+  else
+    call remErrNum("MOVJOINTAXIS", sVal, sReturn)
+  endIf
+end
+]]></Code>
+  </Program>
+</Programs>

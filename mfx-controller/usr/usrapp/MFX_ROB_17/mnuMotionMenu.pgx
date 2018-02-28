@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="mnuMotionMenu">
+    <Locals>
+      <Local name="nKey" type="num" xsi:type="array" size="1" />
+      <Local name="LbBackup" type="bool" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  //header begin
+  // PROGRAM mnuMotionMenu()
+  //
+  // runs the menu to select various MOTION functions
+  //
+  // incoming parms:  none
+  // outgoing parms:  none
+  // called from:  pgm main()
+  //
+  //  initial release KN
+  //  Release 3:  added F3 Button call to pgm <something>
+  //  /per Blue Technik quote K01c, Work Request K01-1
+  //header end
+  //
+  // start continuous loop, end by menu command or teach pendant command
+  // on user command, jump to other subroutines for action
+  //
+  LbBackup=false
+  do
+    //nIdxMotionMenu=271
+    call display(nIdxMotionMenu,nKey)
+    // verify selection
+    switch nKey
+      // ESC key aborts & returns immediately
+      case 255
+        return
+      break
+      // Motion Menu:  F1 Button, go to Target Point menu for move & adjust functions
+      case 271
+        call mnuMoveTargPnt()
+      break
+      // Motion Menu:  F5 Button, Move to PARK position
+      case 275
+        call movToPark()
+      break
+      // F8 Button, backup to Main Menu
+      case 278
+        LbBackup=true
+      break
+      // any other key press
+      default
+        cls()
+        popUpMsg("BAD SELECTION...Press OK")
+      break
+    endSwitch
+  until (false or (LbBackup==true))
+  // done
+end
+
+      ]]></Code>
+  </Program>
+</Programs>

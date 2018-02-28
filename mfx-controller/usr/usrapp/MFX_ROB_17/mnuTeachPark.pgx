@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="mnuTeachPark">
+    <Locals>
+      <Local name="nKey" type="num" xsi:type="array" size="1" />
+      <Local name="LbBackup" type="bool" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  //header begin
+  // PROGRAM mnuTeachPark()
+  //
+  // runs the Wizard to assist user:  Teach a single robot PARK position
+  // position taught = jPark
+  //
+  // incoming parms:  none
+  // outgoing parms:  none
+  // called from:  pgm mnuTeachMenu()
+  //
+  //  initial release KN
+  //header end
+  //
+  // start continuous loop, go through each of 5 wizard steps
+  //
+  // init step-by-step continuance booleans
+  LbBackup=false
+  //
+  do
+    // nIdxTeachPARK=51
+    call displayMessage(nIdxTeachPARK,nKey)
+    // verify selection
+    switch nKey
+      // ESC key aborts & returns immediately
+      case 255
+        return
+      break
+      // menu = Teach Park, F1 to continue to Step 2 of 4
+      case 271
+        jPark=herej()
+        LbBackup=true
+      break
+      // menu = Teach Park, F8 Button, abort to Teach Menu
+      case 278
+        return
+      break
+      // Any other key press
+      default
+        popUpMsg("BAD SELECTION...press OK")
+      break
+    endSwitch
+  until (false or (LbBackup==true))
+  //
+  // teach Park Position completed, save data on exit
+  libSave()
+  //
+  // done
+end
+
+      ]]></Code>
+  </Program>
+</Programs>

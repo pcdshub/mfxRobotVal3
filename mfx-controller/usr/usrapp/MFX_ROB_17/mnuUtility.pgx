@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="mnuUtility">
+    <Locals>
+      <Local name="LbBackup" type="bool" xsi:type="array" size="1" />
+      <Local name="nKey" type="num" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  //header begin
+  // PROGRAM menuUtility()
+  //
+  // runs the menu to select various functions
+  //
+  // incoming parms:  none
+  // outgoing parms:  none
+  // called from:  pgm main()
+  //
+  //  initial release KN
+  //header end
+  //
+  // start continuous loop, end by menu command or teach pendant command
+  // on user command, jump to other subroutines for action
+  //
+  LbBackup=false
+  do
+    // display different Utility Menus depending upon status of Zone Monitoring enable/disable
+    if bStopAllMonitor==true
+      // nIdxUtilityMenu = 71, shows ENABLE monitoring
+      call display(nIdxUtilityMenu,nKey)
+    else
+      //nIdxUtilMenu2=301, shows DISABLE monitoring
+      call display(nIdxUtilMenu2,nKey)
+    endIf
+    // verify selection
+    switch nKey
+      // ESC key aborts & returns immediately
+      case 255
+        return
+      break
+      // menu = Utility Menu:  F1 Button = Initialize Robot
+      case 271
+        call initializeRobot()
+      break
+      // menu = Utility Menu:  F2 Button = Verify arm is at Park, option to user to move arm even if not at park
+      case 272
+        call checkAtPark()
+      break
+      // menu = Utility Menu:  F3 Button to change enable/disable status of Stay Clear Zone checking
+      case 273
+        if bStopAllMonitor==false
+          bStopAllMonitor=true
+        else
+          bStopAllMonitor=false
+        endIf
+      break
+      // menu = Utility Menu, F4 to allow user to set global speed
+      case 274
+        call mnuGlobalSpeed()
+      break
+      // menu = Utility Menu:  F5 Button, ENABLE Remote Control of Robot Functions from Host Computer
+      // boolean bRemControlON used inside of tskRemControl()
+      case 275
+        bRemControlON=true
+        do
+          delay(1)
+        until bRemControlON==false
+        //
+      break
+      // menu = Utility Menu:  F6 Button, Display to User Page TCP locations relative to
+      // /selected Interaction Point frame
+      case 276
+        call mnuGetTCP()
+      break
+      // menu = Utility Menu:  F8 Button, backup to Main Menu
+      case 278
+        LbBackup=true
+      break
+      // any other key press
+      default
+        cls()
+        popUpMsg("BAD SELECTION...Press OK")
+      break
+    endSwitch
+  until (false or (LbBackup==true))
+  // done
+end
+
+      ]]></Code>
+  </Program>
+</Programs>

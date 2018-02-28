@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="remCalcHere">
+    <Locals>
+      <Local name="pHere" type="point" xsi:type="array" size="1" />
+      <Local name="trHere" type="trsf" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  // Calculate current position in current frame and save to globals
+  //
+  logMsg("call remCalcHere")
+  if nIPNumber == 0
+    pHere = here(tSensorTool, fIP1)
+  else
+    pHere = here(tSensorTool, fIP2)
+  endIf
+  trHere = pHere.trsf
+  nXHere = trHere.x
+  nYHere = trHere.y
+  nZHere = trHere.z
+  nRXHere = trHere.rx
+  nRYHere = trHere.ry
+  nRZHere = trHere.rz
+end
+]]></Code>
+  </Program>
+</Programs>

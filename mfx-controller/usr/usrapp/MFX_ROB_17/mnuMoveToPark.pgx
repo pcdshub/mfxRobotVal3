@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="mnuMoveToPark">
+    <Locals>
+      <Local name="LbBackup" type="bool" xsi:type="array" size="1" />
+      <Local name="nKey" type="num" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  //header begin
+  // PROGRAM mnuMoveToPark()
+  //
+  // runs the menu to guide user to Move to PARK Location
+  //
+  // incoming parms:  none
+  // outgoing parms:  none
+  // called from:  pgm main()
+  //
+  //  initial release KN
+  //header end
+  //
+  // start continuous loop, end by menu command or teach pendant command
+  // on user command, jump to other subroutines for action
+  //
+  LbBackup=false
+  do
+    //nIdxMotionMenu=311
+    call display(nIdxMoveToPark,nKey)
+    // verify selection
+    switch nKey
+      // ESC key aborts & returns immediately
+      case 255
+        return
+      break
+      // menu = MoveToPark  F1 Button, Move to PARK Location
+      case 271
+        //        stopMove()
+        //        resetMotion()
+        //        // check robot condition
+        //        call initializeRobot()
+        //        userPage()
+        //        cls()
+        //        title(" MOVE TO PARK ")
+        //        gotoxy(0,4)
+        //        putln("WAITING:  Press MOVE/HOLD button")
+        //        putln("          to move to Park...")
+        //        //
+        //        bEnableMonitor=true
+        //        LpPark=jointToPoint(tSensorTool,world,jPark)
+        //        movel(LpPark,tSensorTool,mGlobalSpeed)
+        //        waitEndMove()
+        //        bEnableMonitor=false
+        //        popUpMsg("NOW AT PARK...Press OK")
+        //        LbBackup=true
+        call movToPark()
+      break
+      // F8 Button, backup to Main Menu
+      case 278
+        LbBackup=true
+      break
+      // any other key press
+      default
+        cls()
+        popUpMsg("BAD SELECTION...Press OK")
+      break
+    endSwitch
+  until (false or (LbBackup==true))
+  // done
+end
+
+      ]]></Code>
+  </Program>
+</Programs>

@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="displayMessage4">
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1">
+      <Parameter name="nTitle" type="num" xsi:type="element" />
+      <Parameter name="nKey" type="num" xsi:type="array" use="reference" />
+    </Parameters>
+    <Locals>
+      <Local name="LnIndex" type="num" xsi:type="array" size="1" />
+      <Local name="LbKey" type="bool" xsi:type="array" size="1" />
+      <Local name="LnQuestion" type="num" xsi:type="array" size="1" />
+      <Local name="LnFirst" type="num" xsi:type="array" size="1" />
+      <Local name="LpHere" type="point" xsi:type="array" size="1" />
+      <Local name="LpPark" type="point" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  //header begin
+  // program displayMessage4(nTitle, nKey)
+  //
+  // generic pgm used for pgm checkAtPark()
+  // (this program modified from pgm display( )
+  //
+  // input parms:
+  //    nTitle = index of selected menu Title string in sUserPageText[ ]
+  //
+  // other parms:
+  //    nQuestion = nTitle+1 = index of selected menu Question string in sUserPageText[ ]
+  //    nFirst = nTitle+2 = index of the first menu Items to be displayed from sUserPageText[ ]
+  //
+  //  NOTE:  the strings structure is in groups of 10 in the strings array sUserPageText[ ]
+  //  Menu Page Indices are NUMBER variables
+  //
+  // output parms:
+  //    nKey = the keypad number of the selected Function Key
+  //
+  // called from:  various
+  // initial release KN
+  //header end
+  //
+  // init local variables used as menu string text pointers
+  // values are just +1 & +2 offset of nTitle pointer
+  LnQuestion=nTitle+1
+  LnFirst=nTitle+2
+  // clear user page, and throw a title
+  userPage()
+  cls()
+  title(sUserPageText[nTitle])
+  //
+  // Print menu page Function Button Identifiers at bottom of user window
+  gotoxy(0,13)
+  put(sMenuBottomLine[(nTitle-1)/10])
+  //
+  //print QUESTION or COMMAND
+  gotoxy(0,2)
+  put(sUserPageText[LnQuestion])
+  //
+  // print 8 statements from menu string data
+  for LnIndex=LnFirst to LnFirst+7
+    gotoxy(1,LnIndex-LnFirst+3)
+    put("(F")
+    put(toString("",LnIndex-LnFirst+1))
+    put(") ")
+    put(sUserPageText[LnIndex])
+  endFor
+  //
+  // test current TCP location & print the Arm Park Status
+  gotoxy(0,0)
+  LpHere=here(tSensorTool,world)
+  LpPark=jointToPoint(tSensorTool,world,jPark)
+  if (distance(LpHere,LpPark)>nParkTolerance)
+    put(" Arm Park Status:  NOT PARKED! ")
+  else
+    put(" Arm Park Status:  PARKED & READY  ")
+  endIf
+  // Wait indefinitely for a function button press
+  LbKey=false
+  getKey()
+  do
+    nKey=getKey()
+    switch nKey
+      // ESC character always ABORTS AND/OR RETURNS
+      case 255
+        LbKey=true
+      break
+      // Function Button value returned for selected action
+      case 271,272,273,274,275,276,277,278
+        LbKey=true
+      break
+    endSwitch
+    //
+    delay(0)
+  until (LbKey==true)
+end
+
+      ]]></Code>
+  </Program>
+</Programs>

@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="mnuTeachTCP4pnt">
+    <Code><![CDATA[begin
+  //header begin
+  // PROGRAM mnuTeachTCP4pnt()
+  //
+  // runs the menu to Teach the EOAT TCP by use of 4-point teach method
+  // call Staubli-supplied library CalcTool4pEn(), used here with
+  // minor modifications
+  //
+  // incoming parms:  none
+  // outgoing parms:  none
+  // called from:  pgm mnuTeachTCP()
+  //
+  //  initial release KN
+  //header end
+  //
+  // library TCP4:calcTool4pEN is AUTOLOADED
+  call TCP4:aMainTcp(100)
+  // take the trsf calculated by the 4-point routine and use it for the SLAC sensor tool
+  tSensorTool.trsf=trUserTool
+  //
+  // teach new tool def with 4-pnt method completed, save data on exit
+  libSave()
+  // done
+end
+
+      ]]></Code>
+  </Program>
+</Programs>

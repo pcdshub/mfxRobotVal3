@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="readme">
+    <Code><![CDATA[begin
+  //Title : SLAC RX160L sensor positioning application
+  //History:
+  //  IOC Release April 2016 by zlentz
+  //    change pretty much everything on the remote access side
+  //
+  //  Changes by klg at some point
+  //    reconnect on connection drops, etc.
+  //
+  //  Release 3 by ???
+  //    I don't know what happened here, just filling in the readme gaps
+  //
+  //  Release 2 <release date here> by Blue Technik LLC
+  //    change remote control function from CS8_client to CS8_server
+  //      no login function implemented
+  //      change sio variable from sioXPPhost to sioXPPclient
+  //    next addtition
+  //    next addition
+  //    next addition
+  //
+  //  Initial Release:
+  //    Blue Technik LLC
+  //    2507 Watonga Drive, Suite B
+  //    Commerce Township, MI  48382
+  //    PH:  248-891-8479
+  //    FX:  248-366-1560
+  //    bt.info@bluetechnik.com
+  //    www.bluetechnik.com
+  //
+  //General description :
+  //  This application provides an interactive Teach Pendant Menu method by which SLAC personnel may :
+  //  - teach Interaction Point frames (coordinate systems)
+  //  - teach Interaction Point sensor Target Points by inputting Azimuth, Elevation, & Radius coordinates
+  //    relative to the Interaction Point Frame
+  //  - teach "Stay Clear Zones" (cubic, cylindrical, spherical)
+  //  - Adjust Target Point orienation in user-selectable resolution
+  //  - Teach a Park position
+  //  - Teach a Tool Center Point on a tool by two methods
+  //
+  //
+  //Hardware required :
+  //  - Robot system    : User robot of choice
+  //  - Peripherals     : no peripherals required
+  //
+  //VAL3 options :
+  //  - VAL3 version    : 6.4
+  //  - VAL3 licenses   : no licenses required
+  //  - VAL3 add-ons    : none
+  //
+  //Library version     : 6.4.1.0
+  //
+  //Public variables    : many
+  //
+  //Included libraries  : monitorAreaEN.............for Definition, Enable/Disable, and monitoring of Stay Clear Zones
+  //                      calcToolpEN...............for teaching TCP via reference pointer
+  //                      calcTool4pEN..............for teach TCP via 4-point method
+  //                      io........................standard Input / Output library
+  //
+  //Miscellaneous       : ---
+  //
+  //
+  // PROGRAMMING STYLE NOTES
+  // Data variable Prefixes
+  //  p      = point location
+  //  j      = joint location
+  //  n      = numerical variable (real and integer)
+  //  m      = motion descriptor variable
+  //  tr     = trsf transformation value variable
+  //  di     = digital input
+  //  do     = digital output
+  //  b      = boolean variable
+  //  f      = robot frame description variable
+  //  t      = robot tool transform description variable
+  //  sio    = serial I/O port description variable
+  //  s    = string variable
+  //
+  //  LOCAL program variables are identified in their programs
+  //  by the prefix "L" before any other variable name values
+  //
+  //  Subroutine Parameters are identified by the "X" prefix
+  //
+  //
+  //  TCP/IP COMMUNICATIONS TEST METHOD
+  //  can test Client-Host communications functionality on user PC with Staubli CS8 Emulator and TeraTerm
+  //  /terminal emulator software.
+  //    1.  Start CS8 Emulator and run SLAC application to main menu
+  //    2.  Start Remote Control.
+  //    3.  Start TeraTerm, make New Connection with following settings:
+  //        a.  TCP/IP checked ON
+  //        b.  Host = whatever is stated at bottom left of CS8 Emulator window, typically = 127.0.0.1
+  //        c.  Service = OTHER
+  //        d.  TCP Port # = "1301" or whatever the Host port is set to on CS8 Emululator for Host "XPP"
+  //        e.  Protocol = UNSPEC
+  //    4.  At this point you should see in the TeraTerm window the CS8 response string "LISTENINGX"
+  //        /to indicated a good connection has been made.
+  //    5.  Change TeraTerm / Setup / Terminal as follows:
+  //        a.  New-Line:  Receive = CR+LF
+  //        b.  New-Line:  Transmit = CR
+  //        c.  Local Echo = ON
+  //        d.  All other settings:  leave as defaults
+  //    6.  Done with setup.
+  //    7.  Enter commands and receive responses to test functionality.
+  //
+  //
+end
+
+      ]]></Code>
+  </Program>
+</Programs>

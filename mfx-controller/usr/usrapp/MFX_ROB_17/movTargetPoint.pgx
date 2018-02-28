@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="movTargetPoint" access="public">
+    <Locals>
+      <Local name="LnKey" type="num" xsi:type="array" size="1" />
+      <Local name="LpTargetPoint" type="point" xsi:type="array" size="1" />
+      <Local name="LpHere" type="point" xsi:type="array" size="1" />
+      <Local name="LnDistance" type="num" xsi:type="array" size="1" />
+      <Local name="LpPark" type="point" xsi:type="array" size="1" />
+      <Local name="LnDistToTP" type="num" xsi:type="array" size="1" />
+      <Local name="LnDistToPark" type="num" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  //header begin
+  // PROGRAM movTargPoint()
+  //
+  // checks for necessary conditions to be met before move to
+  // currently selected Target Point at currently selected Interaction Point
+  //
+  // incoming parms:  none
+  // outgoing parms:  none
+  // called from:  pgm mnuMoveTargPnt()
+  //
+  //  initial release KN
+  //header end
+  //
+  //
+  // stop all current moves and clear motion stack
+  stopMove()
+  resetMotion()
+  // test for ESTOP, Manual Mode, Arm Power, & Arm Cal
+  call initializeRobot()
+  //
+  cls()
+  title(" MOVE TO TARGET POINT ")
+  //
+  // test if "near to" currently selected Target Point in case user desires return from adjustment loc to Target Point
+  LpHere=here(tSensorTool,world)
+  if nIPNumber==0
+    LpTargetPoint=pIP1Point[nIP1Number]
+  else
+    LpTargetPoint=pIP2Point[nIP2Number]
+  endIf
+  LnDistToTP=abs(distance(LpHere,LpTargetPoint))
+  logMsg("dist to TP="+toString(".2",LnDistToTP))
+  //
+  // Test if arm not close enough to Target Point, then test for distance to jPark
+  // check if arm is at pre-defined jPark location, deny motion & advise user & return if not at jPark
+  // get current position, compare with destination
+  LpHere=here(tSensorTool,world)
+  LpPark=jointToPoint(tSensorTool,world,jPark)
+  LnDistToPark=abs(distance(LpHere,LpPark))
+  logMsg("Dist to Park="+toString(".2",LnDistToPark))
+  // if arm is close enough to TP to safely move back to TP, or is close enough to jPark to safely move to TP, then move
+  // else deny motion
+  if ((LnDistToTP<=nAdjPntMoveTol) or (LnDistToPark<=nParkTolerance))
+    // if arm is close enough to Target Point or to jPark, then go ahead and move to Target Point
+    //
+    gotoxy(0,4)
+    putln("WAITING:  Push MOVE/HOLD")
+    putln("          to move to Target Point")
+    // put "HALT" in F8 position
+    gotoxy(36,13)
+    put("HALT")
+    //
+    bEnableMonitor=true
+    if nIPNumber==0
+      movel(pIP1Point[nIP1Number],tSensorTool,mGlobalSpeed)
+      LpTargetPoint=pIP1Point[nIP1Number]
+    else
+      movel(pIP2Point[nIP2Number],tSensorTool,mGlobalSpeed)
+      LpTargetPoint=pIP2Point[nIP2Number]
+    endIf
+    // watch for Stay Clear Zone entry, process if required
+    // watch for bStopMotion initiated from tskHaltMoveMon()
+    bWatchForHalt=true
+    do
+      // get current position, compare with destination
+      LpHere=here(tSensorTool,world)
+      LnDistance=abs(distance(LpHere,LpTargetPoint))
+      delay(0)
+      // exits do-until loop if TCP within tolerance of destination point or if F8=HALT key is pressed during motion
+    until (LnDistance<=nZoneWatchTol) or (bInsideCube==true) or (bInsideCylinder==true) or (bInsideSphere==true) or (bStopMotion==true)
+    //
+    // if within tolerance zone, continue on until end of move at Target Point
+    if (bInsideCube==false) and (bInsideCylinder==false) and (bInsideSphere==false) and (LnDistance<=nZoneWatchTol) and (bStopMotion==false)
+      waitEndMove()
+      popUpMsg("NOW at Target Point...Press OK")
+      logMsg("movTargetPoint():  target point move complete")
+      //...else there is a stopping condition of TCP inside a Stay Clear Zone or F8=HALT button is pressed during motion
+    else
+      stopMove()
+      resetMotion()
+      bStopAllMonitor=true
+      popUpMsg("MOTION CANCELLED:  Zone Entered or HALT requested; Monitoring is Disabled; Manual Recovery REQUIRED...Press OK")
+      logMsg("movTargetPoint():  zone entered or HALT requested during move")
+      //
+      // put in motion halt recovery steps here
+      //
+    endIf
+  else
+    popUpMsg("MOTION CANCELLED:  Arm is not close enough to Target Point or NOT PARKED...Press OK")
+    logMsg("movTargetPoint():  motion cancelled due, TCP out of target point tolerance or NOT PARKED")
+  endIf
+  bEnableMonitor=false
+  bWatchForHalt=false
+  bStopMotion=false
+  //
+  //done
+  //
+end
+
+      ]]></Code>
+  </Program>
+</Programs>

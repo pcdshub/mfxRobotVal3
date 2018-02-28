@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="remTest">
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1">
+      <Parameter name="sArgs" type="string" xsi:type="array" use="reference" />
+      <Parameter name="sReturn" type="string" xsi:type="array" use="reference" />
+    </Parameters>
+    <Locals>
+      <Local name="nLoop" type="num" xsi:type="array" size="1" />
+      <Local name="sArgsLoop" type="string" xsi:type="array" size="1" />
+      <Local name="bOk" type="bool" xsi:type="array" size="1" />
+      <Local name="nVal" type="num" xsi:type="array" size="1" />
+      <Local name="nAzi" type="num" xsi:type="array" size="1" />
+      <Local name="nEle" type="num" xsi:type="array" size="1" />
+      <Local name="nRad" type="num" xsi:type="array" size="1" />
+      <Local name="trTrans" type="trsf" xsi:type="array" size="1" />
+      <Local name="trCalc" type="trsf" xsi:type="array" size="1" />
+      <Local name="nX" type="num" xsi:type="array" size="1" />
+      <Local name="nY" type="num" xsi:type="array" size="1" />
+      <Local name="nZ" type="num" xsi:type="array" size="1" />
+      <Local name="nRX" type="num" xsi:type="array" size="1" />
+      <Local name="nRY" type="num" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  //Misc current test
+  nLoop = 0
+  sArgsLoop = sArgs
+  while nLoop < 3
+    sArgsLoop = toNum(sArgsLoop, nVal, bOk)
+    if bOk
+      switch nLoop
+        case 0
+          nAzi = nVal
+        break
+        case 1
+          nEle = nVal
+        break
+        case 2
+          nRad = nVal
+        break
+      endSwitch
+      nLoop = nLoop + 1
+    else
+      call remErrNum("CMDTEST",sArgs,sReturn)
+      return
+    endIf
+  endWhile
+  
+  nZ = nRad * cos(nEle) * cos(nAzi)
+  nX = nRad * cos(nEle) * sin(nAzi)
+  nY = nRad * sin(nEle)
+  // Decide direction det is currently facing, keep det pointed to origin
+  call remCalcHereSph()
+  if abs(nRXHere + nElHere) < 90
+    nRX = -nEle
+  else
+    nRX = 180-nEle
+  endIf 
+  if abs(nRYHere + nAzHere) < 90
+    nRY = -nAzi
+  else
+    nRY = 180-nAzi
+  endIf
+  trCalc = {nX,nY,nZ,nRX,nRY,nRZHere}
+  
+  trTrans={0,0,0,0,0,0}
+  trTrans=trTrans*{0,0,0,0,nAzi,0}
+  trTrans=trTrans*{0,0,0,-nEle,0,0}
+  trTrans=trTrans*{0,0,nRad,0,0,0}
+  trTrans=trTrans*{0,0,0,-180,0,0}
+  
+  putln("trCalc:  " + toString(sNumConv, trCalc.x) + " " + toString(sNumConv, trCalc.y) + " " + toString(sNumConv, trCalc.z))
+  putln("         " + toString(sNumConv, trCalc.rx) + " " + toString(sNumConv, trCalc.ry) + " " + toString(sNumConv, trCalc.rz))
+  putln("trTrans: " + toString(sNumConv, trTrans.x) + " " + toString(sNumConv, trTrans.y) + " " + toString(sNumConv, trTrans.z))
+  putln("         " + toString(sNumConv, trTrans.rx) + " " + toString(sNumConv, trTrans.ry) + " " + toString(sNumConv, trTrans.rz))
+  
+  sReturn = "No output"
+end
+]]></Code>
+  </Program>
+</Programs>

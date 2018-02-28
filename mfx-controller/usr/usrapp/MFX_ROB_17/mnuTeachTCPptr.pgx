@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="mnuTeachTCPptr">
+    <Locals>
+      <Local name="nKey" type="num" xsi:type="array" size="1" />
+      <Local name="LbTeachTCP1of4" type="bool" xsi:type="array" size="1" />
+      <Local name="LbTeachTCP2of4" type="bool" xsi:type="array" size="1" />
+      <Local name="LbTeachTCP3of4" type="bool" xsi:type="array" size="1" />
+      <Local name="LbTeachTCP4of4" type="bool" xsi:type="array" size="1" />
+      <Local name="LpHere" type="point" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  //header begin
+  // PROGRAM mnuTeachTCPptr()
+  //
+  // runs the menu to Teach the EOAT TCP by use of "ptr" pointer tool
+  // provides a "Wizard" to assist the user through manual steps required
+  //
+  // incoming parms:  none
+  // outgoing parms:  none
+  // called from:  pgm mnuTeachTCP()
+  //
+  //  initial release KN
+  //header end
+  //
+  // start continuous loop, end by menu command or teach pendant command
+  // on user command, jump to other subroutines for action
+  //
+  // init local step-by-step continuance booleans
+  //
+  LbTeachTCP1of4=false
+  LbTeachTCP2of4=false
+  LbTeachTCP3of4=false
+  LbTeachTCP4of4=false
+  //
+  //=========================================================================================
+  // Teach TCP with Pointer, Step 1 of 4 Steps:  verify pointer tool & Cell Reference Pointer
+  do
+    // nIdxTCP1of4=81
+    call displayMessage(nIdxTCP1of4,nKey)
+    // verify selection
+    switch nKey
+      // ESC key aborts & returns immediately
+      case 255
+        return
+      break
+      // menu = Teach TCP with pointer 1of4, F1 to continue to Step 2 of 4
+      case 271
+        LbTeachTCP1of4=true
+      break
+      // menu = Teach TCP with pointer 1of4, F8 Button, ABORT to Teach TCP Menu
+      case 278
+        return
+      break
+      // Any other key press
+      default
+        popUpMsg("BAD SELECTION...press OK")
+      break
+    endSwitch
+  until (false or (LbTeachTCP1of4==true))
+  //
+  //=====================================================================================
+  // Teach TCP with Pointer, Step 2 of 4 Steps:  move to Cell Reference with Pointer Tool
+  do
+    LbTeachTCP1of4=false
+    // nIdxTCP2of4=91
+    call displayMessage(nIdxTCP2of4,nKey)
+    // verify selection
+    switch nKey
+      // ESC key aborts & returns immediately
+      case 255
+        return
+      break
+      // menu = Teach TCP with pointer 2of4, F1 Button, Continue to Step 3 of 4
+      // define the Cell Reference location pCellReference with pointer tool
+      case 271
+        pCellReference=here(tRefPointer,world)
+        LpHere=here(flange,world)
+        LbTeachTCP2of4=true
+      break
+      // menu = Teach TCP with pointer 2of4, F8 Button, ABORT to Teach TCP Menu
+      case 278
+        return
+      break
+      // Any other key press
+      default
+        popUpMsg("BAD SELECTION...press OK")
+      break
+    endSwitch
+  until (false or (LbTeachTCP2of4==true))
+  //
+  //===================================================================================================
+  // menu = Teach TCP with Pointer, Step 3 of 4 Steps:  Remove Pointer, Attach Sensor, Move to Cell Ref
+  do
+    LbTeachTCP2of4=false
+    // nIdxTCP3of4=101
+    call displayMessage(nIdxTCP3of4,nKey)
+    // verify selection
+    switch nKey
+      // ESC key aborts & returns immediately
+      case 255
+        return
+      break
+      // menu = Teach TCP with pointer 3of4, F1 Button, calculate the new tool transform
+      case 271
+        tSensorTool.trsf=!LpHere.trsf*pCellReference.trsf
+        LbTeachTCP3of4=true
+      break
+      // menu = Teach TCP with pointer 3of4, F8 Button, ABORT to Teach TCP Menu
+      case 278
+        return
+      break
+      // Any other key press
+      default
+        popUpMsg("BAD SELECTION...press OK")
+      break
+    endSwitch
+  until (false or (LbTeachTCP3of4==true))
+  //
+  //=====================================================================================
+  // menu = Teach TCP with Pointer, Step 4 of 4 Steps:  Verify new Sensor tool definition
+  do
+    LbTeachTCP3of4=false
+    // nIdxTCP4of4=111
+    call displayMessage(nIdxTCP4of4,nKey)
+    // verify selection
+    switch nKey
+      // ESC key aborts & returns immediately
+      case 255
+        return
+      break
+      // menu = Teach TCP with pointer 4of4, F1 Button, User Accepts tool definition
+      case 271
+        LbTeachTCP4of4=true
+      break
+      // menu = Teach TCP with pointer 4of4, F8 Button, ABORT to Teach TCP Menu
+      case 278
+        return
+      break
+      // Any other key press
+      default
+        popUpMsg("BAD SELECTION...press OK")
+      break
+    endSwitch
+  until (false or (LbTeachTCP4of4==true))
+  //
+  LbTeachTCP4of4=false
+  // teach new tool def completed, save data on normal exit of this program
+  libSave()
+  // done
+end
+
+      ]]></Code>
+  </Program>
+</Programs>

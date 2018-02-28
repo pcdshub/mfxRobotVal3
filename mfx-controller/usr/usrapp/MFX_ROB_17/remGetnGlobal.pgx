@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="remGetnGlobal">
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1">
+      <Parameter name="nGlobal" type="num" xsi:type="array" use="reference" />
+      <Parameter name="sCmd" type="string" xsi:type="array" use="reference" />
+      <Parameter name="sReturn" type="string" xsi:type="array" use="reference" />
+    </Parameters>
+    <Code><![CDATA[begin
+  // Get an arbitrary global value and return it
+  //
+  logMsg("call remGetnGlobal")
+  sReturn = sCmd + " " + toString(sNumConv,nGlobal)
+end
+]]></Code>
+  </Program>
+</Programs>

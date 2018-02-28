@@ -1,0 +1,200 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="mnuTeachCyl">
+    <Locals>
+      <Local name="nKey" type="num" xsi:type="array" size="1" />
+      <Local name="LpHere" type="point" xsi:type="array" size="1" />
+      <Local name="LbBackup" type="bool" xsi:type="array" size="1" />
+      <Local name="LsMoveMsg" type="string" xsi:type="array" size="1" />
+      <Local name="LnRKeeper" type="num" xsi:type="array" size="1" />
+      <Local name="LnZKeeper" type="num" xsi:type="array" size="1" />
+      <Local name="LbSetCylRZdone" type="bool" xsi:type="array" size="1" />
+      <Local name="LbCylAllDone" type="bool" xsi:type="array" size="1" />
+      <Local name="LbErrCreateCyl" type="bool" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  //header begin
+  // PROGRAM mnuTeachCyl()
+  //
+  // runs the menu to query user for all info needed to teach a Cylinder Stay Clear Zone
+  //
+  // incoming parms:  none
+  // outgoing parms:  none
+  // called from:  pgm mnuTeachStyClr()
+  //
+  //  initial release KN
+  //header end
+  //
+  // start continuous loop, end by menu command or teach pendant command
+  // on user command, jump to other subroutines for action
+  //
+  // init booleans for menu control here & in displayMessage1()
+  LbBackup=false
+  bSetCubeXYZ=false
+  bCubeStep1=false
+  bSphereStep1=false
+  bSetSphereRad=false
+  bSetCylinderRZ=false
+  bCylinderStep1=true
+  LbCylAllDone=false
+  // retrieve initial Cylinder data and store to temp variables for manipulation & display
+  pOriginCylinder=MON:pOriginCylinder[nNumberCylinder]
+  nRadiusCylinder=MON:nRadiusCylinder[nNumberCylinder]
+  nDistZCylinder=MON:nDistZCylinder[nNumberCylinder]
+  do
+    //=========step 1==================step 1===============step 1================
+    // menu = Teach Cylinder, Step 1:  Main Cylinder Info Display
+    do
+      //nIdxTeachCyl=221
+      call displayMessage1(nIdxTeachCyl,nKey)
+      // verify selection
+      switch nKey
+        // ESC key aborts & returns immediately
+        case 255
+          return
+        break
+        // Teach Cylinder, F1 to ACCEPT definition & return to pgm mnuTeachStyClr()
+        case 271
+          LbCylAllDone=true
+          bSetCylinderRZ=false
+          MON:nNumberCylinder=nNumberCylinder
+          call MON:createCylinder(pOriginCylinder,nRadiusCylinder,nDistZCylinder,LbErrCreateCyl)
+          if LbErrCreateCyl==true
+            popUpMsg("Create Cylinder Failed...NO RECOVERY...Press OK")
+            LbCylAllDone=false
+          endIf
+          // saved at bottom
+        break
+        // menu = Teach Cylinder, F3 Button, change cylinder number via increment only
+        // max = 10 as initially implemented in monitorAreaEn() library
+        // max value change requires manual coordination, not automatic
+        case 273
+          nNumberCylinder=nNumberCylinder+1
+          if nNumberCylinder==10
+            nNumberCylinder=0
+          endIf
+          pOriginCylinder=MON:pOriginCylinder[nNumberCylinder]
+          nRadiusCylinder=MON:nRadiusCylinder[nNumberCylinder]
+          nDistZCylinder=MON:nDistZCylinder[nNumberCylinder]
+        break
+        // menu = Teach Cylinder, F4 Button, Tell user to Teach Origin Point
+        case 274
+          LsMoveMsg="Move robot to Cylinder #"+toString("2.0",nNumberCylinder)+" Origin Point...OK to Teach"
+          popUpMsg(LsMoveMsg)
+          pOriginCylinder=here(tSensorTool,world)
+        break
+        //  menu = Teach Cylinder, F5 Button, goto Step2 to Define Radius & DZ values
+        case 275
+          bSetCylinderRZ=true
+          bCylinderStep1=false
+        break
+        // menu = Teach Cylinder, F7 to reset this cylinder definition to {0,0,0}
+        // this disables checking of this cylinder volume
+        case 277
+          MON:pOriginCylinder[nNumberCylinder].trsf={0,0,0,0,0,0}
+          MON:nRadiusCylinder[nNumberCylinder]=0
+          MON:nDistZCylinder[nNumberCylinder]=0
+          pOriginCylinder.trsf={0,0,0,0,0,0}
+          nRadiusCylinder=0
+          nDistZCylinder=0
+          MON:nNumberCylinder=nNumberCylinder
+          MON:bCreateCylinder[nNumberCube]=false
+          MON:libSave()
+          popUpMsg("CylinderZone "+toString(".0",nNumberCylinder)+" CLEARED...Press OK")
+        break
+        // menu = Teach Cylinder, F8 Button, ABORT & Backup
+        case 278
+          bCylinderStep1=false
+          return
+        break
+        // Any other key press
+        default
+          cls()
+          popUpMsg("BAD SELECTION...press OK")
+        break
+      endSwitch
+    until (false or (bSetCylinderRZ==true) or (LbCylAllDone==true))
+    //
+    //====step 2==============step 2===================step 2===============
+    // menu = Teach Cylinder Step 2:  set the Radius & DZ values if required
+    // Cylinder DZ & Radius values here are temp to this pgm
+    // only saved permanently in MON library on formal SAVE (F1) in above Step1
+    if bSetCylinderRZ==true
+      LbSetCylRZdone=false
+      do
+        //nIdxSetCylRZ=231
+        call displayMessage1(nIdxSetCylRZ,nKey)
+        // verify selection
+        switch nKey
+          // ESC key aborts & returns immediately
+          case 255
+            return
+          break
+          // user accepts Cylinder Radius & Z-Distance input from step 2 and...
+          // auto backup to previous menu for acceptance
+          case 271
+            LbSetCylRZdone=true
+            bCylinderStep1=true
+          break
+          case 274
+            // user enters a new value for Cylinder Radius
+            gotoxy(30,6)
+            LnRKeeper=nRadiusCylinder
+            get(nRadiusCylinder)
+            if (nRadiusCylinder<0)
+              popUpMsg("Negative values disallowed...Press OK")
+              nRadiusCylinder=LnRKeeper
+            endIf
+          break
+          // user enters a new value for Cylinder DZ
+          case 275
+            gotoxy(25,7)
+            LnZKeeper=nDistZCylinder
+            get(nDistZCylinder)
+            if nDistZCylinder<0
+              popUpMsg("Negative values disallowed...Press OK")
+              nDistZCylinder=LnZKeeper
+            endIf
+          break
+          // menu Teach Cylinder, F7 to clear this cylinder definition
+          // this disables checking of this cylinder volume
+          case 277
+            MON:pOriginCylinder[nNumberCylinder].trsf={0,0,0,0,0,0}
+            MON:nRadiusCylinder[nNumberCylinder]=0
+            MON:nDistZCylinder[nNumberCylinder]=0
+            pOriginCylinder.trsf={0,0,0,0,0,0}
+            nRadiusCylinder=0
+            nDistZCylinder=0
+            MON:nNumberCylinder=nNumberCylinder
+            MON:libSave()
+          break
+          // ABORT & backup to previous menu
+          case 278
+            bCylinderStep1=false
+            return
+          break
+          // any other key press
+          default
+            cls()
+            popUpMsg("BAD SELECTION...Press OK")
+          break
+        endSwitch
+      until (false or (LbSetCylRZdone==true))
+    endIf
+    bSetCylinderRZ=false
+    LbSetCylRZdone=false
+    //
+  until (false or (LbCylAllDone==true))
+  bCylinderStep1=false
+  //
+  // Teach Cylinder completed, save data on exit
+  //
+  libSave()
+  MON:libSave()
+  //
+  // done
+end
+
+      ]]></Code>
+  </Program>
+</Programs>

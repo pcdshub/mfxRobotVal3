@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="remCalcHereSph">
+    <Locals>
+      <Local name="nAzi" type="num" xsi:type="array" size="1" />
+      <Local name="nEle" type="num" xsi:type="array" size="1" />
+      <Local name="nRad" type="num" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  // Calculate current position in current frame in
+  // spherical coordinates and save to globals
+  //
+  logMsg("call remCalcHereSph")
+  call remCalcHere()
+  
+  //calculate azimuthal angle
+  if nXHere==0 and nZHere==0
+    nAzi = 0
+  elseIf nXHere==0
+    if nZHere>0
+      nAzi = 0
+    else
+      nAzi = 180
+    endIf
+  elseIf nZHere==0
+    if nXHere>0
+      nAzi = 90
+    else
+      nAzi = -90
+    endIf
+  else
+    nAzi = atan(nXHere/nZHere)
+    if nZHere<0
+      if nXHere>0
+        nAzi = nAzi + 180
+      else
+        nAzi = nAzi - 180
+      endIf
+    endIf
+  endIf
+  
+  //calculate elevation angle
+  if nXHere==0 and nYHere==0 and nZHere==0
+    nEle = 0
+  elseIf nXHere==0 and nZHere==0
+    if nYHere>0
+      nEle = 90
+    else
+      nEle = -90
+    endIf
+  else
+    nEle = atan(nYHere/sqrt(power(nXHere,2)+power(nZHere,2)))
+  endIf
+  
+  //calculate radius
+  nRad = sqrt(power(nXHere,2) + power(nYHere,2) + power(nZHere, 2))
+  
+  nAzHere = nAzi
+  nElHere = nEle
+  nRHere = nRad
+end
+]]></Code>
+  </Program>
+</Programs>

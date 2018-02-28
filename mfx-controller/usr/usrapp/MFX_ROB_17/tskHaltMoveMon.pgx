@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="tskHaltMoveMon">
+    <Locals>
+      <Local name="LnIdx" type="num" xsi:type="array" size="1" />
+      <Local name="LbZoneError" type="bool" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  //header begin
+  // PROGRAM tskHaltMoveMon()
+  //
+  // This pgm is run as a separate task.
+  // Will monitor if TCP Button F8 is pressed during arm motion, causes a motion stop in the initiating program.
+  // Utilizes global enable bWatchForHalt==false set in pgm movTargetPoint()
+  //
+  //
+  // incoming parms:  none
+  // outgoing parms:  none
+  // global parms:  bWatchForHalt => true will enable monitoring, is set in the initiating program
+  //
+  // called from:  pgm movTargetPoint()
+  //
+  //
+  //  added for Release 2  KN
+  //header end
+  //
+  // run task as infinite loop
+  // initialize some bools
+  bWatchForHalt=false
+  do
+    //
+    if bWatchForHalt==true
+      // while enabled, watch for F8 keypress
+      // if pressed, issue bStopMotion=true
+      // when bStopMotion is reset to false, then set bWatchForHalt = false and continue monitoring again
+      getKey()
+      while (getKey()!=278)
+        delay(0)
+      endWhile
+      // if F8 pressed, then set the HALT MOTION global boolean
+      bStopMotion=true
+      wait(bWatchForHalt==false)
+    endIf
+    //
+    delay(0)
+  until (false)
+end
+
+      ]]></Code>
+  </Program>
+</Programs>

@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="mnuEnterTCPVals">
+    <Locals>
+      <Local name="LbBackup" type="bool" xsi:type="array" size="1" />
+      <Local name="nKey" type="num" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  //
+  //header begin
+  //
+  //  pgm mnuEnterTCPVals()
+  // this program allows user to set global TCP values on tSensorTool
+  //
+  //  incoming parms: none
+  //  outgoing parms: none
+  //
+  //  called from mnuTeachTCP()
+  //
+  //  Added for Release 2: KN
+  //
+  //header end
+  //
+  // set up display
+  LbBackup=false
+  do
+    // nIdxEnterTCP=321
+    call displayMessage5(nIdxEnterTCP,nKey)
+    // verify selection
+    switch nKey
+      // ESC key aborts immediately
+      case 255
+        return
+      break
+      // menu = Direct Entry TCP values, F1 button = TCP-X value
+      case 271
+        gotoxy(18,3)
+        get(tSensorTool.trsf.x)
+      break
+      // menu = Direct Entry TCP values,  F2 Button = TCP-Y value
+      case 272
+        gotoxy(18,4)
+        get(tSensorTool.trsf.y)
+      break
+      // menu = Direct Entry TCP Values,  F3 Button = TCP-Z value
+      case 273
+        gotoxy(18,5)
+        get(tSensorTool.trsf.z)
+      break
+      // menu = Direct Entry TCP values, F4 Button = TCP-RX value
+      case 274
+        gotoxy(18,6)
+        get(tSensorTool.trsf.rx)
+      break
+      // menu = Direct Entry TCP Values, F5 Button = TCP-RY value
+      case 275
+        gotoxy(18,7)
+        get(tSensorTool.trsf.ry)
+      break
+      // menu = Direct Entry TCP Values, F6 Button = TCP-RZ value
+      case 276
+        gotoxy(18,8)
+        get(tSensorTool.trsf.rz)
+      break
+      // menu = Main Menu:  F8 Button, Save updated TCP values & return to pgm mnuTeachTCP()
+      case 278
+        LbBackup=true
+        libSave()
+      break
+      // ALL OTHER CHOICES
+      default
+        popUpMsg("BAD SELECTION...Press OK")
+      break
+    endSwitch
+  until (false or (LbBackup==true))
+end
+
+      ]]></Code>
+  </Program>
+</Programs>

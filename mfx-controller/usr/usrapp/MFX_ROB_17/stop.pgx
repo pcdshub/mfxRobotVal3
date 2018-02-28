@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="stop">
+    <Code><![CDATA[begin
+  //header begin
+  //  PROGRAM STOP()
+  //    peforms orderly shutdown functions
+  //
+  // initial release KN
+  //header end
+  //
+  userPage()
+  title(" SHUT DOWN ")
+  cls()
+  gotoxy(0,4)
+  putln("WAITING:  Disabling Arm Power...")
+  stopMove()
+  resetMotion()
+  disablePower()
+  wait(isPowered()==false)
+  //
+  // stop tasks
+  taskKill("MonitorZone")
+  taskKill("RemoteControl")
+  taskKill("MonitorHalt")
+  taskKill("RemoteMotion")
+  taskKill("xppCmdHandler")
+  taskKill("RemoteMotion")
+  taskKill("SimESTOP")
+  //
+  // tell user to press the MENU button to return to Application Menu
+  cls()
+  title(">>  PROGRAM STOPPED <<")
+  gotoxy(0,2)
+  put("Use MENU Button to return")
+  gotoxy(0,3)
+  put("to Main VAL3 Application Menu")
+  //
+  //done
+end
+
+      ]]></Code>
+  </Program>
+</Programs>

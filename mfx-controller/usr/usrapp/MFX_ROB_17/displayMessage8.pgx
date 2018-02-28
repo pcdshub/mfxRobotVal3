@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="displayMessage8">
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1">
+      <Parameter name="nTitle" type="num" xsi:type="element" />
+      <Parameter name="nKey" type="num" xsi:type="array" use="reference" />
+    </Parameters>
+    <Locals>
+      <Local name="LnIndex" type="num" xsi:type="array" size="1" />
+      <Local name="LbKey" type="bool" xsi:type="array" size="1" />
+      <Local name="LnQuestion" type="num" xsi:type="array" size="1" />
+      <Local name="LnFirst" type="num" xsi:type="array" size="1" />
+      <Local name="LpCurrentLoc" type="point" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  //header begin
+  // program displayMessage8(nTitle, nKey)
+  //
+  // generic pgm used for displaying complex messages and reacting to user keypad selections
+  // (this program modified from pgm displayMessage( )
+  // This program uses specifically for pgm mnuGetTCP()
+  // Displays the values of TCP location of tSensorTool relative to selected nIPNumber Interaction Point frame.
+  //
+  // input parms:
+  //    nTitle = index of selected menu Title string in sUserPageText[ ]
+  //
+  // other parms:
+  //    nQuestion = nTitle+1 = index of selected menu Question string in sUserPageText[ ]
+  //    nFirst = nTitle+2 = index of the first menu Items to be displayed from sUserPageText[ ]
+  //
+  //  NOTE:  the strings structure is in groups of 10 in the strings array sUserPageText[ ]
+  //  Menu Page Indices are NUMBER variables
+  //
+  // output parms:
+  //    nKey = the keypad number of the selected Function Key
+  //
+  // called from:  various
+  //
+  // Release History:
+  //  This pgm released as part of SLAC RX130L robot control program Revision 3
+  //  per Blue Technik proposal K01c, Work Request K01-1
+  //
+  //header end
+  //
+  // init local variables used as menu string text pointers
+  // values are offset of nTitle pointer
+  LnFirst=nTitle+1
+  // clear user page, and throw a title
+  userPage()
+  cls()
+  title(sUserPageText[nTitle])
+  //
+  // Print menu page Function Button Identifiers at bottom of user window
+  gotoxy(0,13)
+  put(sMenuBottomLine[(nTitle-1)/10])
+  //
+  // print 8 statements from menu string data
+  for LnIndex=LnFirst to LnFirst+7
+    gotoxy(0,LnIndex)
+    put(sUserPageText[LnIndex])
+  endFor
+  //
+  // Populate teh User Page with current IP selection & the current IP:TCP.trsf values
+  if nIPNumber==0
+    LpCurrentLoc=here(tSensorTool,fIP1)
+  else
+    LpCurrentLoc=here(tSensorTool,fIP2)
+  endIf
+  //
+  gotoxy(14,3)
+  put(toString(".0",nIPNumber))
+  gotoxy(14,4)
+  put(toString("5.2",LpCurrentLoc.trsf.x))
+  gotoxy(14,5)
+  put(toString("5.2",LpCurrentLoc.trsf.y))
+  gotoxy(14,6)
+  put(toString("5.2",LpCurrentLoc.trsf.z))
+  gotoxy(14,7)
+  put(toString("5.2",LpCurrentLoc.trsf.rx))
+  gotoxy(14,8)
+  put(toString("5.2",LpCurrentLoc.trsf.ry))
+  gotoxy(14,9)
+  put(toString("5.2",LpCurrentLoc.trsf.rz))
+  //
+  // Wait indefinitely for a function button press
+  LbKey=false
+  getKey()
+  do
+    nKey=getKey()
+    switch nKey
+      // ESC key always ABORTS AND / OR RETURNS
+      case 255
+        LbKey=true
+      break
+      // Function Button value returned for selected action
+      case 271,278
+        LbKey=true
+      break
+    endSwitch
+    //
+    delay(0)
+  until (LbKey==true)
+end
+
+      ]]></Code>
+  </Program>
+</Programs>

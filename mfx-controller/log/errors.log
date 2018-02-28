@@ -1,0 +1,51 @@
+﻿[02/28/18 11:59:46]: ----------------------------------------------- {71965851}
+[02/28/18 11:59:46]: Logger started (1048576) {5cfb7f12}
+[02/28/18 11:59:50]: <0x0003> CPU board: TEKNOR ?Mhz; ?Mb RAM; ?Mb disk; bios: ?; fpga: ?; ataIde: ? {9571348a}
+[02/28/18 11:59:50]: <0x0003> Cycle time set to 0.004s {59d90078}
+[02/28/18 11:59:50]: <0x0003> Simulation cycle time set to 0.1s {a0a22d0f}
+[02/28/18 11:59:50]: <0x0002> Controller IP address could not be updated {4adacb22}
+[02/28/18 11:59:50]: <0x0001> Error while trying to build User serial 1 {5b752671}
+[02/28/18 11:59:50]: <0x0002> Default user payload used. {a67c4778}
+[02/28/18 11:59:50]: <0x0003> Payload default: mass=14 kg, gravity center: x=0 y=0 z=86.3 mm, inertia=0 {2569f9b6}
+[02/28/18 11:59:50]: <0x2401> Power hour count = 3:37:36 {2858ee39}
+[02/28/18 11:59:50]: <0x2401> Mac Address = 00-50-56-c0-00-01 {8ccd8c8b}
+[02/28/18 11:59:50]: <0x0001> remoteTestMode link failed : no link defined {8f0f9be7}
+[02/28/18 11:59:50]: <0x0001> remoteManualMode link failed : no link defined {37ab3cf8}
+[02/28/18 11:59:50]: <0x0001> remoteLocalMode link failed : no link defined {a4f378a1}
+[02/28/18 11:59:50]: <0x0001> remoteRemoteMode link failed : no link defined {7a599088}
+[02/28/18 11:59:50]: <0x0001> estopAcknowledge link failed : no link defined {d5efce74}
+[02/28/18 11:59:50]: <0x0001> enablePower link failed : no link defined {aef88107}
+[02/28/18 11:59:50]: <0x0001> remoteMonitorSpeed link failed : no link defined {11d8ac1b}
+[02/28/18 11:59:50]: <0x0001> remoteMoveHold link failed : no link defined {8ceb59fc}
+[02/28/18 11:59:50]: <0x0001> validationKey link failed : no link defined {80ce55e1}
+[02/28/18 11:59:50]: <0x0001> hardwareFaultAcknowledge link failed : no link defined {2a9217ba}
+[02/28/18 11:59:50]: <0x0001> RemoteMcp not enabled : invalid configuration {28c6112f}
+[02/28/18 11:59:50]: <0x0003> COM-PC: server created on all interfaces [851] {c2b55cb7}
+[02/28/18 11:59:50]: <0x2402> History handler has been connected to IHM {9d790d4b}
+[02/28/18 11:59:50]: <0x2401> System: s7.9.1 Mar 30 2016 {6d04d6e0}
+[02/28/18 11:59:50]: <0x2401> Configuration Version: c1.037  {0a4e423c}
+[02/28/18 11:59:50]: <0x2401> CPU: TEKNOR  {60a511a0}
+[02/28/18 11:59:50]: <0x2401> Option remoteMcp: enabled  {da034fb7}
+[02/28/18 11:59:50]: <0x2401> Option testMode: enabled  {ca0ef5f3}
+[02/28/18 11:59:50]: <0x2401> Option oemLicence: enabled  {baa20cf7}
+[02/28/18 11:59:50]: <0x2401> Option remoteMaintenance: enabled  {aa2a1360}
+[02/28/18 11:59:50]: <0x2401> Option pciAccess: enabled  {9a402b9b}
+[02/28/18 11:59:50]: <0x2401> Option 6axesAbsoluteRobot: enabled  {3f5d9945}
+[02/28/18 11:59:50]: <0x2401> Option VAL 3: enabled  {2f25f927}
+[02/28/18 11:59:50]: <0x2401> Machine Number: ?  {901ed2ba}
+[02/28/18 11:59:50]: <0x2401> Arm: rx160l-S1-R8 ceiling {f714a56f}
+[02/28/18 11:59:50]: <0x2401> Arm serial number: ?  {307209fa}
+[02/28/18 11:59:50]: <0x2401> Arm oil type:   {20f3b283}
+[02/28/18 11:59:50]: <0x2401> Robot name:   {1de284cd}
+[02/28/18 11:59:50]: <0x2401> EP: s7.9.1 Mar 30 2016 {a6647b3e}
+[02/28/18 11:59:50]: <0x2401> EP10: s7.9.1 Mar 30 2016 {3b015190}
+[02/28/18 11:59:50]: <0x2401> SCA: s7.9.1 Mar 30 2016 {a3586a0e}
+[02/28/18 11:59:50]: <0x2401> Options: s7.9.1 Apr  4 2016 {841b2325}
+[02/28/18 11:59:50]: <0x2401> B_SCS: s7.9.1 Mar 30 2016 {0e02174c}
+[02/28/18 11:59:50]: <0x2201> New profile : default {f578564b}
+[02/28/18 11:59:50]: <0x2401> End of controller initialization {32f9b5e0}
+[02/28/18 11:59:51]: <0x2402> COM-PC: create session 127.0.0.1 on port 53150 id=#87238536 {0bbe95f6}
+[02/28/18 11:59:51]: <0x1602> End of arm power shutdown phase. {047496dd}
+[02/28/18 12:00:09]: <0x2402> COM-PC: destroy session 127.0.0.1 on port 53150 id=#87238536 {d0f51d92}
+[02/28/18 12:02:01]: <0x2402> COM-PC: create session 127.0.0.1 on port 53164 id=#87239264 {28586c9a}
+[02/28/18 12:02:19]: <0x2402> COM-PC: destroy session 127.0.0.1 on port 53164 id=#87239264 {11b6e117}

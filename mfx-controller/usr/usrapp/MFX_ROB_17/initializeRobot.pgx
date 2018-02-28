@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="initializeRobot">
+    <Locals>
+      <Local name="LbESTOPActive" type="bool" xsi:type="array" size="1" />
+      <Local name="LbArmPowerOn" type="bool" xsi:type="array" size="1" />
+      <Local name="nKey" type="num" xsi:type="array" size="1" />
+      <Local name="LnKey" type="num" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  //header begin
+  // PROGRAM initializeRobot()
+  //
+  // checks for necessary conditions to be met before any robot movement under automatic control
+  //    ESTOP is not active
+  //    Arm Power = ON
+  //    Arm is Calibrated
+  //
+  // incoming parms:  none
+  // outgoing parms:  none
+  // called from:  pgm mnuUtilityMenu()
+  //               pgm movTargetPoint()
+  //
+  //  initial release KN
+  //header end
+  //
+  // clear motion stack of all movement commands
+  stopMove()
+  resetMotion()
+  //
+  userPage()
+  cls()
+  //
+  // verify ESTOP is inactive
+  title(" ESTOP CHECK ")
+  putln("Check ESTOP status...")
+  if (esStatus()==2)
+    LbESTOPActive=true
+    userPage()
+    cls()
+    title(" RESET ESTOP ")
+    gotoxy(0,4)
+    putln("WAITING:  Reset ESTOP")
+    wait(esStatus()==0)
+  else
+    putln("OK")
+  endIf
+  //
+  // Have user put system into MANUAL MODE
+  cls()
+  title(" MANUAL MODE CHECK ")
+  putln("Check Working Mode...")
+  if (workingMode()!=1)
+    userPage()
+    cls()
+    title(" SELECT MANUAL MODE ")
+    gotoxy(0,4)
+    putln("WAITING:  Select MANUAL MODE")
+    wait(workingMode()==1)
+  else
+    putln("OK, Manual Mode")
+  endIf
+  //
+  // Have user verify Arm Power is ON.  Use pgm display() for menu control.
+  cls()
+  title(" ARM POWER CHECK ")
+  putln("Check Arm Power...")
+  //
+  // Have user verify arm is calibrated. Use pgm display() for menu control.
+  // If not calibrated, user must abort & stop application, calibrate, then restart application.
+  // This menu allows user to return to previous menu.
+  cls()
+  title(" ARM CALIBRATION CHECK ")
+  putln("Checking Arm Calibration...")
+  if (isCalibrated()==false)
+    cls()
+    gotoxy(0,4)
+    putln("WARNING!  ARM REQUIRES CALIBRATION")
+    gotoxy(0,6)
+    putln("Press any key to shut down...")
+    do
+      LnKey=getKey()
+      delay(0.25)
+    until LnKey!=-1
+    cls()
+    call stop()
+  else
+    putln("OK, Arm is calibrated")
+  endIf
+  //
+  // done
+end
+
+      ]]></Code>
+  </Program>
+</Programs>

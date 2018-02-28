@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://www.staubli.com/robotics/VAL3/Project/3">
+  <Parameters version="s7.9.1" stackSize="5000" millimeterUnit="true" />
+  <Programs>
+    <Program file="checkAtPark.pgx" />
+    <Program file="display.pgx" />
+    <Program file="displayMessage.pgx" />
+    <Program file="displayMessage1.pgx" />
+    <Program file="displayMessage2.pgx" />
+    <Program file="displayMessage3.pgx" />
+    <Program file="displayMessage4.pgx" />
+    <Program file="displayMessage5.pgx" />
+    <Program file="displayMessage6.pgx" />
+    <Program file="displayMessage7.pgx" />
+    <Program file="displayMessage8.pgx" />
+    <Program file="displayMessage9.pgx" />
+    <Program file="initialize.pgx" />
+    <Program file="initializeRobot.pgx" />
+    <Program file="main.pgx" />
+    <Program file="makePntAZELRA.pgx" />
+    <Program file="mnuAdjTargetPnt.pgx" />
+    <Program file="mnuEnterIPVals.pgx" />
+    <Program file="mnuEnterTCPVals.pgx" />
+    <Program file="mnuGetTCP.pgx" />
+    <Program file="mnuGlobalSpeed.pgx" />
+    <Program file="mnuMotionMenu.pgx" />
+    <Program file="mnuMoveTargPnt.pgx" />
+    <Program file="mnuMoveToPark.pgx" />
+    <Program file="mnuSetTargetPts.pgx" />
+    <Program file="mnuTeachCube.pgx" />
+    <Program file="mnuTeachCyl.pgx" />
+    <Program file="mnuTeachFrame.pgx" />
+    <Program file="mnuTeachIP.pgx" />
+    <Program file="mnuTeachMenu.pgx" />
+    <Program file="mnuTeachPark.pgx" />
+    <Program file="mnuTeachSphere.pgx" />
+    <Program file="mnuTeachStayClr.pgx" />
+    <Program file="mnuTeachTCP.pgx" />
+    <Program file="mnuTeachTCP4pnt.pgx" />
+    <Program file="mnuTeachTCPptr.pgx" />
+    <Program file="mnuTestSimESTOP.pgx" />
+    <Program file="mnuUtility.pgx" />
+    <Program file="movTargetPoint.pgx" />
+    <Program file="movToPark.pgx" />
+    <Program file="readme.pgx" />
+    <Program file="remCalcHere.pgx" />
+    <Program file="remCalcHereSph.pgx" />
+    <Program file="remCmdHandler.pgx" />
+    <Program file="remDisableArm.pgx" />
+    <Program file="remEnableArm.pgx" />
+    <Program file="remEnableRem.pgx" />
+    <Program file="remErrArgs.pgx" />
+    <Program file="remErrBufferAdd.pgx" />
+    <Program file="remErrBufferGet.pgx" />
+    <Program file="remErrBusy.pgx" />
+    <Program file="remErrCmd.pgx" />
+    <Program file="remErrConfig.pgx" />
+    <Program file="remErrFar.pgx" />
+    <Program file="remErrInvalid.pgx" />
+    <Program file="remErrManual.pgx" />
+    <Program file="remErrNum.pgx" />
+    <Program file="remErrPower.pgx" />
+    <Program file="remErrPPTimeout.pgx" />
+    <Program file="remErrTimeout.pgx" />
+    <Program file="remErrZone.pgx" />
+    <Program file="remGetArmStat.pgx" />
+    <Program file="remGetDMOV.pgx" />
+    <Program file="remGetESTOP.pgx" />
+    <Program file="remGetHeartbeat.pgx" />
+    <Program file="remGetHere.pgx" />
+    <Program file="remGetHereSph.pgx" />
+    <Program file="remGetIP.pgx" />
+    <Program file="remGetIPVals.pgx" />
+    <Program file="remGetJoints.pgx" />
+    <Program file="remGetMaxA.pgx" />
+    <Program file="remGetMaxDist.pgx" />
+    <Program file="remGetMaxRV.pgx" />
+    <Program file="remGetMaxV.pgx" />
+    <Program file="remGetMode.pgx" />
+    <Program file="remGetnGlobal.pgx" />
+    <Program file="remGetOneHere.pgx" />
+    <Program file="remGetPPS.pgx" />
+    <Program file="remGetRem.pgx" />
+    <Program file="remGetTCPVals.pgx" />
+    <Program file="remGetWorld.pgx" />
+    <Program file="remMovAxis.pgx" />
+    <Program file="remMovAZELRA.pgx" />
+    <Program file="remMovBase.pgx" />
+    <Program file="remMovHandler.pgx" />
+    <Program file="remMovJoint.pgx" />
+    <Program file="remMovJointAxis.pgx" />
+    <Program file="remMovPoint.pgx" />
+    <Program file="remMovSph.pgx" />
+    <Program file="remMovSphAxis.pgx" />
+    <Program file="remMovXYZ.pgx" />
+    <Program file="remSetHeartbeat.pgx" />
+    <Program file="remSetIP.pgx" />
+    <Program file="remSetIPVals.pgx" />
+    <Program file="remSetMaxA.pgx" />
+    <Program file="remSetMaxDist.pgx" />
+    <Program file="remSetMaxRV.pgx" />
+    <Program file="remSetMaxV.pgx" />
+    <Program file="remSetMode.pgx" />
+    <Program file="remSetnGlobal.pgx" />
+    <Program file="remSetPPS.pgx" />
+    <Program file="remSetTCPVals.pgx" />
+    <Program file="remTest.pgx" />
+    <Program file="remTransIP.pgx" />
+    <Program file="start.pgx" />
+    <Program file="stop.pgx" />
+    <Program file="tskHaltMoveMon.pgx" />
+    <Program file="tskMonitorZone.pgx" />
+    <Program file="tskRemControl1.pgx" />
+    <Program file="tskSimESTOP.pgx" />
+    <Program file="xppWriteBack.pgx" />
+  </Programs>
+  <Database>
+    <Data file="MFX_ROB_17.dtx" />
+  </Database>
+  <Libraries>
+    <Library alias="io" path="Disk://io/io.pjx" />
+    <Library alias="TCP4" path="Disk://calcTool4pEn/calcTool4pEn.pjx" />
+    <Library alias="MON" path="Disk://monitorAreaEn/monitorAreaEn.pjx" />
+  </Libraries>
+</Project>

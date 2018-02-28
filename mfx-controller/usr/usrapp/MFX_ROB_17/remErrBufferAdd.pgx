@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="remErrBufferAdd">
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1">
+      <Parameter name="sErrMessage" type="string" xsi:type="array" use="reference" />
+    </Parameters>
+    <Code><![CDATA[begin
+  //Add an error message to the error buffer
+  //Used for errors that may happen long after a command is called
+  //e.g. used for end of movement errors because we can't stop the
+  //  IOC to wait for them
+  //
+  logMsg("call remErrBufferAdd")
+  sErrBuffer[nErrNext] = sErrMessage
+  if nErrNext == nErrBufferSize
+    nErrNext = 0
+  else
+    nErrNext = nErrNext + 1
+  endIf
+end
+]]></Code>
+  </Program>
+</Programs>

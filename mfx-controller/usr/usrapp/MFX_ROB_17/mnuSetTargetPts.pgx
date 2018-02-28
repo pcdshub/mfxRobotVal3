@@ -1,0 +1,181 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="mnuSetTargetPts">
+    <Locals>
+      <Local name="nKey" type="num" xsi:type="array" size="1" />
+      <Local name="LbBackup" type="bool" xsi:type="array" size="1" />
+      <Local name="LsNameKeeper" type="string" xsi:type="array" size="1" />
+      <Local name="LnNewValue" type="num" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  //header begin
+  // PROGRAM mnuSetTargetPts()
+  //
+  // runs the menu to query user for all info needed to teach Target Frames/Points
+  // with user input of Azimuth, Elevation, & Radius
+  // output to X, Y, Z, RX, RY, RZ
+  //
+  // incoming parms:  none
+  // outgoing parms:  none
+  // called from:  pgm mnuTeachMenu()
+  //
+  //  initial release KN
+  //header end
+  //
+  // start continuous loop, end by menu command or teach pendant command
+  // on user command, jump to other subroutines for action
+  //
+  // init booleans for menu control in pgm displayMessage2()
+  LbBackup=false
+  bWorldFrameView=true
+  //
+  do
+    //nIdxSetTargetPt=261
+    call displayMessage2(nIdxSetTargetPt,nKey)
+    // verify selection
+    switch nKey
+      // ESC key aborts, return with no save to pgm mnuTeachMenu()
+      case 255
+        return
+      break
+      // menu = Set Target Points
+      // F1 to change Interaction Point number 0 or 1
+      case 271
+        nIPNumber=nIPNumber+1
+        if nIPNumber==2
+          nIPNumber=0
+        endIf
+      break
+      // menu = Set Target Points
+      // F2 to increment point number 0-19 in selected frame 0-1
+      case 272
+        if nIPNumber==0
+          nIP1Number=nIP1Number+1
+          if nIP1Number==20
+            nIP1Number=0
+          endIf
+        else
+          nIP2Number=nIP2Number+1
+          if nIP2Number==20
+            nIP2Number=0
+          endIf
+        endIf
+      break
+      // menu = Set Target Points, F3 to change the POINT NAME string
+      // save currently selected name string to temporary variable
+      // get new name string, test for >18 characters
+      case 273
+        gotoxy(19,3)
+        put("                  ")
+        gotoxy(19,3)
+        if nIPNumber==0
+          LsNameKeeper=sIP1TargName[nIP1Number]
+          get(sIP1TargName[nIP1Number])
+          if (len(sIP1TargName[nIP1Number])>18)
+            popUpMsg("Name:  18 characters max...press OK")
+            sIP1TargName[nIP1Number]=LsNameKeeper
+          endIf
+        else
+          LsNameKeeper=sIP2TargName[nIP2Number]
+          get(sIP2TargName[nIP2Number])
+          if (len(sIP2TargName[nIP2Number])>18)
+            popUpMsg("Name:  18 characters max...press OK")
+            sIP2TargName[nIP2Number]=LsNameKeeper
+          endIf
+        endIf
+        libSave()
+      break
+      //  menu = Set Target Points
+      //  F4 ot change POINT AZIMUTH
+      case 274
+        // test input value for valid range
+        LnNewValue=0
+        gotoxy(26,4)
+        get(LnNewValue)
+        if LnNewValue>180 or LnNewValue<-180
+          popUpMsg("ERROR:  Azimuth must be between 180 & -180 degrees...Press OK")
+        else
+          if nIPNumber==0
+            nIP1Azimuth[nIP1Number]=LnNewValue
+            //update Target Point to new AZ data
+            call makePntAZELRA(nIPNumber,nIP1Number)
+          else
+            nIP2Azimuth[nIP2Number]=LnNewValue
+            // update Target Point to new AZ data
+            call makePntAZELRA(nIPNumber,nIP2Number)
+          endIf
+        endIf
+        libSave()
+      break
+      // menu = Set Target Points
+      // F5 to change POINT ELEVATION
+      case 275
+        // test input value for valid range
+        LnNewValue=0
+        gotoxy(26,5)
+        get(LnNewValue)
+        if LnNewValue>90 or LnNewValue<-90
+          popUpMsg("ERROR:  Elevation must be between 90 & -90 degrees...Press OK")
+        else
+          if nIPNumber==0
+            nIP1Elevation[nIP1Number]=LnNewValue
+            // update Target Point to new EL data
+            call makePntAZELRA(nIPNumber,nIP1Number)
+          else
+            nIP2Elevation[nIP2Number]=LnNewValue
+            // update Target Point to new EL data
+            call makePntAZELRA(nIPNumber,nIP2Number)
+          endIf
+        endIf
+        libSave()
+      break
+      //  menu = Set Target Point (frame) Target Point
+      //  F6 to change POINT RADIUS
+      case 276
+        //test input value for valid range
+        LnNewValue=0
+        gotoxy(26,6)
+        get(LnNewValue)
+        if LnNewValue<0
+          popUpMsg("ERROR:  Negative Radius Disallowed...Press OK")
+        else
+          if nIPNumber==0
+            nIP1Radius[nIP1Number]=LnNewValue
+            // update Target Point to new RA data
+            call makePntAZELRA(nIPNumber,nIP1Number)
+          else
+            nIP2Radius[nIP2Number]=LnNewValue
+            // update Target Point to new RA data
+            call makePntAZELRA(nIPNumber,nIP2Number)
+          endIf
+        endIf
+        libSave()
+      break
+      // menu = Set Target Points, F7 to change displayed trsf values relative to the selected IP or World CoordSys
+      // this boolean is acted upon in pgm displayMessage2()
+      case 277
+        if bWorldFrameView==true
+          bWorldFrameView=false
+        else
+          bWorldFrameView=true
+        endIf
+      break
+      //  menu = Set Target Points, F8 to save library on exit & return to pgm mnuTeachMenu()
+      case 278
+        libSave()
+        LbBackup=true
+      break
+      // Any other key press
+      default
+        cls()
+        popUpMsg("BAD SELECTION...press OK")
+      break
+    endSwitch
+  until (false or (LbBackup==true))
+  //
+  // done
+end
+
+      ]]></Code>
+  </Program>
+</Programs>

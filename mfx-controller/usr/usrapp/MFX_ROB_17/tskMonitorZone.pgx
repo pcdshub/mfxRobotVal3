@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="tskMonitorZone">
+    <Locals>
+      <Local name="LnIdx" type="num" xsi:type="array" size="1" />
+      <Local name="LbZoneError" type="bool" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  //header begin
+  // PROGRAM tskMonitorZone()
+  //
+  // This pgm is run as a separate task.
+  // Will monitor if TCP is in a Stay Clear Zone during arm motion.
+  // Utilizes global enable bStopAllMonitor==false set in pgm mnuUtility()
+  // Utilizes local enable bEnableMonitor==true set at time of motion command statement, disabled at end of motion
+  //
+  // Pgm will test for TCP inside a defined "Stay Clear Zone" during moves.
+  //
+  // Zones are defined if MON:bCreateCube[nIndex], MON:bCreateCylinder[nIndex], MON:bCreateSphere[nIndex] are true, ...
+  // these bools are set at time of teaching or set explicitly
+  // If TCP enters a defined zone, then a boolean is set and motion is stopped immediately at the motion program.
+  //
+  // incoming parms:  none
+  // outgoing parms:  none
+  // global parms:  bEnableMonitor => true will enable monitoring, is set before each required...
+  //                                  move statement
+  //                bStopAllMonitor => false will allow monitor, is a MASTER level...
+  //                                   boolean set in pgm mnuUtility()
+  //
+  // called from:  pgm main()
+  //
+  // argument descriptions for zone check calls are found in library "monitorAreaEn"
+  //
+  //  initial release KN
+  //header end
+  //
+  // run task as infinite loop
+  // initialize some bools, these are reset in pgm movTargetPoint() or when bStopAllMonitor=true (set in pgm mnuUtility() )
+  bInsideCube=false
+  bInsideCylinder=false
+  bInsideSphere=false
+  LbZoneError=false
+  do
+    //
+    // CONDITION 1of2:  Master Zone Monitor Enable/Disable
+    if (bStopAllMonitor==false)
+      // CONDITION 2of2:  run the zone checks if the "while in motion" boolean bEnableMonitor is enabled
+      if (bEnableMonitor==true)
+        // put "Zone Monitoring enabled" indicator at a discreet location on MPC screen
+        gotoxy(39,13)
+        put("M")
+        //
+        for LnIdx=0 to 9
+          // verify if cube zone defined, test tSensorTool location
+          if MON:bCreateCube[LnIdx]==true
+            call MON:checkCube(tSensorTool,LnIdx,bInsideCube,LbZoneError)
+          endIf
+          // verify cylinder zone defined, test tSensorTool location
+          if MON:bCreateCylinder[LnIdx]==true
+            call MON:checkCylinder(tSensorTool,LnIdx,bInsideCylinder,LbZoneError)
+          endIf
+          // verify sphere zone defined, test tSensorTool location
+          if MON:bCreateSphere[LnIdx]==true
+            call MON:checkSphere(tSensorTool,LnIdx,bInsideSphere,LbZoneError)
+          endIf
+          delay(0)
+        endFor
+        //
+      endIf
+    else
+      bInsideCube=false
+      bInsideCylinder=false
+      bInsideSphere=false
+    endIf
+    //
+    delay(0)
+  until (false)
+end
+
+      ]]></Code>
+  </Program>
+</Programs>

@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="remErrTimeout">
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1">
+      <Parameter name="nTime" type="num" xsi:type="array" use="reference" />
+      <Parameter name="sReturn" type="string" xsi:type="array" use="reference" />
+    </Parameters>
+    <Code><![CDATA[begin
+  // Error raised when a command times out
+  //
+  logMsg("call remErrTimeout")
+  sReturn = "ERROR 401"
+  sReturn = sReturn + ": Timeout of cmd after "
+  sReturn = sReturn + toString("", nTime) + " seconds."
+  putln(sReturn)
+  logMsg(sReturn)
+end
+]]></Code>
+  </Program>
+</Programs>

@@ -1,0 +1,173 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="displayMessage2">
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1">
+      <Parameter name="nTitle" type="num" xsi:type="element" />
+      <Parameter name="nKey" type="num" xsi:type="array" use="reference" />
+    </Parameters>
+    <Locals>
+      <Local name="LnIndex" type="num" xsi:type="array" size="1" />
+      <Local name="LbKey" type="bool" xsi:type="array" size="1" />
+      <Local name="LnQuestion" type="num" xsi:type="array" size="1" />
+      <Local name="LnFirst" type="num" xsi:type="array" size="1" />
+      <Local name="LtrDisplay" type="trsf" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  //header begin
+  // program displayMessage2(nTitle, nKey)
+  //
+  // generic pgm used for displaying complex messages and reacting to user keypad selections
+  // (this program modified from pgm display( )
+  //  CUSTOMIZED SPECIFICALLY FOR TARGET FRAME / TARGET POINT DEFINITION
+  //  WITH AZIMUTH-ELEVATION-RADIUS CONVERSION TO X,Y,Z,RX,RY,RZ
+  //
+  // input parms:
+  //    nTitle = index of selected menu Title string in sUserPageText[ ]
+  //
+  // other parms:
+  //    nQuestion = nTitle+1 = index of selected menu Question string in sUserPageText[ ]
+  //    nFirst = nTitle+2 = index of the first menu Items to be displayed from sUserPageText[ ]
+  //
+  //  NOTE:  the strings structure is in groups of 10 in the strings array sUserPageText[ ]
+  //  Menu Page Indices are NUMBER variables
+  //
+  // output parms:
+  //    nKey = the keypad number of the selected Function Key
+  //
+  // called from:  pgm  setTargetPts()
+  // initial release KN
+  //
+  //header end
+  //
+  // init local variables used as menu string text pointers
+  // values are simply +1 & +2 offset of nTitle pointer
+  LnQuestion=nTitle+1
+  LnFirst=nTitle+2
+  // clear user page, and throw a title
+  userPage()
+  cls()
+  title(sUserPageText[nTitle])
+  //
+  // print the Function Button Identifiers at bottom of page
+  // selection uses pattern of one menu every 10 lines in sUserPageText[]
+  gotoxy(0,13)
+  put(sMenuBottomLine[(nTitle-1)/10])
+  //
+  // put the view change button on F7 to display coordinates relative to World or IP
+  gotoxy(29,12)
+  put("Frame")
+  gotoxy(30,13)
+  if bWorldFrameView==true
+    put("Wrld")
+  else
+    put(" IP ")
+  endIf
+  //
+  gotoxy(0,0)
+  put("  F-Key to edit, ESC aborts edit")
+  gotoxy(0,1)
+  put(sUserPageText[nTitle+1])
+  gotoxy(0,2)
+  put(sUserPageText[nTitle+2])
+  gotoxy(0,3)
+  put(sUserPageText[nTitle+3])
+  gotoxy(0,4)
+  put(sUserPageText[nTitle+4])
+  gotoxy(0,5)
+  put(sUserPageText[nTitle+5])
+  gotoxy(0,6)
+  put(sUserPageText[nTitle+6])
+  gotoxy(0,8)
+  put(sUserPageText[nTitle+7])
+  gotoxy(0,9)
+  put(sUserPageText[nTitle+8])
+  gotoxy(0,11)
+  put(sUserPageText[nTitle+9])
+  // print Target/Frame Number
+  gotoxy(18,1)
+  put(toString("",nIPNumber)+" = "+sTargetChoice[nIPNumber])
+  // print number of selected Interaction Point
+  gotoxy(18,2)
+  if nIPNumber==0
+    put(toString("",nIP1Number))
+  else
+    put(toString("",nIP2Number))
+  endIf
+  // print Name string of selected Interaction Point
+  gotoxy(19,3)
+  if nIPNumber==0
+    put(sIP1TargName[nIP1Number])
+  else
+    put(sIP2TargName[nIP2Number])
+  endIf
+  // print Azimuth of selected Interaction Point & Target Point
+  gotoxy(19,4)
+  if nIPNumber==0
+    put(toString(".3",nIP1Azimuth[nIP1Number]))
+  else
+    put(toString(".3",nIP2Azimuth[nIP2Number]))
+  endIf
+  // print Elevation of selected Interaction Point & Target Point
+  gotoxy(19,5)
+  if nIPNumber==0
+    put(toString(".3",nIP1Elevation[nIP1Number]))
+  else
+    put(toString(".3",nIP2Elevation[nIP2Number]))
+  endIf
+  // print Radius of selected Interaction Point & Target Point
+  gotoxy(19,6)
+  if nIPNumber==0
+    put(toString(".3",nIP1Radius[nIP1Number]))
+  else
+    put(toString(".3",nIP2Radius[nIP2Number]))
+  endIf
+  // print the X,Y,Z components of the corresponding robot Interaction Point
+  // put the display for trsf values relative to the selected IP or World Frame
+  //if nIPNumber==0
+  if bWorldFrameView==true
+    if nIPNumber==0
+      LtrDisplay=fIP1.trsf*pIP1Point[nIP1Number].trsf
+    else
+      LtrDisplay=fIP2.trsf*pIP2Point[nIP2Number].trsf
+    endIf
+  else
+    if nIPNumber==0
+      LtrDisplay=pIP1Point[nIP1Number].trsf
+    else
+      LtrDisplay=pIP2Point[nIP2Number].trsf
+    endIf
+  endIf
+  gotoxy(7,8)
+  put(toString(".3",LtrDisplay.x))
+  gotoxy(18,8)
+  put(toString(".3",LtrDisplay.y))
+  gotoxy(30,8)
+  put(toString(".3",LtrDisplay.z))
+  gotoxy(7,9)
+  put(toString(".3",LtrDisplay.rx))
+  gotoxy(18,9)
+  put(toString(".3",LtrDisplay.ry))
+  gotoxy(30,9)
+  put(toString(".3",LtrDisplay.rz))
+  // Wait indefinitely for a function button press
+  LbKey=false
+  getKey()
+  do
+    nKey=getKey()
+    switch nKey
+      // ESC character always ABORTS AND/OR RETURNS
+      case 255
+        LbKey=true
+      break
+      case 271,272,273,274,275,276,277,278
+        LbKey=true
+      break
+    endSwitch
+    //
+    delay(0)
+  until (LbKey==true)
+end
+
+      ]]></Code>
+  </Program>
+</Programs>

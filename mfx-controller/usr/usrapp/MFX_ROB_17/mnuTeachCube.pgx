@@ -1,0 +1,199 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="mnuTeachCube">
+    <Locals>
+      <Local name="nKey" type="num" xsi:type="array" size="1" />
+      <Local name="LpHere" type="point" xsi:type="array" size="1" />
+      <Local name="LbBackup" type="bool" xsi:type="array" size="1" />
+      <Local name="LsMoveMsg" type="string" xsi:type="array" size="1" />
+      <Local name="LnXKeeper" type="num" xsi:type="array" size="1" />
+      <Local name="LnYKeeper" type="num" xsi:type="array" size="1" />
+      <Local name="LnZKeeper" type="num" xsi:type="array" size="1" />
+      <Local name="LbSetXYZdone" type="bool" xsi:type="array" size="1" />
+      <Local name="LbCubeAllDone" type="bool" xsi:type="array" size="1" />
+      <Local name="LbErrCreateCube" type="bool" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  //header begin
+  // PROGRAM mnuTeachCube()
+  //
+  // runs the menu to query user for all info needed to teach a Cubic Stay Clear Zone
+  //
+  // incoming parms:  none
+  // outgoing parms:  none
+  // called from:  pgm mnuTeachStyClr()
+  //
+  //  initial release KN
+  //header end
+  //
+  // start continuous loop, end by menu command or teach pendant command
+  // on user command, jump to other subroutines for action
+  //
+  // init booleans for menu control in pgm displayMessage1()
+  LbBackup=false
+  bCubeStep1=true
+  bSetCylinderRZ=false
+  bCylinderStep1=false
+  bSetSphereRad=false
+  bSphereStep1=false
+  bSetCubeXYZ=false
+  LbCubeAllDone=false
+  // retrieve initial Cube data & store to temp variables for manipulation & display
+  pOriginCube=MON:pOriginCube[nNumberCube]
+  nDistXCube=MON:nDistXCube[nNumberCube]
+  nDistYCube=MON:nDistYCube[nNumberCube]
+  nDistZCube=MON:nDistZCube[nNumberCube]
+  do
+    //=========step 1==================step 1===============step 1================
+    // Teach Cube, Step 1:  Tell user select and/or modify cube definitions
+    do
+      //nIdxTeachCube=201
+      call displayMessage1(nIdxTeachCube,nKey)
+      // verify selection
+      switch nKey
+        // ESC key aborts & returns immediately
+        case 255
+          return
+        break
+        // Teach Cube, F1 to ACCEPT definition & return to pgm mnuTeachStyClr()
+        case 271
+          LbCubeAllDone=true
+          bSetCubeXYZ=false
+          MON:nNumberCube=nNumberCube
+          call MON:createCube(pOriginCube,nDistXCube,nDistYCube,nDistZCube,LbErrCreateCube)
+          if LbErrCreateCube==true
+            popUpMsg("Create Cube Failed...NO RECOVERY...Press OK")
+            LbCubeAllDone=false
+          endIf
+          // saved at bottom
+        break
+        // menu = Teach Cube, F3 Button, change cube number via increment only
+        // max = 10 as initially implemented in monitorAreaEn() library
+        // max value change requires manual coordination, not automatic
+        case 273
+          nNumberCube=nNumberCube+1
+          if nNumberCube==10
+            nNumberCube=0
+          endIf
+          pOriginCube=MON:pOriginCube[nNumberCube]
+          nDistXCube=MON:nDistXCube[nNumberCube]
+          nDistYCube=MON:nDistYCube[nNumberCube]
+          nDistZCube=MON:nDistZCube[nNumberCube]
+        break
+        // menu = Teach Cube, F4 Button, Tell user to Teach Origin Point
+        case 274
+          LsMoveMsg="Move SensorTool to Cube #"+toString("2.0",nNumberCube)+" Origin Point...OK to Teach"
+          popUpMsg(LsMoveMsg)
+          pOriginCube=here(tSensorTool,world)
+        break
+        //  menu = Teach Cube, F5 Button, Define DX, DY, DZ values
+        case 275
+          bSetCubeXYZ=true
+          bCubeStep1=false
+        break
+        // menu = Teach Cube, F7 to reset this cube definition to {0, 0, 0}
+        // this disables checking on this cube
+        case 277
+          MON:pOriginCube[nNumberCube].trsf={0,0,0,0,0,0}
+          MON:nDistXCube[nNumberCube]=0
+          MON:nDistYCube[nNumberCube]=0
+          MON:nDistZCube[nNumberCube]=0
+          pOriginCube.trsf={0,0,0,0,0,0}
+          nDistXCube=0
+          nDistYCube=0
+          nDistZCube=0
+          MON:nNumberCube=nNumberCube
+          MON:bCreateCube[nNumberCube]=false
+          MON:libSave()
+          popUpMsg("CubeZone "+toString(".0",nNumberCube)+" CLEARED...Press OK")
+        break
+        // menu = Teach Cube, F8 Button, ABORT to Teach Stay Clear Zone Menu
+        case 278
+          bCubeStep1=false
+          return
+        break
+        // Any other key press
+        default
+          cls()
+          popUpMsg("BAD SELECTION...press OK")
+        break
+      endSwitch
+    until (false or (bSetCubeXYZ==true) or (LbCubeAllDone==true))
+    //
+    //====step 2==============step 2===================step 2===============
+    // menu = Teach Cube Step 2:  set the DX DY DZ values if required
+    // Cube DX, DY, DZ values set here are temp to this pgm
+    // only saved permanently in MON library on formal SAVE (F1) in above Step1
+    if bSetCubeXYZ==true
+      LbSetXYZdone=false
+      do
+        //nIdxSetCubeXYZ=211
+        call displayMessage1(nIdxSetCubeXYZ,nKey)
+        // verify selection
+        switch nKey
+          // ESC key aborts & returns immediately
+          case 255
+            return
+          break
+          // user accepts input from step 2 and auto backup to previous menu for acceptance
+          case 271
+            LbSetXYZdone=true
+            bCubeStep1=true
+          break
+          case 274
+            // user enters a new value for Cube DX
+            gotoxy(25,6)
+            LnXKeeper=nDistXCube
+            get(nDistXCube)
+            if (nDistXCube<0)
+              popUpMsg("Negative values for Cube DX not allowed...Press OK")
+              nDistXCube=LnXKeeper
+            endIf
+          break
+          // user enters a new value for Cube DY
+          case 275
+            gotoxy(25,7)
+            LnYKeeper=nDistYCube
+            get(nDistYCube)
+            if (nDistYCube<0)
+              popUpMsg("Negative values for Cube DY not allowed...Press OK")
+              nDistYCube=LnYKeeper
+            endIf
+          break
+          // user enters a new value for Cube DZ
+          case 276
+            gotoxy(25,8)
+            LnZKeeper=nDistZCube
+            get(nDistZCube)
+            if nDistZCube<0
+              popUpMsg("Negative values for Cube DZ not allowed...Press OK")
+              nDistZCube=LnZKeeper
+            endIf
+          break
+          // ABORT to Teach Stay Clear Zone Menu menu and return to pgm mnuTeachStyClr()
+          case 278
+            bCubeStep1=false
+            return
+          break
+          default
+            popUpMsg("BAD SELECTION...Press OK")
+          break
+        endSwitch
+      until (false or (LbSetXYZdone==true))
+    endIf
+    bSetCubeXYZ=false
+    LbSetXYZdone=false
+    //
+  until (false or (LbCubeAllDone==true))
+  bCubeStep1=false
+  //
+  // Teach Cube completed, save data on Exit
+  libSave()
+  MON:libSave()
+  //
+  //done
+end
+
+      ]]></Code>
+  </Program>
+</Programs>

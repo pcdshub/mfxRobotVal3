@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="display">
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1">
+      <Parameter name="nTitle" type="num" xsi:type="element" />
+      <Parameter name="nKey" type="num" xsi:type="array" use="reference" />
+    </Parameters>
+    <Locals>
+      <Local name="LnIndex" type="num" xsi:type="array" size="1" />
+      <Local name="LbKey" type="bool" xsi:type="array" size="1" />
+      <Local name="LnQuestion" type="num" xsi:type="array" size="1" />
+      <Local name="LnFirst" type="num" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  //header begin
+  // PROGRAM display(nTitle, nKey)
+  //
+  // generic pgm used for menu displays and selection handling
+  //
+  // input parms:
+  //    nTitle = index of selected menu Title string in sUserPageText[ ]
+  //
+  // other parms:
+  //    nQuestion = index of selected menu Question string in sUserPageText[ ]
+  //    nFirst = index of the first menu Items to be displayed from sUserPageText[ ]
+  //
+  //  NOTE:  the strings structure is in groups of 10 in the strings array sUserPageText[ ]
+  //  Menu Page Indices are NUMBER variables
+  //
+  // output parms:
+  //    nKey = the keypad number of the selected Function Key
+  //
+  // called from:  various
+  // initial release KN
+  //header end
+  //
+  // init local variables used as menu string text pointers
+  // values are simply +1 & +2 offset of nTitle pointer
+  LnQuestion=nTitle+1
+  LnFirst=nTitle+2
+  // clear user page and throw a title
+  userPage()
+  cls()
+  title(sUserPageText[nTitle])
+  //
+  // print the F1 thru F8 Function Button Identifiers
+  // at bottom of user window
+  gotoxy(0,13)
+  // bottom line text is indexed with respect to sUserPageText[]
+  put(sMenuBottomLine[(nTitle-1)/10])
+  //
+  //print QUESTION or COMMAND
+  gotoxy(0,1)
+  put(sUserPageText[LnQuestion])
+  //
+  // print eight (F-) function identifiers & text on left hand side of userPage window
+  for LnIndex=LnFirst to LnFirst+7
+    gotoxy(1,LnIndex-LnFirst+3)
+    put("(F")
+    put(toString("",LnIndex-LnFirst+1))
+    put(") ")
+    put(sUserPageText[LnIndex])
+  endFor
+  //
+  // Wait indefinitely for a function button press
+  LbKey=false
+  getKey()
+  do
+    nKey=getKey()
+    switch nKey
+      // ESC character always ABORTS AND/OR RETURNS
+      case 255
+        LbKey=true
+      break
+      case 271,272,273,274,275,276,277,278
+        LbKey=true
+      break
+    endSwitch
+    //
+    delay(0)
+  until (LbKey==true)
+end
+
+      ]]></Code>
+  </Program>
+</Programs>

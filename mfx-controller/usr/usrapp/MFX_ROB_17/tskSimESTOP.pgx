@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="tskSimESTOP">
+    <Locals>
+      <Local name="LnKey" type="num" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  bSimESTOPOn=false
+  LnKey=1111
+  do
+    LnKey=getKey()
+    // test if Function button F1->F8 is pressed on Emulator
+    if bSimESTOPOn==false and (LnKey==271 or LnKey==272 or LnKey==273 or LnKey==274 or LnKey==275 or LnKey==276 or LnKey==277 or LnKey==278)
+      bSimESTOPOn=true
+      putln("Simulated ESTOP")
+      delay(1)
+      LnKey=1111
+    endIf
+    delay(0)
+  until false
+end
+
+      ]]></Code>
+  </Program>
+</Programs>

@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="mnuMoveTargPnt">
+    <Locals>
+      <Local name="LbBackup" type="bool" xsi:type="array" size="1" />
+      <Local name="nKey" type="num" xsi:type="array" size="1" />
+      <Local name="LpMoveTarget" type="point" xsi:type="array" size="1" />
+      <Local name="LbTestLocResult" type="bool" xsi:type="array" size="1" />
+      <Local name="LjHere" type="joint" xsi:type="array" size="1" />
+      <Local name="LbIsInRange" type="bool" xsi:type="array" size="1" />
+      <Local name="LjTarget" type="joint" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  //header begin
+  // PROGRAM mnuMoveTargPnt()
+  //
+  // runs the menu to query for user to select and move to
+  // Target Point
+  //
+  // incoming parms:  none
+  // outgoing parms:  none
+  // called from:  pgm mnuMotionMenu()
+  //
+  //  initial release KN
+  //header end
+  //
+  // start continuous loop, end by menu command or teach pendant command
+  // on user command, jump to other subroutines for action
+  //
+  // init booleans for menu control
+  LbBackup=false
+  bWorldFrameView=true
+  //
+  do
+    //nIdxMoveTargPt=281
+    call displayMessage2(nIdxMoveTargPt,nKey)
+    // verify selection
+    switch nKey
+      // ESC key aborts & returns immediately
+      case 255
+        return
+      break
+      // Move to Target Point, F1 to change Target Frame number 1 or 2
+      case 271
+        nIPNumber=nIPNumber+1
+        if nIPNumber==2
+          nIPNumber=0
+        endIf
+      break
+      // Move to Target Point, F2 to increment point number 0-19 in selected frame 0-1
+      case 272
+        if nIPNumber==0
+          nIP1Number=nIP1Number+1
+          if nIP1Number==20
+            nIP1Number=0
+          endIf
+        else
+          nIP2Number=nIP2Number+1
+          if nIP2Number==20
+            nIP2Number=0
+          endIf
+        endIf
+      break
+      // menu Move To Target Point, F5 to ADJUST RX/RY/RZ values of Target Point
+      case 275
+        call mnuAdjTargetPnt()
+      break
+      //  Move to Target Point, F6 to MOVE to currently selected IP & TP
+      case 276
+        // test if move to Target Point is possible
+        // set up dummy loc at current location & configuration
+        LjHere=herej()
+        // test desired Target Point for validity
+        if nIPNumber==0
+          LbTestLocResult=pointToJoint(tSensorTool,LjHere,pIP1Point[nIP1Number],LjTarget)
+        else
+          LbTestLocResult=pointToJoint(tSensorTool,LjHere,pIP2Point[nIP2Number],LjTarget)
+        endIf
+        // issue error if not valid or if cannot be reached, otherwise commence move
+        if LbTestLocResult==false
+          LbBackup=true
+          popUpMsg("IMPOSSIBLE MOVE:  Unable to reach Target Point in current arm configuration...Press OK")
+        else
+          LbIsInRange=isInRange(LjTarget)
+          if LbIsInRange==true
+            call movTargetPoint()
+          else
+            popUpMsg("IMPOSSIBLE MOVE:  Target Point out of reach or out of limits...Press OK")
+          endIf
+        endIf
+      break
+      // menu = Move Target Points, F7 to change displayed trsf values relative to the selected IP or World CoordSys
+      // this boolean is acted upon in pgm displayMessage2()
+      case 277
+        if bWorldFrameView==true
+          bWorldFrameView=false
+        else
+          bWorldFrameView=true
+        endIf
+      break
+      //F8 to Go Back
+      case 278
+        LbBackup=true
+      break
+      // Any other key press
+      default
+        popUpMsg("BAD SELECTION...press OK")
+      break
+    endSwitch
+  until (false or (LbBackup==true))
+  // done
+end
+
+      ]]></Code>
+  </Program>
+</Programs>

@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="mnuAdjTargetPnt" access="public">
+    <Locals>
+      <Local name="LbBackup" type="bool" xsi:type="array" size="1" />
+      <Local name="nKey" type="num" xsi:type="array" size="1" />
+      <Local name="LbMoveOutOfTol" type="bool" xsi:type="array" size="1" />
+      <Local name="LnDistance" type="num" xsi:type="array" size="1" />
+      <Local name="LpHere" type="point" xsi:type="array" size="1" />
+      <Local name="LnDeltaRX" type="num" xsi:type="array" size="1" />
+      <Local name="LnDeltaRY" type="num" xsi:type="array" size="1" />
+      <Local name="LnDeltaRZ" type="num" xsi:type="array" size="1" />
+      <Local name="LpTempAdjPoint" type="point" xsi:type="array" size="1" />
+      <Local name="LpTargetPoint" type="point" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  //header begin
+  // PROGRAM mnuAdjTargetPnt()
+  //
+  // runs the menu to query user for all info needed to adjust RX RY RZ of Target Points
+  // adjusts, but does not save the new point definition because the point would then not
+  // be consistent with the AZ EL RA root definition of the point location.
+  //
+  // incoming parms:  none
+  //
+  // outgoing parms:  none
+  // called from:  pgm mnuMoveTargPnt()
+  //
+  //  initial release KN
+  //header end
+  //
+  // start continuous loop, end by menu command or teach pendant command
+  // on user command, jump to other subroutines for action
+  //
+  // init booleans for menu control
+  LbBackup=false
+  nSelection=1
+  nIdxResolution=0
+  LnDeltaRX=0
+  LnDeltaRY=0
+  LnDeltaRZ=0
+  LpTempAdjPoint=here(tSensorTool,world)
+  //
+  // test if at currently selected Target Point before Adjustment Move
+  // Deny adjustment if not within nAdjPntMoveTol and return
+  LpHere=here(tSensorTool,world)
+  if nIPNumber==0
+    LpTargetPoint=pIP1Point[nIP1Number]
+  else
+    LpTargetPoint=pIP2Point[nIP2Number]
+  endIf
+  LnDistance=abs(distance(LpHere,LpTargetPoint))
+  if LnDistance>nAdjPntMoveTol
+    popUpMsg("ADJUSTMENT DENIED:  Sensor Tool TCP not at selected Target Point...Press OK")
+  else
+    do
+      //nIdxAdjTargetPt=291
+      call displayMessage3(nIdxAdjTargetPt,nKey,LnDeltaRX,LnDeltaRY,LnDeltaRZ)
+      // verify selection
+      switch nKey
+        // ESC aborts/returns immediately, no save
+        case 255
+          return
+        break
+        // menu = Adj Target Point, F2 to Change (increment) the values of
+        // Resolution ONLY
+        case 272
+          switch nSelection
+            // cycle through the available resolutions
+            case 1
+              nIdxResolution=nIdxResolution+1
+              if nIdxResolution==4
+                nIdxResolution=0
+              endIf
+            break
+          endSwitch
+        break
+        // menu=Adj Target Pnts, F3 increments by nResolution RX, RY, RZ as selected by nSelection
+        case 273
+          switch nSelection
+            // select & increment RX
+            case 2
+              LnDeltaRX=LnDeltaRX+nResolution[nIdxResolution]
+            break
+            // select & increment RY
+            case 3
+              LnDeltaRY=LnDeltaRY+nResolution[nIdxResolution]
+            break
+            // select & increment RZ
+            case 4
+              LnDeltaRZ=LnDeltaRZ+nResolution[nIdxResolution]
+            break
+          endSwitch
+        break
+        //  menu = Adj Targ Pnts, F4 to Decrement by resolution
+        case 274
+          switch nSelection
+            // select & decrement RX
+            case 2
+              LnDeltaRX=LnDeltaRX-nResolution[nIdxResolution]
+            break
+            // select & decrement RY
+            case 3
+              LnDeltaRY=LnDeltaRY-nResolution[nIdxResolution]
+            break
+            // select & decrement RZ
+            case 4
+              LnDeltaRZ=LnDeltaRZ-nResolution[nIdxResolution]
+            break
+          endSwitch
+        break
+        // menu = AdjTarget Point
+        // F6 = Command a move to adjusted value determined by selection
+        case 276
+          // no Zone Monitoring done during Adjustment moves
+          // no checking of valid moves
+          cls()
+          title(" ADJUST RX/RY/RZ MOVE ")
+          gotoxy(0,2)
+          putln("WAITING:  Press MOVE/HOLD Button")
+          putln("          to move to RX/RY/RZ Adj Point")
+          LpTempAdjPoint.trsf=LpTempAdjPoint.trsf*{0,0,0,LnDeltaRX,LnDeltaRY,LnDeltaRZ}
+          movel(LpTempAdjPoint,tSensorTool,mGlobalSpeed)
+          waitEndMove()
+          cls()
+          popUpMsg("Target Point Adjustment Move COMPLETED...Press OK")
+        break
+        // menu = Adjust Interaction Point Target Point, F7 to SAVE Adjusted Point Data, no return
+        //  menu = Adj Targ Pnts, F8 returns with no save
+        case 278
+          LbBackup=true
+        break
+        // Any other key press
+        default
+          cls()
+          popUpMsg("BAD SELECTION...press OK")
+        break
+      endSwitch
+    until (false or (LbBackup==true))
+    //
+  endIf
+  // done
+end
+
+      ]]></Code>
+  </Program>
+</Programs>

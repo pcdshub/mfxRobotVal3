@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="remErrPower">
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1">
+      <Parameter name="sReturn" type="string" xsi:type="array" use="reference" />
+    </Parameters>
+    <Code><![CDATA[begin
+  // Error raised when we try to move the robot
+  // but the arm is not powered
+  //
+  logMsg("call remErrPower")
+  sReturn = "ERROR 202"
+  sReturn = sReturn + ": Arm is not powered."
+  putln(sReturn)
+  logMsg(sReturn)
+end
+]]></Code>
+  </Program>
+</Programs>

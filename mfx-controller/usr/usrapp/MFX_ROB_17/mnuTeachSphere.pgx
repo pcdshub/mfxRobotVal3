@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="mnuTeachSphere">
+    <Locals>
+      <Local name="nKey" type="num" xsi:type="array" size="1" />
+      <Local name="LpHere" type="point" xsi:type="array" size="1" />
+      <Local name="LbBackup" type="bool" xsi:type="array" size="1" />
+      <Local name="LsMoveMsg" type="string" xsi:type="array" size="1" />
+      <Local name="LnRKeeper" type="num" xsi:type="array" size="1" />
+      <Local name="LbSetSphRdone" type="bool" xsi:type="array" size="1" />
+      <Local name="LbSphAllDone" type="bool" xsi:type="array" size="1" />
+      <Local name="LbErrCreateSph" type="bool" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  //header begin
+  // PROGRAM mnuTeachSphere()
+  //
+  // runs the menu to query user for all info needed to teach a Sphere Stay Clear Zone
+  //
+  // incoming parms:  none
+  // outgoing parms:  none
+  // called from:  pgm mnuTeachStyClr()
+  //
+  //  initial release KN
+  //header end
+  //
+  // start continuous loop, end by menu command or teach pendant command
+  // on user command, jump to other subroutines for action
+  //
+  // init booleans for menu control here & in pgm displayMessage1()
+  LbBackup=false
+  bSetCubeXYZ=false
+  bCubeStep1=false
+  bSetCylinderRZ=false
+  bCylinderStep1=false
+  bSetSphereRad=false
+  bSphereStep1=true
+  LbSphAllDone=false
+  // retrieve initial Cyl data & store to temp variables for manipulation & display
+  pOriginSphere=MON:pOriginSphere[nNumberSphere]
+  nRadiusSphere=MON:nRadiusSphere[nNumberSphere]
+  do
+    //=========step 1==================step 1===============step 1================
+    // menu = Teach Sphere, Step 1:  Main Sphere Info Display
+    do
+      //nIdxTeachSph=241
+      call displayMessage1(nIdxTeachSph,nKey)
+      // verify selection
+      switch nKey
+        // ESC key aborts & returns immediately
+        case 255
+          return
+        break
+        // menu = Teach Sphere, F1 to ACCEPT definition & return to pgm mnuTeachStyClr()
+        case 271
+          LbSphAllDone=true
+          MON:nNumberSphere=nNumberSphere
+          call MON:createSphere(pOriginSphere,nRadiusSphere,LbErrCreateSph)
+          if LbErrCreateSph==true
+            popUpMsg("Create Sphere Failed...Press OK")
+            LbSphAllDone=false
+          endIf
+          // saved at bottom
+        break
+        // menu = Teach Sphere, F3 Button, change sphere number via increment only
+        // max = 10 as initially implemented in monitorAreaEn() library
+        // max value change requires manual coordination, not automatic
+        case 273
+          nNumberSphere=nNumberSphere+1
+          if nNumberSphere==10
+            nNumberSphere=0
+          endIf
+          pOriginSphere=MON:pOriginSphere[nNumberSphere]
+          nRadiusSphere=MON:nRadiusSphere[nNumberSphere]
+        break
+        // menu = Teach Sphere, F4 Button, Tell user to Teach Origin Point
+        case 274
+          LsMoveMsg="Move robot to Sphere #"+toString("2.0",nNumberSphere)+" Origin Point...OK to Teach"
+          popUpMsg(LsMoveMsg)
+          pOriginSphere=here(tSensorTool,world)
+        break
+        //  menu = Teach Sphere, F5 Button, goto next step to Define Radius
+        case 275
+          bSetSphereRad=true
+          bSphereStep1=false
+        break
+        // menu = Teach Sphere, F7 clears the current sphere definition
+        // this disables the checking of the sphere
+        case 277
+          MON:pOriginSphere[nNumberSphere].trsf={0,0,0,0,0,0}
+          MON:nRadiusSphere[nNumberSphere]=0
+          pOriginSphere.trsf={0,0,0,0,0,0}
+          nRadiusSphere=0
+          MON:nNumberSphere=nNumberSphere
+          MON:bCreateSphere[nNumberSphere]=false
+          MON:libSave()
+          popUpMsg("SphereZone "+toString(".0",nNumberSphere)+" CLEARED...Press OK")
+        break
+        // menu = Teach Sphere, F8 Button, ABORT & Backup
+        case 278
+          bSphereStep1=false
+          return
+        break
+        // Any other key press
+        default
+          cls()
+          popUpMsg("BAD SELECTION...press OK")
+        break
+      endSwitch
+    until (false or (bSetSphereRad==true) or (LbSphAllDone==true))
+    //
+    //====step 2==============step 2===================step 2===============
+    // menu = Teach Sphere Step 2:  set the Radius
+    // Sphere DZ & Radius values here are temp to this pgm
+    // only permanently saved to MON library on formal SAVE (F1) in above Step1
+    if bSetSphereRad==true
+      LbSetSphRdone=false
+      do
+        //nIdxSetSphRad=251
+        call displayMessage1(nIdxSetSphRad,nKey)
+        // verify selection
+        switch nKey
+          // ESC key aborts & returns immediately
+          case 255
+            return
+          break
+          // user accepts input from step 2 and auto backup to previous menu for accept and save
+          case 271
+            LbSetSphRdone=true
+            bSphereStep1=true
+          break
+          case 274
+            // user enters a new value for Sphere Radius
+            gotoxy(30,6)
+            LnRKeeper=nRadiusSphere
+            get(nRadiusSphere)
+            if (nRadiusSphere<0)
+              popUpMsg("Negative values disallowed...Press OK")
+              nRadiusSphere=LnRKeeper
+            endIf
+          break
+          // ABORT & backup to previous pgm mnuSetStyClr()
+          case 278
+            bSphereStep1=false
+            return
+          break
+          // any other key press
+          default
+            cls()
+            popUpMsg("BAD SELECTION...Press OK")
+          break
+        endSwitch
+      until (false or (LbSetSphRdone==true))
+    endIf
+    bSetSphereRad=false
+    LbSetSphRdone=false
+    //
+  until (false or (LbSphAllDone==true))
+  bSphereStep1=false
+  //
+  // Teach Sphere completed, save data on exit
+  //
+  libSave()
+  MON:libSave()
+  //
+  // done
+end
+
+      ]]></Code>
+  </Program>
+</Programs>

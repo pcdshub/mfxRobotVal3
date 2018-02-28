@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="movToPark">
+    <Locals>
+      <Local name="LpHere" type="point" xsi:type="array" size="1" />
+      <Local name="LpPark" type="point" xsi:type="array" size="1" />
+      <Local name="LnDistance" type="num" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  //
+  //header begin
+  //
+  //header end
+  //
+  stopMove()
+  resetMotion()
+  // check robot condition:  ESTOP clear, MANUAL MODE, CALIBRATED=true, ARM POWER=ON
+  call initializeRobot()
+  userPage()
+  cls()
+  title(" MOVE TO PARK ")
+  gotoxy(0,4)
+  putln("WAITING:  Press MOVE/HOLD button")
+  putln("          to move to Park...")
+  // put "HALT" in F8 position
+  gotoxy(36,13)
+  put("HALT")
+  //
+  //
+  bEnableMonitor=true
+  LpPark=jointToPoint(tSensorTool,world,jPark)
+  movel(LpPark,tSensorTool,mGlobalSpeed)
+  //
+  // watch for Stay Clear Zone entry, process if required
+  // watch for bStopMotion initiated from tskHaltMoveMon()
+  bWatchForHalt=true
+  do
+    // get current position, compare with destination
+    LpHere=here(tSensorTool,world)
+    LpPark=jointToPoint(tSensorTool,world,jPark)
+    LnDistance=abs(distance(LpHere,LpPark))
+    delay(0)
+  until (LnDistance<=nZoneWatchTol) or (bInsideCube==true) or (bInsideCylinder==true) or (bInsideSphere==true) or (bStopMotion==true)
+  //
+  if (bInsideCube==false) and (bInsideCylinder==false) and (bInsideSphere==false) and (bStopMotion==false)
+    waitEndMove()
+    popUpMsg("NOW at PARK...Press OK")
+  else
+    stopMove()
+    resetMotion()
+    bStopAllMonitor=true
+    popUpMsg("MOTION CANCELLED:  Zone Entered or HALT requested; Monitoring Disabled; Manual Recovery REQUIRED...Press OK")
+    //
+    // put in motion halt recovery steps here
+    //
+  endIf
+  bEnableMonitor=false
+  bWatchForHalt=false
+  bStopMotion=false
+  //
+  //
+  //done
+  //
+end
+
+      ]]></Code>
+  </Program>
+</Programs>

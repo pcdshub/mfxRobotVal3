@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="mnuGetTCP">
+    <Locals>
+      <Local name="LbBackup" type="bool" xsi:type="array" size="1" />
+      <Local name="nKey" type="num" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  //header begin
+  // PROGRAM mnuGetTCP()
+  //
+  // runs the menu to show current TCP values for tSensorTool at the currently selected
+  // /Interaction Point frame.  Allows the user to toggle the selection of the IP Frame.
+  //
+  // incoming parms:  none
+  // outgoing parms:  none
+  // called from:  pgm mnuUtilityMenu()
+  //
+  //  This program is released as part of SLAC RX130L robot control code Revision 3.
+  //  This is part of Blue Technik proposal K01c, Work Request K01-1.
+  //header end
+  //
+  // start continuous loop, end by menu command or teach pendant command
+  // on user command, jump to other subroutines for action
+  //
+  // init booleans for menu control in pgm displayMessage2()
+  LbBackup=false
+  //
+  do
+    //nIdxSetTargetPt=351
+    call displayMessage8(nIdxGetTCP,nKey)
+    // verify selection
+    switch nKey
+      // ESC key aborts, return with no save to pgm mnuTeachMenu()
+      case 255
+        return
+      break
+      // menu = Get TCP Values @ IP,
+      // F1 to change Interaction Point number 0 or 1
+      case 271
+        nIPNumber=nIPNumber+1
+        if nIPNumber==2
+          nIPNumber=0
+        endIf
+      break
+      //  menu = Get TCP Values @ IP, F8 to exit & return to pgm mnuUtilityMenu()
+      case 278
+        LbBackup=true
+      break
+      // Any other key press
+      default
+        cls()
+        popUpMsg("BAD SELECTION...press OK")
+      break
+    endSwitch
+  until (false or (LbBackup==true))
+  //
+  // done
+end
+
+      ]]></Code>
+  </Program>
+</Programs>

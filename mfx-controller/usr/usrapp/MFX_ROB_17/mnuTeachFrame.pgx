@@ -1,0 +1,188 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="mnuTeachFrame">
+    <Locals>
+      <Local name="nKey" type="num" xsi:type="array" size="1" />
+      <Local name="LbTeachFrm1of5" type="bool" xsi:type="array" size="1" />
+      <Local name="LbTeachFrm2of5" type="bool" xsi:type="array" size="1" />
+      <Local name="LbTeachFrm3of5" type="bool" xsi:type="array" size="1" />
+      <Local name="LbTeachFrm4of5" type="bool" xsi:type="array" size="1" />
+      <Local name="LbTeachFrm5of5" type="bool" xsi:type="array" size="1" />
+      <Local name="LpFrameOrigin" type="point" xsi:type="array" size="1" />
+      <Local name="LpFrameXAxis" type="point" xsi:type="array" size="1" />
+      <Local name="LpFrameYAxis" type="point" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  //header begin
+  // PROGRAM mnuTeachFrame()
+  //
+  // runs the Wizard to assist user:  Teach the Target Frame of the two targets
+  //
+  // incoming parms:  none
+  // outgoing parms:  none
+  // called from:  pgm mnuTeachIP()
+  //
+  //  initial release KN
+  //  Release 2 KN
+  //    this pgm now called from pgm mnuTeachIP()
+  //
+  //header end
+  //
+  // start continuous loop, go through each of 5 wizard steps
+  //
+  // init step-by-step continuance booleans
+  LbTeachFrm1of5=false
+  LbTeachFrm2of5=false
+  LbTeachFrm3of5=false
+  LbTeachFrm4of5=false
+  LbTeachFrm5of5=false
+  //
+  // menu = Teach Interaction Point Frame, Step 1 of 5 Steps:  select the frame to be taught
+  do
+    // nIdxFrm1of5=131
+    call displayMessage(nIdxFrm1of5,nKey)
+    // verify selection
+    switch nKey
+      // ESC aborts & returns immediately
+      case 255
+        return
+      break
+      // menu = Teach Interaction Point Frame 1of5, F1 to continue to Step 2 of 4
+      case 271
+        LbTeachFrm1of5=true
+      break
+      // menu = Teach Interaction Point Frame 1of5, F3 Button, user changes Target Number
+      case 273
+        nIPNumber=nIPNumber+1
+        if nIPNumber==2
+          nIPNumber=0
+        endIf
+      break
+      // menu = Teach Interaction Point Frame 1of5, F8 Button, ABORT & backup to Teach Menu
+      case 278
+        return
+      break
+      // Any other key press
+      default
+        popUpMsg("BAD SELECTION...press OK")
+      break
+    endSwitch
+  until (false or (LbTeachFrm1of5==true))
+  //
+  // menu = Teach Interaction Point Frame, Step 2 of 5 Steps:  verify Ref Pointer tool is attached
+  do
+    // nIdxFrm2of5=141
+    call displayMessage(nIdxFrm2of5,nKey)
+    // verify selection
+    switch nKey
+      // ESC key aborts & returns immediately
+      case 255
+        return
+      break
+      // menu = Teach Interaction Point Frame 2of5, F1 to continue to Step 3 of 5
+      case 271
+        LbTeachFrm2of5=true
+      break
+      // menu = Teach Interaction Point Frame 2of5, F8 Button, ABORT & backup to Teach Menu
+      case 278
+        return
+      break
+      // Any other key press
+      default
+        popUpMsg("BAD SELECTION...press OK")
+      break
+    endSwitch
+  until (false or (LbTeachFrm2of5==true))
+  //
+  // menu = Teach Interaction Point Frame, Step 3 of 5 Steps:  move to Frame Origin
+  do
+    // nIdxFrm3of5=151
+    call displayMessage(nIdxFrm3of5,nKey)
+    // verify selection
+    switch nKey
+      // ESC key aborts & returns immediately
+      case 255
+        return
+      break
+      // menu = Teach Interaction Point Frame 3of5, F1 Button, teach frame origin point
+      case 271
+        LpFrameOrigin=here(tRefPointer,world)
+        LbTeachFrm3of5=true
+      break
+      // menu = Teach Interaction Point Frame 3of5, F8 Button, ABORT & backup to Teach Menu
+      case 278
+        return
+      break
+      // Any other key press
+      default
+        popUpMsg("BAD SELECTION...press OK")
+      break
+    endSwitch
+  until (false or (LbTeachFrm3of5==true))
+  //
+  // menu = Teach Interaction Point Frame, Step 4 of 5 Steps:  teach Frame X-Axis location
+  do
+    // nIdxFrm4of5=161
+    call displayMessage(nIdxFrm4of5,nKey)
+    // verify selection
+    switch nKey
+      // ESC key aborts & returns immediately
+      case 255
+        return
+      break
+      // menu = Teach Interaction Point Frame 4of5, F1 Button, teach Frame X-Axis point
+      case 271
+        LpFrameXAxis=here(tRefPointer,world)
+        LbTeachFrm4of5=true
+      break
+      // menu = Teach Interaction Point Frame 4of5, F8 Button, ABORT & backup to Teach Menu
+      case 278
+        return
+      break
+      // Any other key press
+      default
+        popUpMsg("BAD SELECTION...press OK")
+      break
+    endSwitch
+  until (false or (LbTeachFrm4of5==true))
+  //
+  // menu = Teach Interaction Point Frame, Step 5 of 5 Steps:  Teach Frame y-Axis direction point
+  do
+    // nIdxFrm5of5=171
+    call displayMessage(nIdxFrm5of5,nKey)
+    // verify selection
+    switch nKey
+      // ESC key aborts & returns immediately
+      case 255
+        return
+      break
+      // menu = Teach Interaction Point Frame 5of5, F1 Button, User Accepts Frame definition
+      case 271
+        LpFrameYAxis=here(tRefPointer,world)
+        if sTargetChoice[nIPNumber]=="InteractionPoint1"
+          setFrame(LpFrameOrigin,LpFrameXAxis,LpFrameYAxis,fIP1)
+        else
+          setFrame(LpFrameOrigin,LpFrameXAxis,LpFrameYAxis,fIP2)
+        endIf
+        LbTeachFrm5of5=true
+      break
+      // menu = Teach Interaction Point Frame 5of5, F8 Button, ABORT & backup to Teach Menu
+      case 278
+        return
+      break
+      // Any other key press
+      default
+        popUpMsg("BAD SELECTION...press OK")
+      break
+    endSwitch
+  until (false or (LbTeachFrm5of5==true))
+  //
+  // teach Interaction Point Frame completed, save data on exit
+  libSave()
+  //
+  // done
+end
+
+      ]]></Code>
+  </Program>
+</Programs>

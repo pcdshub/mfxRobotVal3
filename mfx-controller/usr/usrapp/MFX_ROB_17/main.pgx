@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="main" access="public">
+    <Locals>
+      <Local name="nKey" type="num" xsi:type="array" size="1" />
+      <Local name="LbStopProgram" type="bool" xsi:type="array" size="1" />
+      <Local name="LjHere" type="joint" xsi:type="array" size="1" />
+      <Local name="LpHere" type="point" xsi:type="array" size="1" />
+      <Local name="LpTargetPoint" type="point" xsi:type="array" size="1" />
+      <Local name="LnDistance" type="num" xsi:type="array" size="1" />
+      <Local name="LpPark" type="point" xsi:type="array" size="1" />
+      <Local name="LnAcknowledge" type="num" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  //header begin
+  // PROGRAM main()
+  //
+  // runs the entire application
+  // menus
+  // mode control
+  //
+  // incoming parms:  none
+  // outgoing parms:  none
+  // called from:  pgm start()
+  //
+  //  NOTE:  the strings structure is in groups of 10 in the strings array sUserPageText[ ]
+  //
+  //  initial release KN
+  //header end
+  //
+  // initialize important variables & parameters
+  call initialize()
+  //
+  // test for bSimulateESTOP is true, announce to user if so
+  call mnuTestSimESTOP()
+  //
+  // start the ESTOP Monitoring task
+  //taskCreate "MonitorESTOP",25,tskMonitorESTOP()
+  // initialize robot (ESTOP=off, POWER=on, Arm=CALIBRATED)
+  call initializeRobot()
+  //
+  // start the task to enable/disable Stay Clear Zone monitoring
+  taskCreate "MonitorZone",10,tskMonitorZone()
+  //
+  // start the XPP Host communications task
+  // enabled from Utility Menu calls & operator input
+  // HALTed by command from XPP host
+  // killed on stop()
+  //taskCreate "RemoteControl",40,tskRemControl()
+  // MC used a different version of tskRemControl that does not look for remote mode
+  sioCtrl(io:XPP,"timeout",0)
+  taskCreate "RemoteControl",40,tskRemControl1()
+  //
+  // start the task that will be used to monitor a MCP keypress command to halt robot motion during manual mode
+  taskCreate "MonitorHalt",20,tskHaltMoveMon()
+  //
+  // check if arm is at pre-defined jPark location, advise user if not but do not force action
+  // get current position, compare with destination
+  LpHere=here(tSensorTool,world)
+  LpPark=jointToPoint(tSensorTool,world,jPark)
+  LnDistance=abs(distance(LpHere,LpPark))
+  if LnDistance>nParkTolerance
+    popUpMsg("WARNING  WARNING  WARNING  WARNING       Arm is NOT PARKED")
+  endIf
+  //
+  // start infinite loop to run application
+  // halts on operator command
+  LbStopProgram=false
+  do
+    // nIdxMainMenu=1
+    call display(nIdxMainMenu,nKey)
+    // verify selection
+    switch nKey
+      // ESC not allowed at MAIN MENU...must use F8=STOP Program
+      case 255
+        //
+      break
+      // menu = Main Menu:  F1 Button, change to TEACH menu
+      case 271
+        call mnuTeachMenu()
+      break
+      // menu = Main Menu:  F2 Button, change to MOTION menu
+      case 272
+        call mnuMotionMenu()
+      break
+      // menu = Main Menu:  F3 Button, change to UTILITY menu
+      case 273
+        call mnuUtility()
+      break
+      // menu = Main Menu:  F8 Button, End Application & Exit
+      case 278
+        LbStopProgram=true
+      break
+      // ALL OTHER CHOICES
+      default
+        popUpMsg("BAD SELECTION...Press OK")
+      break
+    endSwitch
+  until (false or (LbStopProgram==true))
+  call stop()
+  // done
+end
+
+      ]]></Code>
+  </Program>
+</Programs>

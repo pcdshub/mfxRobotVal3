@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="mnuGlobalSpeed">
+    <Locals>
+      <Local name="LbBackup" type="bool" xsi:type="array" size="1" />
+      <Local name="nKey" type="num" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  //
+  //header begin
+  //
+  //  pgm mnuGlobalSpeed()
+  // this program allows user to set global motion descriptor values from pre-defined set
+  //
+  //  incoming parms: none
+  //  outgoing parms: none
+  //
+  //  called from mnuUtility()
+  //
+  //  initial release KN
+  //
+  //header end
+  //
+  // set up display
+  LbBackup=false
+  do
+    // nIdxSetSpeeds=181
+    call display(nIdxSetSpeeds,nKey)
+    // verify selection
+    switch nKey
+      // ESC key aborts immediately
+      case 255
+        return
+      break
+      // menu = Set Global Speed Parms:  F1 Button, set Slow speed
+      case 271
+        mGlobalSpeed.vel=nVelSlow
+        LbBackup=true
+        popUpMsg("Global Velocity set to SLOW...Press OK")
+      break
+      // menu = Set Global Speed Parms:  F2 Button, set Medium Speed
+      case 272
+        mGlobalSpeed.vel=nVelMedium
+        LbBackup=true
+        popUpMsg("Global Velocity set to MEDIUM...Press OK")
+      break
+      // menu = Set Global Speed Parms:  F3 Button, set Fast Speed
+      case 273
+        mGlobalSpeed.vel=nVelFast
+        LbBackup=true
+        popUpMsg("Global Velocity set to FAST...Press OK")
+      break
+      // menu = Set Global Speed Parms, F5 Button = set Slow Accels
+      case 275
+        mGlobalSpeed.accel=mGlobalSpeed.decel=nAccSlow
+        LbBackup=true
+        popUpMsg("Global Accel/decel set to SLOW...Press OK")
+      break
+      // menu = Set Global Speed Parms, F6 Button = set Medium Accels
+      case 276
+        mGlobalSpeed.accel=mGlobalSpeed.decel=nAccMedium
+        LbBackup=true
+        popUpMsg("Global Accel/Decel set to MEDIUM...Press OK")
+      break
+      // menu = Set Global Speed Parms, F7 Button = set Fast Accels
+      case 277
+        mGlobalSpeed.accel=mGlobalSpeed.decel=nAccFast
+        LbBackup=true
+        popUpMsg("Global Accel/Decel set to FAST...Press OK")
+      break
+      // menu = Main Menu:  F8 Button, End Application & Exit
+      case 278
+        LbBackup=true
+      break
+      // ALL OTHER CHOICES
+      default
+        popUpMsg("BAD SELECTION...Press OK")
+      break
+    endSwitch
+  until (false or (LbBackup==true))
+end
+
+      ]]></Code>
+  </Program>
+</Programs>
