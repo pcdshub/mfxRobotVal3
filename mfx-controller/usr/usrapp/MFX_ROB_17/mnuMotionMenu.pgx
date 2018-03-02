@@ -1,6 +1,6 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2" >
-  <Program name="mnuMotionMenu" access="private" >
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="mnuMotionMenu">
     <Locals>
       <Local name="LbBackup" type="bool" xsi:type="array" size="1" />
       <Local name="nKey" type="num" xsi:type="array" size="1" />
@@ -37,9 +37,13 @@
       case 271
         call mnuMoveTargPnt()
       break
-      // Motion Menu:  F5 Button, Move to PARK position
-      case 275
+      // Motion Menu:  F4 Button, Move to PARK position
+      case 274
         call movToPark()
+      break
+      // Motion Menu:  F6 Button, Move to PARK TOP position
+      case 276
+        call movToParkTop()
       break
       // F8 Button, backup to Main Menu
       case 278

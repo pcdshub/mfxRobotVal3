@@ -1,19 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <CellUserOptions>
   <Controller Name="mfx-controller">
-    <Application>Disk://MFX_ROB_17/MFX_ROB_17.pjx</Application>
     <Application>Disk://io/io.pjx</Application>
     <Application>Disk://monitorAreaEn/monitorAreaEn.pjx</Application>
     <Application>Disk://calcTool4pEn/calcTool4pEn.pjx</Application>
+    <Application>Disk://MFX_ROB_17/MFX_ROB_17.pjx</Application>
   </Controller>
   <Option Name="DataTreeView">
     <Nodes>
       <Node Path="mfx" IsExpanded="true" />
       <Node Path="mfx\mfx-controller" IsExpanded="true" />
       <Node Path="mfx\mfx-controller\MFX_ROB_17" IsExpanded="true" />
-      <Node Path="mfx\mfx-controller\MFX_ROB_17\frame" IsExpanded="true" />
-      <Node Path="mfx\mfx-controller\MFX_ROB_17\jointRx" IsExpanded="true" />
-      <Node Path="mfx\mfx-controller\MFX_ROB_17\pointRx" IsExpanded="true" />
+      <Node Path="mfx\mfx-controller\MFX_ROB_17\mdesc" IsExpanded="true" />
+      <Node Path="mfx\mfx-controller\MFX_ROB_17\num" IsExpanded="true" />
+      <Node Path="mfx\mfx-controller\MFX_ROB_17\string" IsExpanded="true" />
     </Nodes>
   </Option>
   <Option Name="CellExplorer">
@@ -21,6 +21,7 @@
       <Node Path="mfx" IsExpanded="true" />
       <Node Path="mfx\mfx-controller" IsExpanded="true" />
       <Node Path="mfx\mfx-controller\MFX_ROB_17" IsExpanded="true" />
+      <Node Path="mfx\mfx-controller\MFX_ROB_17\mnuTeachMenu\Locals" IsExpanded="true" />
     </Nodes>
   </Option>
   <Option Name="GeometryView">
@@ -29,16 +30,16 @@
       <Node Path="mfx\mfx-controller" IsExpanded="true" />
       <Node Path="mfx\mfx-controller\MFX_ROB_17" IsExpanded="true" />
       <Node Path="mfx\mfx-controller\MFX_ROB_17\world[0]" IsExpanded="true" />
-      <Node Path="mfx\mfx-controller\MFX_ROB_17\world[0]\fIP1\fIP1[0]" IsExpanded="true" />
-      <Node Path="mfx\mfx-controller\MFX_ROB_17\world[0]\fIP1\fIP1[0]\pIP1NullPoint" IsExpanded="true" />
-      <Node Path="mfx\mfx-controller\MFX_ROB_17\world[0]\fIP1\fIP1[0]\pIP1Point" IsExpanded="true" />
-      <Node Path="mfx\mfx-controller\MFX_ROB_17\world[0]\fIP2" IsExpanded="true" />
-      <Node Path="mfx\mfx-controller\MFX_ROB_17\world[0]\fIP2\fIP2[0]" IsExpanded="true" />
-      <Node Path="mfx\mfx-controller\MFX_ROB_17\world[0]\fIP2\fIP2[0]\pIP2NullPoint" IsExpanded="true" />
-      <Node Path="mfx\mfx-controller\MFX_ROB_17\world[0]\fIP2\fIP2[0]\pIP2Point" IsExpanded="true" />
       <Node Path="mfx\mfx-controller\MFX_ROB_17\world[0]\fIPoriginal" IsExpanded="true" />
-      <Node Path="mfx\mfx-controller\MFX_ROB_17\flange[0]" IsExpanded="true" />
+      <Node Path="mfx\mfx-controller\MFX_ROB_17\world[0]\fIPoriginal\fIPoriginal[0]" IsExpanded="true" />
+      <Node Path="mfx\mfx-controller\MFX_ROB_17\world[0]\fIPoriginal\fIPoriginal[0]\fIP1" IsExpanded="true" />
+      <Node Path="mfx\mfx-controller\MFX_ROB_17\world[0]\fIPoriginal\fIPoriginal[0]\fIP1\fIP1[0]" IsExpanded="true" />
+      <Node Path="mfx\mfx-controller\MFX_ROB_17\world[0]\fIPoriginal\fIPoriginal[0]\fIP2" IsExpanded="true" />
+      <Node Path="mfx\mfx-controller\MFX_ROB_17\world[0]\fIPoriginal\fIPoriginal[0]\fIP2\fIP2[0]" IsExpanded="true" />
+      <Node Path="mfx\mfx-controller\MFX_ROB_17\flange[0]\tNULLTOOL" IsExpanded="true" />
+      <Node Path="mfx\mfx-controller\MFX_ROB_17\flange[0]\tRefPointer" IsExpanded="true" />
       <Node Path="mfx\mfx-controller\MFX_ROB_17\flange[0]\tSensorTool" IsExpanded="true" />
+      <Node Path="mfx\mfx-controller\MFX_ROB_17\Orphans" IsExpanded="true" />
       <Node Path="mfx\mfx-controller\MFX_ROB_17\jointRx" IsExpanded="true" />
       <Node Path="mfx\mfx-controller\MFX_ROB_17\jointRx\jPark" IsExpanded="true" />
       <Node Path="mfx\mfx-controller\MFX_ROB_17\jointRx\jParkTop" IsExpanded="true" />
@@ -51,7 +52,13 @@
     <Ios />
   </Option>
   <Option Name="Watches">
-    <Watches />
+    <Watches>
+      <Watch Controller="mfx-controller" Application="Disk://MFX_ROB_17/MFX_ROB_17.pjx">fIPoriginal</Watch>
+      <Watch Controller="mfx-controller" Application="Disk://MFX_ROB_17/MFX_ROB_17.pjx">pIP2Point</Watch>
+      <Watch Controller="mfx-controller" Application="Disk://MFX_ROB_17/MFX_ROB_17.pjx">pIP1Point</Watch>
+      <Watch Controller="mfx-controller" Application="Disk://MFX_ROB_17/MFX_ROB_17.pjx">tSensorTool</Watch>
+      <Watch Controller="mfx-controller" Application="Disk://MFX_ROB_17/MFX_ROB_17.pjx">nIP1Number</Watch>
+    </Watches>
   </Option>
   <Option Name="3DView">
     <_3DView Visible="true" />

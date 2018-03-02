@@ -1,6 +1,6 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2" >
-  <Program name="movTargetPoint" access="public" >
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="movTargetPoint" access="public">
     <Locals>
       <Local name="LnDistToPark" type="num" xsi:type="array" size="1" />
       <Local name="LnDistToTP" type="num" xsi:type="array" size="1" />
@@ -65,10 +65,10 @@
     //
     bEnableMonitor=true
     if nIPNumber==0
-      movel(pIP1Point[nIP1Number],tSensorTool,mGlobalSpeed)
+      movej(pIP1Point[nIP1Number],tSensorTool,mGlobalSpeed)
       LpTargetPoint=pIP1Point[nIP1Number]
     else
-      movel(pIP2Point[nIP2Number],tSensorTool,mGlobalSpeed)
+      movej(pIP2Point[nIP2Number],tSensorTool,mGlobalSpeed)
       LpTargetPoint=pIP2Point[nIP2Number]
     endIf
     // watch for Stay Clear Zone entry, process if required

@@ -1,6 +1,6 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2" >
-  <Program name="initialize" access="public" >
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="initialize" access="public">
     <Locals>
       <Local name="LnIndex" type="num" xsi:type="array" size="1" />
     </Locals>
@@ -76,8 +76,8 @@
   sioLink(sioXPPclient,io:XPP)
   //
   //==== tool definitions =========
-  tSensorTool.trsf=tNULLTOOL.trsf*{0,0,300,0,0,0}*{0,0,0,0,90,0}*{0,0,0,0,0,90}
-  tRefPointer.trsf={0,0,200,0,0,0}
+  //tSensorTool.trsf=tNULLTOOL.trsf*{0,0,300,0,0,0}*{0,0,0,0,90,0}*{0,0,0,0,0,90}
+  //tRefPointer.trsf={0,0,200,0,0,0}
   //
   //==== motion descriptor ========t
   mDefault.accel=mDefault.decel=20

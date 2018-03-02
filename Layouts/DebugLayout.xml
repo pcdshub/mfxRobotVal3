@@ -2,17 +2,15 @@
 	<AutoHideHost />
 	<Content xsi:type="SplitContainer" AutoHideSize="1403,700" DockedSize="2550,1375" DocumentSize="1403,700" FloatingSize="1403,700" Size="2550,1375" Orientation="Vertical">
 		<UIElement xsi:type="SplitContainer" AutoHideSize="1403,700" DockedSize="2550,1375" DocumentSize="1403,700" FloatingSize="1403,700" Size="2550,1375" Orientation="Horizontal">
-			<UIElement xsi:type="SplitContainer" AutoHideSize="1198,700" DockedSize="1467,1375" DocumentSize="1198,700" FloatingSize="1198,700" Size="1467,1375" Orientation="Vertical">
-				<UIElement xsi:type="SplitContainer" AutoHideSize="1198,395" DockedSize="1467,1112" DocumentSize="1403,705" FloatingSize="1198,395" Size="1467,1112" Orientation="Horizontal">
-					<UIElement xsi:type="SplitContainer" AutoHideSize="1198,395" DockedSize="1467,1112" DocumentSize="1087,705" FloatingSize="1198,395" Size="1467,1112" Orientation="Vertical">
-						<UIElement xsi:type="Workspace" AutoHideSize="1198,395" DockedSize="1198,395" DocumentSize="1467,849" FloatingSize="1198,395" Size="1467,849">
+			<UIElement xsi:type="SplitContainer" AutoHideSize="1198,700" DockedSize="1713.5,1375" DocumentSize="1198,700" FloatingSize="1198,700" Size="1713.5,1375" Orientation="Vertical">
+				<UIElement xsi:type="SplitContainer" AutoHideSize="1198,395" DockedSize="1713.5,1112" DocumentSize="1403,705" FloatingSize="1198,395" Size="1713.5,1112" Orientation="Horizontal">
+					<UIElement xsi:type="SplitContainer" AutoHideSize="1198,395" DockedSize="1713.5,1112" DocumentSize="1087,705" FloatingSize="1198,395" Size="1713.5,1112" Orientation="Vertical">
+						<UIElement xsi:type="Workspace" AutoHideSize="1198,395" DockedSize="1198,395" DocumentSize="1713.5,849" FloatingSize="1198,395" Size="1713.5,849">
 							<Content xsi:type="TabbedMdiHost">
-								<Content xsi:type="SplitContainer" AutoHideSize="1467,849" DockedSize="1467,849" DocumentSize="1467,849" FloatingSize="1467,849" Size="1467,849" Orientation="Horizontal">
-									<UIElement xsi:type="TabbedMdiContainer" AutoHideSize="1467,849" DockedSize="1467,849" DocumentSize="1467,849" FloatingSize="1467,849" Size="1467,849" SelectedWindowUniqueId="32711f18-4912-4518-b633-03735ae580b3" />
-								</Content>
+								<Content xsi:type="TabbedMdiContainer" AutoHideSize="1713.5,849" DockedSize="1713.5,849" DocumentSize="1713.5,849" FloatingSize="1713.5,849" Size="1713.5,849" SelectedWindowUniqueId="c5e742c4-e68a-4621-8281-180be8274a74" />
 							</Content>
 						</UIElement>
-						<UIElement xsi:type="ToolWindowContainer" AutoHideSize="200,200" DockedSize="1467,258" DocumentSize="200,200" FloatingSize="200,200" Size="1467,258" SelectedWindowUniqueId="4f5d8d9a-ddec-400a-bbb7-ad867f6fb6e0">
+						<UIElement xsi:type="ToolWindowContainer" AutoHideSize="200,200" DockedSize="1713.5,258" DocumentSize="200,200" FloatingSize="200,200" Size="1713.5,258" SelectedWindowUniqueId="4f5d8d9a-ddec-400a-bbb7-ad867f6fb6e0">
 							<UIElement xsi:type="ToolWindowRef" UniqueId="4f5d8d9a-ddec-400a-bbb7-ad867f6fb6e0" />
 						</UIElement>
 					</UIElement>
@@ -81,25 +79,25 @@
 						<UIElement xsi:type="Track" UniqueId="40a3e1e9-6c52-4ac5-9219-700f80826e56" />
 					</UIElement>
 				</UIElement>
-				<UIElement xsi:type="SplitContainer" AutoHideSize="550,200" DockedSize="1467,258" DocumentSize="550,200" FloatingSize="550,200" Size="1467,258" Orientation="Horizontal">
-					<UIElement xsi:type="ToolWindowContainer" AutoHideSize="550,200" DockedSize="709.885856964509,258" DocumentSize="550,200" FloatingSize="550,200" Size="709.885856964509,258" SelectedWindowUniqueId="c2d491ae-818b-451a-93fc-7ea7eb22d456">
+				<UIElement xsi:type="SplitContainer" AutoHideSize="550,200" DockedSize="1713.5,258" DocumentSize="550,200" FloatingSize="550,200" Size="1713.5,258" Orientation="Horizontal">
+					<UIElement xsi:type="ToolWindowContainer" AutoHideSize="550,200" DockedSize="582.575914243409,258" DocumentSize="550,200" FloatingSize="550,200" Size="582.575914243409,258" SelectedWindowUniqueId="bb188f4c-a7b6-45e4-83dd-538b1f58db11">
 						<UIElement xsi:type="ToolWindowRef" UniqueId="bb188f4c-a7b6-45e4-83dd-538b1f58db11" />
 						<UIElement xsi:type="Track" UniqueId="e70de856-5d28-4edf-abb4-db78a37ac4b5" />
 						<UIElement xsi:type="ToolWindowRef" UniqueId="33bb7849-0192-4e2f-9544-51818b96f690" />
 						<UIElement xsi:type="ToolWindowRef" UniqueId="bfbc6b46-bb59-4f38-a8ab-20d12fa07f9b" />
 						<UIElement xsi:type="ToolWindowRef" UniqueId="59225f2f-c9b1-4148-b052-0c0a6b60a81b" />
-						<UIElement xsi:type="ToolWindowRef" UniqueId="9cdb7a09-d8f8-46d1-afd7-6f1dece1fbc8" />
-						<UIElement xsi:type="ToolWindowRef" UniqueId="c2d491ae-818b-451a-93fc-7ea7eb22d456" />
+						<UIElement xsi:type="Track" UniqueId="9cdb7a09-d8f8-46d1-afd7-6f1dece1fbc8" />
+						<UIElement xsi:type="Track" UniqueId="c2d491ae-818b-451a-93fc-7ea7eb22d456" />
 					</UIElement>
-					<UIElement xsi:type="ToolWindowContainer" AutoHideSize="200,200" DockedSize="752.114143035491,258" DocumentSize="200,200" FloatingSize="200,200" Size="752.114143035491,258" SelectedWindowUniqueId="db78d39b-05ff-4025-b228-7f0246d53e5f">
+					<UIElement xsi:type="ToolWindowContainer" AutoHideSize="200,200" DockedSize="1125.92408575659,258" DocumentSize="200,200" FloatingSize="200,200" Size="1125.92408575659,258" SelectedWindowUniqueId="db78d39b-05ff-4025-b228-7f0246d53e5f">
 						<UIElement xsi:type="ToolWindowRef" UniqueId="8eca5096-672b-4643-a306-8d7da95e9668" />
 						<UIElement xsi:type="ToolWindowRef" UniqueId="db78d39b-05ff-4025-b228-7f0246d53e5f" />
 					</UIElement>
 				</UIElement>
-				<UIElement xsi:type="ToolWindowContainer" AutoHideSize="550,200" DockedSize="1467,211" DocumentSize="550,200" FloatingSize="550,200" Size="1467,211">
+				<UIElement xsi:type="ToolWindowContainer" AutoHideSize="550,200" DockedSize="1713.5,211" DocumentSize="550,200" FloatingSize="550,200" Size="1713.5,211">
 					<UIElement xsi:type="Track" UniqueId="1cf13a37-04ba-4afb-bdad-23e40714d423" />
 				</UIElement>
-				<UIElement xsi:type="ToolWindowContainer" AutoHideSize="550,200" DockedSize="1467,211" DocumentSize="550,200" FloatingSize="550,200" Size="1467,211">
+				<UIElement xsi:type="ToolWindowContainer" AutoHideSize="550,200" DockedSize="1713.5,211" DocumentSize="550,200" FloatingSize="550,200" Size="1713.5,211">
 					<UIElement xsi:type="Track" UniqueId="3fe4e221-d8c5-4de8-b1be-82731317d420" />
 					<UIElement xsi:type="Track" UniqueId="3e416541-bf55-452b-997b-fe654d20a6cd" />
 					<UIElement xsi:type="Track" UniqueId="92e64e36-150a-4b4e-8788-799b8804c3e2" />
@@ -110,7 +108,7 @@
 				</UIElement>
 			</UIElement>
 			<UIElement xsi:type="SplitContainer" AutoHideSize="200,200" DockedSize="391,1375" DocumentSize="200,200" FloatingSize="200,200" Size="391,1375" Orientation="Vertical">
-				<UIElement xsi:type="ToolWindowContainer" AutoHideSize="200,200" DockedSize="391,1375" DocumentSize="200,200" FloatingSize="200,200" Size="391,1375" SelectedWindowUniqueId="06d03f51-3499-4aaf-8fcf-f5474d1ce325">
+				<UIElement xsi:type="ToolWindowContainer" AutoHideSize="200,200" DockedSize="391,1375" DocumentSize="200,200" FloatingSize="200,200" Size="391,1375" SelectedWindowUniqueId="3dee95ba-ff20-4757-9457-68b527aaa48d">
 					<UIElement xsi:type="ToolWindowRef" UniqueId="3dee95ba-ff20-4757-9457-68b527aaa48d" />
 					<UIElement xsi:type="ToolWindowRef" UniqueId="06d03f51-3499-4aaf-8fcf-f5474d1ce325" />
 					<UIElement xsi:type="ToolWindowRef" UniqueId="1a5ef5f6-b295-4443-9b5d-5e50bcc004f8" />
@@ -269,8 +267,11 @@
 			<UIElement xsi:type="ToolWindowContainer" AutoHideSize="200,737.8" DockedSize="200,1375" DocumentSize="200,737.8" FloatingSize="541.6,332.8" Size="200,1375">
 				<UIElement xsi:type="Track" UniqueId="39c77a7d-ce8d-4f57-97dd-9bbbc6980c2b" />
 			</UIElement>
-			<UIElement xsi:type="ToolWindowContainer" AutoHideSize="284,696.142857142857" DockedSize="682,1375" DocumentSize="284,696.142857142857" FloatingSize="284,696.142857142857" Size="682,1375" SelectedWindowUniqueId="ba8179c5-6aca-45dd-adb9-6752e227f856">
-				<UIElement xsi:type="ToolWindowRef" UniqueId="ba8179c5-6aca-45dd-adb9-6752e227f856" />
+			<UIElement xsi:type="ToolWindowContainer" AutoHideSize="284,696.142857142857" DockedSize="682,1375" DocumentSize="284,696.142857142857" FloatingSize="284,696.142857142857" Size="682,1375">
+				<UIElement xsi:type="Track" UniqueId="ba8179c5-6aca-45dd-adb9-6752e227f856" />
+			</UIElement>
+			<UIElement xsi:type="ToolWindowContainer" AutoHideSize="367,382" DockedSize="435.5,1375" DocumentSize="367,382" FloatingSize="367,382" Size="435.5,1375" SelectedWindowUniqueId="da191c9b-ee19-4978-ba74-e15cc1e3367a">
+				<UIElement xsi:type="ToolWindowRef" UniqueId="da191c9b-ee19-4978-ba74-e15cc1e3367a" />
 			</UIElement>
 		</UIElement>
 		<UIElement xsi:type="ToolWindowContainer" AutoHideSize="550,200" DockedSize="2550,300" DocumentSize="550,200" FloatingSize="550,200" Size="2550,300">
@@ -287,6 +288,39 @@
 		</UIElement>
 	</Content>
 	<RaftingHosts>
+		<RaftingHost IsMaximized="true" Location="3627,205" Size="1486,1183" State="Floating">
+			<Content xsi:type="RaftedDocumentWindowContainer" AutoHideSize="2560,1560" DockedSize="2560,1560" DocumentSize="1477.5,1112" FloatingSize="2560,1560" Size="2560,1560" SelectedWindowUniqueId="1c5a768c-4f61-4193-afb8-0d4a2a514606" />
+		</RaftingHost>
+		<RaftingHost IsMaximized="false" Location="3627,205" Size="1486,1183" State="Floating">
+			<Content xsi:type="RaftedDocumentWindowContainer" AutoHideSize="2560,1560" DockedSize="2560,1560" DocumentSize="1477.5,1112" FloatingSize="1486,1183" Size="1486,1183" />
+		</RaftingHost>
+		<RaftingHost IsMaximized="false" Location="3627,205" Size="1486,1183" State="Floating">
+			<Content xsi:type="RaftedDocumentWindowContainer" AutoHideSize="2560,1560" DockedSize="2560,1560" DocumentSize="1477.5,1112" FloatingSize="1486,1183" Size="1486,1183" />
+		</RaftingHost>
+		<RaftingHost IsMaximized="false" Location="3627,205" Size="1486,1183" State="Floating">
+			<Content xsi:type="RaftedDocumentWindowContainer" AutoHideSize="2560,1560" DockedSize="2560,1560" DocumentSize="1477.5,1112" FloatingSize="1486,1183" Size="1486,1183" />
+		</RaftingHost>
+		<RaftingHost IsMaximized="false" Location="3627,205" Size="1486,1183" State="Floating">
+			<Content xsi:type="RaftedDocumentWindowContainer" AutoHideSize="2560,1560" DockedSize="2560,1560" DocumentSize="1477.5,1112" FloatingSize="1486,1183" Size="1486,1183" />
+		</RaftingHost>
+		<RaftingHost IsMaximized="false" Location="3627,205" Size="1486,1183" State="Floating">
+			<Content xsi:type="RaftedDocumentWindowContainer" AutoHideSize="2560,1560" DockedSize="2560,1560" DocumentSize="1477.5,1112" FloatingSize="1486,1183" Size="1486,1183" />
+		</RaftingHost>
+		<RaftingHost IsMaximized="false" Location="3627,205" Size="1486,1183" State="Floating">
+			<Content xsi:type="RaftedDocumentWindowContainer" AutoHideSize="2560,1560" DockedSize="2560,1560" DocumentSize="1477.5,1112" FloatingSize="1486,1183" Size="1486,1183" />
+		</RaftingHost>
+		<RaftingHost IsMaximized="false" Location="3627,205" Size="1486,1183" State="Floating">
+			<Content xsi:type="RaftedDocumentWindowContainer" AutoHideSize="2560,1560" DockedSize="2560,1560" DocumentSize="1477.5,1112" FloatingSize="1486,1183" Size="1486,1183" />
+		</RaftingHost>
+		<RaftingHost IsMaximized="false" Location="3627,205" Size="1486,1183" State="Floating">
+			<Content xsi:type="RaftedDocumentWindowContainer" AutoHideSize="2560,1560" DockedSize="2560,1560" DocumentSize="1477.5,1112" FloatingSize="1486,1183" Size="1486,1183" />
+		</RaftingHost>
+		<RaftingHost IsMaximized="false" Location="3627,205" Size="1478,1175" State="Floating">
+			<Content xsi:type="RaftedDocumentWindowContainer" AutoHideSize="1478,1175" DockedSize="1478,1175" DocumentSize="1477.5,1112" FloatingSize="1478,1175" Size="1478,1175" />
+		</RaftingHost>
+		<RaftingHost IsMaximized="false" Location="3627,205" Size="1478,1175" State="Floating">
+			<Content xsi:type="RaftedDocumentWindowContainer" AutoHideSize="1478,1175" DockedSize="1478,1175" DocumentSize="1477.5,1112" FloatingSize="1478,1175" Size="1478,1175" />
+		</RaftingHost>
 		<RaftingHost IsMaximized="false" Location="178,795" Size="550,200" State="Floating">
 			<Content xsi:type="ToolWindowContainer" AutoHideSize="550,200" DockedSize="622,258" DocumentSize="550,200" FloatingSize="550,200" Size="550,200">
 				<UIElement xsi:type="Track" UniqueId="e70de856-5d28-4edf-abb4-db78a37ac4b5" />
@@ -326,7 +360,7 @@
 		</RaftingHost>
 	</RaftingHosts>
 	<ToolWindows>
-		<ToolWindow UniqueId="bb188f4c-a7b6-45e4-83dd-538b1f58db11" AutoHideSize="550,200" DockedSize="709.885856964509,258" DocumentSize="550,200" FloatingSize="550,200" Size="709.885856964509,258" IsOpen="true" LastCloseReason="Other" LastState="Floating" Name="ErrorList" RaftingLocation="178,795" StandardMdiBounds="0,0,300,200" State="Docked" />
+		<ToolWindow UniqueId="bb188f4c-a7b6-45e4-83dd-538b1f58db11" AutoHideSize="550,200" DockedSize="582.575914243409,258" DocumentSize="550,200" FloatingSize="550,200" Size="582.575914243409,258" IsOpen="true" LastCloseReason="Other" LastState="Floating" Name="ErrorList" RaftingLocation="178,795" StandardMdiBounds="0,0,300,200" State="Docked" />
 		<ToolWindow UniqueId="e70de856-5d28-4edf-abb4-db78a37ac4b5" AutoHideSize="550,200" DockedSize="622,258" DocumentSize="550,200" FloatingSize="550,200" Size="622,258" IsOpen="false" LastCloseReason="Other" LastState="Floating" Name="OutputList" RaftingLocation="178,795" StandardMdiBounds="0,0,300,200" State="Docked" />
 		<ToolWindow UniqueId="0d87a19a-8b3e-4f1e-a946-c5a6eb9384ce" AutoHideSize="200,200" DockedSize="200,200" DocumentSize="200,200" FloatingSize="200,200" Size="200,200" IsOpen="false" LastCloseReason="LayoutCleared" LastState="Docked" Name="CallTree" StandardMdiBounds="0,0,300,200" State="Docked" />
 		<ToolWindow UniqueId="1a5ef5f6-b295-4443-9b5d-5e50bcc004f8" AutoHideSize="200,200" DockedSize="311,1375" DocumentSize="200,200" FloatingSize="200,200" Size="311,1375" IsOpen="true" LastCloseReason="Other" LastState="Docked" Name="Geometry" StandardMdiBounds="0,0,300,200" State="Docked" />
@@ -335,29 +369,26 @@
 		<ToolWindow UniqueId="25838486-425f-49d2-91b1-32803c688129" AutoHideSize="200,200" DockedSize="200,200" DocumentSize="200,200" FloatingSize="312,372" Size="200,200" IsOpen="false" LastCloseReason="Other" LastState="Docked" Name="FindAndReplace" RaftingLocation="845,338" StandardMdiBounds="0,0,300,200" State="Floating" />
 		<ToolWindow UniqueId="4478f260-d6ed-45ea-8321-f075dae88982" AutoHideSize="550,200" DockedSize="1403,300" DocumentSize="550,200" FloatingSize="550,200" Size="1403,300" IsOpen="false" LastCloseReason="Other" LastState="Docked" Name="FindResults" StandardMdiBounds="0,0,300,200" State="Docked" />
 		<ToolWindow UniqueId="2661df08-4ec6-499e-a829-b924c1758b5c" AutoHideSize="200,200" DockedSize="311,283.697142857143" DocumentSize="200,200" FloatingSize="200,200" Size="311,283.697142857143" IsOpen="false" LastCloseReason="Other" LastState="Floating" Name="Properties" RaftingLocation="1342,770" StandardMdiBounds="0,0,300,200" State="Docked" />
-		<ToolWindow UniqueId="59225f2f-c9b1-4148-b052-0c0a6b60a81b" AutoHideSize="200,200" DockedSize="709.885856964509,258" DocumentSize="200,200" FloatingSize="550,200" Size="709.885856964509,258" IsOpen="true" LastCloseReason="Other" LastState="Floating" Name="Breakpoints" RaftingLocation="178,795" StandardMdiBounds="0,0,300,200" State="Docked" />
-		<ToolWindow UniqueId="bfbc6b46-bb59-4f38-a8ab-20d12fa07f9b" AutoHideSize="200,200" DockedSize="709.885856964509,258" DocumentSize="200,200" FloatingSize="200,200" Size="709.885856964509,258" IsOpen="true" LastCloseReason="Other" LastState="Docked" Name="CallStack" StandardMdiBounds="0,0,300,200" State="Docked" />
-		<ToolWindow UniqueId="c2d491ae-818b-451a-93fc-7ea7eb22d456" AutoHideSize="200,200" DockedSize="709.885856964509,258" DocumentSize="200,200" FloatingSize="200,200" Size="709.885856964509,258" IsOpen="true" LastCloseReason="Other" LastState="Docked" Name="CommandLine" StandardMdiBounds="0,0,300,200" State="Docked" />
-		<ToolWindow UniqueId="9cdb7a09-d8f8-46d1-afd7-6f1dece1fbc8" AutoHideSize="200,200" DockedSize="709.885856964509,258" DocumentSize="200,200" FloatingSize="200,200" Size="709.885856964509,258" IsOpen="true" LastCloseReason="Other" LastState="Docked" Name="AioControlPanel" StandardMdiBounds="0,0,300,200" State="Docked" />
-		<ToolWindow UniqueId="4f5d8d9a-ddec-400a-bbb7-ad867f6fb6e0" AutoHideSize="200,200" DockedSize="380.141404805915,258" DocumentSize="200,200" FloatingSize="200,200" Size="380.141404805915,258" IsOpen="true" LastCloseReason="Other" LastState="Docked" Name="DioControlPanel" StandardMdiBounds="0,0,300,200" State="Docked" />
-		<ToolWindow UniqueId="8eca5096-672b-4643-a306-8d7da95e9668" AutoHideSize="200,200" DockedSize="752.114143035491,258" DocumentSize="200,200" FloatingSize="200,200" Size="752.114143035491,258" IsOpen="true" LastCloseReason="Other" LastState="Docked" Name="Locals" StandardMdiBounds="0,0,300,200" State="Docked" />
-		<ToolWindow UniqueId="33bb7849-0192-4e2f-9544-51818b96f690" AutoHideSize="200,200" DockedSize="709.885856964509,258" DocumentSize="200,200" FloatingSize="200,200" Size="709.885856964509,258" IsOpen="true" LastCloseReason="Other" LastState="Docked" Name="Tasks" StandardMdiBounds="0,0,300,200" State="Docked" />
-		<ToolWindow UniqueId="db78d39b-05ff-4025-b228-7f0246d53e5f" AutoHideSize="200,200" DockedSize="752.114143035491,258" DocumentSize="200,200" FloatingSize="200,200" Size="752.114143035491,258" IsOpen="true" LastCloseReason="Other" LastState="Docked" Name="Watches" StandardMdiBounds="0,0,300,200" State="Docked" />
+		<ToolWindow UniqueId="59225f2f-c9b1-4148-b052-0c0a6b60a81b" AutoHideSize="200,200" DockedSize="582.575914243409,258" DocumentSize="200,200" FloatingSize="550,200" Size="582.575914243409,258" IsOpen="true" LastCloseReason="Other" LastState="Floating" Name="Breakpoints" RaftingLocation="178,795" StandardMdiBounds="0,0,300,200" State="Docked" />
+		<ToolWindow UniqueId="bfbc6b46-bb59-4f38-a8ab-20d12fa07f9b" AutoHideSize="200,200" DockedSize="582.575914243409,258" DocumentSize="200,200" FloatingSize="200,200" Size="582.575914243409,258" IsOpen="true" LastCloseReason="Other" LastState="Docked" Name="CallStack" StandardMdiBounds="0,0,300,200" State="Docked" />
+		<ToolWindow UniqueId="c2d491ae-818b-451a-93fc-7ea7eb22d456" AutoHideSize="200,200" DockedSize="615.575914243409,258" DocumentSize="200,200" FloatingSize="200,200" Size="615.575914243409,258" IsOpen="false" LastCloseReason="Other" LastState="Docked" Name="CommandLine" StandardMdiBounds="0,0,300,200" State="Docked" />
+		<ToolWindow UniqueId="8eca5096-672b-4643-a306-8d7da95e9668" AutoHideSize="200,200" DockedSize="1125.92408575659,258" DocumentSize="200,200" FloatingSize="200,200" Size="1125.92408575659,258" IsOpen="true" LastCloseReason="Other" LastState="Docked" Name="Locals" StandardMdiBounds="0,0,300,200" State="Docked" />
+		<ToolWindow UniqueId="33bb7849-0192-4e2f-9544-51818b96f690" AutoHideSize="200,200" DockedSize="582.575914243409,258" DocumentSize="200,200" FloatingSize="200,200" Size="582.575914243409,258" IsOpen="true" LastCloseReason="Other" LastState="Docked" Name="Tasks" StandardMdiBounds="0,0,300,200" State="Docked" />
+		<ToolWindow UniqueId="db78d39b-05ff-4025-b228-7f0246d53e5f" AutoHideSize="200,200" DockedSize="1125.92408575659,258" DocumentSize="200,200" FloatingSize="200,200" Size="1125.92408575659,258" IsOpen="true" LastCloseReason="Other" LastState="Docked" Name="Watches" StandardMdiBounds="0,0,300,200" State="Docked" />
 		<ToolWindow UniqueId="681f4d77-8faa-41f8-a0bb-cf09306a5d74" AutoHideSize="200,200" DockedSize="200,200" DocumentSize="200,200" FloatingSize="200,200" Size="200,200" IsOpen="false" LastCloseReason="Other" LastState="Docked" Name="CartesianMoveTo" StandardMdiBounds="0,0,300,200" State="Docked" />
 		<ToolWindow UniqueId="5fb21f48-98a0-4269-8dbb-f74896afc90d" AutoHideSize="200,200" DockedSize="200,200" DocumentSize="200,200" FloatingSize="200,200" Size="200,200" IsOpen="false" LastCloseReason="Other" LastState="Docked" Name="EditPosition" StandardMdiBounds="0,0,300,200" State="Docked" />
 		<ToolWindow UniqueId="4c6c4abf-546b-4cfb-865d-e4aadf39a6c2" AutoHideSize="200,200" DockedSize="200,200" DocumentSize="200,200" FloatingSize="200,200" Size="200,200" IsOpen="false" LastCloseReason="LayoutCleared" LastState="Docked" Name="BehaviorsViewInitializer" StandardMdiBounds="0,0,300,200" State="Docked" />
 		<ToolWindow UniqueId="872cf2d4-adab-4f9f-8f98-0233f9e496c9" AutoHideSize="200,200" DockedSize="200,200" DocumentSize="200,200" FloatingSize="200,200" Size="200,200" IsOpen="false" LastCloseReason="LayoutCleared" LastState="Docked" Name="EditTools" StandardMdiBounds="0,0,300,200" State="Docked" />
 		<ToolWindow UniqueId="0e0a55b4-b2ce-4b6c-9dba-0e2e476e70c3" AutoHideSize="200,200" DockedSize="200,200" DocumentSize="200,200" FloatingSize="200,200" Size="200,200" IsOpen="false" LastCloseReason="Other" LastState="Docked" Name="DocumentOutline" StandardMdiBounds="0,0,300,200" State="Docked" />
 		<ToolWindow UniqueId="d35a72ba-c520-4c88-be55-bc23750d1a27" AutoHideSize="200,200" DockedSize="200,200" DocumentSize="200,200" FloatingSize="200,200" Size="200,200" IsOpen="false" LastCloseReason="Other" LastState="Docked" Name="Toolbox" StandardMdiBounds="0,0,300,200" State="Docked" />
+		<ToolWindow UniqueId="9cdb7a09-d8f8-46d1-afd7-6f1dece1fbc8" AutoHideSize="200,200" DockedSize="615.575914243409,258" DocumentSize="200,200" FloatingSize="200,200" Size="615.575914243409,258" IsOpen="false" LastCloseReason="Other" LastState="Docked" Name="AioControlPanel" StandardMdiBounds="0,0,300,200" State="Docked" />
+		<ToolWindow UniqueId="4f5d8d9a-ddec-400a-bbb7-ad867f6fb6e0" AutoHideSize="200,200" DockedSize="380.141404805915,258" DocumentSize="200,200" FloatingSize="200,200" Size="380.141404805915,258" IsOpen="true" LastCloseReason="Other" LastState="Docked" Name="DioControlPanel" StandardMdiBounds="0,0,300,200" State="Docked" />
 		<ToolWindow UniqueId="279665b0-0621-4a5a-ac00-f23178d6ff42" AutoHideSize="200,200" DockedSize="200,200" DocumentSize="200,200" FloatingSize="200,200" Size="200,200" IsOpen="false" LastCloseReason="Other" LastState="Docked" Name="EmulatorVersions" StandardMdiBounds="0,0,300,200" State="Docked" />
-		<ToolWindow UniqueId="ba8179c5-6aca-45dd-adb9-6752e227f856" AutoHideSize="284,696.142857142857" DockedSize="682,696.142857142857" DocumentSize="284,696.142857142857" FloatingSize="284,696.142857142857" Size="682,696.142857142857" IsOpen="true" LastCloseReason="LayoutCleared" LastState="Docked" Name="_DN_8fd44441c43caae9d36ce52df727afc2" StandardMdiBounds="0,0,300,200" State="Docked">
-			<Tag xsi:type="xsd:string">SRS.Emulator.Views.EmulatorCs8View?Controller=Controller2</Tag>
+		<ToolWindow UniqueId="da191c9b-ee19-4978-ba74-e15cc1e3367a" AutoHideSize="367,382" DockedSize="435.5,200" DocumentSize="367,382" FloatingSize="367,382" Size="435.5,200" IsOpen="true" LastCloseReason="LayoutCleared" LastState="Floating" Name="_DN_7185e1a2e0f23c7717f25177f0ba92d0" RaftingLocation="919,425" StandardMdiBounds="0,0,300,200" State="Docked">
+			<Tag xsi:type="xsd:string">SRS.Emulator.Views.EmulatorCs8View?Controller=mfx-controller</Tag>
 		</ToolWindow>
-		<ToolWindow UniqueId="8bfc91b4-8df3-43f3-aca0-6bbb356644d7" AutoHideSize="200,200" DockedSize="200,200" DocumentSize="200,200" FloatingSize="200,200" Size="200,200" IsOpen="false" LastCloseReason="LayoutCleared" LastState="Docked" Name="_DN_8ae7f9eb1933fdd8ec1dec938c0162dc" StandardMdiBounds="0,0,300,200" State="Docked">
-			<Tag xsi:type="xsd:string">SRS._3DView.Views.JointsView?Controller=Controller2&amp;Arm=rx160l</Tag>
-		</ToolWindow>
-		<ToolWindow UniqueId="b4bd3613-61fc-490b-ba0e-405d6b0bc691" AutoHideSize="200,200" DockedSize="200,200" DocumentSize="200,200" FloatingSize="200,200" Size="200,200" IsOpen="false" LastCloseReason="LayoutCleared" LastState="Docked" Name="_DN_e8d9f038334b8ad757eb2c4110de8c44" StandardMdiBounds="0,0,300,200" State="Docked">
-			<Tag xsi:type="xsd:string">SRS._3DView.Views.CartesianView?Controller=Controller2&amp;Arm=rx160l</Tag>
+		<ToolWindow UniqueId="a5b1dfef-c7bf-44f0-85af-76f4f5f4d5f8" AutoHideSize="200,200" DockedSize="200,200" DocumentSize="200,200" FloatingSize="200,200" Size="200,200" IsOpen="false" LastCloseReason="LayoutCleared" LastState="Docked" Name="_DN_1e6cc7c7369a4500a220972a2f07a93e" StandardMdiBounds="0,0,300,200" State="Docked">
+			<Tag xsi:type="xsd:string">SRS._3DView.Views.CartesianView?Controller=mfx-controller&amp;Arm=rx160l</Tag>
 		</ToolWindow>
 	</ToolWindows>
 </DockSiteLayout>

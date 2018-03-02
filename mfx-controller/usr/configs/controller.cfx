@@ -38,5 +38,5 @@
   <Float name="powerShutdownDelay" value="-1" />
   <String name="standardFiles" value="" />
   <Float name="lliCycleTime" value="-1" />
-  <Float name="powerHourCount" value="12.521021" />
+  <Float name="powerHourCount" value="73.666823" />
 </controller>

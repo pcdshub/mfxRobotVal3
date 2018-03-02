@@ -1,9 +1,9 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2" >
-  <Program name="makePntAZELRA" access="private" >
-    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1" >
-      <Parameter name="XnIPNumber" type="num" use="value" xsi:type="element" dimensions="1" />
-      <Parameter name="XnTPNumber" type="num" use="value" xsi:type="element" dimensions="1" />
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="makePntAZELRA">
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1">
+      <Parameter name="XnIPNumber" type="num" xsi:type="element" />
+      <Parameter name="XnTPNumber" type="num" xsi:type="element" />
     </Parameters>
     <Code><![CDATA[begin
   //header begin
@@ -47,7 +47,8 @@
     // Add RA component:  translate along fIPn+X'axis
     pIP1Point[XnTPNumber].trsf=pIP1Point[XnTPNumber].trsf*{0,0,nIP1Radius[XnTPNumber],0,0,0}
     // now transform the point so that +Zaxis points back to fIPn
-    pIP1Point[XnTPNumber].trsf=pIP1Point[XnTPNumber].trsf*{0,0,0,-180,0,0}
+    pIP1Point[XnTPNumber].trsf=pIP1Point[XnTPNumber].trsf*{0,0,0,0,-180,0}
+    pIP1Point[XnTPNumber].config={sfree,efree,wfree}
     //
   endIf
   //
@@ -60,6 +61,7 @@
     pIP2Point[XnTPNumber].trsf=pIP2Point[XnTPNumber].trsf*{0,0,0,-nIP2Elevation[XnTPNumber],0,0}
     pIP2Point[XnTPNumber].trsf=pIP2Point[XnTPNumber].trsf*{0,0,nIP2Radius[XnTPNumber],0,0,0}
     pIP2Point[XnTPNumber].trsf=pIP2Point[XnTPNumber].trsf*{0,0,0,0,-180,0}
+    pIP2Point[XnTPNumber].config={sfree,efree,wfree}
     //
   endIf
   // done

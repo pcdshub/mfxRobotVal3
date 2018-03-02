@@ -1,5 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<Project xmlns="http://www.staubli.com/robotics/VAL3/Project/3" >
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://www.staubli.com/robotics/VAL3/Project/3">
   <Parameters version="s7.9.1" stackSize="5000" millimeterUnit="true" />
   <Programs>
     <Program file="checkAtPark.pgx" />
@@ -33,6 +33,7 @@
     <Program file="mnuTeachIP.pgx" />
     <Program file="mnuTeachMenu.pgx" />
     <Program file="mnuTeachPark.pgx" />
+    <Program file="mnuTeachParkTop.pgx" />
     <Program file="mnuTeachSphere.pgx" />
     <Program file="mnuTeachStayClr.pgx" />
     <Program file="mnuTeachTCP.pgx" />
@@ -42,6 +43,7 @@
     <Program file="mnuUtility.pgx" />
     <Program file="movTargetPoint.pgx" />
     <Program file="movToPark.pgx" />
+    <Program file="movToParkTop.pgx" />
     <Program file="readme.pgx" />
     <Program file="remCalcHere.pgx" />
     <Program file="remCalcHereSph.pgx" />
@@ -77,14 +79,14 @@
     <Program file="remGetMaxRV.pgx" />
     <Program file="remGetMaxV.pgx" />
     <Program file="remGetMode.pgx" />
+    <Program file="remGetnGlobal.pgx" />
     <Program file="remGetOneHere.pgx" />
     <Program file="remGetPPS.pgx" />
     <Program file="remGetRem.pgx" />
     <Program file="remGetTCPVals.pgx" />
     <Program file="remGetWorld.pgx" />
-    <Program file="remGetnGlobal.pgx" />
-    <Program file="remMovAZELRA.pgx" />
     <Program file="remMovAxis.pgx" />
+    <Program file="remMovAZELRA.pgx" />
     <Program file="remMovBase.pgx" />
     <Program file="remMovHandler.pgx" />
     <Program file="remMovJoint.pgx" />
@@ -101,9 +103,9 @@
     <Program file="remSetMaxRV.pgx" />
     <Program file="remSetMaxV.pgx" />
     <Program file="remSetMode.pgx" />
+    <Program file="remSetnGlobal.pgx" />
     <Program file="remSetPPS.pgx" />
     <Program file="remSetTCPVals.pgx" />
-    <Program file="remSetnGlobal.pgx" />
     <Program file="remTest.pgx" />
     <Program file="remTransIP.pgx" />
     <Program file="start.pgx" />
@@ -118,10 +120,8 @@
     <Data file="MFX_ROB_17.dtx" />
   </Database>
   <Libraries>
-    <Library alias="io" path="Disk://io/io.pjx" autoload="true" password="" />
-    <Library alias="TCP4" path="Disk://calcTool4pEn/calcTool4pEn.pjx" autoload="true" password="" />
-    <Library alias="MON" path="Disk://monitorAreaEn/monitorAreaEn.pjx" autoload="true" password="" />
+    <Library alias="io" path="Disk://io/io.pjx" />
+    <Library alias="TCP4" path="Disk://calcTool4pEn/calcTool4pEn.pjx" />
+    <Library alias="MON" path="Disk://monitorAreaEn/monitorAreaEn.pjx" />
   </Libraries>
-  <Types>
-  </Types>
 </Project>
