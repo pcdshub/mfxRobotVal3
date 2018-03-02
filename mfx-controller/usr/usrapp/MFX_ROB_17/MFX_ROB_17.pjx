@@ -83,6 +83,7 @@
     <Program file="remGetOneHere.pgx" />
     <Program file="remGetPPS.pgx" />
     <Program file="remGetRem.pgx" />
+    <Program file="remGetStagePos.pgx" />
     <Program file="remGetTCPVals.pgx" />
     <Program file="remGetWorld.pgx" />
     <Program file="remMovAxis.pgx" />
@@ -105,12 +106,14 @@
     <Program file="remSetMode.pgx" />
     <Program file="remSetnGlobal.pgx" />
     <Program file="remSetPPS.pgx" />
+    <Program file="remSetStagePos.pgx" />
     <Program file="remSetTCPVals.pgx" />
     <Program file="remTest.pgx" />
     <Program file="remTransIP.pgx" />
     <Program file="start.pgx" />
     <Program file="stop.pgx" />
     <Program file="tskHaltMoveMon.pgx" />
+    <Program file="tskInterlocks.pgx" />
     <Program file="tskMonitorZone.pgx" />
     <Program file="tskRemControl1.pgx" />
     <Program file="tskSimESTOP.pgx" />

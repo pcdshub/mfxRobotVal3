@@ -1,6 +1,6 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2" >
-  <Program name="remCmdHandler" access="private" >
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="remCmdHandler">
     <Locals>
       <Local name="LsResponse" type="string" xsi:type="array" size="1" />
       <Local name="nArgs" type="num" xsi:type="array" size="1" />
@@ -250,6 +250,23 @@
             else
               call remErrArgs(sCmd,nArgs,nArgsReq,LsResponse)
             endIf
+          break
+          
+          case "GETSTAGEPOS"
+            call remGetStagePos(LsResponse)
+          break
+
+          case "NOTSTAGEPOS"
+            nArgsReq=1
+            if nArgs==nArgsReq
+              call remSetStagePos(sArgs,LsResponse)
+            else
+              call remErrArgs(sCmd,nArgs,nArgsReq,LsResponse)
+            endIf
+          break
+          
+          case "GETROBOTMODE"
+            
           break
 
 

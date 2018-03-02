@@ -2971,3 +2971,60 @@
 [03/01/18 19:24:43]: <0x1601> Arm power settled. {1b36952d}
 [03/01/18 19:24:44]: <0x5A01> Deadman enabled. {b9e3eec1}
 [03/01/18 19:28:26]: <0x2402> COM-PC: destroy session 127.0.0.1 on port 57145 id=#81309384 {2dbb5119}
+[03/02/18 11:48:12]: ----------------------------------------------- {160f4f1a}
+[03/02/18 11:48:12]: Logger started (1048576) {91a6dc0e}
+[03/02/18 11:48:16]: <0x0003> CPU board: TEKNOR ?Mhz; ?Mb RAM; ?Mb disk; bios: ?; fpga: ?; ataIde: ? {3d8b5fb4}
+[03/02/18 11:48:16]: <0x0003> Cycle time set to 0.004s {ffcb9e57}
+[03/02/18 11:48:16]: <0x0003> Simulation cycle time set to 0.1s {e9fd65a4}
+[03/02/18 11:48:16]: <0x0002> Controller IP address could not be updated {08f17d57}
+[03/02/18 11:48:16]: <0x0003> Mcp = TSimulated {a3d7d5a9}
+[03/02/18 11:48:16]: <0x340A> Mcp communication established {1222c970}
+[03/02/18 11:48:16]: <0x0001> Error while trying to build User serial 1 {85be2ca4}
+[03/02/18 11:48:16]: <0x0002> Default user payload used. {b1e0cc02}
+[03/02/18 11:48:16]: <0x0003> Payload default: mass=14 kg, gravity center: x=0 y=0 z=86.3 mm, inertia=0 {d1e8db8f}
+[03/02/18 11:48:16]: <0x2401> Power hour count = 73:40:00 {b1701551}
+[03/02/18 11:48:16]: <0x2401> Mac Address = a0-ce-c8-02-ad-fc {465d1c01}
+[03/02/18 11:48:16]: <0x0001> remoteTestMode link failed : no link defined {4336ca05}
+[03/02/18 11:48:16]: <0x0001> remoteManualMode link failed : no link defined {5e245032}
+[03/02/18 11:48:16]: <0x0001> remoteLocalMode link failed : no link defined {9e50a313}
+[03/02/18 11:48:16]: <0x0001> remoteRemoteMode link failed : no link defined {3bc33ea2}
+[03/02/18 11:48:16]: <0x0001> estopAcknowledge link failed : no link defined {4f7249cd}
+[03/02/18 11:48:16]: <0x0001> enablePower link failed : no link defined {404af90f}
+[03/02/18 11:48:16]: <0x0001> remoteMonitorSpeed link failed : no link defined {5b530ebe}
+[03/02/18 11:48:16]: <0x0001> remoteMoveHold link failed : no link defined {14ff694d}
+[03/02/18 11:48:16]: <0x0001> validationKey link failed : no link defined {4eea902d}
+[03/02/18 11:48:16]: <0x0001> hardwareFaultAcknowledge link failed : no link defined {6fd57b80}
+[03/02/18 11:48:16]: <0x0001> RemoteMcp not enabled : invalid configuration {96a41ec4}
+[03/02/18 11:48:16]: <0x0003> COM-PC: server created on all interfaces [851] {34d83e30}
+[03/02/18 11:48:16]: <0x2402> History handler has been connected to IHM {84bd0402}
+[03/02/18 11:48:16]: <0x2401> System: s7.9.1 Mar 30 2016 {5d1ec15c}
+[03/02/18 11:48:16]: <0x2401> Configuration Version: c1.037  {9b45baea}
+[03/02/18 11:48:16]: <0x2401> CPU: TEKNOR  {3fa254d0}
+[03/02/18 11:48:16]: <0x2401> Option remoteMcp: enabled  {82636a03}
+[03/02/18 11:48:16]: <0x2401> Option testMode: enabled  {b21a577c}
+[03/02/18 11:48:16]: <0x2401> Option oemLicence: enabled  {a2a45195}
+[03/02/18 11:48:16]: <0x2401> Option remoteMaintenance: enabled  {d28f6941}
+[03/02/18 11:48:16]: <0x2401> Option pciAccess: enabled  {c21ad409}
+[03/02/18 11:48:16]: <0x2401> Option 6axesAbsoluteRobot: enabled  {f2a7a511}
+[03/02/18 11:48:16]: <0x2401> Option VAL 3: enabled  {ca7dc8b1}
+[03/02/18 11:48:16]: <0x2401> Machine Number: ?  {29c7d412}
+[03/02/18 11:48:16]: <0x2401> Arm: rx160l-S1-R8 ceiling {0a0ea850}
+[03/02/18 11:48:16]: <0x2401> Arm serial number: ?  {950dfac7}
+[03/02/18 11:48:16]: <0x2401> Arm oil type:   {e5ce3650}
+[03/02/18 11:48:16]: <0x2401> Robot name:   {ca8e977f}
+[03/02/18 11:48:16]: <0x2401> EP: s7.9.1 Mar 30 2016 {9099218e}
+[03/02/18 11:48:16]: <0x2401> EP10: s7.9.1 Mar 30 2016 {473c4f14}
+[03/02/18 11:48:16]: <0x2401> SCA: s7.9.1 Mar 30 2016 {cd0b89b9}
+[03/02/18 11:48:16]: <0x2401> Options: s7.9.1 Apr  4 2016 {77b0bf83}
+[03/02/18 11:48:16]: <0x2401> B_SCS: s7.9.1 Mar 30 2016 {0a66b2c2}
+[03/02/18 11:48:16]: <0x1A03> System event INTERFACE-Stopped  (Main menu) {e4a3232b}
+[03/02/18 11:48:16]: <0x2201> New profile : default {7810ca76}
+[03/02/18 11:48:16]: <0x1A04> System event INTERFACE-Stopped  (Main menu). 1 events lost. {f6139cc1}
+[03/02/18 11:48:16]: <0x2401> End of controller initialization {b79db921}
+[03/02/18 11:48:17]: <0x1802> Working mode:manual. {184b6d11}
+[03/02/18 11:48:17]: <0x2402> COM-PC: create session 127.0.0.1 on port 50243 id=#77380608 {d8422d37}
+[03/02/18 11:48:17]: <0x1602> End of arm power shutdown phase. {e5edcfa9}
+[03/02/18 11:48:21]: <0x2401> Saving controller context... {9c01d0a8}
+[03/02/18 11:48:21]: <0x2402> Controller temperature: 28°C {930c796d}
+[03/02/18 11:48:21]: <0x2402> CPU temperature: 28°C {cf349071}
+[03/02/18 11:48:36]: <0x2402> COM-PC: destroy session 127.0.0.1 on port 50243 id=#77380608 {70afbe5f}

@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="tskInterlocks">
+    <Locals>
+      <Local name="l_bPPSint" type="bool" xsi:type="array" size="1" />
+      <Local name="l_bStageint" type="bool" xsi:type="array" size="1" />
+      <Local name="l_nOldHeartbeat" type="num" xsi:type="array" size="1" />
+      <Local name="l_nLastChange" type="num" xsi:type="array" size="1" />
+      <Local name="sReturn" type="string" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  
+  do
+    // Turn power off if door is opened and robot in remote mode 
+    if(nPPS >0 and workingMode()==4)
+      logMsg("Door open in remote mode. Power Disconnected")
+      stopMove()
+      resetMotion()
+      disablePower()
+    endIf
+    
+    // Turn off power if robot not at expected z stage position
+    if(nStagePos != nStagePosOK)
+      logMsg("Robot not in correct Z stage position. Power Disconnected")
+      stopMove()
+      resetMotion()
+      disablePower()
+    endIf
+    
+    if(nHeartbeat !=l_nOldHeartbeat)
+      l_nOldHeartbeat = nHeartbeat
+      l_nLastChange = clock()
+    endIf
+    
+    // Turn off power if robot looses connection to IOC iin remote mode
+    if(clock()-l_nLastChange > 2 and workingMode()==4)
+      stopMove()
+      resetMotion()
+      disablePower()
+      
+      logMsg("Lost IOC hearbeat! Power Disconnected")
+      sReturn="ERROR 902"
+      sReturn=sReturn+": Lost IOC hearbeat! Power Disconnected."
+      putln(sReturn)
+      logMsg(sReturn)
+    
+    endIf
+    
+    delay(0.1)
+    
+    
+    
+  until false
+  
+  
+  
+  
+end]]></Code>
+  </Program>
+</Programs>

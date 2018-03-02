@@ -42,91 +42,93 @@
   //  logMsg("ry "+toString(".6",fCalculatedFram.trsf.ry))
   //  logMsg("rz" +toString(".6",fCalculatedFram.trsf.rz))
   
+  if(false)
   
-  if(pointToJoint(tSensorTool,jPark,teste[1],jNew))
-    logMsg("bom")
-  else
-    logMsg("mau")
-  endIf
+    if(pointToJoint(tSensorTool,jPark,teste[1],jNew))
+      logMsg("bom")
+    else
+      logMsg("mau")
+    endIf
   
- // movel(pIP1Point[nIP1Number],tSensorTool,mGlobalSpeed)
-  //movel(pIP1Point[nIP1Number],tSensorTool,mGlobalSpeed)
+    // movel(pIP1Point[nIP1Number],tSensorTool,mGlobalSpeed)
+    //movel(pIP1Point[nIP1Number],tSensorTool,mGlobalSpeed)
 
   
  
-  enablePower()
+    enablePower()
   
-  do
-    nKey=getKey()
-    switch nKey
-      // ESC key aborts & returns immediately
-      case 271
-                stopMove()
-        resetMotion()
-        movej(jPark,tSensorTool,mDefault)
+    do
+      nKey=getKey()
+      switch nKey
+        // ESC key aborts & returns immediately
+        case 271
+          stopMove()
+          resetMotion()
+          movej(jPark,tSensorTool,mDefault)
      
 
-      break
-      case 272
+        break
+        case 272
         
 
         
-        stopMove()
-        resetMotion()
-        movel(pIP1Point[0],tSensorTool,mDefault)
+          stopMove()
+          resetMotion()
+          movel(pIP1Point[0],tSensorTool,mDefault)
         
-      break
-      case 273
+        break
+        case 273
 
         
-        stopMove()
-        resetMotion()
-        movel(pIP1Point[1],tSensorTool,mDefault)
+          stopMove()
+          resetMotion()
+          movel(pIP1Point[1],tSensorTool,mDefault)
         
-        logMsg("x  "+toString(".6",teste[1].trsf.x))
-        logMsg("y  "+toString(".6",teste[1].trsf.y))
-        logMsg("z  "+toString(".6",teste[1].trsf.z))
-        logMsg("rx "+toString(".6",teste[1].trsf.rx))
-        logMsg("ry "+toString(".6",teste[1].trsf.ry))
-        logMsg("rz" +toString(".6",teste[1].trsf.rz))
-      break
-      case 274
-        stopMove()
-        resetMotion()
-        movel(pIP1Point[2],tSensorTool,mDefault)
-      break
-      case 275
-        stopMove()
-        resetMotion()
-        movel(pIP1Point[3],tSensorTool,mDefault)
-      break
-      case 276
-        stopMove()
-        resetMotion()
-        movel(pIP1Point[4],tSensorTool,mDefault)
-      break
-                  case 277
-                stopMove()
-        resetMotion()
-        movel(pIP1Point[5],tSensorTool,mDefault)
-      break
+          logMsg("x  "+toString(".6",teste[1].trsf.x))
+          logMsg("y  "+toString(".6",teste[1].trsf.y))
+          logMsg("z  "+toString(".6",teste[1].trsf.z))
+          logMsg("rx "+toString(".6",teste[1].trsf.rx))
+          logMsg("ry "+toString(".6",teste[1].trsf.ry))
+          logMsg("rz" +toString(".6",teste[1].trsf.rz))
+        break
+        case 274
+          stopMove()
+          resetMotion()
+          movel(pIP1Point[2],tSensorTool,mDefault)
+        break
+        case 275
+          stopMove()
+          resetMotion()
+          movel(pIP1Point[3],tSensorTool,mDefault)
+        break
+        case 276
+          stopMove()
+          resetMotion()
+          movel(pIP1Point[4],tSensorTool,mDefault)
+        break
+        case 277
+          stopMove()
+          resetMotion()
+          movel(pIP1Point[5],tSensorTool,mDefault)
+        break
         
-      default
-        //popUpMsg("errado")
-      break
+        default
+          //popUpMsg("errado")
+        break
       
-    endSwitch
+      endSwitch
     
-  until(nKey==278)
+    until(nKey==278)
       
-  stopMove()
+    stopMove()
     resetMotion()
-  //  enablePower()
+    //  enablePower()
   
  
  
-  popUpMsg("fim")
+    popUpMsg("fim")
 
+endIf
 
 
 

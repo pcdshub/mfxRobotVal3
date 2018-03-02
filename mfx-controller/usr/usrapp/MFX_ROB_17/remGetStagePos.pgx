@@ -1,15 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
-  <Program name="remSetHeartbeat">
+  <Program name="remGetStagePos">
     <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1">
-      <Parameter name="sArgs" type="string" xsi:type="array" use="reference" />
       <Parameter name="sReturn" type="string" xsi:type="array" use="reference" />
     </Parameters>
+    <Locals>
+      <Local name="sCmd" type="string" xsi:type="array" size="1" />
+    </Locals>
     <Code><![CDATA[begin
-  // Set the PPS status in the robot
+  // Return the PPS status saved in the robot
   //
-  logMsg("call remSetHeatbeat")
-  call remSetnGlobal(sArgs,nHeartbeat,0,5000000000,"NOTHEARTBEAT",sReturn)
+  logMsg("call remGetStagePos")
+  sCmd="GETSTAGEPOS"
+  call remGetnGlobal(nStagePos,sCmd,sReturn)
 end]]></Code>
   </Program>
 </Programs>
