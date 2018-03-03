@@ -3028,3 +3028,9 @@
 [03/02/18 11:48:21]: <0x2402> Controller temperature: 28°C {930c796d}
 [03/02/18 11:48:21]: <0x2402> CPU temperature: 28°C {cf349071}
 [03/02/18 11:48:36]: <0x2402> COM-PC: destroy session 127.0.0.1 on port 50243 id=#77380608 {70afbe5f}
+[03/02/18 15:57:36]: <0x2401> Saving controller context... {67686a2b}
+[03/02/18 16:10:40]: <0x1A03> System event INTERFACE-Stopped  (Main menu) {87c1c905}
+[03/02/18 16:10:40]: <0x1A04> System event INTERFACE-Stopped  (Main menu). 12 events lost. {42cd77ae}
+[03/02/18 16:10:43]: <0x1A03> System event INTERFACE-Stopped  (Main menu) {3fd7245d}
+[03/02/18 16:10:46]: <0x1A04> System event INTERFACE-Stopped  (Main menu). 15 events lost. {8226512e}
+[03/02/18 16:10:49]: <0x2401> Saving controller context... {d81024d9}
