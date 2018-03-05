@@ -42,16 +42,16 @@
   // start the task to enable/disable Stay Clear Zone monitoring
   taskCreate "MonitorZone",10,tskMonitorZone()
   //
-  // start the XPP Host communications task
+  // start the IOC Host communications task
   // enabled from Utility Menu calls & operator input
-  // HALTed by command from XPP host
+  // HALTed by command from IOC host
   // killed on stop()
   //taskCreate "RemoteControl",40,tskRemControl()
   // MC used a different version of tskRemControl that does not look for remote mode
-  sioCtrl(io:XPP,"timeout",0)
+  sioCtrl(io:IOC,"timeout",0)
   taskCreate "RemoteControl",40,tskRemControl1()
   
-  taskCreate "Interlockcs",40,tskInterlocks()
+  taskCreate "Interlocks",40,tskInterlocks()
   
   //
   // start the task that will be used to monitor a MCP keypress command to halt robot motion during manual mode
@@ -65,6 +65,10 @@
   if LnDistance>nParkTolerance
     popUpMsg("WARNING  WARNING  WARNING  WARNING       Arm is NOT PARKED")
   endIf
+  
+      if nStagePos!= nStagePosOK 
+      popUpMsg("Z stage not at interation zone. Robot will not power.")
+    endIf
   //
   // start infinite loop to run application
   // halts on operator command
@@ -72,6 +76,11 @@
   do
     // nIdxMainMenu=1
     call display(nIdxMainMenu,nKey)
+
+    if nStagePos!= nStagePosOK 
+      popUpMsg("Z stage not at interation zone. Robot will not power.")
+    endIf
+      
     // verify selection
     switch nKey
       // ESC not allowed at MAIN MENU...must use F8=STOP Program

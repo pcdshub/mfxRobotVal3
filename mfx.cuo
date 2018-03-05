@@ -1,19 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <CellUserOptions>
   <Controller Name="mfx-controller">
-    <Application>Disk://io/io.pjx</Application>
     <Application>Disk://monitorAreaEn/monitorAreaEn.pjx</Application>
     <Application>Disk://calcTool4pEn/calcTool4pEn.pjx</Application>
     <Application>Disk://MFX_ROB_17/MFX_ROB_17.pjx</Application>
+    <Application>Disk://io/io.pjx</Application>
   </Controller>
   <Option Name="DataTreeView">
     <Nodes>
       <Node Path="mfx" IsExpanded="true" />
       <Node Path="mfx\mfx-controller" IsExpanded="true" />
+      <Node Path="mfx\mfx-controller\io" IsExpanded="true" />
+      <Node Path="mfx\mfx-controller\io\sio" IsExpanded="true" />
       <Node Path="mfx\mfx-controller\MFX_ROB_17" IsExpanded="true" />
       <Node Path="mfx\mfx-controller\MFX_ROB_17\mdesc" IsExpanded="true" />
       <Node Path="mfx\mfx-controller\MFX_ROB_17\num" IsExpanded="true" />
-      <Node Path="mfx\mfx-controller\MFX_ROB_17\num\nStagePosOK" IsExpanded="true" />
       <Node Path="mfx\mfx-controller\MFX_ROB_17\string" IsExpanded="true" />
     </Nodes>
   </Option>
@@ -21,8 +22,14 @@
     <Nodes>
       <Node Path="mfx" IsExpanded="true" />
       <Node Path="mfx\mfx-controller" IsExpanded="true" />
+      <Node Path="mfx\mfx-controller\io" IsExpanded="true" />
       <Node Path="mfx\mfx-controller\MFX_ROB_17" IsExpanded="true" />
+      <Node Path="mfx\mfx-controller\MFX_ROB_17\main" IsExpanded="true" />
+      <Node Path="mfx\mfx-controller\MFX_ROB_17\main\Locals" IsExpanded="true" />
       <Node Path="mfx\mfx-controller\MFX_ROB_17\mnuTeachMenu\Locals" IsExpanded="true" />
+      <Node Path="mfx\mfx-controller\MFX_ROB_17\remMovHandler" IsExpanded="true" />
+      <Node Path="mfx\mfx-controller\MFX_ROB_17\remMovHandler\Locals" IsExpanded="true" />
+      <Node Path="mfx\mfx-controller\MFX_ROB_17\tskInterlocks\Locals" IsExpanded="true" />
     </Nodes>
   </Option>
   <Option Name="GeometryView">

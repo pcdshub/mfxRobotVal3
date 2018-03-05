@@ -1,6 +1,6 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2" >
-  <Program name="mnuTeachFrame" access="private" >
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="mnuTeachFrame">
     <Locals>
       <Local name="LbTeachFrm1of5" type="bool" xsi:type="array" size="1" />
       <Local name="LbTeachFrm2of5" type="bool" xsi:type="array" size="1" />
@@ -53,9 +53,10 @@
       break
       // menu = Teach Interaction Point Frame 1of5, F3 Button, user changes Target Number
       case 273
-        nIPNumber=nIPNumber+1
-        if nIPNumber==2
-          nIPNumber=0
+        if nIPNumber==1
+          nIPNumber=-1
+        else
+          nIPNumber=nIPNumber+1
         endIf
       break
       // menu = Teach Interaction Point Frame 1of5, F8 Button, ABORT & backup to Teach Menu
@@ -159,9 +160,11 @@
       // menu = Teach Interaction Point Frame 5of5, F1 Button, User Accepts Frame definition
       case 271
         LpFrameYAxis=here(tRefPointer,world)
-        if sTargetChoice[nIPNumber]=="InteractionPoint1"
+        if nIPNumber==-1
+          setFrame(LpFrameOrigin,LpFrameXAxis,LpFrameYAxis,fIPoriginal)
+        elseIf nIPNumber==0
           setFrame(LpFrameOrigin,LpFrameXAxis,LpFrameYAxis,fIP1)
-        else
+        elseIf nIPNumber==1
           setFrame(LpFrameOrigin,LpFrameXAxis,LpFrameYAxis,fIP2)
         endIf
         LbTeachFrm5of5=true

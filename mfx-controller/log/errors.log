@@ -3034,3 +3034,323 @@
 [03/02/18 16:10:43]: <0x1A03> System event INTERFACE-Stopped  (Main menu) {3fd7245d}
 [03/02/18 16:10:46]: <0x1A04> System event INTERFACE-Stopped  (Main menu). 15 events lost. {8226512e}
 [03/02/18 16:10:49]: <0x2401> Saving controller context... {d81024d9}
+[03/05/18 11:05:49]: ----------------------------------------------- {241d095f}
+[03/05/18 11:05:49]: Logger started (1048576) {fb0b5609}
+[03/05/18 11:05:53]: <0x0003> CPU board: TEKNOR ?Mhz; ?Mb RAM; ?Mb disk; bios: ?; fpga: ?; ataIde: ? {be272dbe}
+[03/05/18 11:05:53]: <0x0003> Cycle time set to 0.004s {61ec7a20}
+[03/05/18 11:05:53]: <0x0003> Simulation cycle time set to 0.1s {8b510804}
+[03/05/18 11:05:53]: <0x0002> Controller IP address could not be updated {7a17fcdc}
+[03/05/18 11:05:53]: <0x0003> Mcp = TSimulated {024dd9d3}
+[03/05/18 11:05:53]: <0x340A> Mcp communication established {d8ecbd09}
+[03/05/18 11:05:53]: <0x0001> Error while trying to build User serial 1 {3b9bb99c}
+[03/05/18 11:05:53]: <0x0002> Default user payload used. {4aecd93e}
+[03/05/18 11:05:53]: <0x0003> Payload default: mass=14 kg, gravity center: x=0 y=0 z=86.3 mm, inertia=0 {88fbb4af}
+[03/05/18 11:05:53]: <0x2401> Power hour count = 73:40:00 {17cb2364}
+[03/05/18 11:05:53]: <0x2401> Mac Address = 00-50-56-c0-00-08 {2345dbfd}
+[03/05/18 11:05:53]: <0x0001> remoteTestMode link failed : no link defined {a9b28340}
+[03/05/18 11:05:53]: <0x0001> remoteManualMode link failed : no link defined {21878e6c}
+[03/05/18 11:05:53]: <0x0001> remoteLocalMode link failed : no link defined {1bb50476}
+[03/05/18 11:05:53]: <0x0001> remoteRemoteMode link failed : no link defined {3fb30aab}
+[03/05/18 11:05:53]: <0x0001> estopAcknowledge link failed : no link defined {30eb089c}
+[03/05/18 11:05:53]: <0x0001> enablePower link failed : no link defined {b934114d}
+[03/05/18 11:05:53]: <0x0001> remoteMonitorSpeed link failed : no link defined {39450950}
+[03/05/18 11:05:53]: <0x0001> remoteMoveHold link failed : no link defined {44e38af4}
+[03/05/18 11:05:53]: <0x0001> validationKey link failed : no link defined {567cc932}
+[03/05/18 11:05:53]: <0x0001> hardwareFaultAcknowledge link failed : no link defined {9e989d38}
+[03/05/18 11:05:53]: <0x0001> RemoteMcp not enabled : invalid configuration {3875aeff}
+[03/05/18 11:05:53]: <0x0003> COM-PC: server created on all interfaces [851] {f2fedba0}
+[03/05/18 11:05:53]: <0x2402> History handler has been connected to IHM {7bfd203b}
+[03/05/18 11:05:53]: <0x2401> System: s7.9.1 Mar 30 2016 {e61f4e07}
+[03/05/18 11:05:53]: <0x2401> Configuration Version: c1.037  {7a9e8d61}
+[03/05/18 11:05:53]: <0x2401> CPU: TEKNOR  {7da0d304}
+[03/05/18 11:05:53]: <0x2401> Option remoteMcp: enabled  {5b77da6e}
+[03/05/18 11:05:53]: <0x2401> Option testMode: enabled  {dc40f80f}
+[03/05/18 11:05:53]: <0x2401> Option oemLicence: enabled  {ec3c6907}
+[03/05/18 11:05:53]: <0x2401> Option remoteMaintenance: enabled  {fc1016c0}
+[03/05/18 11:05:53]: <0x2401> Option pciAccess: enabled  {8c8fe71e}
+[03/05/18 11:05:53]: <0x2401> Option 6axesAbsoluteRobot: enabled  {9c4d826d}
+[03/05/18 11:05:53]: <0x2401> Option VAL 3: enabled  {acc74d1a}
+[03/05/18 11:05:53]: <0x2401> Machine Number: ?  {77ad3101}
+[03/05/18 11:05:53]: <0x2401> Arm: rx160l-S1-R8 ceiling {42518d5d}
+[03/05/18 11:05:53]: <0x2401> Arm serial number: ?  {34ab22b0}
+[03/05/18 11:05:53]: <0x2401> Arm oil type:   {24f84d78}
+[03/05/18 11:05:53]: <0x2401> Robot name:   {0fe5f9e1}
+[03/05/18 11:05:53]: <0x2401> EP: s7.9.1 Mar 30 2016 {9125dec6}
+[03/05/18 11:05:53]: <0x2401> EP10: s7.9.1 Mar 30 2016 {05761524}
+[03/05/18 11:05:53]: <0x2401> SCA: s7.9.1 Mar 30 2016 {31a3508c}
+[03/05/18 11:05:53]: <0x2401> Options: s7.9.1 Apr  4 2016 {78aafc06}
+[03/05/18 11:05:53]: <0x2401> B_SCS: s7.9.1 Mar 30 2016 {e41370c6}
+[03/05/18 11:05:53]: <0x1A03> System event INTERFACE-Stopped  (Main menu) {1f5b0a57}
+[03/05/18 11:05:53]: <0x2201> New profile : default {c9e8e2bc}
+[03/05/18 11:05:53]: <0x1A04> System event INTERFACE-Stopped  (Main menu). 1 events lost. {9f5d5172}
+[03/05/18 11:05:53]: <0x2401> End of controller initialization {fbac2b1a}
+[03/05/18 11:05:54]: <0x1802> Working mode:manual. {8bafdb6d}
+[03/05/18 11:05:54]: <0x2402> COM-PC: create session 127.0.0.1 on port 62880 id=#82617128 {024786d5}
+[03/05/18 11:05:54]: <0x1602> End of arm power shutdown phase. {2d0435df}
+[03/05/18 11:05:58]: <0x2401> Saving controller context... {39ba0231}
+[03/05/18 11:05:58]: <0x2402> Controller temperature: 28°C {ec994489}
+[03/05/18 11:05:58]: <0x2402> CPU temperature: 28°C {718a0291}
+[03/05/18 11:06:14]: <0x2402> COM-PC: destroy session 127.0.0.1 on port 62880 id=#82617128 {1dcba62e}
+[03/05/18 11:51:16]: <0x2402> COM-PC: create session 127.0.0.1 on port 63399 id=#82618792 {2ec942ce}
+[03/05/18 11:51:16]: <0x2401> COM-PC: start WCF Client on '127.0.0.1:851' {e672dce1}
+[03/05/18 11:51:16]: <0x2402> COM-CLIENT: Connected to http://127.0.0.1:5656 {64ec9385}
+[03/05/18 11:51:17]: <0x5402> MFX_ROB_17 application started {e7f7d820}
+[03/05/18 11:51:17]: <0x2402> COM-PC: destroy session 127.0.0.1 on port 63399 id=#82618792 {7a840234}
+[03/05/18 11:55:58]: <0x2402> COM-PC: create session 127.0.0.1 on port 63502 id=#163191512 {2bbde0c4}
+[03/05/18 11:55:59]: <0x2401> COM-PC: start WCF Client on '127.0.0.1:851' {70604669}
+[03/05/18 11:55:59]: <0x2402> COM-CLIENT: Connected to http://127.0.0.1:5656 {93d43f85}
+[03/05/18 11:55:59]: <0x5403> MFX_ROB_17 application stopped {785350bf}
+[03/05/18 11:55:59]: <0x5402> MFX_ROB_17 application started {481b16c3}
+[03/05/18 11:55:59]: <0x2402> COM-PC: destroy session 127.0.0.1 on port 63502 id=#163191512 {4f93df2b}
+[03/05/18 11:57:46]: <0x2402> COM-PC: create session 127.0.0.1 on port 63542 id=#82617128 {27167e86}
+[03/05/18 11:57:46]: <0x2401> COM-PC: start WCF Client on '127.0.0.1:851' {d391d53c}
+[03/05/18 11:57:46]: <0x2402> COM-CLIENT: Connected to http://127.0.0.1:5656 {c78054a8}
+[03/05/18 11:57:46]: <0x5403> MFX_ROB_17 application stopped {ab67b0c9}
+[03/05/18 11:57:46]: <0x5402> MFX_ROB_17 application started {71a4341a}
+[03/05/18 11:57:46]: <0x2402> COM-PC: destroy session 127.0.0.1 on port 63542 id=#82617128 {77209634}
+[03/05/18 11:57:53]: <0x5464> USR:start remCmdHandler for passive commands... {9895bf37}
+[03/05/18 11:57:53]: <0x5464> USR:Robot not in correct Z stage position. Power Disconnected {1102f180}
+[03/05/18 11:58:48]: <0x5464> USR:Robot not in correct Z stage position. Power Disconnected (553) {5e52bcb0}
+[03/05/18 11:58:48]: <0x2402> COM-PC: create session 127.0.0.1 on port 63558 id=#162561048 {0f9f4a7e}
+[03/05/18 11:58:48]: <0x5464> USR:Robot not in correct Z stage position. Power Disconnected {c9ba8e74}
+[03/05/18 11:58:48]: <0x2401> COM-PC: start WCF Client on '127.0.0.1:851' {ce923a26}
+[03/05/18 11:58:48]: <0x2402> COM-CLIENT: Connected to http://127.0.0.1:5656 {1ea03e0b}
+[03/05/18 11:58:48]: <0x5403> MFX_ROB_17 application stopped {b1da7506}
+[03/05/18 11:58:49]: <0x5402> MFX_ROB_17 application started {53d0a935}
+[03/05/18 11:58:49]: <0x2402> COM-PC: destroy session 127.0.0.1 on port 63558 id=#162561048 {d26330a0}
+[03/05/18 11:58:51]: <0x5464> USR:start remCmdHandler for passive commands... {e097055e}
+[03/05/18 11:58:51]: <0x5464> USR:Robot not in correct Z stage position. Power Disconnected {f7cc076b}
+[03/05/18 12:01:14]: <0x5464> USR:Robot not in correct Z stage position. Power Disconnected (1432) {1cf23f45}
+[03/05/18 12:01:15]: <0x2402> COM-PC: create session 127.0.0.1 on port 63581 id=#82617440 {ab6e1a82}
+[03/05/18 12:01:15]: <0x2401> COM-PC: start WCF Client on '127.0.0.1:851' {9be4ec65}
+[03/05/18 12:01:15]: <0x2402> COM-CLIENT: Connected to http://127.0.0.1:5656 {8497a97e}
+[03/05/18 12:01:15]: <0x5403> MFX_ROB_17 application stopped {ca504e18}
+[03/05/18 12:01:15]: <0x5402> MFX_ROB_17 application started {9f2c2ad5}
+[03/05/18 12:01:15]: <0x2402> COM-PC: destroy session 127.0.0.1 on port 63581 id=#82617440 {1b465f6c}
+[03/05/18 12:01:18]: <0x5464> USR:start remCmdHandler for passive commands... {881110b5}
+[03/05/18 12:01:18]: <0x5464> USR:Robot not in correct Z stage position. Power Disconnected {f1a090c7}
+[03/05/18 12:01:39]: <0x5464> USR:Robot not in correct Z stage position. Power Disconnected (207) {73659f0a}
+[03/05/18 12:01:39]: <0x2402> COM-PC: create session 127.0.0.1 on port 63588 id=#162566816 {7ab1b119}
+[03/05/18 12:01:39]: <0x2401> COM-PC: start WCF Client on '127.0.0.1:851' {ce31fc67}
+[03/05/18 12:01:39]: <0x2402> COM-CLIENT: Connected to http://127.0.0.1:5656 {11158591}
+[03/05/18 12:01:39]: <0x5403> MFX_ROB_17 application stopped {f2d54f24}
+[03/05/18 12:01:40]: <0x5402> MFX_ROB_17 application started {218c61e6}
+[03/05/18 12:01:40]: <0x2402> COM-PC: destroy session 127.0.0.1 on port 63588 id=#162566816 {d7b6ceb0}
+[03/05/18 12:01:41]: <0x5464> USR:start remCmdHandler for passive commands... {1bfe7a34}
+[03/05/18 12:01:41]: <0x5464> USR:Robot not in correct Z stage position. Power Disconnected {4c3782be}
+[03/05/18 12:04:24]: <0x5464> USR:Robot not in correct Z stage position. Power Disconnected (1624) {9234e2e0}
+[03/05/18 12:04:24]: <0x2402> COM-PC: create session 127.0.0.1 on port 63621 id=#82618896 {0a0c760c}
+[03/05/18 12:04:24]: <0x2401> COM-PC: start WCF Client on '127.0.0.1:851' {c8ec5f56}
+[03/05/18 12:04:24]: <0x2402> COM-CLIENT: Connected to http://127.0.0.1:5656 {bbf671f4}
+[03/05/18 12:04:24]: <0x5403> MFX_ROB_17 application stopped {681c4d33}
+[03/05/18 12:04:25]: <0x5402> MFX_ROB_17 application started {d00a2ce8}
+[03/05/18 12:04:25]: <0x2402> COM-PC: destroy session 127.0.0.1 on port 63621 id=#82618896 {c03990b9}
+[03/05/18 12:04:27]: <0x5464> USR:start remCmdHandler for passive commands... {8526971d}
+[03/05/18 12:04:27]: <0x5464> USR:Robot not in correct Z stage position. Power Disconnected {a425b592}
+[03/05/18 12:11:50]: <0x5464> USR:Robot not in correct Z stage position. Power Disconnected (4412) {75cb8b02}
+[03/05/18 12:11:50]: <0x2402> COM-PC: create session 127.0.0.1 on port 63680 id=#162568896 {077b3942}
+[03/05/18 12:11:50]: <0x5464> USR:Robot not in correct Z stage position. Power Disconnected {55bdad4d}
+[03/05/18 12:11:50]: <0x2401> COM-PC: start WCF Client on '127.0.0.1:851' {62107e89}
+[03/05/18 12:11:50]: <0x2402> COM-CLIENT: Connected to http://127.0.0.1:5656 {028a7aac}
+[03/05/18 12:11:50]: <0x5403> MFX_ROB_17 application stopped {e410bea8}
+[03/05/18 12:11:51]: <0x5405> (File displayMessage6.pgx-line 52) ']' : invalid separator {2b2abbf0}
+[03/05/18 12:11:51]: <0x2402> COM-PC: destroy session 127.0.0.1 on port 63680 id=#162568896 {8e9c16bc}
+[03/05/18 12:12:00]: <0x2402> COM-PC: create session 127.0.0.1 on port 63685 id=#79097520 {6753acc9}
+[03/05/18 12:12:00]: <0x2401> COM-PC: start WCF Client on '127.0.0.1:851' {c9961b7a}
+[03/05/18 12:12:00]: <0x2402> COM-CLIENT: Connected to http://127.0.0.1:5656 {cdf689d0}
+[03/05/18 12:12:00]: <0x5402> MFX_ROB_17 application started {d1ec8c38}
+[03/05/18 12:12:01]: <0x2402> COM-PC: destroy session 127.0.0.1 on port 63685 id=#79097520 {5dfd5d2c}
+[03/05/18 12:12:01]: <0x5464> USR:start remCmdHandler for passive commands... {ac870457}
+[03/05/18 12:12:01]: <0x5464> USR:Robot not in correct Z stage position. Power Disconnected {3527eb9c}
+[03/05/18 12:12:11]: <0x5464> USR:Robot not in correct Z stage position. Power Disconnected (98) {9c2b9ff6}
+[03/05/18 12:12:11]: <0x5404> ERR 20 Access to an array with index larger than the array's size.. MFX_ROB_17~.  {2190fabc}
+[03/05/18 12:12:11]: <0x5464> USR:Robot not in correct Z stage position. Power Disconnected {fc01f3c0}
+[03/05/18 12:13:51]: <0x5464> USR:Robot not in correct Z stage position. Power Disconnected (990) {254fe49d}
+[03/05/18 12:13:51]: <0x2402> COM-PC: create session 127.0.0.1 on port 63702 id=#162561000 {8e3d6bbc}
+[03/05/18 12:13:51]: <0x5464> USR:Robot not in correct Z stage position. Power Disconnected {d801182c}
+[03/05/18 12:13:51]: <0x2401> COM-PC: start WCF Client on '127.0.0.1:851' {c5eceada}
+[03/05/18 12:13:51]: <0x2402> COM-CLIENT: Connected to http://127.0.0.1:5656 {278f940c}
+[03/05/18 12:13:51]: <0x5403> MFX_ROB_17 application stopped {633cd7e3}
+[03/05/18 12:13:52]: <0x5402> MFX_ROB_17 application started {15b76634}
+[03/05/18 12:13:52]: <0x2402> COM-PC: destroy session 127.0.0.1 on port 63702 id=#162561000 {91a63cc9}
+[03/05/18 12:13:54]: <0x5464> USR:start remCmdHandler for passive commands... {e1aac4a6}
+[03/05/18 12:13:54]: <0x5464> USR:Robot not in correct Z stage position. Power Disconnected {0313776d}
+[03/05/18 12:14:02]: <0x5464> USR:Robot not in correct Z stage position. Power Disconnected (86) {69a3da3e}
+[03/05/18 12:14:02]: <0x5404> ERR 20 Access to an array with index larger than the array's size.. MFX_ROB_17~.  {c76e975c}
+[03/05/18 12:14:02]: <0x5464> USR:Robot not in correct Z stage position. Power Disconnected {de0f3e2b}
+[03/05/18 12:14:40]: <0x5464> USR:Robot not in correct Z stage position. Power Disconnected (370) {418fb782}
+[03/05/18 12:14:40]: <0x2402> COM-PC: create session 127.0.0.1 on port 63714 id=#82617440 {d447f1d7}
+[03/05/18 12:14:40]: <0x2401> COM-PC: start WCF Client on '127.0.0.1:851' {9dfcc94e}
+[03/05/18 12:14:40]: <0x2402> COM-CLIENT: Connected to http://127.0.0.1:5656 {31f83a75}
+[03/05/18 12:14:40]: <0x5403> MFX_ROB_17 application stopped {f4e89a33}
+[03/05/18 12:14:40]: <0x5402> MFX_ROB_17 application started {c82059b0}
+[03/05/18 12:14:40]: <0x2402> COM-PC: destroy session 127.0.0.1 on port 63714 id=#82617440 {ab517c98}
+[03/05/18 12:14:43]: <0x5464> USR:start remCmdHandler for passive commands... {04fc68c9}
+[03/05/18 12:14:43]: <0x5464> USR:Robot not in correct Z stage position. Power Disconnected {ac20e9a5}
+[03/05/18 12:14:49]: <0x5464> USR:Robot not in correct Z stage position. Power Disconnected (63) {e3abd943}
+[03/05/18 12:14:49]: <0x5404> ERR 20 Access to an array with index larger than the array's size.. MFX_ROB_17~.  {c9cb17cd}
+[03/05/18 12:14:49]: <0x5464> USR:Robot not in correct Z stage position. Power Disconnected {c3a0898b}
+[03/05/18 12:15:32]: <0x5464> USR:Robot not in correct Z stage position. Power Disconnected (419) {74fa3702}
+[03/05/18 12:15:32]: <0x2402> COM-PC: create session 127.0.0.1 on port 63723 id=#164009144 {515f2aa7}
+[03/05/18 12:15:32]: <0x2401> COM-PC: start WCF Client on '127.0.0.1:851' {d462e644}
+[03/05/18 12:15:32]: <0x2402> COM-CLIENT: Connected to http://127.0.0.1:5656 {e166e420}
+[03/05/18 12:15:32]: <0x5403> MFX_ROB_17 application stopped {e634363a}
+[03/05/18 12:15:32]: <0x5402> MFX_ROB_17 application started {529b5627}
+[03/05/18 12:15:32]: <0x2402> COM-PC: destroy session 127.0.0.1 on port 63723 id=#164009144 {967a51d7}
+[03/05/18 12:15:33]: <0x5464> USR:start remCmdHandler for passive commands... {8d4c2b40}
+[03/05/18 12:15:33]: <0x5464> USR:Robot not in correct Z stage position. Power Disconnected {86c38589}
+[03/05/18 12:16:09]: <0x5464> USR:Robot not in correct Z stage position. Power Disconnected (353) {b8347b33}
+[03/05/18 12:16:09]: <0x2402> COM-PC: create session 127.0.0.1 on port 63734 id=#82618064 {c843999e}
+[03/05/18 12:16:09]: <0x2401> COM-PC: start WCF Client on '127.0.0.1:851' {8578e94c}
+[03/05/18 12:16:09]: <0x2402> COM-CLIENT: Connected to http://127.0.0.1:5656 {689fc26f}
+[03/05/18 12:16:09]: <0x5403> MFX_ROB_17 application stopped {398aef73}
+[03/05/18 12:16:10]: <0x5402> MFX_ROB_17 application started {74218446}
+[03/05/18 12:16:10]: <0x2402> COM-PC: destroy session 127.0.0.1 on port 63734 id=#82618064 {44d09209}
+[03/05/18 12:16:11]: <0x5464> USR:start remCmdHandler for passive commands... {d37ce0a6}
+[03/05/18 12:16:11]: <0x5464> USR:Robot not in correct Z stage position. Power Disconnected {eb437847}
+[03/05/18 12:16:30]: <0x5464> USR:Robot not in correct Z stage position. Power Disconnected (182) {ad132445}
+[03/05/18 12:16:30]: <0x2402> COM-PC: create session 127.0.0.1 on port 63742 id=#164293944 {9b68cfb4}
+[03/05/18 12:16:30]: <0x5464> USR:Robot not in correct Z stage position. Power Disconnected {8d376e78}
+[03/05/18 12:16:30]: <0x2401> COM-PC: start WCF Client on '127.0.0.1:851' {db78f3cd}
+[03/05/18 12:16:30]: <0x2402> COM-CLIENT: Connected to http://127.0.0.1:5656 {a977bc9a}
+[03/05/18 12:16:30]: <0x5403> MFX_ROB_17 application stopped {eea0cf80}
+[03/05/18 12:16:30]: <0x5402> MFX_ROB_17 application started {246fc54b}
+[03/05/18 12:16:31]: <0x2402> COM-PC: destroy session 127.0.0.1 on port 63742 id=#164293944 {a3f1638f}
+[03/05/18 12:16:33]: <0x5464> USR:start remCmdHandler for passive commands... {b7f33edc}
+[03/05/18 12:16:33]: <0x5464> USR:Robot not in correct Z stage position. Power Disconnected {3751c6a2}
+[03/05/18 12:17:29]: <0x5464> USR:Robot not in correct Z stage position. Power Disconnected (560) {39fb3c27}
+[03/05/18 12:17:29]: <0x2402> COM-PC: create session 127.0.0.1 on port 63753 id=#82617960 {e4212a2c}
+[03/05/18 12:17:29]: <0x2401> COM-PC: start WCF Client on '127.0.0.1:851' {700cccff}
+[03/05/18 12:17:29]: <0x2402> COM-CLIENT: Connected to http://127.0.0.1:5656 {88a1e973}
+[03/05/18 12:17:29]: <0x5403> MFX_ROB_17 application stopped {c2982a64}
+[03/05/18 12:17:30]: <0x5402> MFX_ROB_17 application started {b35c6cbe}
+[03/05/18 12:17:30]: <0x2402> COM-PC: destroy session 127.0.0.1 on port 63753 id=#82617960 {73b859a2}
+[03/05/18 12:17:32]: <0x5464> USR:start remCmdHandler for passive commands... {4e18d332}
+[03/05/18 12:17:32]: <0x5464> USR:Robot not in correct Z stage position. Power Disconnected {1f757c86}
+[03/05/18 12:22:20]: <0x5464> USR:Robot not in correct Z stage position. Power Disconnected (2870) {9384256f}
+[03/05/18 12:22:20]: <0x2402> COM-PC: create session 127.0.0.1 on port 63792 id=#161438432 {c5970f54}
+[03/05/18 12:22:20]: <0x2401> COM-PC: start WCF Client on '127.0.0.1:851' {6164ea4f}
+[03/05/18 12:22:20]: <0x2402> COM-CLIENT: Connected to http://127.0.0.1:5656 {9e1cd356}
+[03/05/18 12:22:20]: <0x5403> MFX_ROB_17 application stopped {5d44bdcc}
+[03/05/18 12:22:21]: <0x5402> MFX_ROB_17 application started {ed9f1a6a}
+[03/05/18 12:22:21]: <0x2402> COM-PC: destroy session 127.0.0.1 on port 63792 id=#161438432 {925cf082}
+[03/05/18 12:22:22]: <0x5464> USR:start remCmdHandler for passive commands... {5dff37ef}
+[03/05/18 12:22:22]: <0x5464> USR:Robot not in correct Z stage position. Power Disconnected {5b18ff9a}
+[03/05/18 12:23:20]: <0x5464> USR:Robot not in correct Z stage position. Power Disconnected (579) {3502071d}
+[03/05/18 12:23:20]: <0x5404> ERR 21 Access to an array with negative index.. MFX_ROB_17~.  {280695d1}
+[03/05/18 12:23:20]: <0x5464> USR:Robot not in correct Z stage position. Power Disconnected {d56f88f1}
+[03/05/18 12:26:27]: <0x5464> USR:Robot not in correct Z stage position. Power Disconnected (1864) {8863f383}
+[03/05/18 12:26:27]: <0x2402> COM-PC: create session 127.0.0.1 on port 63880 id=#82616816 {7bb96149}
+[03/05/18 12:26:27]: <0x5464> USR:Robot not in correct Z stage position. Power Disconnected {3ff9e6ef}
+[03/05/18 12:26:27]: <0x2401> COM-PC: start WCF Client on '127.0.0.1:851' {c2e7c24b}
+[03/05/18 12:26:27]: <0x2402> COM-CLIENT: Connected to http://127.0.0.1:5656 {3fdd86ca}
+[03/05/18 12:26:27]: <0x5403> MFX_ROB_17 application stopped {64f8f341}
+[03/05/18 12:26:28]: <0x5402> MFX_ROB_17 application started {66a16242}
+[03/05/18 12:26:28]: <0x2402> COM-PC: destroy session 127.0.0.1 on port 63880 id=#82616816 {6b169f24}
+[03/05/18 12:26:39]: <0x5464> USR:start remCmdHandler for passive commands... {9d77cd17}
+[03/05/18 12:26:39]: <0x5464> USR:Robot not in correct Z stage position. Power Disconnected {9bb2301c}
+[03/05/18 12:38:45]: <0x5464> USR:Robot not in correct Z stage position. Power Disconnected (7231) {439a35fb}
+[03/05/18 12:38:45]: <0x2402> COM-PC: create session 127.0.0.1 on port 63980 id=#161452960 {6a7dc208}
+[03/05/18 12:38:45]: <0x5464> USR:Robot not in correct Z stage position. Power Disconnected {23365672}
+[03/05/18 12:38:45]: <0x2401> COM-PC: start WCF Client on '127.0.0.1:851' {b736f721}
+[03/05/18 12:38:45]: <0x2402> COM-CLIENT: Connected to http://127.0.0.1:5656 {5453149f}
+[03/05/18 12:38:45]: <0x5403> MFX_ROB_17 application stopped {d9fa5795}
+[03/05/18 12:38:45]: <0x5405> (File displayMessage.pgx-line 74) 'else' without 'endIf' {4b428124}
+[03/05/18 12:38:46]: <0x2402> COM-PC: destroy session 127.0.0.1 on port 63980 id=#161452960 {080271d9}
+[03/05/18 12:39:48]: <0x2402> COM-PC: create session 127.0.0.1 on port 63994 id=#79096896 {cc3a1a6a}
+[03/05/18 12:39:48]: <0x2401> COM-PC: start WCF Client on '127.0.0.1:851' {d37ea1c2}
+[03/05/18 12:39:48]: <0x2402> COM-CLIENT: Connected to http://127.0.0.1:5656 {75c2d47e}
+[03/05/18 12:39:49]: <0x5402> MFX_ROB_17 application started {973ef833}
+[03/05/18 12:39:49]: <0x2402> COM-PC: destroy session 127.0.0.1 on port 63994 id=#79096896 {f7267dc0}
+[03/05/18 12:42:06]: <0x2402> COM-PC: create session 127.0.0.1 on port 64017 id=#163463944 {5aa7569e}
+[03/05/18 12:42:06]: <0x2401> COM-PC: start WCF Client on '127.0.0.1:851' {6a88e1ae}
+[03/05/18 12:42:06]: <0x2402> COM-CLIENT: Connected to http://127.0.0.1:5656 {fb02cf8f}
+[03/05/18 12:42:06]: <0x5403> MFX_ROB_17 application stopped {a653d3f5}
+[03/05/18 12:42:07]: <0x5402> MFX_ROB_17 application started {4132fd9c}
+[03/05/18 12:42:07]: <0x2402> COM-PC: destroy session 127.0.0.1 on port 64017 id=#163463944 {ed8e1699}
+[03/05/18 12:42:09]: <0x5464> USR:start remCmdHandler for passive commands... {244dd028}
+[03/05/18 12:42:09]: <0x5464> USR:Robot not in correct Z stage position. Power Disconnected {0dfb0e29}
+[03/05/18 12:42:16]: <0x5464> USR:Robot not in correct Z stage position. Power Disconnected (60) {6ebecc5c}
+[03/05/18 12:42:16]: <0x5404> ERR 21 Access to an array with negative index.. MFX_ROB_17~.  {6ae67165}
+[03/05/18 12:42:16]: <0x5464> USR:Robot not in correct Z stage position. Power Disconnected {f962a3d7}
+[03/05/18 12:43:50]: <0x5464> USR:Robot not in correct Z stage position. Power Disconnected (939) {bcb59b3e}
+[03/05/18 12:43:50]: <0x2402> COM-PC: create session 127.0.0.1 on port 64037 id=#82616816 {4a74e81e}
+[03/05/18 12:43:50]: <0x5464> USR:Robot not in correct Z stage position. Power Disconnected {dc16bb95}
+[03/05/18 12:43:50]: <0x2401> COM-PC: start WCF Client on '127.0.0.1:851' {5a8bd80d}
+[03/05/18 12:43:50]: <0x2402> COM-CLIENT: Connected to http://127.0.0.1:5656 {a10e9e1a}
+[03/05/18 12:43:50]: <0x5403> MFX_ROB_17 application stopped {224fca51}
+[03/05/18 12:43:51]: <0x5402> MFX_ROB_17 application started {5d0dba9c}
+[03/05/18 12:43:51]: <0x2402> COM-PC: destroy session 127.0.0.1 on port 64037 id=#82616816 {a1a91aa2}
+[03/05/18 12:43:52]: <0x5464> USR:start remCmdHandler for passive commands... {04dd0088}
+[03/05/18 12:43:52]: <0x5464> USR:Robot not in correct Z stage position. Power Disconnected {8773b11d}
+[03/05/18 12:44:03]: <0x5464> USR:Robot not in correct Z stage position. Power Disconnected (111) {39e17523}
+[03/05/18 12:44:03]: <0x5404> ERR 21 Access to an array with negative index.. MFX_ROB_17~.  {2484fc94}
+[03/05/18 12:44:03]: <0x5464> USR:Robot not in correct Z stage position. Power Disconnected {1906b85d}
+[03/05/18 12:44:46]: <0x5464> USR:Robot not in correct Z stage position. Power Disconnected (428) {1cb4d98b}
+[03/05/18 12:44:46]: <0x2402> COM-PC: create session 127.0.0.1 on port 64047 id=#165765720 {e84f1a48}
+[03/05/18 12:44:46]: <0x2401> COM-PC: start WCF Client on '127.0.0.1:851' {d1f0ff3e}
+[03/05/18 12:44:46]: <0x2402> COM-CLIENT: Connected to http://127.0.0.1:5656 {6c12bbe9}
+[03/05/18 12:44:46]: <0x5403> MFX_ROB_17 application stopped {f90e3875}
+[03/05/18 12:44:47]: <0x5402> MFX_ROB_17 application started {459bca7f}
+[03/05/18 12:44:47]: <0x2402> COM-PC: destroy session 127.0.0.1 on port 64047 id=#165765720 {c8f3ee4d}
+[03/05/18 12:44:50]: <0x5464> USR:start remCmdHandler for passive commands... {31ea0a26}
+[03/05/18 12:44:50]: <0x5464> USR:Robot not in correct Z stage position. Power Disconnected {14881d91}
+[03/05/18 12:50:19]: <0x5464> USR:Robot not in correct Z stage position. Power Disconnected (3274) {bb82858c}
+[03/05/18 12:50:19]: <0x2402> COM-PC: create session 127.0.0.1 on port 64094 id=#82618792 {8776adf3}
+[03/05/18 12:50:19]: <0x5464> USR:Robot not in correct Z stage position. Power Disconnected {9b52dee4}
+[03/05/18 12:50:19]: <0x2401> COM-PC: start WCF Client on '127.0.0.1:851' {fb7cac01}
+[03/05/18 12:50:19]: <0x2402> COM-CLIENT: Connected to http://127.0.0.1:5656 {8d17508b}
+[03/05/18 12:50:19]: <0x5403> MFX_ROB_17 application stopped {4ae45e26}
+[03/05/18 12:50:20]: <0x2402> COM-PC: create session 127.0.0.1 on port 64094 id=#160653928 {ea724108}
+[03/05/18 12:50:20]: <0x5402> MFX_ROB_17 application started {5c5c0cb0}
+[03/05/18 12:50:21]: <0x2402> COM-PC: destroy session 127.0.0.1 on port 64094 id=#82618792 {7dc0df89}
+[03/05/18 12:50:22]: <0x2402> COM-PC: create session 127.0.0.1 on port 64094 id=#160655384 {ea3d56ac}
+[03/05/18 12:50:30]: <0x5464> USR:start remCmdHandler for passive commands... {b34ef850}
+[03/05/18 12:50:30]: <0x5464> USR:Robot not in correct Z stage position. Power Disconnected {411845f4}
+[03/05/18 12:50:53]: <0x5464> USR:Robot not in correct Z stage position. Power Disconnected (226) {e8407d4d}
+[03/05/18 12:50:53]: <0x5404> ERR 21 Access to an array with negative index.. MFX_ROB_17~.  {9c1e99e1}
+[03/05/18 12:50:53]: <0x5464> USR:Robot not in correct Z stage position. Power Disconnected {c8312881}
+[03/05/18 12:50:59]: <0x5464> USR:Robot not in correct Z stage position. Power Disconnected (60) {541a6013}
+[03/05/18 12:50:59]: <0x2402> COM-PC: destroy session 127.0.0.1 on port 64094 id=#160653928 {0815357d}
+[03/05/18 12:50:59]: <0x5464> USR:Robot not in correct Z stage position. Power Disconnected {74f73dd7}
+[03/05/18 12:51:17]: <0x5464> USR:Robot not in correct Z stage position. Power Disconnected (180) {65a771da}
+[03/05/18 12:51:17]: <0x2402> COM-PC: destroy session 127.0.0.1 on port 64094 id=#160655384 {2d6e8097}
+[03/05/18 12:51:17]: <0x5464> USR:Robot not in correct Z stage position. Power Disconnected {05dd3aa2}
+[03/05/18 12:51:35]: <0x5464> USR:Robot not in correct Z stage position. Power Disconnected (174) {7e30a9e7}
+[03/05/18 12:51:35]: <0x2402> COM-PC: create session 127.0.0.1 on port 64114 id=#160654760 {f86c0b73}
+[03/05/18 12:51:35]: <0x5464> USR:Robot not in correct Z stage position. Power Disconnected {9e8894c2}
+[03/05/18 12:51:35]: <0x2401> COM-PC: start WCF Client on '127.0.0.1:851' {1adcb96a}
+[03/05/18 12:51:35]: <0x2402> COM-CLIENT: Connected to http://127.0.0.1:5656 {419b4999}
+[03/05/18 12:51:35]: <0x5403> MFX_ROB_17 application stopped {daabfda6}
+[03/05/18 12:51:36]: <0x5402> MFX_ROB_17 application started {68dbb035}
+[03/05/18 12:51:36]: <0x2402> COM-PC: destroy session 127.0.0.1 on port 64114 id=#160654760 {b0ec25d6}
+[03/05/18 12:51:37]: <0x5464> USR:start remCmdHandler for passive commands... {56a679c2}
+[03/05/18 12:51:37]: <0x5464> USR:Robot not in correct Z stage position. Power Disconnected {e53cabf2}
+[03/05/18 14:15:05]: <0x5464> USR:Robot not in correct Z stage position. Power Disconnected (32673) {522fe75a}
+[03/05/18 14:15:05]: <0x2401> Saving controller context... {16f52610}
+[03/05/18 14:15:05]: <0x5464> USR:Robot not in correct Z stage position. Power Disconnected {7257c543}
+[03/05/18 15:44:02]: <0x5464> USR:Robot not in correct Z stage position. Power Disconnected (12481) {bdb32c5e}
+[03/05/18 15:44:02]: <0x1A03> System event INTERFACE-Stopped  (Application interface) {c523cb63}
+[03/05/18 15:44:02]: <0x5464> USR:Robot not in correct Z stage position. Power Disconnected {dd56ad78}
+[03/05/18 15:44:02]: <0x5464> USR:Robot not in correct Z stage position. Power Disconnected (9) {edf1a6c7}
+[03/05/18 15:44:02]: <0x1A04> System event INTERFACE-Stopped  (Application interface). 4 events lost. {573dbfdd}
+[03/05/18 15:44:02]: <0x5464> USR:Robot not in correct Z stage position. Power Disconnected {0d4970f8}
+[03/05/18 15:44:02]: <0x5464> USR:Robot not in correct Z stage position. Power Disconnected (6) {1dc3220a}
+[03/05/18 15:44:02]: <0x2401> Watchdog occurs in Cs8 priority:75 {5d806978}
+[03/05/18 15:44:02]: <0x5464> USR:Robot not in correct Z stage position. Power Disconnected {aad78ea8}
+[03/05/18 15:44:03]: <0x5464> USR:Robot not in correct Z stage position. Power Disconnected (64) {20392b41}
+[03/05/18 15:44:03]: <0x2401> Watchdog occurs in Cs8 priority:75 {e71db317}
+[03/05/18 15:44:03]: <0x5464> USR:Robot not in correct Z stage position. Power Disconnected {4060b494}
+[03/05/18 15:44:06]: <0x5464> USR:Robot not in correct Z stage position. Power Disconnected (65) {0a150bb8}
+[03/05/18 15:44:06]: <0x1A03> System event INTERFACE-Stopped  (Application interface) {2c78d684}
+[03/05/18 15:44:06]: <0x5464> USR:Robot not in correct Z stage position. Power Disconnected {b3127386}
+[03/05/18 15:44:06]: <0x5464> USR:Robot not in correct Z stage position. Power Disconnected (7) {8301cf32}
+[03/05/18 15:44:06]: <0x4A01> Internal error INTERFACE-EventLost : some system event messages will be lost. {201600c9}
+[03/05/18 15:44:06]: <0x4A02> End of internal error INTERFACE-EventLost. {ea23b06e}
+[03/05/18 15:44:06]: <0x5464> USR:Robot not in correct Z stage position. Power Disconnected {f3894571}
+[03/05/18 15:44:06]: <0x5464> USR:Robot not in correct Z stage position. Power Disconnected (8) {c387bb22}
+[03/05/18 15:44:06]: <0x1A04> System event INTERFACE-Stopped  (Application interface). 191 events lost. {9e821a97}
+[03/05/18 15:44:06]: <0x5464> USR:Robot not in correct Z stage position. Power Disconnected {23e61979}
+[03/05/18 15:44:09]: <0x5464> USR:Robot not in correct Z stage position. Power Disconnected (53) {97e282c2}
+[03/05/18 15:44:09]: <0x2401> Saving controller context... {fd561acf}
+[03/05/18 15:44:09]: <0x5464> USR:Robot not in correct Z stage position. Power Disconnected {20cb14c2}

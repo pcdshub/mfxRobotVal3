@@ -1,9 +1,13 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project xmlns="http://www.staubli.com/robotics/VAL3/Project/3">
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Project xmlns="http://www.staubli.com/robotics/VAL3/Project/3" >
   <Parameters version="s7.9.1" stackSize="0" millimeterUnit="true" />
-  <Programs />
+  <Programs>
+  </Programs>
   <Database>
     <Data file="io.dtx" />
   </Database>
-  <Libraries />
+  <Libraries>
+  </Libraries>
+  <Types>
+  </Types>
 </Project>

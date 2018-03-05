@@ -1,6 +1,6 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2" >
-  <Program name="mnuEnterIPVals" access="private" >
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="mnuEnterIPVals">
     <Locals>
       <Local name="LbBackup" type="bool" xsi:type="array" size="1" />
       <Local name="nKey" type="num" xsi:type="array" size="1" />
@@ -35,7 +35,9 @@
       // menu = Direct Entry TCP values, F1 button = IP-X value
       case 271
         gotoxy(18,3)
-        if nIPNumber==0
+        if nIPNumber==-1
+          get(fIPoriginal.trsf.x)
+        elseIf nIPNumber==0
           get(fIP1.trsf.x)
         else
           get(fIP2.trsf.x)
@@ -44,7 +46,9 @@
       // menu = Direct Entry TCP values,  F2 Button = IP-Y value
       case 272
         gotoxy(18,4)
-        if nIPNumber==0
+                if nIPNumber==-1
+          get(fIPoriginal.trsf.y)
+        elseIf nIPNumber==0
           get(fIP1.trsf.y)
         else
           get(fIP2.trsf.y)
@@ -53,7 +57,9 @@
       // menu = Direct Entry TCP Values,  F3 Button = IP-Z value
       case 273
         gotoxy(18,5)
-        if nIPNumber==0
+                if nIPNumber==-1
+          get(fIPoriginal.trsf.z)
+        elseIf nIPNumber==0
           get(fIP1.trsf.z)
         else
           get(fIP2.trsf.z)
@@ -62,7 +68,9 @@
       // menu = Direct Entry TCP values, F4 Button = IP-RX value
       case 274
         gotoxy(18,6)
-        if nIPNumber==0
+                if nIPNumber==-1
+          get(fIPoriginal.trsf.rx)
+        elseIf nIPNumber==0
           get(fIP1.trsf.rx)
         else
           get(fIP2.trsf.rx)
@@ -71,7 +79,9 @@
       // menu = Direct Entry TCP Values, F5 Button = IP-RY value
       case 275
         gotoxy(18,7)
-        if nIPNumber==0
+                if nIPNumber==-1
+          get(fIPoriginal.trsf.ry)
+        elseIf nIPNumber==0
           get(fIP1.trsf.ry)
         else
           get(fIP2.trsf.ry)
@@ -80,7 +90,9 @@
       // menu = Direct Entry TCP Values, F6 Button = IP-RZ value
       case 276
         gotoxy(18,8)
-        if nIPNumber==0
+                if nIPNumber==-1
+          get(fIPoriginal.trsf.rz)
+        elseIf nIPNumber==0
           get(fIP1.trsf.rz)
         else
           get(fIP2.trsf.rz)

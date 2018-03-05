@@ -22,7 +22,7 @@
   // NEW DEFINITION TO MATCH SLAC SPECIFICATION MATH DESCRIPTION
   //    For fIPn aligned so that
   //      fIPn_+Zaxis in direction of beam travel and parallel to RX160L World_+Yaxis
-  //      fIPn_+Xaxis parallel to pointing to XPP Hutch entrance doors & parallel to RX160L World_+Xaxis
+  //      fIPn_+Xaxis parallel to pointing to IOC Hutch entrance doors & parallel to RX160L World_+Xaxis
   //      fIPn_+Yaxis pointing to ceiling and parallel to RX160L World_-Zaxis
   //          NOTE:  these statements are valid for BOTH fIP1 & fIP2 since the robot is on translating base
   //                 does not have to reach "over" to another fIPn

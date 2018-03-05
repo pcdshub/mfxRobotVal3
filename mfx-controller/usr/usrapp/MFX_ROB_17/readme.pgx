@@ -1,6 +1,6 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2" >
-  <Program name="readme" access="private" >
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="readme">
     <Code><![CDATA[begin
   //Title : SLAC RX160L sensor positioning application
   //History:
@@ -16,7 +16,7 @@
   //  Release 2 <release date here> by Blue Technik LLC
   //    change remote control function from CS8_client to CS8_server
   //      no login function implemented
-  //      change sio variable from sioXPPhost to sioXPPclient
+  //      change sio variable from sioIOChost to sioIOCclient
   //    next addtition
   //    next addition
   //    next addition
@@ -92,7 +92,7 @@
   //        a.  TCP/IP checked ON
   //        b.  Host = whatever is stated at bottom left of CS8 Emulator window, typically = 127.0.0.1
   //        c.  Service = OTHER
-  //        d.  TCP Port # = "1301" or whatever the Host port is set to on CS8 Emululator for Host "XPP"
+  //        d.  TCP Port # = "1301" or whatever the Host port is set to on CS8 Emululator for Host "IOC"
   //        e.  Protocol = UNSPEC
   //    4.  At this point you should see in the TeraTerm window the CS8 response string "LISTENINGX"
   //        /to indicated a good connection has been made.

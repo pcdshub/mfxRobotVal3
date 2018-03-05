@@ -67,13 +67,11 @@
   //==== output signals ===========
   //
   //==== strings ==================
-  sXPPUserName="CS8LOGIN"
-  sXPPPassword="USERPASSWORD"
-  sStageMode="NONE"
-  sRobotMode="INNIT"
+  sIOCUserName="CS8LOGIN"
+  sIOCPassword="USERPASSWORD"
   //
   //==== comm & serial port =======
-  sioLink(sioXPPclient,io:XPP)
+  sioLink(sioIOCclient,io:IOC)
   //
   //==== tool definitions =========
   //tSensorTool.trsf=tNULLTOOL.trsf*{0,0,300,0,0,0}*{0,0,0,0,90,0}*{0,0,0,0,0,90}

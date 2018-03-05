@@ -1,6 +1,6 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2" >
-  <Program name="tskRemControl1" access="private" >
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="tskRemControl1">
     <Locals>
       <Local name="LbError" type="bool" xsi:type="array" size="1" />
       <Local name="LbRemControlEnd" type="bool" xsi:type="array" size="1" />
@@ -10,15 +10,15 @@
       <Local name="LnTimerStart" type="num" xsi:type="array" size="1" />
       <Local name="LnTimerValue" type="num" xsi:type="array" size="1" />
       <Local name="LsCommandString" type="string" xsi:type="array" size="1" />
-      <Local name="LsCubeValsXPP" type="string" xsi:type="array" size="1" />
-      <Local name="LsCylValsXPP" type="string" xsi:type="array" size="1" />
-      <Local name="LsESTOPXPP" type="string" xsi:type="array" size="1" />
+      <Local name="LsCubeValsIOC" type="string" xsi:type="array" size="1" />
+      <Local name="LsCylValsIOC" type="string" xsi:type="array" size="1" />
+      <Local name="LsESTOPIOC" type="string" xsi:type="array" size="1" />
       <Local name="LsError" type="string" xsi:type="array" size="1" />
-      <Local name="LsJointValsXPP" type="string" xsi:type="array" size="1" />
+      <Local name="LsJointValsIOC" type="string" xsi:type="array" size="1" />
       <Local name="LsLength" type="string" xsi:type="array" size="1" />
       <Local name="LsResponse" type="string" xsi:type="array" size="1" />
-      <Local name="LsSphValsXPP" type="string" xsi:type="array" size="1" />
-      <Local name="LsTCPValsXPP" type="string" xsi:type="array" size="1" />
+      <Local name="LsSphValsIOC" type="string" xsi:type="array" size="1" />
+      <Local name="LsTCPValsIOC" type="string" xsi:type="array" size="1" />
     </Locals>
     <Code><![CDATA[begin
   // PROGRAM tskRemControl1()
@@ -38,16 +38,16 @@
   // start infinite loop
   do
     // start remCmdHandler with bRemControlON=false for limit to get commands and no putln
-    if taskStatus("xppCmdHandler")!=1
-      if (taskStatus("xppCmdHandler")==125)
-        logMsg("read-only xppCmdHandler dead, restarting...")
-        taskKill("xppCmdHandler")
-        wait(taskStatus("xppCmdHandler")==-1)
-        clearBuffer(sioXPPclient)
+    if taskStatus("iocCmdHandler")!=1
+      if (taskStatus("iocCmdHandler")==125)
+        logMsg("read-only iocCmdHandler dead, restarting...")
+        taskKill("iocCmdHandler")
+        wait(taskStatus("iocCmdHandler")==-1)
+        clearBuffer(sioIOCclient)
       endIf
       logMsg("start remCmdHandler for passive commands...")
-      taskCreate "xppCmdHandler",30,remCmdHandler()
-      wait(taskStatus("xppCmdHandler")==1)
+      taskCreate "iocCmdHandler",30,remCmdHandler()
+      wait(taskStatus("iocCmdHandler")==1)
     endIf
     //
     // bRemControlON set in pgm mnuUtility()
@@ -62,7 +62,7 @@
         wait(esStatus()==0)
       endIf
       //
-      // setup user page & open XPP via ethernet socket as CS8 Server socket connection
+      // setup user page & open IOC via ethernet socket as CS8 Server socket connection
       userPage()
       cls()
       title(" REMOTE CONTROL ACTIVE ")
@@ -71,14 +71,14 @@
       logMsg("Start Remote Control, arm power OFF")
       bKillRemControl=false
       // bKillRemControl is set in tskCmdHandler() and reacted to in following do-until loop
-      if taskStatus("xppCmdHandler")!=1
-        logMsg("xppCmdHandler task OFF, starting...")
-        putln("XPP Cmd Handler task OFF, starting...")
-        taskCreate "xppCmdHandler",30,remCmdHandler()
-        wait(taskStatus("xppCmdHandler")==1)
+      if taskStatus("iocCmdHandler")!=1
+        logMsg("iocCmdHandler task OFF, starting...")
+        putln("IOC Cmd Handler task OFF, starting...")
+        taskCreate "iocCmdHandler",30,remCmdHandler()
+        wait(taskStatus("iocCmdHandler")==1)
       endIf
-      logMsg("xppCmdHandler active now")
-      putln("XPP Command Handler task ON")
+      logMsg("iocCmdHandler active now")
+      putln("IOC Command Handler task ON")
 
       // Test for simulated ESTOP
       if bSimulateESTOP==true
@@ -91,8 +91,8 @@
 
       wait(taskStatus("RemoteMotion")==1)
       putln(" ")
-      putln("LISTENING for XPP Client now...")
-      logMsg("listening XPP now")
+      putln("LISTENING for IOC Client now...")
+      logMsg("listening IOC now")
       LbRemControlEnd=false
       do
         // monitor ESTOP status during remote control, manage restart if needed
@@ -100,10 +100,10 @@
           cls()
           putln("ESTOP ESTOP ESTOP ESTOP")
           logMsg("FAULT:  ESTOP!")
-          call xppWriteBack("ESTOPSTATX"+" "+toString(".0",esStatus()))
+          call iocWriteBack("ESTOPSTATX"+" "+toString(".0",esStatus()))
           logMsg("kill tskRemMotion on ESTOP")
           putln("kill Remote Motion task on ESTOP")
-          sXPPCommand=""
+          sIOCCommand=""
           sRemMotionCmd=""
           taskKill("RemoteMotion")
           wait(taskStatus("RemoteMotion")!=1)
@@ -133,9 +133,9 @@
         //
         // monitor bKillRemControl set in tskCmdHandler, stop tskCmdHandler if needed
         if bKillRemControl==true
-          //call xppWriteBack("REMOTEHALT")
-          putln("XPP requested HALT REMOTE CONTROL")
-          logMsg("XPP requested HALT REMOTE CONTROL")
+          //call iocWriteBack("REMOTEHALT")
+          putln("IOC requested HALT REMOTE CONTROL")
+          logMsg("IOC requested HALT REMOTE CONTROL")
           stopMove()
           resetMotion()
           bRemMotionBusy=false
@@ -161,22 +161,22 @@
           endIf
         endIf
 
-        // Code adapted from Jan Meyer to reopen socket in the event that xppCmdHandler hangs
-        // works by checking if taskStatus("xppCmdHandler")==125 (Read or write error on a dio, aio, sio)
-        if (taskStatus("xppCmdHandler")!=1 and taskStatus("xppCmdHandler")!=-1)
+        // Code adapted from Jan Meyer to reopen socket in the event that iocCmdHandler hangs
+        // works by checking if taskStatus("iocCmdHandler")==125 (Read or write error on a dio, aio, sio)
+        if (taskStatus("iocCmdHandler")!=1 and taskStatus("iocCmdHandler")!=-1)
           // reopen socket on error
-          if (taskStatus("xppCmdHandler")==125)
-            putln("R/W error on sioXPPclient")
-            putln("Killing xppCmdHandler")
-            taskKill("xppCmdHandler")
-            wait(taskStatus("xppCmdHandler")==-1)
-            putln("xppCmdHandler dead. Restarting...")
-            clearBuffer(sioXPPclient)
-            logMsg("xppCmdHandler task OFF, starting...")
-            taskCreate "xppCmdHandler",30,remCmdHandler()
-            wait(taskStatus("xppCmdHandler")==1)
-            logMsg("xppCmdHandler active now")
-            putln("XPP Command Handler task ON")
+          if (taskStatus("iocCmdHandler")==125)
+            putln("R/W error on sioIOCclient")
+            putln("Killing iocCmdHandler")
+            taskKill("iocCmdHandler")
+            wait(taskStatus("iocCmdHandler")==-1)
+            putln("iocCmdHandler dead. Restarting...")
+            clearBuffer(sioIOCclient)
+            logMsg("iocCmdHandler task OFF, starting...")
+            taskCreate "iocCmdHandler",30,remCmdHandler()
+            wait(taskStatus("iocCmdHandler")==1)
+            logMsg("iocCmdHandler active now")
+            putln("IOC Command Handler task ON")
           endIf
         endIf
 

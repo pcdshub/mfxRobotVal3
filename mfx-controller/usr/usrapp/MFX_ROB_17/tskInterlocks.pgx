@@ -7,9 +7,31 @@
       <Local name="l_nOldHeartbeat" type="num" xsi:type="array" size="1" />
       <Local name="l_nLastChange" type="num" xsi:type="array" size="1" />
       <Local name="sReturn" type="string" xsi:type="array" size="1" />
+      <Local name="LpHere" type="point" xsi:type="array" size="1" />
+      <Local name="LpPark" type="point" xsi:type="array" size="1" />
+      <Local name="LnDistance" type="num" xsi:type="array" size="1" />
     </Locals>
     <Code><![CDATA[begin
-  
+    //header begin
+  // PROGRAM tskInterlocks()
+  //
+  // This pgm is run as a separate task.
+  // Will monitor IOC interlocks
+  // Utilizes global enable bStopAllMonitor==false set in pgm mnuUtility()
+  // Utilizes local enable bEnableMonitor==true set at time of motion command statement, disabled at end of motion
+  //
+  // Pgm will test for PPS signal while in remote mode.
+  // Pgm will test for Z stage position.
+  // Pgm will inform IOC of is high level mode.
+  //
+  // incoming parms:  none
+  // outgoing parms:  none
+  //
+  // called from:  pgm main()
+  //
+  //
+  //  initial release KN
+  //header end
   do
     // Turn power off if door is opened and robot in remote mode 
     if(nPPS >0 and workingMode()==4)
@@ -32,7 +54,7 @@
       l_nLastChange = clock()
     endIf
     
-    // Turn off power if robot looses connection to IOC iin remote mode
+    // Turn off power if robot looses connection to IOC in remote mode
     if(clock()-l_nLastChange > 2 and workingMode()==4)
       stopMove()
       resetMotion()
@@ -45,6 +67,28 @@
       logMsg(sReturn)
     
     endIf
+    
+    // Report the high level robot mode
+    // 0 - Not Parker
+    // 1 - Parked
+    // 2 - Parked Top
+    
+    nRobotMode = 0
+    
+    LpHere=here(tSensorTool,world)
+    LpPark=jointToPoint(tSensorTool,world,jPark)
+    LnDistance=abs(distance(LpHere,LpPark))
+    if LnDistance<=nParkTolerance
+      nRobotMode = 1
+    endIf
+    
+    LpHere=here(tSensorTool,world)
+    LpPark=jointToPoint(tSensorTool,world,jParkTop)
+    LnDistance=abs(distance(LpHere,LpPark))
+    if LnDistance<=nParkTolerance
+      nRobotMode = 2
+    endIf
+    
     
     delay(0.1)
     

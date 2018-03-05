@@ -1,19 +1,19 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2" >
-  <Program name="remMovHandler" access="private" >
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="remMovHandler">
     <Locals>
       <Local name="LbError" type="bool" xsi:type="array" size="1" />
       <Local name="LsCommandString" type="string" xsi:type="array" size="1" />
-      <Local name="LsCubeValsXPP" type="string" xsi:type="array" size="1" />
-      <Local name="LsCylValsXPP" type="string" xsi:type="array" size="1" />
-      <Local name="LsESTOPXPP" type="string" xsi:type="array" size="1" />
+      <Local name="LsCubeValsIOC" type="string" xsi:type="array" size="1" />
+      <Local name="LsCylValsIOC" type="string" xsi:type="array" size="1" />
+      <Local name="LsESTOPIOC" type="string" xsi:type="array" size="1" />
       <Local name="LsError" type="string" xsi:type="array" size="1" />
-      <Local name="LsJointValsXPP" type="string" xsi:type="array" size="1" />
+      <Local name="LsJointValsIOC" type="string" xsi:type="array" size="1" />
       <Local name="LsLength" type="string" xsi:type="array" size="1" />
       <Local name="LsResponse" type="string" xsi:type="array" size="1" />
-      <Local name="LsSphValsXPP" type="string" xsi:type="array" size="1" />
-      <Local name="LsTCPValsXPP" type="string" xsi:type="array" size="1" />
-      <Local name="LsXPPCommand" type="string" xsi:type="array" size="1" />
+      <Local name="LsSphValsIOC" type="string" xsi:type="array" size="1" />
+      <Local name="LsTCPValsIOC" type="string" xsi:type="array" size="1" />
+      <Local name="LsIOCCommand" type="string" xsi:type="array" size="1" />
     </Locals>
     <Code><![CDATA[begin
   // Handle movement commands
@@ -24,42 +24,42 @@
       switch sRemMotionCmd
         case "MOVXYZ"
           if nMovArgs==6
-            call remMovXYZ(sXPPCommand,LsResponse)
+            call remMovXYZ(sIOCCommand,LsResponse)
           else
             call remErrArgs(sRemMotionCmd,nMovArgs,6,LsResponse)
           endIf
         break
         case "MOVAZELRA"
           if nMovArgs==3
-            call remMovAZELRA(sXPPCommand,LsResponse)
+            call remMovAZELRA(sIOCCommand,LsResponse)
           else
             call remErrArgs(sRemMotionCmd,nMovArgs,3,LsResponse)
           endIf
         break
         case "MOVAXIS"
           if nMovArgs==2
-            call remMovAxis(sXPPCommand,LsResponse)
+            call remMovAxis(sIOCCommand,LsResponse)
           else
             call remErrArgs(sRemMotionCmd,nMovArgs,2,LsResponse)
           endIf
         break
         case "MOVSPHAXIS"
           if nMovArgs==2
-            call remMovSphAxis(sXPPCommand,LsResponse)
+            call remMovSphAxis(sIOCCommand,LsResponse)
           else
             call remErrArgs(sRemMotionCmd,nMovArgs,2,LsResponse)
           endIf
         break
         case "MOVJOINT"
           if nMovArgs==6
-            call remMovJoint(sXPPCommand,LsResponse)
+            call remMovJoint(sIOCCommand,LsResponse)
           else
             call remErrArgs(sRemMotionCmd,nMovArgs,6,LsResponse)
           endIf
         break
         case "MOVJOINTAXIS"
           if nMovArgs==2
-            call remMovJointAxis(sXPPCommand,LsResponse)
+            call remMovJointAxis(sIOCCommand,LsResponse)
           else
             call remErrArgs(sRemMotionCmd,nMovArgs,2,LsResponse)
           endIf
@@ -69,10 +69,10 @@
         break
       endSwitch
       if len(LsResponse)>0
-        call xppWriteBack(LsResponse)
+        call iocWriteBack(LsResponse)
       endIf
       sRemMotionCmd=""
-      sXPPCommand=""
+      sIOCCommand=""
       nMovArgs=0
       bRemMotionBusy=false
     endIf

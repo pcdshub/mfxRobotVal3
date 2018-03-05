@@ -1,9 +1,9 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2" >
-  <Program name="displayMessage7" access="private" >
-    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1" >
-      <Parameter name="nTitle" type="num" use="value" xsi:type="element" dimensions="1" />
-      <Parameter name="nKey" type="num" use="reference" xsi:type="array" dimensions="1" />
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="displayMessage7">
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1">
+      <Parameter name="nTitle" type="num" xsi:type="element" />
+      <Parameter name="nKey" type="num" xsi:type="array" use="reference" />
     </Parameters>
     <Locals>
       <Local name="LbKey" type="bool" xsi:type="array" size="1" />
@@ -60,7 +60,20 @@
   endFor
   //
   // populate the UserPage() with {X, Y, Z, RX, RY, RZ} values of the selected Interaction Point
-  if nIPNumber==0
+  if nIPNumber==-1
+    gotoxy(12,3)
+    put(toString(".1",fIPoriginal.trsf.x))
+    gotoxy(12,4)
+    put(toString(".1",fIPoriginal.trsf.y))
+    gotoxy(12,5)
+    put(toString(".1",fIPoriginal.trsf.z))
+    gotoxy(12,6)
+    put(toString(".1",fIPoriginal.trsf.rx))
+    gotoxy(12,7)
+    put(toString(".1",fIPoriginal.trsf.ry))
+    gotoxy(12,8)
+    put(toString(".1",fIPoriginal.trsf.rz))
+  elseIf nIPNumber==0
     gotoxy(12,3)
     put(toString(".1",fIP1.trsf.x))
     gotoxy(12,4)
