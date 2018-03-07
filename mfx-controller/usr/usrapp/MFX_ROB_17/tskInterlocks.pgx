@@ -10,6 +10,7 @@
       <Local name="LpHere" type="point" xsi:type="array" size="1" />
       <Local name="LpPark" type="point" xsi:type="array" size="1" />
       <Local name="LnDistance" type="num" xsi:type="array" size="1" />
+      <Local name="l_nTime" type="num" xsi:type="array" size="1" />
     </Locals>
     <Code><![CDATA[begin
     //header begin
@@ -54,19 +55,23 @@
       l_nLastChange = clock()
     endIf
     
-    // Turn off power if robot looses connection to IOC in remote mode
-    if(clock()-l_nLastChange > 2 and workingMode()==4)
-      stopMove()
-      resetMotion()
-      disablePower()
-      
-      logMsg("Lost IOC hearbeat! Power Disconnected")
-      sReturn="ERROR 902"
-      sReturn=sReturn+": Lost IOC hearbeat! Power Disconnected."
-      putln(sReturn)
-      logMsg(sReturn)
+    l_nTime = clock()-l_nLastChange
     
-    endIf
+    // Turn off power if robot looses connection to IOC in remote mode
+    if(workingMode()==4)
+      if(l_nTime>3)
+        //stopMove()
+        //resetMotion()
+        //disablePower()
+      
+        logMsg("Lost IOC hearbeat! Power Disconnected")
+        sReturn="ERROR 902"
+        sReturn=sReturn+": Lost IOC hearbeat! Power Disconnected. "+(toString(".4",l_nTime))
+        putln(sReturn)
+        logMsg(sReturn)
+    
+      endIf
+      endIf
     
     // Report the high level robot mode
     // 0 - Not Parker

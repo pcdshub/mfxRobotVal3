@@ -52,6 +52,7 @@
   taskCreate "RemoteControl",40,tskRemControl1()
   
   taskCreate "Interlocks",40,tskInterlocks()
+  taskCreate "Colision Sensor",40,tskCollision()
   
   //
   // start the task that will be used to monitor a MCP keypress command to halt robot motion during manual mode

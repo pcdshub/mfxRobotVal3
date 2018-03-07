@@ -114,6 +114,7 @@
     <Program file="remTransIP.pgx" />
     <Program file="start.pgx" />
     <Program file="stop.pgx" />
+    <Program file="tskCollision.pgx" />
     <Program file="tskHaltMoveMon.pgx" />
     <Program file="tskInterlocks.pgx" />
     <Program file="tskMonitorZone.pgx" />
