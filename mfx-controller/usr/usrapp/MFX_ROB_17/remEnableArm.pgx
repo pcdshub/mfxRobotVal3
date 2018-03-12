@@ -23,8 +23,15 @@
       logMsg("Arm power ENABLED!")
       putln("Arm power ENABLED!")
     else
-      call remErrTimeout(nTimeout,sReturn)
+
+      if workingMode()!=4
+        call remErrRemoteKey(sReturn)
+      else
+        call remErrTimeout(nTimeout,sReturn)
+      endIf
+
     endIf
+
 
   else
     disablePower()

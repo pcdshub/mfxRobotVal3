@@ -26,6 +26,9 @@
       <Node Path="mfx\mfx-controller" IsExpanded="true" />
       <Node Path="mfx\mfx-controller\io" IsExpanded="true" />
       <Node Path="mfx\mfx-controller\MFX_ROB_17" IsExpanded="true" />
+      <Node Path="mfx\mfx-controller\MFX_ROB_17\remEnableArm\Parameters" IsExpanded="true" />
+      <Node Path="mfx\mfx-controller\MFX_ROB_17\remErrRemoteKey" IsExpanded="true" />
+      <Node Path="mfx\mfx-controller\MFX_ROB_17\remErrRemoteKey\Parameters" IsExpanded="true" />
     </Nodes>
   </Option>
   <Option Name="GeometryView">

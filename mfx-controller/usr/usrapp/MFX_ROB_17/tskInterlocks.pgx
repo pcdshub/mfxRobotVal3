@@ -35,16 +35,18 @@
   //header end
   do
     // Turn power off if door is opened and robot in remote mode 
-    if(nPPS >0 and workingMode()==4)
+    if(nPPS <= 0 and workingMode()==4 and isPowered() )
       logMsg("Door open in remote mode. Power Disconnected")
+      popUpMsg("Door open in remote mode. Power Disconnected")
       stopMove()
       resetMotion()
       disablePower()
     endIf
     
     // Turn off power if robot not at expected z stage position
-    if(nStagePos != nStagePosOK)
+    if(nStagePos != nStagePosOK and isPowered())
       logMsg("Robot not in correct Z stage position. Power Disconnected")
+      popUpMsg("Robot not in correct Z stage position. Power Disconnected")
       stopMove()
       resetMotion()
       disablePower()
@@ -58,11 +60,11 @@
     l_nTime = clock()-l_nLastChange
     
     // Turn off power if robot looses connection to IOC in remote mode
-    if(workingMode()==4)
-      if(l_nTime>3)
-        //stopMove()
-        //resetMotion()
-        //disablePower()
+    if(workingMode()==4 and isPowered())
+      if(l_nTime>2)
+        stopMove()
+        resetMotion()
+        disablePower()
       
         logMsg("Lost IOC hearbeat! Power Disconnected")
         sReturn="ERROR 902"

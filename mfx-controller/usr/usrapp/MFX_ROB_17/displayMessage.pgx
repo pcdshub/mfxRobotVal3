@@ -1,9 +1,9 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
-  <Program name="displayMessage">
-    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1">
-      <Parameter name="nTitle" type="num" xsi:type="element" />
-      <Parameter name="nKey" type="num" xsi:type="array" use="reference" />
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2" >
+  <Program name="displayMessage" access="private" >
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1" >
+      <Parameter name="nTitle" type="num" use="value" xsi:type="element" dimensions="1" />
+      <Parameter name="nKey" type="num" use="reference" xsi:type="array" dimensions="1" />
     </Parameters>
     <Locals>
       <Local name="LbKey" type="bool" xsi:type="array" size="1" />
@@ -60,13 +60,13 @@
   //
   // print the TargetChoice variable for Frame Teach
   gotoxy(0,0)
-  
-    if nIPNumber == -1
+
+  if nIPNumber==-1
     put("ACTIVE IP = Original hutch IP")
   else
     put("ACTIVE IP = "+sTargetChoice[nIPNumber])
-    endIf
-    // Wait indefinitely for a function button press
+  endIf
+  // Wait indefinitely for a function button press
   LbKey=false
   getKey()
   do

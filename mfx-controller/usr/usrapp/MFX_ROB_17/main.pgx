@@ -1,6 +1,6 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
-  <Program name="main" access="public">
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2" >
+  <Program name="main" access="public" >
     <Locals>
       <Local name="LbStopProgram" type="bool" xsi:type="array" size="1" />
       <Local name="LjHere" type="joint" xsi:type="array" size="1" />
@@ -50,10 +50,10 @@
   // MC used a different version of tskRemControl that does not look for remote mode
   sioCtrl(io:IOC,"timeout",0)
   taskCreate "RemoteControl",40,tskRemControl1()
-  
+
   taskCreate "Interlocks",40,tskInterlocks()
   taskCreate "Colision Sensor",40,tskCollision()
-  
+
   //
   // start the task that will be used to monitor a MCP keypress command to halt robot motion during manual mode
   taskCreate "MonitorHalt",20,tskHaltMoveMon()
@@ -66,10 +66,10 @@
   if LnDistance>nParkTolerance
     popUpMsg("WARNING  WARNING  WARNING  WARNING       Arm is NOT PARKED")
   endIf
-  
-      if nStagePos!= nStagePosOK 
-      popUpMsg("Z stage not at interation zone. Robot will not power.")
-    endIf
+
+  if nStagePos!=nStagePosOK
+    popUpMsg("Z stage not at interation zone. Robot will not power.")
+  endIf
   //
   // start infinite loop to run application
   // halts on operator command
@@ -78,10 +78,10 @@
     // nIdxMainMenu=1
     call display(nIdxMainMenu,nKey)
 
-    if nStagePos!= nStagePosOK 
+    if nStagePos!=nStagePosOK
       popUpMsg("Z stage not at interation zone. Robot will not power.")
     endIf
-      
+
     // verify selection
     switch nKey
       // ESC not allowed at MAIN MENU...must use F8=STOP Program
@@ -109,7 +109,7 @@
         popUpMsg("BAD SELECTION...Press OK")
       break
     endSwitch
-  until(false or (LbStopProgram==true))
+  until (false or (LbStopProgram==true))
   call stop()
   // done
 end]]></Code>

@@ -1,6 +1,6 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
-  <Program name="mnuTeachIP" access="public">
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2" >
+  <Program name="mnuTeachIP" access="public" >
     <Locals>
       <Local name="LbBackup" type="bool" xsi:type="array" size="1" />
       <Local name="nKey" type="num" xsi:type="array" size="1" />
@@ -46,7 +46,7 @@
       case 272
         call mnuEnterIPVals()
       break
-        // menu = Teach TCP:  F3 Button, run Wizard to Teach Interaction Point with reference pointer
+      // menu = Teach TCP:  F3 Button, run Wizard to Teach Interaction Point with reference pointer
       case 273
         call mnuTeachFrame()
       break
@@ -61,9 +61,9 @@
     endSwitch
   until (false or (LbBackup==true))
   // done
-          if nIPNumber == -1
-          nIPNumber =0
-        endIf
+  if nIPNumber==-1
+    nIPNumber=0
+  endIf
 end]]></Code>
   </Program>
 </Programs>

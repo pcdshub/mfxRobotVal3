@@ -1,6 +1,6 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
-  <Program name="remMovHandler">
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2" >
+  <Program name="remMovHandler" access="private" >
     <Locals>
       <Local name="LbError" type="bool" xsi:type="array" size="1" />
       <Local name="LsCommandString" type="string" xsi:type="array" size="1" />
@@ -8,12 +8,12 @@
       <Local name="LsCylValsIOC" type="string" xsi:type="array" size="1" />
       <Local name="LsESTOPIOC" type="string" xsi:type="array" size="1" />
       <Local name="LsError" type="string" xsi:type="array" size="1" />
+      <Local name="LsIOCCommand" type="string" xsi:type="array" size="1" />
       <Local name="LsJointValsIOC" type="string" xsi:type="array" size="1" />
       <Local name="LsLength" type="string" xsi:type="array" size="1" />
       <Local name="LsResponse" type="string" xsi:type="array" size="1" />
       <Local name="LsSphValsIOC" type="string" xsi:type="array" size="1" />
       <Local name="LsTCPValsIOC" type="string" xsi:type="array" size="1" />
-      <Local name="LsIOCCommand" type="string" xsi:type="array" size="1" />
     </Locals>
     <Code><![CDATA[begin
   // Handle movement commands

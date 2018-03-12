@@ -1,48 +1,51 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
-  <Program name="tskCollision">
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2" >
+  <Program name="tskCollision" access="private" >
     <Locals>
-      <Local name="l_bPPSint" type="bool" xsi:type="array" size="1" />
-      <Local name="l_bStageint" type="bool" xsi:type="array" size="1" />
-      <Local name="l_nOldHeartbeat" type="num" xsi:type="array" size="1" />
-      <Local name="l_nLastChange" type="num" xsi:type="array" size="1" />
-      <Local name="sReturn" type="string" xsi:type="array" size="1" />
+      <Local name="LnDistance" type="num" xsi:type="array" size="1" />
       <Local name="LpHere" type="point" xsi:type="array" size="1" />
       <Local name="LpPark" type="point" xsi:type="array" size="1" />
-      <Local name="LnDistance" type="num" xsi:type="array" size="1" />
+      <Local name="l_bPPSint" type="bool" xsi:type="array" size="1" />
+      <Local name="l_bStageint" type="bool" xsi:type="array" size="1" />
+      <Local name="l_nLastChange" type="num" xsi:type="array" size="1" />
+      <Local name="l_nOldHeartbeat" type="num" xsi:type="array" size="1" />
       <Local name="l_nTime" type="num" xsi:type="array" size="1" />
+      <Local name="sReturn" type="string" xsi:type="array" size="1" />
     </Locals>
     <Code><![CDATA[begin
   //header begin
   // PROGRAM tskColision()
 
   //header end
-  
-  
+
+
   do
-    
+
     if dioGet(dCollisionSens)>0
-      nColision = 1
+      nColision=1
     else
-      nColision = 0
+      nColision=0
     endIf
-    
-   // logMsg(toString("",nColision))
-    
-    if dioGet(dCollisionSens) == 0
-      
+
+    // logMsg(toString("",nColision))
+
+    if dioGet(dCollisionSens)==0
+
       stopMove()
       resetMotion()
       disablePower()
-      endIf
-        
-    
-    
+
+      popUpMsg("COLLISION DETECTED!")
+
+    endIf
+
+
+
   until false
-  
-  
-  
-  
+
+
+
+
 end]]></Code>
   </Program>
 </Programs>
