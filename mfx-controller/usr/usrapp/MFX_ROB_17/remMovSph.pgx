@@ -1,11 +1,11 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2" >
-  <Program name="remMovSph" access="public" >
-    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1" >
-      <Parameter name="nAzi" type="num" use="reference" xsi:type="array" dimensions="1" />
-      <Parameter name="nEle" type="num" use="reference" xsi:type="array" dimensions="1" />
-      <Parameter name="nRad" type="num" use="reference" xsi:type="array" dimensions="1" />
-      <Parameter name="sReturn" type="string" use="reference" xsi:type="array" dimensions="1" />
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="remMovSph" access="public">
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1">
+      <Parameter name="nAzi" type="num" xsi:type="array" use="reference" />
+      <Parameter name="nEle" type="num" xsi:type="array" use="reference" />
+      <Parameter name="nRad" type="num" xsi:type="array" use="reference" />
+      <Parameter name="sReturn" type="string" xsi:type="array" use="reference" />
     </Parameters>
     <Locals>
       <Local name="trXYZ" type="trsf" xsi:type="array" size="1" />
@@ -16,12 +16,28 @@
   //
   logMsg("call remMovSph")
   // Transpose trsf to get correct x, y, z and rotational values
-  trXYZ={0,0,0,0,0,0}
-  trXYZ=trXYZ*{0,0,0,0,nAzi,0}
-  trXYZ=trXYZ*{0,0,0,-nEle,0,0}
-  trXYZ=trXYZ*{0,0,nRad,0,0,0}
-  trXYZ=trXYZ*{0,0,0,-180,0,0}
+  //trXYZ={0,0,0,0,0,0}
+  //trXYZ=trXYZ*{0,0,0,0,nAzi,0}
+  //trXYZ=trXYZ*{0,0,0,-nEle,0,0}
+  //trXYZ=trXYZ*{0,0,nRad,0,0,0}
+  //trXYZ=trXYZ*{0,0,0,-180,0,0}
+  
+      // new definitions to match SLAC spec math
+    trXYZ={0,0,0,0,0,0}
+    // Add AZ component:  rotate about fIPn_+Yaxis
+   trXYZ=trXYZ*{0,0,0,0,nAzi,0}
+    // Add EL component:  rotate about fIPn_+Z'axis
+   trXYZ=trXYZ*{0,0,0,-nEle,0,0}
+    // Add RA component:  translate along fIPn+X'axis
+    trXYZ=trXYZ*{0,0,nRad,0,0,0}
+    // now transform the point so that +Zaxis points back to fIPn
+   trXYZ=trXYZ*{0,0,0,0,-180,0}
+   //trXYZ.config={sfree,efree,wfree}
+  
+  
   call remMovPoint(trXYZ,sReturn)
-end]]></Code>
+end
+
+]]></Code>
   </Program>
 </Programs>

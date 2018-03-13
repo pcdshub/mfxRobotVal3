@@ -10,14 +10,17 @@
     <Nodes>
       <Node Path="mfx" IsExpanded="true" />
       <Node Path="mfx\mfx-controller" IsExpanded="true" />
-      <Node Path="mfx\mfx-controller\io" IsExpanded="true" />
       <Node Path="mfx\mfx-controller\io\dio" IsExpanded="true" />
       <Node Path="mfx\mfx-controller\io\dio\COLLISIONSENSOR" IsExpanded="true" />
       <Node Path="mfx\mfx-controller\io\sio" IsExpanded="true" />
       <Node Path="mfx\mfx-controller\io\sio\IOC" IsExpanded="true" />
       <Node Path="mfx\mfx-controller\MFX_ROB_17" IsExpanded="true" />
-      <Node Path="mfx\mfx-controller\MFX_ROB_17\dio" IsExpanded="true" />
       <Node Path="mfx\mfx-controller\MFX_ROB_17\dio\dCollisionSens" IsExpanded="true" />
+      <Node Path="mfx\mfx-controller\MFX_ROB_17\frame\fIP1" IsExpanded="true" />
+      <Node Path="mfx\mfx-controller\MFX_ROB_17\frame\fIP2" IsExpanded="true" />
+      <Node Path="mfx\mfx-controller\MFX_ROB_17\frame\fIPoriginal" IsExpanded="true" />
+      <Node Path="mfx\mfx-controller\MFX_ROB_17\num" IsExpanded="true" />
+      <Node Path="mfx\mfx-controller\MFX_ROB_17\string" IsExpanded="true" />
     </Nodes>
   </Option>
   <Option Name="CellExplorer">
@@ -27,14 +30,19 @@
       <Node Path="mfx\mfx-controller\io" IsExpanded="true" />
       <Node Path="mfx\mfx-controller\MFX_ROB_17" IsExpanded="true" />
       <Node Path="mfx\mfx-controller\MFX_ROB_17\remEnableArm\Parameters" IsExpanded="true" />
-      <Node Path="mfx\mfx-controller\MFX_ROB_17\remErrRemoteKey" IsExpanded="true" />
       <Node Path="mfx\mfx-controller\MFX_ROB_17\remErrRemoteKey\Parameters" IsExpanded="true" />
+      <Node Path="mfx\mfx-controller\MFX_ROB_17\remMovSph" IsExpanded="true" />
+      <Node Path="mfx\mfx-controller\MFX_ROB_17\remMovSph\Locals" IsExpanded="true" />
     </Nodes>
   </Option>
   <Option Name="GeometryView">
     <Nodes>
       <Node Path="mfx" IsExpanded="true" />
       <Node Path="mfx\mfx-controller" IsExpanded="true" />
+      <Node Path="mfx\mfx-controller\MFX_ROB_17" IsExpanded="true" />
+      <Node Path="mfx\mfx-controller\MFX_ROB_17\world[0]" IsExpanded="true" />
+      <Node Path="mfx\mfx-controller\MFX_ROB_17\world[0]\fIPoriginal" IsExpanded="true" />
+      <Node Path="mfx\mfx-controller\MFX_ROB_17\world[0]\fIPoriginal\fIPoriginal[0]" IsExpanded="true" />
     </Nodes>
   </Option>
   <Option Name="Breakpoints">

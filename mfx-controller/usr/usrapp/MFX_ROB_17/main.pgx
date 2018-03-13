@@ -1,6 +1,6 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2" >
-  <Program name="main" access="public" >
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="main" access="public">
     <Locals>
       <Local name="LbStopProgram" type="bool" xsi:type="array" size="1" />
       <Local name="LjHere" type="joint" xsi:type="array" size="1" />
@@ -32,7 +32,8 @@
   call initialize()
   //
   // test for bSimulateESTOP is true, announce to user if so
-  call mnuTestSimESTOP()
+  bSimulateESTOP=false
+  //call mnuTestSimESTOP()
   //
   // start the ESTOP Monitoring task
   //taskCreate "MonitorESTOP",25,tskMonitorESTOP()

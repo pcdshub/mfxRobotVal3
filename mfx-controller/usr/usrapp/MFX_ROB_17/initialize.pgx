@@ -1,6 +1,6 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2" >
-  <Program name="initialize" access="public" >
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="initialize" access="public">
     <Locals>
       <Local name="LnIndex" type="num" xsi:type="array" size="1" />
     </Locals>
@@ -45,6 +45,7 @@
   nMaxAccel=50
   nMaxDist=1000
   sNumConv=".3"
+  nIP1Number=0
   //
   //==== location points =========
   pIP1NullPoint.trsf={0,0,0,0,0,0}
